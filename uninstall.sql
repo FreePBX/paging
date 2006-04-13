@@ -1,3 +1,3 @@
-DROP TABLE paging_overview;
-DROP TABLE paging_groups;
-DROP TABLE paging_phones;
+DROP TABLE IF EXISTS paging_overview;
+DROP TABLE IF EXISTS paging_groups;
+DROP TABLE IF EXISTS paging_phones;
