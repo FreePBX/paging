@@ -126,14 +126,14 @@ function paging_get_devs($grp) {
 	return $tmparray;
 }
 
-function paging_modify($xtn, $plist) {
+function paging_modify($oldxtn, $xtn, $plist) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
 	$xtn = addslashes($xtn);
 
 	// Delete it if it's there.
-	paging_del($xtn);
+	paging_del($oldxtn);
 
 	// Now add it all back in.
 	paging_add($xtn, $plist);

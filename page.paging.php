@@ -19,6 +19,7 @@ $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $selection = isset($_REQUEST['selection'])?$_REQUEST['selection']:'';
 $pagelist = isset($_REQUEST['pagelist'])?$_REQUEST['pagelist']:'';
 $pagenbr = isset($_REQUEST['pagenbr'])?$_REQUEST['pagenbr']:'';
+$pagegrp = isset($_REQUEST['pagegrp'])?$_REQUEST['pagegrp']:'';
 
 ?>
 
@@ -43,7 +44,7 @@ switch ($action) {
 		paging_show($selection, $display, $type);
 		break;
 	case "submit":
-		paging_modify($pagenbr, $pagelist);
+		paging_modify($pagegrp, $pagenbr, $pagelist);
 		paging_sidebar($selection, $type, $display);
 		echo _("<h5>Paging Group $pagenbr Modified</h5>\n");
 		paging_text();
@@ -74,6 +75,7 @@ function paging_show($xtn, $display, $type) {
 	echo "<form name='page_edit' action='".$_SERVER['PHP_SELF']."' method='post' onsubmit='return page_edit_onsubmit();'>\n";
 	echo "<input type='hidden' name='display' value='${display}'>\n";
 	echo "<input type='hidden' name='type' value='${type}'>\n";
+	echo "<input type='hidden' name='pagegrp' value='{$xtn}'>\n";
 	echo "<input type='hidden' name='action' value='submit'>\n";
 	echo "<table><tr><td colspan=2><h5>";
 	echo ($xtn)?_("Modify Paging Group"):_("Add Paging Group")."</h5></td></tr>\n";  ?>
