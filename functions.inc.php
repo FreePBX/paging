@@ -17,9 +17,9 @@ function paging_init() {
 	if (DB::IsError($results)) {
 		// It couldn't locate the table. This is bad. Lets try to re-create it, just
 		// in case the user has had the brilliant idea to delete it. 
-		// runModuleSQL stolen blatantly from page.module.php.
-		runModuleSQL('paging', 'uninstall');
-		if (runModuleSQL('paging', 'install')==false) {
+		// in 2.2, replace this with just runModuleSQL which is in admin/functions.inc.php
+		pagingrunModuleSQL('paging', 'uninstall');
+		if (pagingrunModuleSQL('paging', 'install')==false) {
 			echo _("There is a problem with install.sql, cannot re-create databases. Contact support\n");
 			die;
 		} else {
@@ -169,6 +169,34 @@ function paging_add($xtn, $plist) {
 }
 
 	
+// this can be removed in 2.2 and put back to just runModuleSQL which is in admin/functions.inc.php
+// I didn't want to do it in 2.1 as there's a significant user base out there, and it will break
+// them if we do it here.
+
+function pagingrunModuleSQL($moddir,$type){
+        global $db;
+        $data='';
+        if (is_file("modules/{$moddir}/{$type}.sql")) {
+                // run sql script
+                $fd = fopen("modules/{$moddir}/{$type}.sql","r");
+                while (!feof($fd)) {
+                        $data .= fread($fd, 1024);
+                }
+                fclose($fd);
+
+                preg_match_all("/((SELECT|INSERT|UPDATE|DELETE|CREATE|DROP).*);\s*\n/Us", $data, $matches);
+
+                foreach ($matches[1] as $sql) {
+                                $result = $db->query($sql);
+                                if(DB::IsError($result)) {
+                                        return false;
+                                }
+                }
+                return true;
+        }
+                return true;
+}
+
 
 
 
