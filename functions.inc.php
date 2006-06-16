@@ -72,10 +72,12 @@ function paging_get_config($engine) {
 			// TODO: Support for specific phones configurations
  			foreach ($results as $grouparr) {
 				$xtn=trim($grouparr[0]);
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIPADDHEADER', 'Call-Info: answer-after=0'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_dial("SIP/${xtn}", 5));
+				$ext->add('ext-paging', "PAGE${xtn}", 'skipself', new ext_noop('Not paging originator'));
 			}
 			// Now get a list of all the paging groups...
 			$sql = "SELECT DISTINCT page_number FROM paging_groups";
