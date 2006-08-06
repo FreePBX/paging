@@ -72,10 +72,15 @@ function paging_get_config($engine) {
 			// TODO: Support for specific phones configurations
  			foreach ($results as $grouparr) {
 				$xtn=trim($grouparr[0]);
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
+				if (strtoupper(substr($xtn,-1)) == "X") {
+					$xtn = rtrim($xtn,"xX");
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
+				} else {
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
+				}
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_dial("SIP/${xtn}", 5));
 				$ext->add('ext-paging', "PAGE${xtn}", 'skipself', new ext_noop('Not paging originator'));
 			}
@@ -88,6 +93,11 @@ function paging_get_config($engine) {
 				$all_exts = $db->getAll($sql);
 				$dialstr='';
 				foreach($all_exts as $local_dial) {
+
+					if (strtoupper(substr($local_dial[0],-1)) == "X") {
+						$local_dial[0] = rtrim($local_dial[0],"xX");
+					}
+
 					$dialstr .= "LOCAL/PAGE".trim($local_dial[0])."@ext-paging&";
 				}
 				// It will always end with an &, so lets take that off.
