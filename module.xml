@@ -7,7 +7,7 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/paging-1.2.1.tgz</location>
+	<location>release/paging-1.2.2.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Paging</info>
-	<md5sum>6b6ab787074c02d05d837040a46221b6</md5sum>
+	<md5sum>9bcb80c5a738c02db4a251b4a659d889</md5sum>
 </module>
