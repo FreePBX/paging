@@ -56,7 +56,7 @@ switch ($action) {
 
 function paging_text() {
 ?>
-<p><?php echo _("This module is for specific phones that are capable of Paging or Intercom. Presently, Intercom is <b>not</b> supported, only group paging is. The current list of supported phones is GXP-2000 with firmware 1.0.13 or higher, Snom phones with 'recent' firmware, and a few various other phones.") ?></p>
+<p><?php echo _("This module is for specific phones that are capable of Paging or Intercom. Presently, Intercom is <b>not</b> supported, only group paging is. The current list of supported phones is GXP-2000 with firmware 1.0.13 or higher, Snom phones with 'recent' firmware, Polycom phones (provisioned to auto answer) and a few various other phones. Any phone that is always set to auto-answer should also work (such as the console extension if configured.") ?></p>
 <?php
 }
 
@@ -83,7 +83,7 @@ function paging_show($xtn, $display, $type) {
 	<?php echo _("The number users will dial to page this group") ?></span></a></td>
 	<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
 	</tr><tr>
-	<tr><td valign='top'><a href='#' class='info'><?php echo _("extension list:")."<span><br>"._("List extensions to page, one per line.") ?> 
+	<tr><td valign='top'><a href='#' class='info'><?php echo _("device list:")."<span><br>"._("List devices to page, one per line. This will page the specified extension in freepbx extensions mode. In deviceanduser mode it refers to the device which may or may not be the same as the extension") ?> 
 	<br><br></span></a></td>
 	<td valign="top"> <textarea id="xtnlist" cols="15" rows="<?php echo $rows ?>" name="pagelist"><?php 
 		echo ($xtn)?implode("\n",paging_get_devs($xtn)):''; ?></textarea><br>
