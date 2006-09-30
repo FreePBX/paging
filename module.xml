@@ -1,7 +1,7 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>1.2.3</version>
+	<version>1.2.4</version>
 	<type>setup</type>
 	<category>Module</category>
 	<menuitems>

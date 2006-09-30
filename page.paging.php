@@ -56,7 +56,7 @@ switch ($action) {
 
 function paging_text() {
 ?>
-<p><?php echo _("This module is for specific phones that are capable of Paging or Intercom. Presently, Intercom is <b>not</b> supported, only group paging is. The current list of supported phones is GXP-2000 with firmware 1.0.13 or higher, Snom phones with 'recent' firmware, Polycom phones (provisioned to auto answer) and a few various other phones. Any phone that is always set to auto-answer should also work (such as the console extension if configured.") ?></p>
+<p><?php echo _("This module is for specific phones that are capable of Paging or Intercom. This section is for configuring group paging, intercom is configured through <strong>Feature Codes</strong>.<br /><br />The current list of supported phones is GXP-2000 with firmware 1.0.13 or higher, Snom phones with 'recent' firmware, Polycom phones (provisioned to auto answer), Linksys/Sipura phones, and a few various others. Any phone that is always set to auto-answer should also work (such as the console extension if configured).") ?></p>
 <?php
 }
 
