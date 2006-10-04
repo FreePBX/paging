@@ -83,10 +83,23 @@ function paging_show($xtn, $display, $type) {
 	<?php echo _("The number users will dial to page this group") ?></span></a></td>
 	<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
 	</tr><tr>
-	<tr><td valign='top'><a href='#' class='info'><?php echo _("device list:")."<span><br>"._("List devices to page, one per line. This will page the specified extension in freepbx extensions mode. In deviceanduser mode it refers to the device which may or may not be the same as the extension") ?> 
+	<tr><td valign='top'><a href='#' class='info'><?php echo _("extension list:")."<span><br>"._("List extensions to page, one per line.") ?> 
 	<br><br></span></a></td>
-	<td valign="top"> <textarea id="xtnlist" cols="15" rows="<?php echo $rows ?>" name="pagelist"><?php 
-		echo ($xtn)?implode("\n",paging_get_devs($xtn)):''; ?></textarea><br>
+	<td valign="top"> 
+	
+	<select multiple="multiple" name="pagelist[]" id="xtnlist" >
+	<?php 
+	$selected = paging_get_devs($xtn); 
+	if (is_null($selected)) $selected = array();
+	foreach (core_devices_list() as $device) {
+		echo '<option value="'.$device[0].'" ';
+		if (array_search($device[0], $selected) !== false) echo ' selected="selected" ';
+		echo '>'.$device[0].' - '.$device[1].'</option>';
+	}
+	?>
+	</select>
+		
+		<br>
 	<input type="submit" style="font-size:10px;" value="<?php echo _("Clean & Remove duplicates")?>" />
 	</td></tr>
 	<tr>
@@ -100,14 +113,19 @@ theForm.pagenbr.focus();
 
 function page_edit_onsubmit() {
 	var msgInvalidPageExt = "<?php echo _('Please enter a valid Paging Extension'); ?>";
-	var msgInvalidExtList = "<?php echo _('Please enter the Extension List details'); ?>";
+	var msgInvalidExtList = "<?php echo _('Please select at least one extension'); ?>";
 
 	defaultEmptyOK = false;
 	if (!isInteger(theForm.pagenbr.value))
 		return warnInvalid(theForm.pagenbr, msgInvalidPageExt);
 	
-	if (isEmpty(theForm.xtnlist.value) || isWhitespace(theForm.xtnlist.value))
+	var selected = 0;
+	for (var i=0; i < theForm.xtnlist.options.length; i++) {
+		if (theForm.xtnlist.options[i].checked) selected += 1;
+	}
+	if (selected < 1) {
 		return warnInvalid(theForm.xtnlist, msgInvalidExtList);
+	}
 		
 	return true;
 }
