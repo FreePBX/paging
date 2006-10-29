@@ -137,7 +137,7 @@ function page_edit_onsubmit() {
 }
 
 function paging_sidebar($selection, $type, $display) {
-	echo "<div class='rnav'>\n";
+	echo "<div class='rnav'><ul>\n";
 	echo "<li><a id='".($selection==''?'current':'std')."' ";
 	echo "href='config.php?type=${type}&amp;display=${display}&amp;action=add'>"._("Add Paging Group")."</a></li>"; 
 	//get the list of paging groups
@@ -151,6 +151,6 @@ function paging_sidebar($selection, $type, $display) {
 			echo _("Page Group")." ${group}</a></li>";
 		}
 	} 
-	echo "</div><div class='content'><h2>"._("Paging and Intercom")."</h2>\n";
+	echo "</ul></div><div class='content'><h2>"._("Paging and Intercom")."</h2>\n";
 }
 ?>
