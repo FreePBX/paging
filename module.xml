@@ -3,7 +3,7 @@
 	<name>Paging and Intercom</name>
 	<version>1.2.4</version>
 	<type>setup</type>
-	<category>Internal Options and Configuration</category>
+	<category>Internal Options &amp; Configuration</category>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. 
 	
 	Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls.</description>
