@@ -224,7 +224,11 @@ function paging_add($xtn, $plist) {
 
 	// $plist contains a string of extensions, with \n as a seperator. 
 	// Split that up first.
-	$xtns = explode("\n",$plist);
+	if (is_array($plist)) {
+		$xtns = $plist;
+	} else {
+		$xtns = explode("\n",$plist);
+	}
 	foreach (array_keys($xtns) as $val) {
 		$val = addslashes(trim($xtns[$val]));
 		// Sanity check input.

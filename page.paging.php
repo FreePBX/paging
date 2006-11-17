@@ -100,7 +100,6 @@ function paging_show($xtn, $display, $type) {
 	</select>
 		
 		<br>
-	<input type="submit" style="font-size:10px;" value="<?php echo _("Clean & Remove duplicates")?>" />
 	</td></tr>
 	<tr>
 	<td colspan="2"><br><h6><input type="submit" name="Submit" type="button" value="<?php echo _("Submit Changes")?>"></h6></td>
