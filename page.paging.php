@@ -83,7 +83,7 @@ function paging_show($xtn, $display, $type) {
 	<?php echo _("The number users will dial to page this group") ?></span></a></td>
 	<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
 	</tr><tr>
-	<tr><td valign='top'><a href='#' class='info'><?php echo _("extension list:")."<span><br>"._("Select users/devices to page. Use Ctrl key to select multiple..") ?> 
+	<tr><td valign='top'><a href='#' class='info'><?php echo _("extension list:")."<span><br>"._("Select extension(s)to page. If using users and devices mode, this will be the device number to page, potentially confusing if extension numbers and device numbers don't match. Use Ctrl key to select multiple..") ?> 
 	<br><br></span></a></td>
 	<td valign="top"> 
 	
