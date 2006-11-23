@@ -81,7 +81,7 @@ function paging_get_config($engine) {
 					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
 					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
 				}
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_dial("\${DB(DEVICE/${xtn}/dial)}", 5));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_dial("\${DB(DEVICE/${xtn}/dial)}", '5, A(beep)'));
 				$ext->add('ext-paging', "PAGE${xtn}", 'skipself', new ext_noop('Not paging originator'));
 			}
 			// Now get a list of all the paging groups...
