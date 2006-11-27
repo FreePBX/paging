@@ -36,8 +36,7 @@ switch ($action) {
 		break;
 	case "delete":
 		paging_del($selection);
-		paging_sidebar($selection, $type, $display);
-		echo _("Paging Group Deleted<br>\n");
+		redirect_standard();
 		break;
 	case "modify":
 		paging_sidebar($selection, $type, $display);
@@ -45,9 +44,7 @@ switch ($action) {
 		break;
 	case "submit":
 		paging_modify($pagegrp, $pagenbr, $pagelist);
-		paging_sidebar($selection, $type, $display);
-		echo _("<h5>Paging Group $pagenbr Modified</h5>\n");
-		paging_text();
+		redirect_standard();
 		break;
 	default:
 		paging_sidebar($selection, $type, $display);
