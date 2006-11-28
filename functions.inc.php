@@ -71,29 +71,43 @@ function paging_get_config($engine) {
 			// Lets give all the phones their PAGExxx lines.
 			// TODO: Support for specific phones configurations
  			foreach ($results as $grouparr) {
+				$skipheaders = false;
 				$xtn=trim($grouparr[0]);
 				if (strtoupper(substr($xtn,-1)) == "X") {
+					// hack for allowing no SIP headers
+					//TODO : replace this with DevicesTakeTwo stuff
 					$xtn = rtrim($xtn,"xX");
-					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
-				} else {
-					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
+					$skipheaders = true;
+				}
+				
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${FORCE_PAGE} != 1 ]','AVAIL'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('AVAILSTATUS', 'not checked'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_goto('SKIPCHECK'));
+				$ext->add('ext-paging', "PAGE${xtn}", 'AVAIL', new ext_chanisavail('${DB(DEVICE/'.$xtn.'/dial)}', 'js'));
+				$ext->add('ext-paging', "PAGE${xtn}", 'SKIPCHECK', new ext_noop('Seems to be available (state = ${AVAILSTATUS}'));
+				
+				if (!$skipheaders) {
 					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
 					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
 					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
 				}
+				
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_dial("\${DB(DEVICE/${xtn}/dial)}", '5, A(beep)'));
 				$ext->add('ext-paging', "PAGE${xtn}", 'skipself', new ext_noop('Not paging originator'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_hangup());
+				
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_noop('Channel ${AVAILCHAN} is not available (state = ${AVAILSTATUS})'), 'AVAIL',101);
 			}
 			// Now get a list of all the paging groups...
-			$sql = "SELECT DISTINCT page_number FROM paging_groups";
-			$paging_groups = $db->getAll($sql);
+			$sql = "SELECT page_group, force_page FROM paging_config";
+			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 			foreach ($paging_groups as $thisgroup) {
-				$grp=trim($thisgroup[0]);
+				$grp=trim($thisgroup['page_group']);
 				$sql = "SELECT ext FROM paging_groups WHERE page_number='$grp'";
 				$all_exts = $db->getAll($sql);
 				$dialstr='';
 				foreach($all_exts as $local_dial) {
-
 					if (strtoupper(substr($local_dial[0],-1)) == "X") {
 						$local_dial[0] = rtrim($local_dial[0],"xX");
 					}
@@ -103,6 +117,7 @@ function paging_get_config($engine) {
 				// It will always end with an &, so lets take that off.
 				$dialstr = rtrim($dialstr, "&");
 				$ext->add('ext-paging', "Debug", '', new ext_noop("dialstr is $dialstr"));
+				$ext->add('ext-paging', $grp, '', new ext_setvar("_FORCE_PAGE", ($thisgroup['force_page']?1:0)));
 				$ext->add('ext-paging', $grp, '', new ext_page($dialstr));
 			}
 			
@@ -195,7 +210,20 @@ function paging_get_devs($grp) {
 	return $tmparray;
 }
 
-function paging_modify($oldxtn, $xtn, $plist) {
+function paging_get_pagingconfig($grp) {
+	global $db;
+
+	// Just in case someone's trying to be smart with a SQL injection.
+	$grp = addslashes($grp); 
+
+	$sql = "SELECT * FROM paging_config WHERE page_group='$grp'";
+	$results = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+	if(DB::IsError($results)) 
+		$results = null;
+	return $results;
+}
+
+function paging_modify($oldxtn, $xtn, $plist, $force_page) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
@@ -205,7 +233,7 @@ function paging_modify($oldxtn, $xtn, $plist) {
 	paging_del($oldxtn);
 
 	// Now add it all back in.
-	paging_add($xtn, $plist);
+	paging_add($xtn, $plist, $force_page);
 
 	// Aaad we need a reload.
 	needreload();
@@ -215,11 +243,23 @@ function paging_modify($oldxtn, $xtn, $plist) {
 function paging_del($xtn) {
 	global $db;
 	$sql = "DELETE FROM paging_groups WHERE page_number='$xtn'";
-	$db->query($sql);
+	$res = $db->query($sql);
+	if (DB::isError($res)) {
+		var_dump($res);
+		die("Error in paging_del(): ");
+	}
+	
+	$sql = "DELETE FROM paging_config WHERE page_group='$xtn'";
+	$res = $db->query($sql);
+	if (DB::isError($res)) {
+		var_dump($res);
+		die("Error in paging_del(): ");
+	}
+	
 	needreload();
 }
 
-function paging_add($xtn, $plist) {
+function paging_add($xtn, $plist, $force_page) {
 	global $db;
 
 	// $plist contains a string of extensions, with \n as a seperator. 
@@ -233,11 +273,13 @@ function paging_add($xtn, $plist) {
 		$val = addslashes(trim($xtns[$val]));
 		// Sanity check input.
 		
-		
-		
-		$sql = "INSERT INTO paging_groups VALUES ('$xtn', '$val')";
+		$sql = "INSERT INTO paging_groups(page_number, ext) VALUES ('$xtn', '$val')";
 		$db->query($sql);
 	}
+	
+	$sql = "INSERT INTO paging_config(page_group, force_page) VALUES ('$xtn', '$force_page')";
+	$db->query($sql);
+	
 	needreload();
 }
 

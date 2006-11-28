@@ -16,6 +16,7 @@ $display = isset($_REQUEST['display'])?$_REQUEST['display']:'paging';
 $type = isset($_REQUEST['type'])?$_REQUEST['type']:'tool';
 
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
+$force_page = isset($_REQUEST['force_page']) ? $_REQUEST['force_page']:0;
 $selection = isset($_REQUEST['selection'])?$_REQUEST['selection']:'';
 $pagelist = isset($_REQUEST['pagelist'])?$_REQUEST['pagelist']:'';
 $pagenbr = isset($_REQUEST['pagenbr'])?$_REQUEST['pagenbr']:'';
@@ -43,7 +44,7 @@ switch ($action) {
 		paging_show($selection, $display, $type);
 		break;
 	case "submit":
-		paging_modify($pagegrp, $pagenbr, $pagelist);
+		paging_modify($pagegrp, $pagenbr, $pagelist, $force_page);
 		redirect_standard();
 		break;
 	default:
@@ -69,6 +70,11 @@ function paging_show($xtn, $display, $type) {
 	} else {
 		$rows = 5;
 	}
+	
+	$config = paging_get_pagingconfig($xtn);
+	
+	$force_page = $config['force_page'];
+	
 	echo "<form name='page_edit' action='".$_SERVER['PHP_SELF']."' method='post' onsubmit='return page_edit_onsubmit();'>\n";
 	echo "<input type='hidden' name='display' value='${display}'>\n";
 	echo "<input type='hidden' name='type' value='${type}'>\n";
@@ -79,7 +85,7 @@ function paging_show($xtn, $display, $type) {
 	<tr><td><a href='#' class='info'><?php echo _("Paging Extension") ?><span>
 	<?php echo _("The number users will dial to page this group") ?></span></a></td>
 	<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
-	</tr><tr>
+	</tr>
 	<tr><td valign='top'><a href='#' class='info'><?php echo _("extension list:")."<span><br>"._("Select extension(s)to page. If using users and devices mode, this will be the device number to page, potentially confusing if extension numbers and device numbers don't match. Use Ctrl key to select multiple..") ?> 
 	<br><br></span></a></td>
 	<td valign="top"> 
@@ -98,6 +104,11 @@ function paging_show($xtn, $display, $type) {
 		
 		<br>
 	</td></tr>
+
+	<tr><td><label for="force_page"><a href='#' class='info'><?php echo _("Force if busy") ?><span>
+	<?php echo _("If selected, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups ") ?></span></a></label></td>
+	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?>></td>
+	
 	<tr>
 	<td colspan="2"><br><h6><input type="submit" name="Submit" type="button" value="<?php echo _("Submit Changes")?>"></h6></td>
 	</tr>
