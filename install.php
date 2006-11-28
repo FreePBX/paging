@@ -23,7 +23,7 @@ unset($fcc);
 
 
 // version 1.6 upgrade
-$sql = "SELECT xtn FROM paging_config";
+$sql = "SELECT page_group FROM paging_config";
 $check = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if(DB::IsError($check)) {
 	// this table wasn't used up to this point, replace it with the new one
