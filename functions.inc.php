@@ -118,6 +118,7 @@ function paging_get_config($engine) {
 				$dialstr = rtrim($dialstr, "&");
 				$ext->add('ext-paging', "Debug", '', new ext_noop("dialstr is $dialstr"));
 				$ext->add('ext-paging', $grp, '', new ext_setvar("_FORCE_PAGE", ($thisgroup['force_page']?1:0)));
+				$ext->add('ext-paging', $grp, '', new ext_macro('user-callerid'));
 				$ext->add('ext-paging', $grp, '', new ext_page($dialstr));
 			}
 			
