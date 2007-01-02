@@ -1,0 +1,81 @@
+# Hebrew version for Paging FreePBX Module.
+# Copyright (C) 2006
+# This file is distributed under the same license as the PACKAGE package.
+# Shimi <shimi@shimi.net>, 2006.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX 2.2.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2006-10-17 17:20+0300\n"
+"PO-Revision-Date: 2006-10-17 17:30+0300\n"
+"Last-Translator: Shimi <shimi@shimi.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:23
+msgid ""
+"There is a problem with install.sql, cannot re-create databases. Contact "
+"support\n"
+msgstr "ישנה בעייה עם install.sql, לא יכול ליצור מחדש את מסדי הנתונים. צור קשר עם תמיכה\n"
+
+#: functions.inc.php:26
+msgid "Database was deleted! Recreated successfully.<br>\n"
+msgstr "מסד הנתונים נמחק! נוצר מחדש בהצלחה.<br />\n"
+
+#: page.paging.php:40
+msgid "Paging Group Deleted<br>\n"
+msgstr "קבוצת האיתות נמחקה<br />\n"
+
+#: page.paging.php:49
+msgid "<h5>Paging Group $pagenbr Modified</h5>\n"
+msgstr "<h5>קבוצת האיתות $pagebr שונתה</h5>\n"
+
+#: page.paging.php:59
+msgid ""
+"This module is for specific phones that are capable of Paging or Intercom. "
+"This section is for configuring group paging, intercom is configured through "
+"<strong>Feature Codes</strong>.<br /><br />The current list of supported "
+"phones is GXP-2000 with firmware 1.0.13 or higher, Snom phones with 'recent' "
+"firmware, Polycom phones (provisioned to auto answer), Linksys/Sipura "
+"phones, and a few various others. Any phone that is always set to auto-"
+"answer should also work (such as the console extension if configured)."
+msgstr "מודול זה הוא עבור טלפונים התומכים באיתות או אינטרקום. חלק זה נועד עבור קביעת תצורה לאיתות קבוצות, אינטרקום מוגדר דרך <strong>קודי תכונות</strong>.<br /><br />הרשימה הנוכחית של הטלפונים הנתמכים היא GXP-2000 עם קושחא 1.0.13 או חדשה יותר, טלפונים של Snom עם קושחא 'עדכנית', טלפונים של פוליקום (שמוגדרים לענות באופן אוטומטי), טלפונים של לינקסיס/סיפורה, ומעט אחרים. כל טלפון שמוגדר לענות תמיד באופן אוטומטי גם יעבוד )כמו למשל הארכת קונסולה אם מוגדרת)."
+
+#: page.paging.php:71
+msgid "Delete Group"
+msgstr "מחק קבוצה"
+
+#: page.paging.php:81
+msgid "Modify Paging Group"
+msgstr "שנה קבוצת איתות"
+
+#: page.paging.php:81 page.paging.php:142
+msgid "Add Paging Group"
+msgstr "הוסף קבוצת איתות"
+
+#: page.paging.php:82
+msgid "Paging Extension"
+msgstr "שלוחת איתות"
+
+#: page.paging.php:83
+msgid "The number users will dial to page this group"
+msgstr "המספר שמשתמשים יחייגו כדי לאותת לקבוצה זאת"
+
+#: page.paging.php:86
+msgid "extension list:"
+msgstr "רשימת השלוחות:"
+
+#: page.paging.php:86
+msgid "List extensions to page, one per line."
+msgstr "רשימת השלוחות שיש לאותת להן, אחת בכל שורה."
+
+#: page.paging.php:151
+msgid "Page Group"
+msgstr "קבוצת איתות"
+
+#: page.paging.php:154
+msgid "Paging and Intercom"
+msgstr "איתות ואינטרקום"
