@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>1.6.2</version>
+	<version>1.6.3</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*1.6.3* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
 		*1.6.2* Fix callerid bug
 		*1.6.1* Fix install bug
 		*1.6* Busy devices are no longer paged, flag added to allow overriding this behaviour.

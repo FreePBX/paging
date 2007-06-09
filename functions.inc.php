@@ -80,7 +80,7 @@ function paging_get_config($engine) {
 					$skipheaders = true;
 				}
 				
-				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${CALLERID(number)} = '.$xtn.' ]','skipself'));
+				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${AMPUSER} = '.$xtn.' ]','skipself'));
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_gotoif('$[ ${FORCE_PAGE} != 1 ]','AVAIL'));
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('AVAILSTATUS', 'not checked'));
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_goto('SKIPCHECK'));
@@ -119,6 +119,8 @@ function paging_get_config($engine) {
 				$ext->add('ext-paging', "Debug", '', new ext_noop("dialstr is $dialstr"));
 				$ext->add('ext-paging', $grp, '', new ext_setvar("_FORCE_PAGE", ($thisgroup['force_page']?1:0)));
 				$ext->add('ext-paging', $grp, '', new ext_macro('user-callerid'));
+				// make AMPUSER inherited here, so we can skip the proper 'self' if using cidnum masquerading
+				$ext->add('ext-paging', $grp, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 				$ext->add('ext-paging', $grp, '', new ext_page($dialstr));
 			}
 			
@@ -160,7 +162,7 @@ function paging_get_config($engine) {
 					$ext->add('ext-intercom', $oncode, '', new ext_answer('')); // $cmd,1,Answer
 					$ext->add('ext-intercom', $oncode, '', new ext_wait('1')); // $cmd,n,Wait(1)
 					$ext->add('ext-intercom', $oncode, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-					$ext->add('ext-intercom', $oncode, '', new ext_setvar('DB(AMPUSER/${CALLERID(number)}/intercom)', 'enabled')); // $cmd,n,Set(...=enabled)
+					$ext->add('ext-intercom', $oncode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'enabled')); // $cmd,n,Set(...=enabled)
 					$ext->add('ext-intercom', $oncode, '', new ext_playback('intercom&enabled')); // $cmd,n,Playback(...)
 					$ext->add('ext-intercom', $oncode, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 				}			
@@ -173,7 +175,7 @@ function paging_get_config($engine) {
 					$ext->add('ext-intercom', $offcode, '', new ext_answer('')); // $cmd,1,Answer
 					$ext->add('ext-intercom', $offcode, '', new ext_wait('1')); // $cmd,n,Wait(1)
 					$ext->add('ext-intercom', $offcode, '', new ext_macro('user-callerid')); // $cmd,n,Macro(user-callerid)
-					$ext->add('ext-intercom', $offcode, '', new ext_setvar('DB(AMPUSER/${CALLERID(number)}/intercom)', 'disabled')); // $cmd,n,Set(...=disabled)
+					$ext->add('ext-intercom', $offcode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'disabled')); // $cmd,n,Set(...=disabled)
 					$ext->add('ext-intercom', $offcode, '', new ext_playback('intercom&disabled')); // $cmd,n,Playback(...)
 					$ext->add('ext-intercom', $offcode, '', new ext_macro('hangupcall')); // $cmd,n,Macro(user-callerid)
 				}
