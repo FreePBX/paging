@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>1.6.3</version>
+	<version>1.6.4</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*1.6.4* fixed deprecated use of ALERT_INFO and SIPHEADER
 		*1.6.3* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
 		*1.6.2* Fix callerid bug
 		*1.6.1* Fix install bug
@@ -13,6 +14,9 @@
 		*1.5.1* Fixed bug with saving paging group
 		*1.5* First release for FreePBX 2.2 - Fixed compatibility issue with new UI
 	</changelog>
+	<requirements>
+		<version>2.3.0beta2</version>
+	</requirements>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. 
 	
 	Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls.</description>

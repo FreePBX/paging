@@ -88,8 +88,8 @@ function paging_get_config($engine) {
 				$ext->add('ext-paging', "PAGE${xtn}", 'SKIPCHECK', new ext_noop('Seems to be available (state = ${AVAILSTATUS}'));
 				
 				if (!$skipheaders) {
-					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
-					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_sipaddheader('Call-Info','\;answer-after=0'));
+					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_alertinfo('Ring Answer'));
 					$ext->add('ext-paging', "PAGE${xtn}", '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
 				}
 				
@@ -136,8 +136,8 @@ function paging_get_config($engine) {
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_dbget('user-intercom','AMPUSER/${dialnumber}/intercom'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_gotoif('$["${user-intercom}" = "disabled" ]', 'nointercom'));
 				
-				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
-				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
+				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_sipaddheader('Call-Info','\;answer-after=0'));
+				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_alertinfo('Ring Answer'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
 
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_dial('Local/${dialnumber}@from-internal/n','',''));
