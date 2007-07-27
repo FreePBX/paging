@@ -7,51 +7,6 @@
    check for version upgrades, etc, of the paging database, to
    allow for easy upgrades. */
 
-function paging_init() {
-	global $db;
-	
-	// Check to make sure that install.sql has been run
-	$sql = "SELECT * from paging_overview";
-	$results = $db->getAssoc($sql);
-	
-	if (DB::IsError($results)) {
-		// It couldn't locate the table. This is bad. Lets try to re-create it, just
-		// in case the user has had the brilliant idea to delete it. 
-		// in 2.2, replace this with just runModuleSQL which is in admin/functions.inc.php
-		pagingrunModuleSQL('paging', 'uninstall');
-		if (pagingrunModuleSQL('paging', 'install')==false) {
-			echo _("There is a problem with install.sql, cannot re-create databases. Contact support\n");
-			die;
-		} else {
-			echo _("Database was deleted! Recreated successfully.<br>\n");
-			$results = $db->getAll($sql);
-		}
-	}
-	if (!isset($results['version'])) {
-		print "First-time use. Propogating databases.<br>\n";
-		// Here, you load up a current database schema. Below, if the version is 
-		// different, you'd write some upgrade code. This is better than doing it
-		// in install.sql, becuase you don't know what's in there already. 
-		$sql = "INSERT INTO paging_overview VALUES ('version', 1)";
-		$db->query($sql);
-		/* Load up the phone definitions */
-		$fd = fopen("modules/paging/phones.sql","r");
-		while (!feof($fd)) {
-			$data = fgets($fd, 1024);
-			if ($data{0}!=';' && $data{0}!='#' && strlen($data) > 3) {
-				// It's not a comment or a blank(ish) line. Add it.
-				$phoneresult = $db->query($data);
-				if(DB::IsError($phoneresult)) 
-					die($phoneresult->getMessage()."<br><br>error adding to phones table");
-			}
-		}
-		fclose($fd);
-		print "Init complete. Please click on this page again to start using this module<br>\n";
-		exit;
-	} /* else ... check the version and upgrade if needed. */
-}
-
-
 //	Generates dialplan for paging  - is called from retrieve_conf
 
 function paging_get_config($engine) {
@@ -131,15 +86,16 @@ function paging_get_config($engine) {
 			$code = $fcc->getCodeActive();
 			unset($fcc);
 
+			// Since these are going down channel local, set ALERT_INFO and SIPADDHEADER which will be set in dialparties.agi
+			// no point in even setting the headers here they will get lost in channel local
+			//
 			if (!empty($code)) {
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($code).'}'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_dbget('user-intercom','AMPUSER/${dialnumber}/intercom'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_gotoif('$["${user-intercom}" = "disabled" ]', 'nointercom'));
-				
-				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_sipaddheader('Call-Info','\;answer-after=0'));
-				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_alertinfo('Ring Answer'));
+				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
+				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
-
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_dial('Local/${dialnumber}@from-internal/n','',''));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_busy());
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_macro('hangupcall'));

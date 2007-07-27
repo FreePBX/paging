@@ -28,7 +28,6 @@ $pagegrp = isset($_REQUEST['pagegrp'])?$_REQUEST['pagegrp']:'';
 <?php
 // Check to make sure that the paging database is propogated and
 // up to date.
-paging_init();
 
 switch ($action) {
 	case "add":
