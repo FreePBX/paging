@@ -24,7 +24,7 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.3/paging-1.6.4.tgz</location>
+	<location>release/2.3/paging-1.6.5.tgz</location>
 	<info>http://aussievoip.com.au/wiki/freePBX-Paging</info>
-	<md5sum>76fd77c816b186d61a58a3c0c679b742</md5sum>
+	<md5sum>ebc04b07ab58aee30e3df4a5ec1be787</md5sum>
 </module>
