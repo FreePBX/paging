@@ -200,14 +200,14 @@ function paging_del($xtn) {
 	$res = $db->query($sql);
 	if (DB::isError($res)) {
 		var_dump($res);
-		die("Error in paging_del(): ");
+		die_freepbx("Error in paging_del(): ");
 	}
 	
 	$sql = "DELETE FROM paging_config WHERE page_group='$xtn'";
 	$res = $db->query($sql);
 	if (DB::isError($res)) {
 		var_dump($res);
-		die("Error in paging_del(): ");
+		die_freepbx("Error in paging_del(): ");
 	}
 	
 	needreload();

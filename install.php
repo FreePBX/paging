@@ -27,7 +27,7 @@ $sql = "CREATE TABLE IF NOT EXISTS paging_overview
 	)";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS paging_groups 
@@ -36,7 +36,7 @@ $sql = "CREATE TABLE IF NOT EXISTS paging_groups
 	)";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 
 $sql = "CREATE TABLE IF NOT EXISTS paging_phones 
@@ -46,7 +46,7 @@ $sql = "CREATE TABLE IF NOT EXISTS paging_phones
 	)";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 
 // version 1.6 upgrade
@@ -57,7 +57,7 @@ if(DB::IsError($check)) {
 	$sql = "DROP TABLE IF EXISTS paging_config;";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		die($result->getDebugInfo());
+		die_freepbx($result->getDebugInfo());
 	}
 	
 	$sql = "CREATE TABLE IF NOT EXISTS paging_config 
@@ -66,14 +66,14 @@ if(DB::IsError($check)) {
 		)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		die($result->getDebugInfo());
+		die_freepbx($result->getDebugInfo());
 	}
 
 	// insert default values
 	$sql = "INSERT INTO paging_config  SELECT DISTINCT page_number, 0 FROM paging_groups;";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
-		die($result->getDebugInfo());
+		die_freepbx($result->getDebugInfo());
 	}
 }
 // These are the three most common ways of auto answering.
@@ -83,17 +83,17 @@ if(DB::IsError($check)) {
 $sql = "INSERT INTO paging_phones VALUES ('GXP-2000', 1, 'Set(SIPADDHEADER=\"Call-Info: answer-after=0\")')";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 $sql = "INSERT INTO paging_phones VALUES ('Polycom', 1, 'Set(ALERT_INFO=\"Ring Answer\")')";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 $sql = "INSERT INTO paging_phones VALUES ('Snom', 1, 'Set(SIP_URI_OPTIONS=\"intercom=true\")')";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 
 // Now mark the version - again, not even sure if this is in use anymore
@@ -101,7 +101,7 @@ if(DB::IsError($result)) {
 $sql = "INSERT INTO paging_overview VALUES ('version', 1)";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
-	die($result->getDebugInfo());
+	die_freepbx($result->getDebugInfo());
 }
 
 ?>
