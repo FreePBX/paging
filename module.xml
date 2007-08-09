@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>1.6.5.1</version>
+	<version>1.6.5.2</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*1.6.5.2* bump for rc1
 		*1.6.5.1* #1861 create intercom dialplan always when enabled
 		*1.6.5* #2168 fix intercom, #2165 change module to get rid of first time propagation
 		*1.6.4* fixed deprecated use of ALERT_INFO and SIPHEADER
@@ -26,6 +27,5 @@
 		<paging>Paging and Intercom</paging>
 	</menuitems>
 	<location>release/2.3/paging-1.6.5.1.tgz</location>
-	<info>http://aussievoip.com.au/wiki/freePBX-Paging</info>
 	<md5sum>864c67c715beb70bb24c1e12348cab48</md5sum>
 </module>
