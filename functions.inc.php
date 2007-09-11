@@ -38,7 +38,14 @@ function paging_get_config($engine) {
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_playback('is&disabled'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_congestion());
 
-				$ext->addInclude('from-internal-additional', 'ext-intercom');
+				$userlist = core_users_list();
+				if (is_array($userlist)) {
+					foreach($userlist as $item) {
+						$intercom_code = $code.$item[0];
+						$ext->add('ext-intercom-users', '_'.$intercom_code, '', new ext_goto('ext-intercom,${EXTEN},1'));
+					}
+				}
+				$ext->addInclude('from-internal-additional', 'ext-intercom-users');
 			
 				$fcc = new featurecode('paging', 'intercom-on');
 				$oncode = $fcc->getCodeActive();
