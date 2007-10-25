@@ -29,6 +29,7 @@ function paging_get_config($engine) {
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__SIPADDHEADER', 'Call-Info: \;answer-after=0'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__ALERT_INFO', 'Ring Answer'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
+				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_macro('user-callerid'));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_dial('Local/${dialnumber}@from-internal/n','',''));
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_busy());
 				$ext->add('ext-intercom', '_'.$code.'.', '', new ext_macro('hangupcall'));
@@ -52,12 +53,12 @@ function paging_get_config($engine) {
 				unset($fcc);
 
 				if ($oncode) {
-					$ext->add('ext-intercom', $oncode, '', new ext_answer(''));
-					$ext->add('ext-intercom', $oncode, '', new ext_wait('1'));
-					$ext->add('ext-intercom', $oncode, '', new ext_macro('user-callerid'));
-					$ext->add('ext-intercom', $oncode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'enabled'));
-					$ext->add('ext-intercom', $oncode, '', new ext_playback('intercom&enabled'));
-					$ext->add('ext-intercom', $oncode, '', new ext_macro('hangupcall'));
+					$ext->add('ext-intercom-users', $oncode, '', new ext_answer(''));
+					$ext->add('ext-intercom-users', $oncode, '', new ext_wait('1'));
+					$ext->add('ext-intercom-users', $oncode, '', new ext_macro('user-callerid'));
+					$ext->add('ext-intercom-users', $oncode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'enabled'));
+					$ext->add('ext-intercom-users', $oncode, '', new ext_playback('intercom&enabled'));
+					$ext->add('ext-intercom-users', $oncode, '', new ext_macro('hangupcall'));
 				}
 			
 				$fcc = new featurecode('paging', 'intercom-off');
@@ -65,12 +66,12 @@ function paging_get_config($engine) {
 				unset($fcc);
 	
 				if ($offcode) {
-					$ext->add('ext-intercom', $offcode, '', new ext_answer(''));
-					$ext->add('ext-intercom', $offcode, '', new ext_wait('1'));
-					$ext->add('ext-intercom', $offcode, '', new ext_macro('user-callerid'));
-					$ext->add('ext-intercom', $offcode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'disabled'));
-					$ext->add('ext-intercom', $offcode, '', new ext_playback('intercom&disabled'));
-					$ext->add('ext-intercom', $offcode, '', new ext_macro('hangupcall'));
+					$ext->add('ext-intercom-users', $offcode, '', new ext_answer(''));
+					$ext->add('ext-intercom-users', $offcode, '', new ext_wait('1'));
+					$ext->add('ext-intercom-users', $offcode, '', new ext_macro('user-callerid'));
+					$ext->add('ext-intercom-users', $offcode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'disabled'));
+					$ext->add('ext-intercom-users', $offcode, '', new ext_playback('intercom&disabled'));
+					$ext->add('ext-intercom-users', $offcode, '', new ext_macro('hangupcall'));
 				}
 			}
 
