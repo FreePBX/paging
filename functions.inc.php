@@ -116,7 +116,7 @@ function paging_get_config($engine) {
 				$ext->add('ext-paging', "PAGE${xtn}", '', new ext_noop('Channel ${AVAILCHAN} is not available (state = ${AVAILSTATUS})'), 'AVAIL',101);
 			}
 			// Now get a list of all the paging groups...
-			$sql = "SELECT page_group, force_page FROM paging_config";
+			$sql = "SELECT page_group, force_page, duplex FROM paging_config";
 			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 			foreach ($paging_groups as $thisgroup) {
 				$grp=trim($thisgroup['page_group']);
@@ -132,6 +132,10 @@ function paging_get_config($engine) {
 				}
 				// It will always end with an &, so lets take that off.
 				$dialstr = rtrim($dialstr, "&");
+
+				if ($thisgroup['duplex']) {
+					$dialstr .= ",d";
+				}
 				$ext->add('ext-paging', "Debug", '', new ext_noop("dialstr is $dialstr"));
 				$ext->add('ext-paging', $grp, '', new ext_setvar("_FORCE_PAGE", ($thisgroup['force_page']?1:0)));
 				$ext->add('ext-paging', $grp, '', new ext_macro('user-callerid'));
@@ -185,7 +189,7 @@ function paging_get_pagingconfig($grp) {
 	return $results;
 }
 
-function paging_modify($oldxtn, $xtn, $plist, $force_page) {
+function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
@@ -195,7 +199,7 @@ function paging_modify($oldxtn, $xtn, $plist, $force_page) {
 	paging_del($oldxtn);
 
 	// Now add it all back in.
-	paging_add($xtn, $plist, $force_page);
+	paging_add($xtn, $plist, $force_page, $duplex);
 
 	// Aaad we need a reload.
 	needreload();
@@ -221,7 +225,7 @@ function paging_del($xtn) {
 	needreload();
 }
 
-function paging_add($xtn, $plist, $force_page) {
+function paging_add($xtn, $plist, $force_page, $duplex) {
 	global $db;
 
 	// $plist contains a string of extensions, with \n as a seperator. 
@@ -239,7 +243,7 @@ function paging_add($xtn, $plist, $force_page) {
 		$db->query($sql);
 	}
 	
-	$sql = "INSERT INTO paging_config(page_group, force_page) VALUES ('$xtn', '$force_page')";
+	$sql = "INSERT INTO paging_config(page_group, force_page, duplex) VALUES ('$xtn', '$force_page', '$duplex')";
 	$db->query($sql);
 	
 	needreload();

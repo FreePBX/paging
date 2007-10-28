@@ -62,7 +62,8 @@ if(DB::IsError($check)) {
 	
 	$sql = "CREATE TABLE IF NOT EXISTS paging_config 
 		( page_group VARCHAR(255), 
-	  	force_page INTEGER(1) NOT NULL
+	  	force_page INTEGER(1) NOT NULL,
+			duplex     INTEGER(1) NOT NULL default '0'
 		)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
@@ -102,6 +103,16 @@ $sql = "INSERT INTO paging_overview VALUES ('version', 1)";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
 	die_freepbx($result->getDebugInfo());
+}
+
+$sql = "SELECT duplex FROM paging_config";
+$result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($result)) {
+	$sql = "ALTER TABLE paging_config ADD duplex INTEGER(1) NOT NULL default '0'";
+	$results = $db->query($sql);
+	if(DB::IsError($results)) {
+	        die_freepbx($results->getMessage());
+	}
 }
 
 ?>
