@@ -71,7 +71,7 @@ if(DB::IsError($check)) {
 	}
 
 	// insert default values
-	$sql = "INSERT INTO paging_config  SELECT DISTINCT page_number, 0 FROM paging_groups;";
+	$sql = "INSERT INTO paging_config  SELECT DISTINCT page_number, 0, 0 FROM paging_groups;";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		die_freepbx($result->getDebugInfo());
