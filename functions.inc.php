@@ -184,8 +184,6 @@ function paging_get_config($engine) {
 			//
 			$ext->add($macro, "s", '', new ext_execif('$["${phone:0:5}" = "Mitel"]', 'Set','CALLINFO=Call-Info: <sip:broadworks.net>\;answer-after=0'));
 			$ext->add($macro, "s", '', new ext_execif('$["${phone:0:4}" = "snom"]', 'Set','CALLINFO=Call-Info: <sip:broadworks.net>\;answer-after=0'));
-			$ext->add($macro, "s", '', new ext_execif('$["${phone:0:6}" = "Aastra"]', 'Set','ALERTINFO=Alert-Info: \;info=alert-autoanswer'));
-			$ext->add($macro, "s", '', new ext_execif('$["${phone:0:6}" = "Aastra"]', 'Set','CALLINFO='));
 
 			// Now any adjustments have been made, set the headers and done
 			//
