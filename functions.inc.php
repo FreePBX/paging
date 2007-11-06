@@ -28,6 +28,7 @@ function paging_get_config($engine) {
 				$context = 'ext-intercom';
 				$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
 				$ext->add($context, $code, '', new ext_macro('user-callerid'));
+				$ext->add($context, $code, '', new ext_gotoif('$["${DB(DND/${dialnumber})}" = "YES" ]', 'end'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom/${AMPUSER})}" = "allow" ]', 'allow'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom/${AMPUSER})}" = "deny" ]', 'nointercom'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom)}" = "disabled" ]', 'nointercom'));
@@ -38,7 +39,7 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
 				$ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
 				$ext->add($context, $code, '', new ext_dial('${DIAL}','5,A(beep)'));
-				$ext->add($context, $code, '', new ext_busy());
+				$ext->add($context, $code, 'end', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 				$ext->add($context, $code, '', new ext_busy(), 'check',101);
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
