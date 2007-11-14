@@ -22,6 +22,7 @@ $selection = isset($_REQUEST['selection'])?$_REQUEST['selection']:'';
 $pagelist = isset($_REQUEST['pagelist'])?$_REQUEST['pagelist']:'';
 $pagenbr = isset($_REQUEST['pagenbr'])?$_REQUEST['pagenbr']:'';
 $pagegrp = isset($_REQUEST['pagegrp'])?$_REQUEST['pagegrp']:'';
+$description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
 
 ?>
 
@@ -44,7 +45,7 @@ switch ($action) {
 		paging_show($selection, $display, $type);
 		break;
 	case "submit":
-		paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex);
+		paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex, $description);
 		redirect_standard();
 		break;
 	default:
@@ -88,9 +89,10 @@ function paging_show($xtn, $display, $type) {
 	}
 	
 	$config = paging_get_pagingconfig($xtn);
-	
+
 	$force_page = $config['force_page'];
 	$duplex = $config['duplex'];
+	$description = $config['description'];
 	
 	echo "<form name='page_edit' action='".$_SERVER['PHP_SELF']."' method='post' onsubmit='return page_edit_onsubmit();'>\n";
 	echo "<input type='hidden' name='display' value='${display}'>\n";
@@ -99,9 +101,13 @@ function paging_show($xtn, $display, $type) {
 	echo "<input type='hidden' name='action' value='submit'>\n";
 	echo "<table><tr><td colspan=2><h5>";
 	echo ($xtn)?_("Modify Paging Group"):_("Add Paging Group")."</h5></td></tr>\n";  ?>
-	<tr><td><a href='#' class='info'><?php echo _("Paging Extension") ?><span>
-	<?php echo _("The number users will dial to page this group") ?></span></a></td>
-	<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
+	<tr>
+		<td><a href='#' class='info'><?php echo _("Paging Extension") ?><span><?php echo _("The number users will dial to page this group") ?></span></a></td>
+		<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
+	</tr>
+	<tr>
+    <td> <a href="#" class="info"><?php echo _("Group Description:")?>:<span><?php echo _("Provide a descriptive title for this Page Group.")?></span></a></td>
+		<td><input size="24" maxlength="24" type="text" name="description" id="description" value="<?php echo htmlspecialchars($description); ?>"></td>
 	</tr>
 	<tr><td valign='top'><a href='#' class='info'><?php echo _("Device List:")."<span><br>"._("Select Device(s)to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple..") ?> 
 	<br><br></span></a></td>
@@ -172,11 +178,11 @@ function paging_sidebar($selection, $type, $display) {
 	$presults = paging_list();
 	if ($presults) {
 		foreach ($presults as $grouparr) {
-			$group = $grouparr[0];
+			$group = $grouparr['page_group'];
 			echo "<li><a id=\"".($selection==$group ? 'current':'std');
 			echo "\" href=\"config.php?type=${type}&amp;display=";
 			echo "${display}&amp;selection=${group}&amp;action=modify\">";
-			echo _("Page Group")." ${group}</a></li>";
+			echo $group." ".((trim($grouparr['description']) != '')?htmlspecialchars($grouparr['description']):_("Page Group"))."</a></li>";
 		}
 	} 
 	echo "</ul></div><div class='content'><h2>"._("Paging and Intercom")."</h2>\n";

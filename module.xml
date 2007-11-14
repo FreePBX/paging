@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.0.1</version>
+	<version>2.1.0</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.1.0* Add page group description, add extension and destination registry call-backs, add SQL based answer variable defaults and phone specific ones
 		*2.0.1* Don't allow incoming intercom if DND is set and fix Aastra intercom going to auto mute
 		*2.0.0* #1926, #1978 fix deficiencies in intercom, add support for explicit allow and deny, expand phones that can auto-answer
 		*1.6.7* Add support for duplex paging

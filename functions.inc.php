@@ -154,11 +154,12 @@ function paging_get_config($engine) {
 				1. Set ${DIAL} to the device's dial string
 				2. If there is a device specific macro defined in the DEVICE's object
 				   (DEVICE/<devicenum>/autoanswer/macro) then execute that macro and end
-			  3. Set prepare defaults for Alert-Info and Call-Info headers and 
-				   SIP_URI_OPTIONS
-				4. Try to identify and endpoints by their useragents that may need known
-				   changes and make those changes.
-				5. Set the variables and end
+				3. Set defaults for Alert-Info and Call-Info headers and SIP_URI_OPTIONS
+				4. Try to identify endpoints by their useragents that may need known
+				   changes and make those changes. These are generated from the
+					 paging_autoanswer table so users can extend them
+				5. Set the variables and end unless a useragent specific ANSWERMACRO is
+				   defined in which case call it and end.
 
 				This macro is called for intercoming and paging to try and enable the
 				target device to auto-answer. Devices with special needs can be handled
@@ -170,32 +171,72 @@ function paging_get_config($engine) {
 				for auto-answer calls). You could then create a general purpose macro
 				to modify the dial string accordingly. Provisioning tools will be able
 				to take advantage of setting and creating such an ability.
+				If you have a set of devices that can be identified with a SIP useragent
+				then you can use a general macro without setting info in each device.
 		 	*/
+
+			// Get the default values from the SQL table
+			//
+			$alertinfo = 'Alert-Info: Ring Answer';
+			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
+			$sipuri    = 'intercom=true';
+			$autoanswer_arr = paging_get_autoanswer_defaults();
+			foreach ($autoanswer_arr as $autosetting) {
+				switch (trim($autosetting['var'])) {
+					case 'ALERTINFO':
+						$alertinfo = trim($autosetting['setting']);
+						break;
+					case 'CALLINFO':
+						$callinfo = trim($autosetting['setting']);
+						break;
+					case 'SIPURI':
+						$sipuri = trim($autosetting['setting']);
+						break;
+				default:
+				}
+			}
 
 			$macro = 'macro-autoanswer';
 			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${DB(DEVICE/${ARG1}/dial)}'));
 			$ext->add($macro, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/macro)}" != "" ]', 'macro'));
 			$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
-			$ext->add($macro, "s", '', new ext_setvar('ALERTINFO', 'Alert-Info: Ring Answer'));
-			$ext->add($macro, "s", '', new ext_setvar('CALLINFO', 'Call-Info: \;answer-after=0'));
-			$ext->add($macro, "s", '', new ext_setvar('SIPURI', 'intercom=true'));
+			$ext->add($macro, "s", '', new ext_setvar('ALERTINFO', $alertinfo));
+			$ext->add($macro, "s", '', new ext_setvar('CALLINFO', $callinfo));
+			$ext->add($macro, "s", '', new ext_setvar('SIPURI', $sipuri));
+			$ext->add($macro, "s", '', new ext_setvar('ANSWERMACRO', ''));
 
 			// Defaults are setup, now make specific adjustments for detected phones
+			// These come from the SQL table as well where installations can make customizations
 			//
-			$ext->add($macro, "s", '', new ext_execif('$["${phone:0:5}" = "Mitel"]', 'Set','CALLINFO=Call-Info: <sip:broadworks.net>\;answer-after=0'));
-			$ext->add($macro, "s", '', new ext_execif('$["${phone:0:4}" = "snom"]', 'Set','CALLINFO=Call-Info: <sip:broadworks.net>\;answer-after=0'));
+			$autoanswer_arr = paging_get_autoanswer_useragents();
+			foreach ($autoanswer_arr as $autosetting) {
+				$useragent   = trim($autosetting['useragent']);
+				$autovar     = trim($autosetting['var']);
+				$data        = trim($autosetting['setting']);
+				switch (trim($autovar)) {
+					case 'ALERTINFO':
+					case 'CALLINFO':
+					case 'SIPURI':
+					case 'ANSWERMACRO':
+						$ext->add($macro, "s", '', new ext_execif('$["${phone:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
+						break;
+				default:
+				}
+			}
 
 			// Now any adjustments have been made, set the headers and done
 			//
+			$ext->add($macro, "s", '', new ext_gotoif('$["${ANSWERMACRO}" != ""]','macro2'));
 			$ext->add($macro, "s", '', new ext_execif('$["${ALERTINFO}" != ""]', 'SipAddHeader','${ALERTINFO}'));
 			$ext->add($macro, "s", '', new ext_execif('$["${CALLINFO}" != ""]', 'SipAddHeader','${CALLINFO}'));
 			$ext->add($macro, "s", '', new ext_execif('$["${SIPURI}" != ""]', 'Set','__SIP_URI_OPTIONS=${SIPURI}'));
 			$ext->add($macro, "s", 'macro', new ext_macro('${DB(DEVICE/${ARG1}/autoanswer/macro)}','${ARG1}'), 'n',2);
+			$ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
 
 
-
-			$ext->addInclude('from-internal-additional',$extpaging);
 			// Create the paging context that is used in the paging application for each phone to auto-answer
+			//
+			$ext->addInclude('from-internal-additional',$extpaging);
 				
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${FORCE_PAGE} != 1 ]','AVAIL'));
@@ -245,17 +286,67 @@ function paging_get_config($engine) {
 	}
 }
 
+function paging_get_autoanswer_defaults() {
+	global $db;
+
+	$sql = "SELECT * FROM paging_autoanswer WHERE useragent = 'default'";
+	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
+	if(DB::IsError($results)) {
+		$results = array();
+	} 
+	return $results;
+}
+
+function paging_get_autoanswer_useragents($useragent = '') {
+	global $db;
+
+	$sql = "SELECT * FROM paging_autoanswer WHERE useragent != 'default' ";
+	if ($useragent != "") {
+		$sql .= "AND useragent = $useragent ";
+	}
+	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
+	if(DB::IsError($results)) {
+		$results = array();
+	} 
+	return $results;
+}
+
 function paging_list() {
 	global $db;
 
-	$sql = "SELECT DISTINCT page_number FROM paging_groups ORDER BY page_number";
-	$results = $db->getAll($sql);
+	$sql = "SELECT page_group, description FROM paging_config ORDER BY page_group";
+	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		$results = null;
+	} else {
+		foreach ($results as $key => $list) {
+			$results[$key][0] = $list['page_group'];
+		}
 	}
 	// There should be a checkRange here I think, but I haven't looked into it yet.
 //	return array('999', '998', '997');
 	return $results;
+}
+
+function paging_check_extensions($exten=true) {
+	global $active_modules;
+
+	$extenlist = array();
+	$sql = "SELECT page_group, description FROM paging_config ";
+	if ($exten !== true) {
+		$sql .= "WHERE page_group = '$exten' ";
+	}
+	$sql .= " ORDER BY page_group";
+	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
+
+	$type = isset($active_modules['paging']['type'])?$active_modules['paging']['type']:'setup';
+	foreach ($results as $result) {
+		$thisexten = $result['page_group'];
+		$extenlist[$thisexten]['description'] = $result['description'];
+		$extenlist[$thisexten]['status'] = 'INUSE';
+		$extenlist[$thisexten]['edit_url'] = 'config.php?type='.urlencode($type).'setup&display=paging&selection='.urlencode($thisexten).'&action=modify';
+	}
+	return $extenlist;
 }
 
 function paging_get_devs($grp) {
@@ -286,7 +377,7 @@ function paging_get_pagingconfig($grp) {
 	return $results;
 }
 
-function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex) {
+function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='') {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
@@ -296,7 +387,7 @@ function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex) {
 	paging_del($oldxtn);
 
 	// Now add it all back in.
-	paging_add($xtn, $plist, $force_page, $duplex);
+	paging_add($xtn, $plist, $force_page, $duplex, $description);
 
 	// Aaad we need a reload.
 	needreload();
@@ -322,7 +413,7 @@ function paging_del($xtn) {
 	needreload();
 }
 
-function paging_add($xtn, $plist, $force_page, $duplex) {
+function paging_add($xtn, $plist, $force_page, $duplex, $description='') {
 	global $db;
 
 	// $plist contains a string of extensions, with \n as a seperator. 
@@ -340,7 +431,8 @@ function paging_add($xtn, $plist, $force_page, $duplex) {
 		$db->query($sql);
 	}
 	
-	$sql = "INSERT INTO paging_config(page_group, force_page, duplex) VALUES ('$xtn', '$force_page', '$duplex')";
+	$description = addslashes(trim($description));
+	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description) VALUES ('$xtn', '$force_page', '$duplex', '$description')";
 	$db->query($sql);
 	
 	needreload();

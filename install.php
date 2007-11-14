@@ -21,10 +21,14 @@ $fcc->setDefault('*55',false);
 $fcc->update();
 unset($fcc);	
 
-$sql = "CREATE TABLE IF NOT EXISTS paging_overview 
-	( config VARCHAR(50), 
-	  detail VARCHAR(25)
-	)";
+// Remove old tables that were never used
+//
+$sql = "DROP TABLE IF EXISTS paging_phones";
+$result = $db->query($sql);
+if(DB::IsError($result)) {
+	die_freepbx($result->getDebugInfo());
+}
+$sql = "DROP TABLE IF EXISTS paging_overview";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
 	die_freepbx($result->getDebugInfo());
@@ -32,18 +36,24 @@ if(DB::IsError($result)) {
 
 $sql = "CREATE TABLE IF NOT EXISTS paging_groups 
 	( page_number VARCHAR(50), 
-	  ext VARCHAR(25)
+	  ext VARCHAR(25),
+		PRIMARY KEY (page_number, ext)
 	)";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
 	die_freepbx($result->getDebugInfo());
 }
 
-$sql = "CREATE TABLE IF NOT EXISTS paging_phones 
-	( phone_name VARCHAR(50), 
-	  priority INT, 
-		command VARCHAR(50)
-	)";
+// Create table used to change defaults and customize
+// for certain phone types
+//
+$sql = "
+CREATE TABLE IF NOT EXISTS `paging_autoanswer` (
+	`useragent` VARCHAR( 255 ) NOT NULL ,
+	`var` VARCHAR( 20 ) NOT NULL ,
+	`setting` VARCHAR( 255 ) NOT NULL ,
+	PRIMARY KEY ( `useragent` , `var` )
+);";
 $result = $db->query($sql);
 if(DB::IsError($result)) {
 	die_freepbx($result->getDebugInfo());
@@ -63,7 +73,9 @@ if(DB::IsError($check)) {
 	$sql = "CREATE TABLE IF NOT EXISTS paging_config 
 		( page_group VARCHAR(255), 
 	  	force_page INTEGER(1) NOT NULL,
-			duplex     INTEGER(1) NOT NULL default '0'
+			duplex     INTEGER(1) NOT NULL default '0',
+			description VARCHAR(255) NOT NULL default '',
+			PRIMARY KEY (page_group)
 		)";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
@@ -71,40 +83,27 @@ if(DB::IsError($check)) {
 	}
 
 	// insert default values
-	$sql = "INSERT INTO paging_config  SELECT DISTINCT page_number, 0, 0 FROM paging_groups;";
+	$sql = "INSERT INTO paging_config (page_group, force_page, duplex, description)  SELECT DISTINCT page_number, 0, 0, '' FROM paging_groups";
 	$result = $db->query($sql);
 	if(DB::IsError($result)) {
 		die_freepbx($result->getDebugInfo());
 	}
 }
+
+// Set the initial default values, if already 
+
 // These are the three most common ways of auto answering.
-// Set them up for now - this will all change when paging gets modified
-// (I don't think this is even being used)
+// If the table is already populated then error will be ignored and user data will not get altered
 //
-$sql = "INSERT INTO paging_phones VALUES ('GXP-2000', 1, 'Set(SIPADDHEADER=\"Call-Info: answer-after=0\")')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', 'Call-Info: <uri>\\;answer-after=0')";
 $result = $db->query($sql);
-if(DB::IsError($result)) {
-	die_freepbx($result->getDebugInfo());
-}
-$sql = "INSERT INTO paging_phones VALUES ('Polycom', 1, 'Set(ALERT_INFO=\"Ring Answer\")')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'ALERTINFO', 'Alert-Info: Ring Answer')";
 $result = $db->query($sql);
-if(DB::IsError($result)) {
-	die_freepbx($result->getDebugInfo());
-}
-$sql = "INSERT INTO paging_phones VALUES ('Snom', 1, 'Set(SIP_URI_OPTIONS=\"intercom=true\")')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'SIPURI', 'intercom=true')";
 $result = $db->query($sql);
-if(DB::IsError($result)) {
-	die_freepbx($result->getDebugInfo());
-}
 
-// Now mark the version - again, not even sure if this is in use anymore
+// Add dulex field
 //
-$sql = "INSERT INTO paging_overview VALUES ('version', 1)";
-$result = $db->query($sql);
-if(DB::IsError($result)) {
-	die_freepbx($result->getDebugInfo());
-}
-
 $sql = "SELECT duplex FROM paging_config";
 $result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($result)) {
@@ -114,5 +113,25 @@ if (DB::IsError($result)) {
 	        die_freepbx($results->getMessage());
 	}
 }
+
+// Add description field
+//
+$sql = "SELECT description FROM paging_config";
+$result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($result)) {
+	$sql = "ALTER TABLE paging_config ADD description VARCHAR(255) NOT NULL default ''";
+	$results = $db->query($sql);
+	if(DB::IsError($results)) {
+	        die_freepbx($results->getMessage());
+	}
+}
+// Make sure primary keys are set, they were not originally. Don't check for error,
+// if they exist it will give an error
+//
+$sql = "ALTER TABLE `paging_groups` ADD PRIMARY KEY ( `page_number` , `ext` )";
+$result = $db->query($sql);
+
+$sql = "ALTER TABLE `paging_config` ADD PRIMARY KEY ( `page_group` )";
+$result = $db->query($sql);
 
 ?>

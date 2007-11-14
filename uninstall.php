@@ -53,4 +53,12 @@ if(DB::IsError($result)) {
 }
 echo "done<br>\n";
 
+echo "dropping table paging_autoanswer..";
+$sql = "DROP TABLE IF EXISTS paging_autoanswer";
+$result = $db->query($sql);
+if(DB::IsError($result)) {
+	echo "ERROR DELETING TABLE: ".$result->getDebugInfo();
+}
+echo "done<br>\n";
+
 ?>
