@@ -45,7 +45,6 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 				$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
-				$ext->add($context, $code, '', new ext_setvar('__SIP_URI_OPTIONS', 'intercom=true'));
 				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$extpaging));
 				$ext->add($context, $code, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 				$ext->add($context, $code, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
@@ -332,9 +331,13 @@ function paging_check_extensions($exten=true) {
 	global $active_modules;
 
 	$extenlist = array();
+	if (is_array($exten) && empty($exten)) {
+		return $extenlist;
+	}
+
 	$sql = "SELECT page_group, description FROM paging_config ";
-	if ($exten !== true) {
-		$sql .= "WHERE page_group = '$exten' ";
+	if (is_array($exten)) {
+		$sql .= "WHERE page_group in ('".implode("','",$exten)."')";
 	}
 	$sql .= " ORDER BY page_group";
 	$results = sql($sql,"getAll",DB_FETCHMODE_ASSOC);
@@ -342,7 +345,7 @@ function paging_check_extensions($exten=true) {
 	$type = isset($active_modules['paging']['type'])?$active_modules['paging']['type']:'setup';
 	foreach ($results as $result) {
 		$thisexten = $result['page_group'];
-		$extenlist[$thisexten]['description'] = $result['description'];
+		$extenlist[$thisexten]['description'] = "Page Group: ".$result['description'];
 		$extenlist[$thisexten]['status'] = 'INUSE';
 		$extenlist[$thisexten]['edit_url'] = 'config.php?type='.urlencode($type).'setup&display=paging&selection='.urlencode($thisexten).'&action=modify';
 	}
