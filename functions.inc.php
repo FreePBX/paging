@@ -26,9 +26,10 @@ function paging_get_config($engine) {
 			if (!empty($intercom_code)) {
 				$code = '_'.$intercom_code.'.';
 				$context = 'ext-intercom';
-				$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
 				$ext->add($context, $code, '', new ext_macro('user-callerid'));
-				$ext->add($context, $code, '', new ext_gotoif('$["${DB(DND/${dialnumber})}" = "YES" ]', 'end'));
+				$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
+				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/block)}" = "blocked"]', 'end'));
+				$ext->add($context, $code, '', new ext_gotoif('$["${DB(DND/${dialnumber})}" = "YES"]', 'end'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom/${AMPUSER})}" = "allow" ]', 'allow'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom/${AMPUSER})}" = "deny" ]', 'nointercom'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom)}" = "disabled" ]', 'nointercom'));
@@ -345,7 +346,7 @@ function paging_check_extensions($exten=true) {
 	$type = isset($active_modules['paging']['type'])?$active_modules['paging']['type']:'setup';
 	foreach ($results as $result) {
 		$thisexten = $result['page_group'];
-		$extenlist[$thisexten]['description'] = "Page Group: ".$result['description'];
+		$extenlist[$thisexten]['description'] = _("Page Group: ").$result['description'];
 		$extenlist[$thisexten]['status'] = 'INUSE';
 		$extenlist[$thisexten]['edit_url'] = 'config.php?type='.urlencode($type).'setup&display=paging&selection='.urlencode($thisexten).'&action=modify';
 	}
