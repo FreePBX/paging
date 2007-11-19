@@ -45,8 +45,21 @@ switch ($action) {
 		paging_show($selection, $display, $type);
 		break;
 	case "submit":
-		paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex, $description);
-		redirect_standard();
+		//TODO: issue, we are deleting and adding at the same time so remeber later to check
+		//      if we are deleting a destination
+		$usage_arr = array();
+		if (trim($pagegrp) != trim($pagenbr)) {
+			$usage_arr = framework_check_extension_usage($pagenbr);
+		}
+		if (!empty($usage_arr)) {
+			$conflict_url = array();
+			$conflict_url = framework_display_extension_usage_alert($usage_arr);
+			paging_sidebar($selection, $type, $display);
+			paging_show($pagegrp, $display, $type, $conflict_url);
+		} else {
+			paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex, $description);
+			redirect_standard();
+		}
 		break;
 	default:
 		paging_sidebar($selection, $type, $display);
@@ -75,7 +88,7 @@ function paging_text() {
 <?php
 }
 
-function paging_show($xtn, $display, $type) {
+function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	if ($xtn) {
 		$rows = count(paging_get_devs($xtn))+1;
 		if ($rows < 5) 
@@ -84,6 +97,10 @@ function paging_show($xtn, $display, $type) {
 			$rows = 20;
 		echo "<p><a href='".$_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete";
 		echo "&amp;selection=${xtn}'>"._("Delete Group")." $xtn</a></p>";
+		if (!empty($conflict_url)) {
+			echo "<h5>"._("Conflicting Extensions")."</h5>";
+			echo implode('<br .>',$conflict_url);
+		}
 	} else {
 		$rows = 5;
 	}
