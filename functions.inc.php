@@ -324,7 +324,7 @@ function paging_list() {
 		}
 	}
 	// There should be a checkRange here I think, but I haven't looked into it yet.
-//	return array('999', '998', '997');
+	//	return array('999', '998', '997');
 	return $results;
 }
 
@@ -441,7 +441,6 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='') {
 	
 	needreload();
 }
-
 	
 // this can be removed in 2.2 and put back to just runModuleSQL which is in admin/functions.inc.php
 // I didn't want to do it in 2.1 as there's a significant user base out there, and it will break
@@ -470,8 +469,4 @@ function pagingrunModuleSQL($moddir,$type){
         }
                 return true;
 }
-
-
-
-
 ?>
