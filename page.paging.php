@@ -90,7 +90,8 @@ function paging_text() {
 
 function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	if ($xtn) {
-		$rows = count(paging_get_devs($xtn))+1;
+		$selected = paging_get_devs($xtn);
+		$rows = count($selected)+1;
 		if ($rows < 5) 
 			$rows = 5;
 		if ($rows > 20)
@@ -132,7 +133,9 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	
 	<select multiple="multiple" name="pagelist[]" id="xtnlist" >
 	<?php 
-	$selected = paging_get_devs($xtn); 
+	if (!isset($selected)) {
+		$selected = paging_get_devs($xtn); 
+	}
 	if (is_null($selected)) $selected = array();
 	foreach (core_devices_list() as $device) {
 		echo '<option value="'.$device[0].'" ';
