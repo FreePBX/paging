@@ -469,4 +469,44 @@ function pagingrunModuleSQL($moddir,$type){
         }
                 return true;
 }
+
+function paging_configpageinit($pagename) {
+	global $currentcomponent;
+
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
+
+	// We only want to hook 'users' or 'extensions' pages.
+	if ($pagename != 'devices' && $pagename != 'extensions') {
+		return true;
+	}
+
+	if ($extdisplay != '') {
+		$currentcomponent->addprocessfunc('pagings_configprocess', 8);
+	}
+}
+
+function pagings_configprocess() {
+	global $db;
+
+	//create vars from the request
+	//
+	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
+	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
+	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
+	$langcode = isset($_REQUEST['langcode'])?$_REQUEST['langcode']:null;
+
+	$extdisplay = ($ext==='') ? $extn : $ext;
+	if ($action == "del") {
+		$sql = "DELETE FROM paging_groups WHERE ext = '$extdisplay'";
+		$res = $db->query($sql);
+		if (DB::isError($res)) {
+			var_dump($res);
+			die_freepbx("Error in paging_del(): ");
+		}
+	}
+}
+
 ?>
