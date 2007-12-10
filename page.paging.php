@@ -159,7 +159,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?>></td>
 
 	<tr><td><label for="default_group"><a href='#' class='info'><?php echo _("Default Page Group") ?><span>
-	<?php echo _("Each PBX system can have a single Default Page Group. If specified, extensions can be automatically added (or removed) from the default page group in the Extensions (or Users) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?></span></a></label></td>
+	<?php echo _("Each PBX system can have a single Default Page Group. If specified, extensions can be automatically added (or removed) from this group in the Extensions (or Devices) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?></span></a></label></td>
 	<td><input type='checkbox' name='default_group' id="default_group" value='1' <?php if ($default_group) { echo 'CHECKED'; } ?>></td>
 	
 	<tr>
