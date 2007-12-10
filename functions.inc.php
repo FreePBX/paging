@@ -379,7 +379,7 @@ function paging_get_pagingconfig($grp) {
 	if(DB::IsError($results)) {
 		$results = null;
 	}
-	$sql = "SELECT * FROM admin WHERE variable='default_page_group' AND value='$grp'";
+	$sql = "SELECT * FROM admin WHERE variable='default_page_grp' AND value='$grp'";
 	$default_group = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 	if(DB::IsError($default_group)) {
 		$results['default_group'] = 0;
@@ -421,7 +421,7 @@ function paging_del($xtn) {
 		var_dump($res);
 		die_freepbx("Error in paging_del(): ");
 	}
-	sql("DELETE FROM `admin` WHERE variable = 'default_page_group' AND value = '$xtn'");
+	sql("DELETE FROM `admin` WHERE variable = 'default_page_grp' AND value = '$xtn'");
 	
 	needreload();
 }
@@ -449,23 +449,23 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='', $defaul
 	$db->query($sql);
 	
 	if ($default_group) {
-		sql("DELETE FROM `admin` WHERE variable = 'default_page_group'");
-		sql("INSERT INTO `admin` (variable, value) VALUES ('default_page_group', '$xtn')");
+		sql("DELETE FROM `admin` WHERE variable = 'default_page_grp'");
+		sql("INSERT INTO `admin` (variable, value) VALUES ('default_page_grp', '$xtn')");
 	} else {
-		sql("DELETE FROM `admin` WHERE variable = 'default_page_group' AND value = '$xtn'");
+		sql("DELETE FROM `admin` WHERE variable = 'default_page_grp' AND value = '$xtn'");
 	}
 	
 	needreload();
 }
 
 function paging_check_default($extension) {
-	$sql = "SELECT ext FROM paging_groups WHERE ext = '$extension' AND page_number = (SELECT value FROM admin WHERE variable = 'default_page_group' limit 1)";
+	$sql = "SELECT ext FROM paging_groups WHERE ext = '$extension' AND page_number = (SELECT value FROM admin WHERE variable = 'default_page_grp' limit 1)";
 	$results = sql($sql,"getAll");
 	return (count($results) ? 1 : 0);
 }
 
 function paging_set_default($extension, $value) {
-	$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_group' limit 1", "getOne");
+	$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1", "getOne");
 	if ($default_group == '') {
 		return false;
 	}
@@ -526,11 +526,11 @@ function paging_configpageload() {
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
 	if ($action != 'del') {
 
-		$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_group'", "getOne");
+		$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp'", "getOne");
 		$section = _("Default Group Inclusion");
 		if ($default_group != "") {
-			$in_default_page_group = paging_check_default($extdisplay);
-			$currentcomponent->addguielem($section, new gui_selectbox('in_default_page_group', $currentcomponent->getoptlist('page_group'), $in_default_page_group, _('Default Page Group'), _('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
+			$in_default_page_grp = paging_check_default($extdisplay);
+			$currentcomponent->addguielem($section, new gui_selectbox('in_default_page_grp', $currentcomponent->getoptlist('page_group'), $in_default_page_grp, _('Default Page Group'), _('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
 		} 
 	}
 }
@@ -543,7 +543,7 @@ function paging_configprocess() {
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
-	$in_default_page_group = isset($_REQUEST['in_default_page_group'])?$_REQUEST['in_default_page_group']:false;
+	$in_default_page_grp = isset($_REQUEST['in_default_page_grp'])?$_REQUEST['in_default_page_grp']:false;
 
 	if (($_REQUEST['display'] == 'devices') && $action == 'add') {
 		$extdisplay = $_REQUEST['deviceid'];
@@ -553,8 +553,8 @@ function paging_configprocess() {
 
 	if ($action == "add" || $action == "edit") {
 		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
-			if ($in_default_page_group !== false) {
-				paging_set_default($extdisplay, $in_default_page_group);
+			if ($in_default_page_grp !== false) {
+				paging_set_default($extdisplay, $in_default_page_grp);
 			}
 		}
 	} elseif ($action == "del") {
