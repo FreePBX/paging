@@ -381,7 +381,7 @@ function paging_get_pagingconfig($grp) {
 	}
 	$sql = "SELECT * FROM admin WHERE variable='default_page_group' AND value='$grp'";
 	$default_group = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
+	if(DB::IsError($default_group)) {
 		$results['default_group'] = 0;
 	} else {
 		$results['default_group'] = empty($default_group) ? 0 : $default_group['value'];
@@ -483,7 +483,7 @@ function paging_configpageinit($pagename) {
 	$extension = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware'])?$_REQUEST['tech_hardware']:null;
 
-	// We only want to hook 'users' or 'extensions' pages.
+	// We only want to hook 'devices' or 'extensions' pages.
 	if ($pagename != 'devices' && $pagename != 'extensions') {
 		return true;
 	}
