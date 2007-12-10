@@ -97,8 +97,8 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 			$rows = 5;
 		if ($rows > 20)
 			$rows = 20;
-		echo "<p><a href='".$_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete";
-		echo "&amp;selection=${xtn}'>"._("Delete Group")." $xtn</a></p>";
+		echo "<a href='".$_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete";
+		echo "&amp;selection=${xtn}'>"._("Delete Group")." $xtn</a>";
 		if (!empty($conflict_url)) {
 			echo "<h5>"._("Conflicting Extensions")."</h5>";
 			echo implode('<br .>',$conflict_url);
@@ -181,10 +181,12 @@ function page_edit_onsubmit() {
 	
 	var selected = 0;
 	for (var i=0; i < theForm.xtnlist.options.length; i++) {
-		if (theForm.xtnlist.options[i].checked) selected += 1;
+		if (theForm.xtnlist.options[i].selected) selected += 1;
 	}
 	if (selected < 1) {
-		return warnInvalid(theForm.xtnlist, msgInvalidExtList);
+    theForm.xtnlist.focus();
+		alert(msgInvalidExtList);
+		return false;
 	}
 		
 	return true;

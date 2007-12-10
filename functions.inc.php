@@ -275,6 +275,7 @@ function paging_get_config($engine) {
 					$dialstr .= ",d";
 				}
 				$ext->add($extpaging, "Debug", '', new ext_noop("dialstr is $dialstr"));
+				$ext->add($extpaging, $grp, '', new ext_answer(''));
 				$ext->add($extpaging, $grp, '', new ext_setvar("_FORCE_PAGE", ($thisgroup['force_page']?1:0)));
 				$ext->add($extpaging, $grp, '', new ext_macro('user-callerid'));
 				// make AMPUSER inherited here, so we can skip the proper 'self' if using cidnum masquerading
