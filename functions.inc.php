@@ -376,12 +376,20 @@ function paging_get_pagingconfig($grp) {
 
 	$sql = "SELECT * FROM paging_config WHERE page_group='$grp'";
 	$results = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) 
+	if(DB::IsError($results)) {
 		$results = null;
+	}
+	$sql = "SELECT * FROM admin WHERE variable='default_page_group' AND value='$grp'";
+	$default_group = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+	if(DB::IsError($results)) {
+		$results['default_group'] = 0;
+	} else {
+		$results['default_group'] = empty($default_group) ? 0 : $default_group['value'];
+	}
 	return $results;
 }
 
-function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='') {
+function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
@@ -391,7 +399,7 @@ function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description
 	paging_del($oldxtn);
 
 	// Now add it all back in.
-	paging_add($xtn, $plist, $force_page, $duplex, $description);
+	paging_add($xtn, $plist, $force_page, $duplex, $description, $default_group);
 
 	// Aaad we need a reload.
 	needreload();
@@ -413,11 +421,12 @@ function paging_del($xtn) {
 		var_dump($res);
 		die_freepbx("Error in paging_del(): ");
 	}
+	sql("DELETE FROM `admin` WHERE variable = 'default_page_group' AND value = '$xtn'");
 	
 	needreload();
 }
 
-function paging_add($xtn, $plist, $force_page, $duplex, $description='') {
+function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group) {
 	global $db;
 
 	// $plist contains a string of extensions, with \n as a seperator. 
@@ -439,37 +448,33 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='') {
 	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description) VALUES ('$xtn', '$force_page', '$duplex', '$description')";
 	$db->query($sql);
 	
+	if ($default_group) {
+		sql("DELETE FROM `admin` WHERE variable = 'default_page_group'");
+		sql("INSERT INTO `admin` (variable, value) VALUES ('default_page_group', '$xtn')");
+	} else {
+		sql("DELETE FROM `admin` WHERE variable = 'default_page_group' AND value = '$xtn'");
+	}
+	
 	needreload();
 }
-	
-// this can be removed in 2.2 and put back to just runModuleSQL which is in admin/functions.inc.php
-// I didn't want to do it in 2.1 as there's a significant user base out there, and it will break
-// them if we do it here.
 
-function pagingrunModuleSQL($moddir,$type){
-        global $db;
-        $data='';
-        if (is_file("modules/{$moddir}/{$type}.sql")) {
-                // run sql script
-                $fd = fopen("modules/{$moddir}/{$type}.sql","r");
-                while (!feof($fd)) {
-                        $data .= fread($fd, 1024);
-                }
-                fclose($fd);
-
-                preg_match_all("/((SELECT|INSERT|UPDATE|DELETE|CREATE|DROP).*);\s*\n/Us", $data, $matches);
-
-                foreach ($matches[1] as $sql) {
-                                $result = $db->query($sql);
-                                if(DB::IsError($result)) {
-                                        return false;
-                                }
-                }
-                return true;
-        }
-                return true;
+function paging_check_default($extension) {
+	$sql = "SELECT ext FROM paging_groups WHERE ext = '$extension' AND page_number = (SELECT value FROM admin WHERE variable = 'default_page_group' limit 1)";
+	$results = sql($sql,"getAll");
+	return (count($results) ? 1 : 0);
 }
 
+function paging_set_default($extension, $value) {
+	$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_group' limit 1", "getOne");
+	if ($default_group == '') {
+		return false;
+	}
+	sql("DELETE FROM paging_groups WHERE ext = '$extension' AND page_number = '$default_group'");
+	if ($value == 1) {
+		sql("INSERT INTO paging_groups (page_number, ext) VALUES ('$default_group', '$extension')");
+	}
+}
+	
 function paging_configpageinit($pagename) {
 	global $currentcomponent;
 
@@ -483,12 +488,54 @@ function paging_configpageinit($pagename) {
 		return true;
 	}
 
-	if ($extdisplay != '') {
-		$currentcomponent->addprocessfunc('pagings_configprocess', 8);
+	if ($tech_hardware != null && ($pagename == 'extensions' || $pagename == 'devices')) {
+		paging_applyhooks();
+		$currentcomponent->addprocessfunc('paging_configprocess', 8);
+	} elseif ($action=="add") {
+		// We don't need to display anything on an 'add', but we do need to handle returned data.
+		$currentcomponent->addprocessfunc('paging_configprocess', 8);
+	} elseif ($extdisplay != '') {
+		// We're now viewing an extension, so we need to display _and_ process.
+		paging_applyhooks();
+		$currentcomponent->addprocessfunc('paging_configprocess', 8);
 	}
 }
 
-function pagings_configprocess() {
+function paging_applyhooks() {
+	global $currentcomponent;
+
+	// Add the 'process' function - this gets called when the page is loaded, to hook into 
+	// displaying stuff on the page.
+	$currentcomponent->addoptlistitem('page_group', '0', _("Exclude"));
+	$currentcomponent->addoptlistitem('page_group', '1', _("Include"));
+	$currentcomponent->setoptlistopts('page_group', 'sort', false);
+
+	$currentcomponent->addguifunc('paging_configpageload');
+}
+
+/*
+*/
+// This is called before the page is actually displayed, so we can use addguielem().
+function paging_configpageload() {
+	global $currentcomponent;
+
+	// Init vars from $_REQUEST[]
+	$action = isset($_REQUEST['action']) ? $_REQUEST['action']:null;
+	$extdisplay = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay']:null;
+	
+	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
+	if ($action != 'del') {
+
+		$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_group'", "getOne");
+		$section = _("Default Group Inclusion");
+		if ($default_group != "") {
+			$in_default_page_group = paging_check_default($extdisplay);
+			$currentcomponent->addguielem($section, new gui_selectbox('in_default_page_group', $currentcomponent->getoptlist('page_group'), $in_default_page_group, _('Default Page Group'), _('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
+		} 
+	}
+}
+
+function paging_configprocess() {
 	global $db;
 
 	//create vars from the request
@@ -496,16 +543,23 @@ function pagings_configprocess() {
 	$action = isset($_REQUEST['action'])?$_REQUEST['action']:null;
 	$ext = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:null;
 	$extn = isset($_REQUEST['extension'])?$_REQUEST['extension']:null;
-	$langcode = isset($_REQUEST['langcode'])?$_REQUEST['langcode']:null;
+	$in_default_page_group = isset($_REQUEST['in_default_page_group'])?$_REQUEST['in_default_page_group']:false;
 
-	$extdisplay = ($ext==='') ? $extn : $ext;
-	if ($action == "del") {
-		$sql = "DELETE FROM paging_groups WHERE ext = '$extdisplay'";
-		$res = $db->query($sql);
-		if (DB::isError($res)) {
-			var_dump($res);
-			die_freepbx("Error in paging_del(): ");
+	if (($_REQUEST['display'] == 'devices') && $action == 'add') {
+		$extdisplay = $_REQUEST['deviceid'];
+	} else {
+		$extdisplay = ($ext=='') ? $extn : $ext;
+	}
+
+	if ($action == "add" || $action == "edit") {
+		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
+			if ($in_default_page_group !== false) {
+				paging_set_default($extdisplay, $in_default_page_group);
+			}
 		}
+	} elseif ($action == "del") {
+		$sql = "DELETE FROM paging_groups WHERE ext = '$extdisplay'";
+		sql($sql);
 	}
 }
 

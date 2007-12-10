@@ -18,6 +18,7 @@ $type = isset($_REQUEST['type'])?$_REQUEST['type']:'tool';
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $force_page = isset($_REQUEST['force_page']) ? $_REQUEST['force_page']:0;
 $duplex = isset($_REQUEST['duplex']) ? $_REQUEST['duplex']:0;
+$default_group = isset($_REQUEST['default_group']) ? $_REQUEST['default_group']:0;
 $selection = isset($_REQUEST['selection'])?$_REQUEST['selection']:'';
 $pagelist = isset($_REQUEST['pagelist'])?$_REQUEST['pagelist']:'';
 $pagenbr = isset($_REQUEST['pagenbr'])?$_REQUEST['pagenbr']:'';
@@ -57,7 +58,7 @@ switch ($action) {
 			paging_sidebar($selection, $type, $display);
 			paging_show($pagegrp, $display, $type, $conflict_url);
 		} else {
-			paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex, $description);
+			paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex, $description, $default_group);
 			redirect_standard();
 		}
 		break;
@@ -110,6 +111,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 
 	$force_page = $config['force_page'];
 	$duplex = $config['duplex'];
+	$default_group = $config['default_group'];
 	$description = $config['description'];
 	
 	echo "<form name='page_edit' action='".$_SERVER['PHP_SELF']."' method='post' onsubmit='return page_edit_onsubmit();'>\n";
@@ -155,6 +157,10 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	<tr><td><label for="duplex"><a href='#' class='info'><?php echo _("Duplex") ?><span>
 	<?php echo _("Paging is typically one way for annoucements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\"") ?></span></a></label></td>
 	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?>></td>
+
+	<tr><td><label for="default_group"><a href='#' class='info'><?php echo _("Default Page Group") ?><span>
+	<?php echo _("Each PBX system can have a single Default Page Group. If specified, extensions can be automatically added (or removed) from the default page group in the Extensions (or Users) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?></span></a></label></td>
+	<td><input type='checkbox' name='default_group' id="default_group" value='1' <?php if ($default_group) { echo 'CHECKED'; } ?>></td>
 	
 	<tr>
 	<td colspan="2"><br><h6><input type="submit" name="Submit" type="button" value="<?php echo _("Submit Changes")?>"></h6></td>
