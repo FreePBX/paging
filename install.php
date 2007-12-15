@@ -95,7 +95,7 @@ if(DB::IsError($check)) {
 // These are the three most common ways of auto answering.
 // If the table is already populated then error will be ignored and user data will not get altered
 //
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', 'Call-Info: <uri>\\;answer-after=0')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', 'Call-Info: <uri>\\\\;answer-after=0')";
 $result = $db->query($sql);
 $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'ALERTINFO', 'Alert-Info: Ring Answer')";
 $result = $db->query($sql);
