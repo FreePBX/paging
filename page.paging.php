@@ -99,12 +99,12 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 			$rows = 20;
 		echo "<a href='".$_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete";
 		echo "&amp;selection=${xtn}'>"._("Delete Group")." $xtn</a>";
-		if (!empty($conflict_url)) {
-			echo "<h5>"._("Conflicting Extensions")."</h5>";
-			echo implode('<br .>',$conflict_url);
-		}
 	} else {
 		$rows = 5;
+	}
+	if (!empty($conflict_url)) {
+		echo "<h5>"._("Conflicting Extensions")."</h5>";
+		echo implode('<br />',$conflict_url);
 	}
 	
 	$config = paging_get_pagingconfig($xtn);
