@@ -34,6 +34,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.4/paging-2.4.0.1.tgz</location>
-	<md5sum>a1f38a84963120900663d3d2e506a085</md5sum>
+	<location>release/2.4/paging-2.4.0.2.tgz</location>
+	<md5sum>db6d2604b4e39836ad0a3f7b75d6117b</md5sum>
 </module>
