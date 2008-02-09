@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.4.0.2</version>
+	<version>2.4.0.3</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.4.0.3* added depends on 2.4.0
 		*2.4.0.2* small fix so duplicate extension link is displayed when conflicts are found
 		*2.4.0.1* #2559 typo in install script, extra \\ needed (you must un-install and re-install or delete paging_autoanswer table entries to take effect)
 		*2.4.0* #2537, #2533, add default paging group w/ hooks to extensions/devices, fix jv validation error, it translation, remove extension/device from pagegroups upon delete
@@ -26,14 +27,14 @@
 		*1.5.1* Fixed bug with saving paging group
 		*1.5* First release for FreePBX 2.2 - Fixed compatibility issue with new UI
 	</changelog>
-	<requirements>
-		<version>2.3.0beta2</version>
-	</requirements>
+	<depends>
+		<version>2.4.0</version>
+	</depends>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. 
 	Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.4/paging-2.4.0.2.tgz</location>
-	<md5sum>db6d2604b4e39836ad0a3f7b75d6117b</md5sum>
+	<location>release/2.4/paging-2.4.0.3.tgz</location>
+	<md5sum>bed204e4f54466e6b941817ab58a9dc9</md5sum>
 </module>
