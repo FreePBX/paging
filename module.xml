@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.4.0.3</version>
+	<version>2.4.0.4</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.4.0.4* #2758 don't show intercom instructions when disabled, bogus codes were displayed
 		*2.4.0.3* added depends on 2.4.0
 		*2.4.0.2* small fix so duplicate extension link is displayed when conflicts are found
 		*2.4.0.1* #2559 typo in install script, extra \\ needed (you must un-install and re-install or delete paging_autoanswer table entries to take effect)
