@@ -94,6 +94,8 @@ function paging_text() {
 }
 
 function paging_show($xtn, $display, $type, $conflict_url=array()) {
+	global $module_hook;
+
 	if ($xtn) {
 		$selected = paging_get_devs($xtn);
 		$rows = count($selected)+1;
@@ -156,15 +158,21 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 
 	<tr><td><label for="force_page"><a href='#' class='info'><?php echo _("Force if busy") ?><span>
 	<?php echo _("If selected, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups ") ?></span></a></label></td>
-	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?>></td>
+	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?>></td></tr>
 
 	<tr><td><label for="duplex"><a href='#' class='info'><?php echo _("Duplex") ?><span>
 	<?php echo _("Paging is typically one way for annoucements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\"") ?></span></a></label></td>
-	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?>></td>
+	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?>></td></tr>
 
 	<tr><td><label for="default_group"><a href='#' class='info'><?php echo _("Default Page Group") ?><span>
 	<?php echo _("Each PBX system can have a single Default Page Group. If specified, extensions can be automatically added (or removed) from this group in the Extensions (or Devices) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?></span></a></label></td>
-	<td><input type='checkbox' name='default_group' id="default_group" value='1' <?php if ($default_group) { echo 'CHECKED'; } ?>></td>
+	<td><input type='checkbox' name='default_group' id="default_group" value='1' <?php if ($default_group) { echo 'CHECKED'; } ?>></td></tr>
+
+<?php
+			// implementation of module hook
+			// object was initialized in config.php
+			echo $module_hook->hookHtml;
+?>
 	
 	<tr>
 	<td colspan="2"><br><h6><input type="submit" name="Submit" type="button" value="<?php echo _("Submit Changes")?>"></h6></td>
