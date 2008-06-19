@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <ceo@postmet.com>, 2008.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.4\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-29 15:07+0100\n"
+"PO-Revision-Date: 2008-01-29 15:07+0100\n"
+"Last-Translator: Alexander Kozyrev\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ISO-8859-5\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: functions.inc.php:350
+msgid "Page Group: "
+msgstr "Пейджинг-группа:"
+
+#: functions.inc.php:510
+msgid "Exclude"
+msgstr "Исключить"
+
+#: functions.inc.php:511
+msgid "Include"
+msgstr "Включить"
+
+#: functions.inc.php:531
+msgid "Default Group Inclusion"
+msgstr "Включения в дефолтную группу"
+
+#: page.paging.php:84
+msgid ""
+"This module is for specific phones that are capable of Paging or Intercom. "
+"This section is for configuring group paging, intercom is configured through "
+"<strong>Feature Codes</strong>. Intercom must be enabled on a handset before "
+"it will allow incoming calls. It is possible to restrict incoming intercom "
+"calls to specific extensions only, or to allow intercom calls from all "
+"extensions but explicitly deny from specific extensions.<br /><br />This "
+"module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, "
+"SNOM , and possibly other SIP phones (not ATAs). Any phone that is always "
+"set to auto-answer should also work (such as the console extension if "
+"configured)."
+msgstr ""
+"Этот модуль предназначен для тех телефонов, которые имеют возможность разговора "
+"без поднятия трубки по громкой связи или интеркому. Эта секция конфигуририрует "
+"пейджинг группу вызова по селекторной связи, сам интерком конфигурируется в секции "
+"<strong>Сервисные коды</strong>. Функция интеркома должна быть включена на телефоне "
+"прежде, чем будет задействована возможность принимать вызовы. Есть возможность "
+"ограничить приём входящих звонков на интерком только с одного конкретного внутреннего "
+"номера, или наоборот, разрешить интерком со всех номеров, кроме некоторых конкретных."
+"<br /><br />Этот модуль хорошо работает с телефонами Aastra, Grandstream, "
+"Cisco/Linksys/Sipura, Mitel, Polycom, Snom, и, возможно, с другими SIP телефонами "
+"(не адаптерами!). Любой из этих телефонов можно установить в автоответ на интерком, "
+"который также вполне приемлем (как и консольное расширение, если оно сконфигурено)." 
+
+#: page.paging.php:86
+#, c-format
+msgid ""
+"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
+"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
+"extensions to intercom you (except those explicitly denied)</td></"
+"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
+"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
+"strong>:</td><td>Disable all extensions from intercoming you (except those "
+"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
+"td><td>Explicitly deny extension nnn to intercom you (even if generally "
+"enabled)</td></tr></table>"
+msgstr ""
+"Пример использования: :<br /><table><tr><td><strong>%snnn</strong>:</td><td>Номер "
+"интеркома nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Разрешить всем "
+"внутренним номерам звонить вам на интерком (кроме нижеследущих запрещённых)</td></"
+"tr><tr><td><strong>%snnn</strong>:</td><td>Точно указать разрешённому номеру nnn "
+"звонить вам на интерком (даже если другие отключены)</td></tr><tr><td><strong>%s</"
+"strong>:</td><td>Запретить всем внутренним номерам звонить на интерком (кроме "
+"нижеследущих разрешённых)</td></tr><tr><td><strong>%snnn</strong>:</"
+"td><td>Запретить звонить на интерком внутреннему номеру nnn (даже если по дефолту "
+"всем разрешено)</td></tr></table>"
+
+#: page.paging.php:101
+msgid "Delete Group"
+msgstr "Удалить группу"
+
+#: page.paging.php:106
+msgid "Conflicting Extensions"
+msgstr "Конфликт внутренних номеров"
+
+#: page.paging.php:123
+msgid "Modify Paging Group"
+msgstr "Модифицировать пейджинг-группу"
+
+#: page.paging.php:123 page.paging.php:204
+msgid "Add Paging Group"
+msgstr "Добавить пейджинг-группу"
+
+#: page.paging.php:125
+msgid "Paging Extension"
+msgstr "Внутренний номер для пейджинга"
+
+#: page.paging.php:125
+msgid "The number users will dial to page this group"
+msgstr "Этот номер служит для звонка в эту группу"
+
+#: page.paging.php:129
+msgid "Group Description:"
+msgstr "Описание группы"
+
+#: page.paging.php:129
+msgid "Provide a descriptive title for this Page Group."
+msgstr "Предлагается создать внятное описание для этой пейджинговой группы."
+
+#: page.paging.php:132
+msgid "Device List:"
+msgstr "Список устройств:"
+
+#: page.paging.php:132
+msgid ""
+"Select Device(s)to page. This is the phone that should be paged. In most "
+"installations, this is the same as the Extension. If you are configured to "
+"use \"Users & Devices\" this is the acutal Device and not the User.  Use "
+"Ctrl key to select multiple.."
+msgstr ""
+"Выберите устройства в группу. Это телефоны, на которые будет идти вызов по громкой "
+"связи. В большинстве инсталляций, это тоже самое, что и внутренний номер этого устройства. "
+"Если сконфигурено с помощью секции \"Пользователи и устройства\" то здесь "
+"актуально скорее устройство, а не пользователь. Используйте множественное выделение через "
+"Ctrl и клик мышью."
+
+#: page.paging.php:153
+msgid "Force if busy"
+msgstr "Форсировать, если занят."
+
+#: page.paging.php:154
+msgid ""
+"If selected, will not check if the device is in use before paging it. This "
+"means conversations can be interrupted by a page (depending on how the "
+"device handles it). This is useful for \"emergency\" paging groups "
+msgstr ""
+"Если отмечено, то не производится проверка статуса занят/свободен устройства "
+"перед пейджингом. Это означает, что если абонент разговаривает в этот момент, "
+"то разговор будет прерван (способом, зависящим уже от конкретного устройства). "
+"Это обычно актуально для \"экстренного\" сообщения по громкой связи пейджинговой "
+"группе."
+
+#: page.paging.php:157
+msgid "Duplex"
+msgstr "Дуплекс"
+
+#: page.paging.php:158
+msgid ""
+"Paging is typically one way for annoucements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"Обычно пейджинг это средство объявлений в одностороннем порядке. Если отметить "
+"здесь, то возможна дуплексная связь, то есть все телефоны в группе могут отвечать "
+"всем и слышать всех в группе одновременно. Можно сказать, что это как будто "
+" \"мгновенная конференция\"."
+
+#: page.paging.php:161
+msgid "Default Page Group"
+msgstr "Дефолтная пейджинг-группа"
+
+#: page.paging.php:162
+msgid ""
+"Each PBX system can have a single Default Page Group. If specified, "
+"extensions can be automatically added (or removed) from this group in the "
+"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
+"the option from the current default group if specified."
+msgstr ""
+"Каждая АТС может иметь одну дефолтную пейджинг-группу, Если указано, то внутренние "
+"номера будут добавляться (или удаляться) в эту группу в секции Внутренние номера."
+"<br />Делая эту группу дефолтной предыдущие добавления номеров в дефолтную "
+"группу утратят значение."
+
+#: page.paging.php:213
+msgid "Page Group"
+msgstr "Пейджинг-группа"
+
+#: page.paging.php:216
+msgid "Paging and Intercom"
+msgstr "Пейджинг и интерком"
