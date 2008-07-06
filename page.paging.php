@@ -129,17 +129,17 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	echo ($xtn)?_("Modify Paging Group"):_("Add Paging Group")."</h5></td></tr>\n";  ?>
 	<tr>
 		<td><a href='#' class='info'><?php echo _("Paging Extension") ?><span><?php echo _("The number users will dial to page this group") ?></span></a></td>
-		<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>'></td>
+		<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>' tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
     <td> <a href="#" class="info"><?php echo _("Group Description:")?>:<span><?php echo _("Provide a descriptive title for this Page Group.")?></span></a></td>
-		<td><input size="24" maxlength="24" type="text" name="description" id="description" value="<?php echo htmlspecialchars($description); ?>"></td>
+		<td><input size="24" maxlength="24" type="text" name="description" id="description" value="<?php echo htmlspecialchars($description); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr><td valign='top'><a href='#' class='info'><?php echo _("Device List:")."<span><br>"._("Select Device(s)to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple..") ?> 
 	<br><br></span></a></td>
 	<td valign="top"> 
 	
-	<select multiple="multiple" name="pagelist[]" id="xtnlist" >
+	<select multiple="multiple" name="pagelist[]" id="xtnlist"  tabindex="<?php echo ++$tabindex;?>">
 	<?php 
 	if (!isset($selected)) {
 		$selected = paging_get_devs($xtn); 
@@ -158,15 +158,15 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 
 	<tr><td><label for="force_page"><a href='#' class='info'><?php echo _("Force if busy") ?><span>
 	<?php echo _("If selected, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups ") ?></span></a></label></td>
-	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?>></td></tr>
+	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
 
 	<tr><td><label for="duplex"><a href='#' class='info'><?php echo _("Duplex") ?><span>
 	<?php echo _("Paging is typically one way for annoucements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\"") ?></span></a></label></td>
-	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?>></td></tr>
+	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
 
 	<tr><td><label for="default_group"><a href='#' class='info'><?php echo _("Default Page Group") ?><span>
 	<?php echo _("Each PBX system can have a single Default Page Group. If specified, extensions can be automatically added (or removed) from this group in the Extensions (or Devices) tab.<br />Making this group the default will uncheck the option from the current default group if specified.") ?></span></a></label></td>
-	<td><input type='checkbox' name='default_group' id="default_group" value='1' <?php if ($default_group) { echo 'CHECKED'; } ?>></td></tr>
+	<td><input type='checkbox' name='default_group' id="default_group" value='1' <?php if ($default_group) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
 
 <?php
 			// implementation of module hook
@@ -175,7 +175,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 ?>
 	
 	<tr>
-	<td colspan="2"><br><h6><input type="submit" name="Submit" type="button" value="<?php echo _("Submit Changes")?>"></h6></td>
+	<td colspan="2"><br><h6><input type="submit" name="Submit" type="button" value="<?php echo _("Submit Changes")?>" tabindex="<?php echo ++$tabindex;?>"></h6></td>
 	</tr>
 	</table>
 <script language="javascript">
