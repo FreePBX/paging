@@ -99,12 +99,18 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	if ($xtn) {
 		$selected = paging_get_devs($xtn);
 		$rows = count($selected)+1;
-		if ($rows < 5) 
+		if ($rows < 5) {
 			$rows = 5;
-		if ($rows > 20)
+		}
+		if ($rows > 20) {
 			$rows = 20;
-		echo "<a href='".$_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete";
-		echo "&amp;selection=${xtn}'>"._("Delete Group")." $xtn</a>";
+		}
+
+		$delURL = $_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete&amp;selection=${xtn}";
+		$tlabel = sprintf(_("Delete Group %s"),$xtn);
+		$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
+		echo "<a href=".$delURL.">".$label."</a>";
+
 	} else {
 		$rows = 5;
 	}
