@@ -39,7 +39,7 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
 				$ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
-				$ext->add($context, $code, '', new ext_dial('${DIAL}','5,A(beep)'));
+				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 				$ext->add($context, $code, 'end', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 				$ext->add($context, $code, '', new ext_busy(), 'check',101);
@@ -176,10 +176,15 @@ function paging_get_config($engine) {
 		 	*/
 
 			// Get the default values from the SQL table
+			// these remain hard coded but setting them blank in the table
+			// will remove them from the dial plan.
 			//
 			$alertinfo = 'Alert-Info: Ring Answer';
 			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
 			$sipuri    = 'intercom=true';
+			$doptions = 'A(beep)';
+			$dtime = '5';
+			$custom_vars = array();
 			$autoanswer_arr = paging_get_autoanswer_defaults();
 			foreach ($autoanswer_arr as $autosetting) {
 				switch (trim($autosetting['var'])) {
@@ -192,7 +197,19 @@ function paging_get_config($engine) {
 					case 'SIPURI':
 						$sipuri = trim($autosetting['setting']);
 						break;
-				default:
+					case 'VXML_URL':
+						$vxml_url = trim($autosetting['setting']);
+						break;
+					case 'DOPTIONS':
+						$doptions = trim($autosetting['setting']);
+						break;
+					case 'DTIME':
+						$dtime = trim($autosetting['setting']);
+						break;
+					default:
+						$key = trim($autosetting['var']);
+						$custom_vars[$key] = trim($autosetting['setting']);
+						break;
 				}
 			}
 
@@ -200,9 +217,25 @@ function paging_get_config($engine) {
 			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${DB(DEVICE/${ARG1}/dial)}'));
 			$ext->add($macro, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/macro)}" != "" ]', 'macro'));
 			$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
-			$ext->add($macro, "s", '', new ext_setvar('ALERTINFO', $alertinfo));
-			$ext->add($macro, "s", '', new ext_setvar('CALLINFO', $callinfo));
-			$ext->add($macro, "s", '', new ext_setvar('SIPURI', $sipuri));
+			if (trim($alertinfo) != "") {
+				$ext->add($macro, "s", '', new ext_setvar('ALERTINFO', $alertinfo));
+			}
+			if (trim($callinfo) != "") {
+				$ext->add($macro, "s", '', new ext_setvar('CALLINFO', $callinfo));
+			}
+			if (trim($sipuri) != "") {
+				$ext->add($macro, "s", '', new ext_setvar('SIPURI', $sipuri));
+			}
+			if (trim($vxml_url) != "") {
+				$ext->add($macro, "s", '', new ext_setvar('VXML_URL', $vxml_url));
+			}
+			if (trim($doptions) != "") {
+				$ext->add($macro, "s", '', new ext_setvar('DOPTIONS', $doptions));
+			}
+			foreach ($custom_vars as $key => $value) {
+				$ext->add($macro, "s", '', new ext_setvar($key, $value));
+			}
+			$ext->add($macro, "s", '', new ext_setvar('DTIME', $dtime));
 			$ext->add($macro, "s", '', new ext_setvar('ANSWERMACRO', ''));
 
 			// Defaults are setup, now make specific adjustments for detected phones
@@ -217,10 +250,15 @@ function paging_get_config($engine) {
 					case 'ALERTINFO':
 					case 'CALLINFO':
 					case 'SIPURI':
+					case 'VXML_URL':
 					case 'ANSWERMACRO':
-						$ext->add($macro, "s", '', new ext_execif('$["${phone:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
+					case 'DOPTIONS':
+					case 'DTIME':
+					default:
+						if (trim($data) != "") {
+							$ext->add($macro, "s", '', new ext_execif('$["${phone:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
+						}
 						break;
-				default:
 				}
 			}
 
@@ -247,7 +285,7 @@ function paging_get_config($engine) {
 				
 			$ext->add($extpaging, "_PAGE.", '', new ext_macro('autoanswer','${EXTEN:4}'));
 		
-			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}', '5, A(beep)'));
+			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_noop('Not paging originator'));
 			$ext->add($extpaging, "_PAGE.", '', new ext_hangup());
 				
