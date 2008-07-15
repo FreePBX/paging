@@ -217,6 +217,9 @@ function paging_get_config($engine) {
 			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${DB(DEVICE/${ARG1}/dial)}'));
 			$ext->add($macro, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/macro)}" != "" ]', 'macro'));
 			$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
+			// clear this in case it is set from another phone
+			//
+			$ext->add($macro, "s", '', new ext_setvar('SIPURI', ''));
 			if (trim($alertinfo) != "") {
 				$ext->add($macro, "s", '', new ext_setvar('ALERTINFO', $alertinfo));
 			}
