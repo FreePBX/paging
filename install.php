@@ -1,5 +1,5 @@
 <?php
-
+global $amp_conf;
 // Enable intercom as a feature code
 $fcc = new featurecode('paging', 'intercom-prefix');
 $fcc->setDescription('Intercom prefix');
@@ -129,11 +129,14 @@ if (DB::IsError($result)) {
 }
 // Make sure primary keys are set, they were not originally. Don't check for error,
 // if they exist it will give an error
-//
-$sql = "ALTER TABLE `paging_groups` ADD PRIMARY KEY ( `page_number` , `ext` )";
-$result = $db->query($sql);
+// sqlite3 does not support adding keys after the fact with ALTER.
+// These keys are setup in the CREATE TABLE as of 2.5 anyway, so
+// just ignore these queries for sqlite3
+if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
+	$sql = "ALTER TABLE `paging_groups` ADD PRIMARY KEY ( `page_number` , `ext` )";
+	$result = $db->query($sql);
 
-$sql = "ALTER TABLE `paging_config` ADD PRIMARY KEY ( `page_group` )";
-$result = $db->query($sql);
-
+	$sql = "ALTER TABLE `paging_config` ADD PRIMARY KEY ( `page_group` )";
+	$result = $db->query($sql);
+}
 ?>
