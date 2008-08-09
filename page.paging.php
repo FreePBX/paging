@@ -84,7 +84,7 @@ function paging_text() {
 	echo _("This module is for specific phones that are capable of Paging or Intercom. This section is for configuring group paging, intercom is configured through <strong>Feature Codes</strong>. Intercom must be enabled on a handset before it will allow incoming calls. It is possible to restrict incoming intercom calls to specific extensions only, or to allow intercom calls from all extensions but explicitly deny from specific extensions.<br /><br />This module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM , and possibly other SIP phones (not ATAs). Any phone that is always set to auto-answer should also work (such as the console extension if configured).") 
 ?><br /><br /><?php
 	if ($intercom_code != '') {
-		echo sprintf(_("Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all extensions to intercom you (except those explicitly denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from intercoming you (except those explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you (even if generally enabled)</td></tr></table>"),$intercom_code,$oncode,$oncode,$offcode,$offcode);
+		echo sprintf(_("Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all extensions to intercom you (except those explicitly denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from intercom you (except those explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you (even if generally enabled)</td></tr></table>"),$intercom_code,$oncode,$oncode,$offcode,$offcode);
 	} else {
 		echo _("Intercom mode is currently disabled, it can be enabled in the Feature Codes Panel.");
 	}
@@ -141,7 +141,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
     <td> <a href="#" class="info"><?php echo _("Group Description:")?>:<span><?php echo _("Provide a descriptive title for this Page Group.")?></span></a></td>
 		<td><input size="24" maxlength="24" type="text" name="description" id="description" value="<?php echo htmlspecialchars($description); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
-	<tr><td valign='top'><a href='#' class='info'><?php echo _("Device List:")."<span><br>"._("Select Device(s)to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple..") ?> 
+	<tr><td valign='top'><a href='#' class='info'><?php echo _("Device List:")."<span><br>"._("Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple..") ?> 
 	<br><br></span></a></td>
 	<td valign="top"> 
 	
@@ -167,7 +167,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
 
 	<tr><td><label for="duplex"><a href='#' class='info'><?php echo _("Duplex") ?><span>
-	<?php echo _("Paging is typically one way for annoucements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\"") ?></span></a></label></td>
+	<?php echo _("Paging is typically one way for announcements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\"") ?></span></a></label></td>
 	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
 
 	<tr><td><label for="default_group"><a href='#' class='info'><?php echo _("Default Page Group") ?><span>
