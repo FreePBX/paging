@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.5.0.2</version>
+	<version>2.5.0.3</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.5.0.3* #2530 typo _GLOBALS should be GLOBALS
 		*2.5.0.2* #2987, #3008 sqlite3 install script, spelling
 		*2.5.0.1* fix to make sure SIPURI is clear if not default set
 		*2.5.0.0* #2390, #2723 added configurable dial options (so beep can be removed), VXML_URL and any other custom channel variableoption to autoanswer
@@ -40,6 +41,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.5/paging-2.5.0.2.tgz</location>
-	<md5sum>773908632e2c795c7f6d13b7ccc8b730</md5sum>
+	<location>release/2.5/paging-2.5.0.3.tgz</location>
+	<md5sum>50c29c3988b00c8e22baa6ecde2ec936</md5sum>
 </module>
