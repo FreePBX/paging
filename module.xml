@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.5.0.1</version>
+	<version>2.5.0.2</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.5.0.2* #2987, #3008 sqlite3 install script, spelling
 		*2.5.0.1* fix to make sure SIPURI is clear if not default set
 		*2.5.0.0* #2390, #2723 added configurable dial options (so beep can be removed), VXML_URL and any other custom channel variableoption to autoanswer
 		*2.4.0.5* #1939, #2843 Mitel Phone Support, Russian Translation, oldstyle module hooks added
@@ -39,6 +40,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.5/paging-2.5.0.1.tgz</location>
-	<md5sum>b2e812d63b018a1091dcdd6fc7e1d5e4</md5sum>
+	<location>release/2.5/paging-2.5.0.2.tgz</location>
+	<md5sum>773908632e2c795c7f6d13b7ccc8b730</md5sum>
 </module>
