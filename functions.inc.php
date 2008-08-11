@@ -594,7 +594,7 @@ function paging_configprocess() {
 	}
 
 	if ($action == "add" || $action == "edit") {
-		if (!isset($_GLOBALS['abort']) || $_GLOBALS['abort'] !== true) {
+		if (!isset($GLOBALS['abort']) || $GLOBALS['abort'] !== true) {
 			if ($in_default_page_grp !== false) {
 				paging_set_default($extdisplay, $in_default_page_grp);
 			}
