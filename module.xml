@@ -14,24 +14,7 @@
 		*2.4.0.3* added depends on 2.4.0
 		*2.4.0.2* small fix so duplicate extension link is displayed when conflicts are found
 		*2.4.0.1* #2559 typo in install script, extra \\ needed (you must un-install and re-install or delete paging_autoanswer table entries to take effect)
-		*2.4.0* #2537, #2533, add default paging group w/ hooks to extensions/devices, fix jv validation error, it translation, remove extension/device from pagegroups upon delete
-		*2.1.0* Add page group description, add extension and destination registry call-backs, add SQL based answer variable defaults and phone specific ones
-		*2.0.1* Don't allow incoming intercom if DND is set and fix Aastra intercom going to auto mute
-		*2.0.0* #1926, #1978 fix deficiencies in intercom, add support for explicit allow and deny, expand phones that can auto-answer
-		*1.6.7* Add support for duplex paging
-		*1.6.6.1* #2376 enable/disable code broke in 1.6.6 and add user-callerid to get proper cid on intercom
-		*1.6.6* #2376 only interecept *80nnn for local extensions so branch offices can be intercomed
-		*1.6.5.2* bump for rc1
-		*1.6.5.1* #1861 create intercom dialplan always when enabled
-		*1.6.5* #2168 fix intercom, #2165 change module to get rid of first time propagation
-		*1.6.4* fixed deprecated use of ALERT_INFO and SIPHEADER
-		*1.6.3* changed ${CALLERID(number)} to ${AMPUSER} to accomodate CID number masquerading
-		*1.6.2* Fix callerid bug
-		*1.6.1* Fix install bug
-		*1.6* Busy devices are no longer paged, flag added to allow overriding this behaviour.
-	 	*1.5.2* Pages now start with a "beep" sound. Fixed help text.
-		*1.5.1* Fixed bug with saving paging group
-		*1.5* First release for FreePBX 2.2 - Fixed compatibility issue with new UI
+		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
 	<depends>
 		<version>2.4.0</version>
