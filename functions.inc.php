@@ -399,7 +399,7 @@ function paging_get_devs($grp) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
-	$grp = addslashes($grp); 
+	$grp = $db->escapeSimple($grp); 
 
 	$sql = "SELECT ext FROM paging_groups where page_number='$grp'";
 	$results = $db->getAll($sql);
@@ -414,7 +414,7 @@ function paging_get_pagingconfig($grp) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
-	$grp = addslashes($grp); 
+	$grp = $db->escapeSimple($grp); 
 
 	$sql = "SELECT * FROM paging_config WHERE page_group='$grp'";
 	$results = $db->getRow($sql, DB_FETCHMODE_ASSOC);
@@ -435,7 +435,7 @@ function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
-	$xtn = addslashes($xtn);
+	$xtn = $db->escapeSimple($xtn);
 
 	// Delete it if it's there.
 	paging_del($oldxtn);
@@ -479,14 +479,14 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='', $defaul
 		$xtns = explode("\n",$plist);
 	}
 	foreach (array_keys($xtns) as $val) {
-		$val = addslashes(trim($xtns[$val]));
+		$val = $db->escapeSimple(trim($xtns[$val]));
 		// Sanity check input.
 		
 		$sql = "INSERT INTO paging_groups(page_number, ext) VALUES ('$xtn', '$val')";
 		$db->query($sql);
 	}
 	
-	$description = addslashes(trim($description));
+	$description = $db->escapeSimple(trim($description));
 	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description) VALUES ('$xtn', '$force_page', '$duplex', '$description')";
 	$db->query($sql);
 	
