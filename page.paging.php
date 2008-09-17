@@ -75,9 +75,15 @@ function paging_text() {
 	$fcc = new featurecode('paging', 'intercom-on');
 	$oncode = $fcc->getCodeActive();
 	unset($fcc);
+	if ($oncode === '') {
+		$oncode = "("._("Disabled").")";
+	}
 	$fcc = new featurecode('paging', 'intercom-off');
 	$offcode = $fcc->getCodeActive();
 	unset($fcc);
+	if ($offcode === '') {
+		$offcode = "("._("Disabled").")";
+	}
 ?>
 <p>
 <?php 
