@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.5.0.4</version>
+	<version>2.5.0.5</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.5.0.5* #3208, localization
 		*2.5.0.4* #3138 Sqlite3 fixes
 		*2.5.0.3* #2530 typo _GLOBALS should be GLOBALS
 		*2.5.0.2* #2987, #3008 sqlite3 install script, spelling
@@ -25,6 +26,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.5/paging-2.5.0.4.tgz</location>
-	<md5sum>c66418378921a2e2393d4f3b262dedff</md5sum>
+	<location>release/2.5/paging-2.5.0.5.tgz</location>
+	<md5sum>1771d71d6a7b0061351845e32962a6cc</md5sum>
 </module>
