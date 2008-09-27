@@ -144,7 +144,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 		<td><input size='5' type='text' name='pagenbr' value='<?php echo $xtn ?>' tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr>
-    <td> <a href="#" class="info"><?php echo _("Group Description:")?>:<span><?php echo _("Provide a descriptive title for this Page Group.")?></span></a></td>
+    <td> <a href="#" class="info"><?php echo _("Group Description")?>:<span><?php echo _("Provide a descriptive title for this Page Group.")?></span></a></td>
 		<td><input size="24" maxlength="24" type="text" name="description" id="description" value="<?php echo htmlspecialchars($description); ?>" tabindex="<?php echo ++$tabindex;?>"></td>
 	</tr>
 	<tr><td valign='top'><a href='#' class='info'><?php echo _("Device List:")."<span><br>"._("Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple..") ?> 

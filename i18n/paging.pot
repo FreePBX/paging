@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-17 12:10+0200\n"
+"POT-Creation-Date: 2008-09-27 16:24+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:575 page.paging.php:173
+#: functions.inc.php:575 page.paging.php:179
 msgid "Default Page Group"
 msgstr ""
 
@@ -54,7 +54,11 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: page.paging.php:84
+#: page.paging.php:79 page.paging.php:85
+msgid "Disabled"
+msgstr ""
+
+#: page.paging.php:90
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -68,7 +72,7 @@ msgid ""
 "configured)."
 msgstr ""
 
-#: page.paging.php:87
+#: page.paging.php:93
 #, php-format
 msgid ""
 "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
@@ -82,50 +86,50 @@ msgid ""
 "enabled)</td></tr></table>"
 msgstr ""
 
-#: page.paging.php:89
+#: page.paging.php:95
 msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
 
-#: page.paging.php:110
+#: page.paging.php:116
 #, php-format
 msgid "Delete Group %s"
 msgstr ""
 
-#: page.paging.php:118
+#: page.paging.php:124
 msgid "Conflicting Extensions"
 msgstr ""
 
-#: page.paging.php:135
+#: page.paging.php:141
 msgid "Modify Paging Group"
 msgstr ""
 
-#: page.paging.php:135 page.paging.php:222
+#: page.paging.php:141 page.paging.php:228
 msgid "Add Paging Group"
 msgstr ""
 
-#: page.paging.php:137
+#: page.paging.php:143
 msgid "Paging Extension"
 msgstr ""
 
-#: page.paging.php:137
+#: page.paging.php:143
 msgid "The number users will dial to page this group"
 msgstr ""
 
-#: page.paging.php:141
-msgid "Group Description:"
+#: page.paging.php:147
+msgid "Group Description"
 msgstr ""
 
-#: page.paging.php:141
+#: page.paging.php:147
 msgid "Provide a descriptive title for this Page Group."
 msgstr ""
 
-#: page.paging.php:144
+#: page.paging.php:150
 msgid "Device List:"
 msgstr ""
 
-#: page.paging.php:144
+#: page.paging.php:150
 msgid ""
 "Select Device(s) to page. This is the phone that should be paged. In most "
 "installations, this is the same as the Extension. If you are configured to "
@@ -133,29 +137,29 @@ msgid ""
 "Ctrl key to select multiple.."
 msgstr ""
 
-#: page.paging.php:165
+#: page.paging.php:171
 msgid "Force if busy"
 msgstr ""
 
-#: page.paging.php:166
+#: page.paging.php:172
 msgid ""
 "If selected, will not check if the device is in use before paging it. This "
 "means conversations can be interrupted by a page (depending on how the "
 "device handles it). This is useful for \"emergency\" paging groups "
 msgstr ""
 
-#: page.paging.php:169
+#: page.paging.php:175
 msgid "Duplex"
 msgstr ""
 
-#: page.paging.php:170
+#: page.paging.php:176
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
 
-#: page.paging.php:174
+#: page.paging.php:180
 msgid ""
 "Each PBX system can have a single Default Page Group. If specified, "
 "extensions can be automatically added (or removed) from this group in the "
@@ -163,22 +167,22 @@ msgid ""
 "the option from the current default group if specified."
 msgstr ""
 
-#: page.paging.php:184
+#: page.paging.php:190
 msgid "Submit Changes"
 msgstr ""
 
-#: page.paging.php:193
+#: page.paging.php:199
 msgid "Please enter a valid Paging Extension"
 msgstr ""
 
-#: page.paging.php:194
+#: page.paging.php:200
 msgid "Please select at least one extension"
 msgstr ""
 
-#: page.paging.php:231
+#: page.paging.php:237
 msgid "Page Group"
 msgstr ""
 
-#: page.paging.php:234
+#: page.paging.php:240
 msgid "Paging and Intercom"
 msgstr ""

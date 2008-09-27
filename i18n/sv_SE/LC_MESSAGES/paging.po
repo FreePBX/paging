@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: FreePBX paging\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-09-27 16:24+0200\n"
+"PO-Revision-Date: 2008-09-27 17:37+0100\n"
+"Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Swedish\n"
+"X-Poedit-Country: SWEDEN\n"
+
+#: functions.inc.php:391
+msgid "Page Group: "
+msgstr "Anropsgrupp: "
+
+#: functions.inc.php:551
+msgid "Exclude"
+msgstr "Exkludera"
+
+#: functions.inc.php:552
+msgid "Include"
+msgstr "Inkludera"
+
+#: functions.inc.php:572
+msgid "Default Group Inclusion"
+msgstr "Standard gruppinkludering"
+
+#: functions.inc.php:575
+#: page.paging.php:179
+msgid "Default Page Group"
+msgstr "Standard anropsgrupp"
+
+#: functions.inc.php:575
+msgid "You can include or exclude this extension/device from being part of the default page group when creating or editing."
+msgstr "Du kan inkludera eller exkludera denna anknytning/enhet från att vara med i standard anropsgruppen när du skapar eller rediderar den"
+
+#: install.php:4
+msgid "Intercom prefix"
+msgstr "Prefix för snabbtelefon"
+
+#: install.php:12
+msgid "User Intercom Allow"
+msgstr "Tillåt snabbtelefon"
+
+#: install.php:20
+msgid "User Intercom Disallow"
+msgstr "Förhindra snabbtelefon"
+
+#: page.paging.php:79
+#: page.paging.php:85
+msgid "Disabled"
+msgstr "Avaktiverad"
+
+#: page.paging.php:90
+msgid "This module is for specific phones that are capable of Paging or Intercom. This section is for configuring group paging, intercom is configured through <strong>Feature Codes</strong>. Intercom must be enabled on a handset before it will allow incoming calls. It is possible to restrict incoming intercom calls to specific extensions only, or to allow intercom calls from all extensions but explicitly deny from specific extensions.<br /><br />This module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM , and possibly other SIP phones (not ATAs). Any phone that is always set to auto-answer should also work (such as the console extension if configured)."
+msgstr "Denna modul är för specifika telefoner som klarar av snabbtelefoni. Denna sektion används för att konfigurera anropsgrupper, själva snabbtelefonin konfigureras genom <strong>Funktionskoder</strong>. Snabbtelefonifunktionen måste aktiveras på telefonen först för att detta ska fungera. Det är möjligt att konfigurera snabbtelefoni för specifika anknytningar eller genom att tillåta snabbtelefoni till alla anknytningar förutom vissa anknytningar.<br><br>Denna modul ska fungera med Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM och troligtvis andra SIP-telefoner (inga s.k. ATA-boxar). Telefoner med funktionen auto-answer bör också fungera."
+
+#: page.paging.php:93
+#, php-format
+msgid "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all extensions to intercom you (except those explicitly denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from intercom you (except those explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you (even if generally enabled)</td></tr></table>"
+msgstr "T.ex.<br /><table><tr><td><strong>%snnn</strong>:</td><td>Anropa anknytning nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Tillåt alla anknytningar att anropa dig (förutom dom du specifikt förbjuder)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Tillåt anknynting nnn att anropa dig (även om du förbjuder andra)</td></tr><tr><td><strong>%s</strong>:</td><td>Förbjud alla anknytningar att anropa dig (förutom dom du tillåtit)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Förbjud anknytning nnn att anropa dig (även om du generellt tillåter alla)</td></tr></table>"
+
+#: page.paging.php:95
+msgid "Intercom mode is currently disabled, it can be enabled in the Feature Codes Panel."
+msgstr "Snabbtelefonanrop är för närvarande avaktiverat, du kan aktivera detta i Funktionskoder."
+
+#: page.paging.php:116
+#, php-format
+msgid "Delete Group %s"
+msgstr "Ta bort grupp %s"
+
+#: page.paging.php:124
+msgid "Conflicting Extensions"
+msgstr "Konfliktande anknytningar"
+
+#: page.paging.php:141
+msgid "Modify Paging Group"
+msgstr "Redigera anropsgrupp"
+
+#: page.paging.php:141
+#: page.paging.php:228
+msgid "Add Paging Group"
+msgstr "Lägg till anropsgrupp"
+
+#: page.paging.php:143
+msgid "Paging Extension"
+msgstr "Anknytningsnummer för grupp"
+
+#: page.paging.php:143
+msgid "The number users will dial to page this group"
+msgstr "Numret att använda för att anropa denna grupp"
+
+#: page.paging.php:147
+msgid "Group Description"
+msgstr "Beskrivning för gruppen"
+
+#: page.paging.php:147
+msgid "Provide a descriptive title for this Page Group."
+msgstr "Skriv en in kortfattad beskrivning för denna grupp."
+
+#: page.paging.php:150
+msgid "Device List:"
+msgstr "Anknytningslista"
+
+#: page.paging.php:150
+msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple.."
+msgstr "Välj anknytning(ar) du vill anropa. Detta kommer att ske till telefonen. I de flesta fall är detta samma som anknytningen. Om du använder konfigurationen \"Användare & Enheter\" kommer detta att vara enheten och inte användaren. Använd Ctrl-tangenten för att markera flera i listan."
+
+#: page.paging.php:171
+msgid "Force if busy"
+msgstr "Forcera om det är upptaget"
+
+#: page.paging.php:172
+msgid "If selected, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups "
+msgstr "Om detta är valt, och telefonen är upptagen, kommer pågående samtal att avbrytas för anrop (beroende på om telefonen stödjer detta). Detta är användbart för t.ex. anropsgruppen \"nödläge\"."
+
+#: page.paging.php:175
+msgid "Duplex"
+msgstr "Tvåvägs-samtal"
+
+#: page.paging.php:176
+msgid "Paging is typically one way for announcements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\""
+msgstr "Anrop via grupper är normalt för envägs-meddelande. Om detta väljs kommer anropet att vara tvåvägs, alla telefoner i anropsgruppen kan prata och höras av varandra. Kan med fördel användas för \"omedelbar konferens\"."
+
+#: page.paging.php:180
+msgid "Each PBX system can have a single Default Page Group. If specified, extensions can be automatically added (or removed) from this group in the Extensions (or Devices) tab.<br />Making this group the default will uncheck the option from the current default group if specified."
+msgstr "Varje instans av FreePBX kan ha en standard anropsgrupp. Om denna är angiven, kan anknytningar automatiskt läggas till (eller tas bort från) denna grupp i Anknytningar (eller Enheter)<br>Om denna grupp sätts som standard kommer den grupp som tidigare var standard att avmarkeras."
+
+#: page.paging.php:190
+msgid "Submit Changes"
+msgstr "Spara ändringar"
+
+#: page.paging.php:199
+msgid "Please enter a valid Paging Extension"
+msgstr "Skriv in en giltig anknytning"
+
+#: page.paging.php:200
+msgid "Please select at least one extension"
+msgstr "Välj minst en anknytning"
+
+#: page.paging.php:237
+msgid "Page Group"
+msgstr "Anropsgrupp"
+
+#: page.paging.php:240
+msgid "Paging and Intercom"
+msgstr "Snabbtelefon"
+
