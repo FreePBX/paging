@@ -1,25 +1,29 @@
 <?php
+//for translation only
+if (false) {
+_("Intercom prefix");
+_("User Intercom Allow");
+_("User Intercom Disallow");
+}
+
 global $amp_conf;
 // Enable intercom as a feature code
-$intercomprefix = _("Intercom prefix");
 $fcc = new featurecode('paging', 'intercom-prefix');
-$fcc->setDescription($intercomprefix);
+$fcc->setDescription('Intercom prefix');
 $fcc->setDefault('*80',false);
 $fcc->update();
 unset($fcc);
 
 // User intercom enable code
-$userinterallow = _("User Intercom Allow");
 $fcc = new featurecode('paging', 'intercom-on');
-$fcc->setDescription($userinterallow);
+$fcc->setDescription('User Intercom Allow');
 $fcc->setDefault('*54',false);
 $fcc->update();
 unset($fcc);
 
 // User intercom disable 
-$userintercomdisallow = _("User Intercom Disallow");
 $fcc = new featurecode('paging', 'intercom-off');
-$fcc->setDescription($userintercomdisallow);
+$fcc->setDescription('User Intercom Disallow');
 $fcc->setDefault('*55',false);
 $fcc->update();
 unset($fcc);	
