@@ -22,6 +22,51 @@ function paging_get_config($engine) {
 			// Since these are going down channel local, set ALERT_INFO and SIPADDHEADER which will be set in dialparties.agi
 			// no point in even setting the headers here they will get lost in channel local
 			//
+
+			/* Set these up once here and in intercom so that autoanswer macro does not have
+			 * to go through this for every single extension which causes a lot of extra overhead
+			 * with big page groups
+			 */
+
+			$has_answermacro = false;
+
+			$alertinfo = 'Alert-Info: Ring Answer';
+			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
+			$sipuri    = 'intercom=true';
+			$doptions = 'A(beep)';
+			$dtime = '5';
+			$custom_vars = array();
+			$autoanswer_arr = paging_get_autoanswer_defaults();
+			foreach ($autoanswer_arr as $autosetting) {
+				switch (trim($autosetting['var'])) {
+					case 'ALERTINFO':
+						$alertinfo = trim($autosetting['setting']);
+						break;
+					case 'CALLINFO':
+						$callinfo = trim($autosetting['setting']);
+						break;
+					case 'SIPURI':
+						$sipuri = trim($autosetting['setting']);
+						break;
+					case 'VXML_URL':
+						$vxml_url = trim($autosetting['setting']);
+						break;
+					case 'DOPTIONS':
+						$doptions = trim($autosetting['setting']);
+						break;
+					case 'DTIME':
+						$dtime = trim($autosetting['setting']);
+						break;
+					default:
+						$key = trim($autosetting['var']);
+						$custom_vars[$key] = trim($autosetting['setting']);
+						if (ltrim($custom_vars[$key],'_') == "ANSWERMACRO") {
+							$has_answermacro = true;
+						}
+						break;
+				}
+			}
+
 			$extpaging = 'ext-paging';
 			if (!empty($intercom_code)) {
 				$code = '_'.$intercom_code.'.';
@@ -36,6 +81,31 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, 'allow', new ext_dbget('DEVICES','AMPUSER/${dialnumber}/device'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'end'));
 				$ext->add($context, $code, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
+
+				/* Set these up so that macro-autoanswer doesn't have to
+				 */
+				$ext->add($context, $code, '', new ext_setvar('_SIPURI', ''));
+				if (trim($alertinfo) != "") {
+					$ext->add($context, $code, '', new ext_setvar('_ALERTINFO', $alertinfo));
+				}
+				if (trim($callinfo) != "") {
+					$ext->add($context, $code, '', new ext_setvar('_CALLINFO', $callinfo));
+				}
+				if (trim($sipuri) != "") {
+					$ext->add($context, $code, '', new ext_setvar('_SIPURI', $sipuri));
+				}
+				if (trim($vxml_url) != "") {
+					$ext->add($context, $code, '', new ext_setvar('_VXML_URL', $vxml_url));
+				}
+				if (trim($doptions) != "") {
+					$ext->add($context, $code, '', new ext_setvar('_DOPTIONS', $doptions));
+				}
+				foreach ($custom_vars as $key => $value) {
+					$ext->add($context, $code, '', new ext_setvar('_'.ltrim($key,'_'), $value));
+				}
+				$ext->add($context, $code, '', new ext_setvar('_DTIME', $dtime));
+				$ext->add($context, $code, '', new ext_setvar('_ANSWERMACRO', ''));
+
 				$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
 				$ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
@@ -50,7 +120,6 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 				$ext->add($context, $code, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
-				$ext->add($context, $code, '', new ext_setvar('_FORCE_PAGE', '0'));
 				$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 				$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
 				$ext->add($context, $code, '', new ext_busy());
@@ -154,10 +223,9 @@ function paging_get_config($engine) {
 				1. Set ${DIAL} to the device's dial string
 				2. If there is a device specific macro defined in the DEVICE's object
 				   (DEVICE/<devicenum>/autoanswer/macro) then execute that macro and end
-				3. Set defaults for Alert-Info and Call-Info headers and SIP_URI_OPTIONS
-				4. Try to identify endpoints by their useragents that may need known
+				3. Try to identify endpoints by their useragents that may need known
 				   changes and make those changes. These are generated from the
-					 paging_autoanswer table so users can extend them
+					 paging_autoanswer table so users can extend them, if any are present
 				5. Set the variables and end unless a useragent specific ANSWERMACRO is
 				   defined in which case call it and end.
 
@@ -175,86 +243,37 @@ function paging_get_config($engine) {
 				then you can use a general macro without setting info in each device.
 		 	*/
 
-			// Get the default values from the SQL table
-			// these remain hard coded but setting them blank in the table
-			// will remove them from the dial plan.
-			//
-			$alertinfo = 'Alert-Info: Ring Answer';
-			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
-			$sipuri    = 'intercom=true';
-			$doptions = 'A(beep)';
-			$dtime = '5';
-			$custom_vars = array();
-			$autoanswer_arr = paging_get_autoanswer_defaults();
-			foreach ($autoanswer_arr as $autosetting) {
-				switch (trim($autosetting['var'])) {
-					case 'ALERTINFO':
-						$alertinfo = trim($autosetting['setting']);
-						break;
-					case 'CALLINFO':
-						$callinfo = trim($autosetting['setting']);
-						break;
-					case 'SIPURI':
-						$sipuri = trim($autosetting['setting']);
-						break;
-					case 'VXML_URL':
-						$vxml_url = trim($autosetting['setting']);
-						break;
-					case 'DOPTIONS':
-						$doptions = trim($autosetting['setting']);
-						break;
-					case 'DTIME':
-						$dtime = trim($autosetting['setting']);
-						break;
-					default:
-						$key = trim($autosetting['var']);
-						$custom_vars[$key] = trim($autosetting['setting']);
-						break;
-				}
-			}
+			$autoanswer_arr = paging_get_autoanswer_useragents();
 
 			$macro = 'macro-autoanswer';
 			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${DB(DEVICE/${ARG1}/dial)}'));
 			$ext->add($macro, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/macro)}" != "" ]', 'macro'));
-			$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
-			// clear this in case it is set from another phone
+
+			// If there are no phone specific auto-answer vars, then we don't care what the phone is below
 			//
-			$ext->add($macro, "s", '', new ext_setvar('SIPURI', ''));
-			if (trim($alertinfo) != "") {
-				$ext->add($macro, "s", '', new ext_setvar('ALERTINFO', $alertinfo));
+			if (!empty($autoanswer_arr)) {
+				$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
 			}
-			if (trim($callinfo) != "") {
-				$ext->add($macro, "s", '', new ext_setvar('CALLINFO', $callinfo));
-			}
-			if (trim($sipuri) != "") {
-				$ext->add($macro, "s", '', new ext_setvar('SIPURI', $sipuri));
-			}
-			if (trim($vxml_url) != "") {
-				$ext->add($macro, "s", '', new ext_setvar('VXML_URL', $vxml_url));
-			}
-			if (trim($doptions) != "") {
-				$ext->add($macro, "s", '', new ext_setvar('DOPTIONS', $doptions));
-			}
-			foreach ($custom_vars as $key => $value) {
-				$ext->add($macro, "s", '', new ext_setvar($key, $value));
-			}
-			$ext->add($macro, "s", '', new ext_setvar('DTIME', $dtime));
-			$ext->add($macro, "s", '', new ext_setvar('ANSWERMACRO', ''));
+			// We used to set all the variables here (ALERTINFO, CALLINFO, etc. That has been moved to each
+			// paging group and the intercom main macro, since it was redundant for every phone causing a lot
+			// of overhead with large page groups.
+			//
 
 			// Defaults are setup, now make specific adjustments for detected phones
 			// These come from the SQL table as well where installations can make customizations
 			//
-			$autoanswer_arr = paging_get_autoanswer_useragents();
 			foreach ($autoanswer_arr as $autosetting) {
 				$useragent   = trim($autosetting['useragent']);
 				$autovar     = trim($autosetting['var']);
 				$data        = trim($autosetting['setting']);
-				switch (trim($autovar)) {
+				switch (ltrim($autovar,'_')) {
+					case 'ANSWERMACRO':
+						$has_answermacro = true;
+						// fall through - no break on purpose
 					case 'ALERTINFO':
 					case 'CALLINFO':
 					case 'SIPURI':
 					case 'VXML_URL':
-					case 'ANSWERMACRO':
 					case 'DOPTIONS':
 					case 'DTIME':
 					default:
@@ -267,38 +286,43 @@ function paging_get_config($engine) {
 
 			// Now any adjustments have been made, set the headers and done
 			//
-			$ext->add($macro, "s", '', new ext_gotoif('$["${ANSWERMACRO}" != ""]','macro2'));
+			if ($has_answermacro) {
+				$ext->add($macro, "s", '', new ext_gotoif('$["${ANSWERMACRO}" != ""]','macro2'));
+			}
 			$ext->add($macro, "s", '', new ext_execif('$["${ALERTINFO}" != ""]', 'SipAddHeader','${ALERTINFO}'));
 			$ext->add($macro, "s", '', new ext_execif('$["${CALLINFO}" != ""]', 'SipAddHeader','${CALLINFO}'));
 			$ext->add($macro, "s", '', new ext_execif('$["${SIPURI}" != ""]', 'Set','__SIP_URI_OPTIONS=${SIPURI}'));
 			$ext->add($macro, "s", 'macro', new ext_macro('${DB(DEVICE/${ARG1}/autoanswer/macro)}','${ARG1}'), 'n',2);
-			$ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
+			if ($has_answermacro) {
+				$ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
+			}
 
 
 			// Create the paging context that is used in the paging application for each phone to auto-answer
 			//
 			$ext->addInclude('from-internal-additional',$extpaging);
 				
+			// Normal page version
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
-			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${FORCE_PAGE} != 1 ]','AVAIL'));
-			$ext->add($extpaging, "_PAGE.", '', new ext_setvar('AVAILSTATUS', 'not checked'));
-			$ext->add($extpaging, "_PAGE.", '', new ext_goto('SKIPCHECK'));
 			$ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
-			$ext->add($extpaging, "_PAGE.", 'SKIPCHECK', new ext_noop('Seems to be available (state = ${AVAILSTATUS}'));
-				
-			$ext->add($extpaging, "_PAGE.", '', new ext_macro('autoanswer','${EXTEN:4}'));
-		
+			$ext->add($extpaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:4}'));
 			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
-			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_noop('Not paging originator'));
-			$ext->add($extpaging, "_PAGE.", '', new ext_hangup());
-				
-			$ext->add($extpaging, "_PAGE.", '', new ext_noop('Channel ${AVAILCHAN} is not available (state = ${AVAILSTATUS})'), 'AVAIL',101);
+			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_hangup());
+			$ext->add($extpaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
+
+			// Force page version
+			$ext->add($extpaging, "_FPAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:5} ]','skipself'));
+			$ext->add($extpaging, "_FPAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:5}'));
+			$ext->add($extpaging, "_FPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+			$ext->add($extpaging, "_FPAGE.", 'skipself', new ext_hangup());
+
 			//
 			// Now get a list of all the paging groups...
 			$sql = "SELECT page_group, force_page, duplex FROM paging_config";
 			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 			foreach ($paging_groups as $thisgroup) {
 				$grp=trim($thisgroup['page_group']);
+				$pagemode = $thisgroup['force_page'] ? 'FPAGE' : 'PAGE';
 				$sql = "SELECT ext FROM paging_groups WHERE page_number='$grp'";
 				$all_exts = $db->getAll($sql);
 				$dialstr='';
@@ -307,7 +331,7 @@ function paging_get_config($engine) {
 						$local_dial[0] = rtrim($local_dial[0],"xX");
 					}
 
-					$dialstr .= "LOCAL/PAGE".trim($local_dial[0])."@".$extpaging."&";
+					$dialstr .= "LOCAL/$pagemode".trim($local_dial[0])."@".$extpaging."&";
 				}
 				// It will always end with an &, so lets take that off.
 				$dialstr = rtrim($dialstr, "&");
@@ -315,12 +339,33 @@ function paging_get_config($engine) {
 				if ($thisgroup['duplex']) {
 					$dialstr .= ",d";
 				}
-				$ext->add($extpaging, "Debug", '', new ext_noop("dialstr is $dialstr"));
 				$ext->add($extpaging, $grp, '', new ext_answer(''));
-				$ext->add($extpaging, $grp, '', new ext_setvar("_FORCE_PAGE", ($thisgroup['force_page']?1:0)));
 				$ext->add($extpaging, $grp, '', new ext_macro('user-callerid'));
 				// make AMPUSER inherited here, so we can skip the proper 'self' if using cidnum masquerading
 				$ext->add($extpaging, $grp, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
+
+				$ext->add($extpaging, $grp, '', new ext_setvar('_SIPURI', ''));
+				if (trim($alertinfo) != "") {
+					$ext->add($extpaging, $grp, '', new ext_setvar('_ALERTINFO', $alertinfo));
+				}
+				if (trim($callinfo) != "") {
+					$ext->add($extpaging, $grp, '', new ext_setvar('_CALLINFO', $callinfo));
+				}
+				if (trim($sipuri) != "") {
+					$ext->add($extpaging, $grp, '', new ext_setvar('_SIPURI', $sipuri));
+				}
+				if (trim($vxml_url) != "") {
+					$ext->add($extpaging, $grp, '', new ext_setvar('_VXML_URL', $vxml_url));
+				}
+				if (trim($doptions) != "") {
+					$ext->add($extpaging, $grp, '', new ext_setvar('_DOPTIONS', $doptions));
+				}
+				$ext->add($extpaging, $grp, '', new ext_setvar('_DTIME', $dtime));
+				$ext->add($extpaging, $grp, '', new ext_setvar('_ANSWERMACRO', ''));
+				foreach ($custom_vars as $key => $value) {
+					$ext->add($extpaging, $grp, '', new ext_setvar('_'.ltrim($key,'_'), $value));
+				}
+
 				$ext->add($extpaging, $grp, '', new ext_page($dialstr));
 			}
 			
