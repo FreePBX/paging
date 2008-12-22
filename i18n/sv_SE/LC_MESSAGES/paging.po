@@ -111,7 +111,7 @@ msgid "Device List:"
 msgstr "Anknytningslista"
 
 #: page.paging.php:150
-msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple.."
+msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the actual Device and not the User.  Use Ctrl key to select multiple.."
 msgstr "Välj anknytning(ar) du vill anropa. Detta kommer att ske till telefonen. I de flesta fall är detta samma som anknytningen. Om du använder konfigurationen \"Användare & Enheter\" kommer detta att vara enheten och inte användaren. Använd Ctrl-tangenten för att markera flera i listan."
 
 #: page.paging.php:171

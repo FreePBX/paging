@@ -111,7 +111,7 @@ msgid "Device List:"
 msgstr "Lista Apparati:"
 
 #: page.paging.php:150
-msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple.."
+msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the actual Device and not the User.  Use Ctrl key to select multiple.."
 msgstr "Selezionare gli Apparati da includere nel gruppo Page. In generale l'apparato corrisponde all'Interno. Se si utilizza la modalità \"Utenti & Apparati\" (Users & Devices), questo dovrà essere il numero dell'apparato. Utilizzare il tasto Ctrl per selezioni multiple."
 
 #: page.paging.php:171

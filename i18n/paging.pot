@@ -133,7 +133,7 @@ msgstr ""
 msgid ""
 "Select Device(s) to page. This is the phone that should be paged. In most "
 "installations, this is the same as the Extension. If you are configured to "
-"use \"Users & Devices\" this is the acutal Device and not the User.  Use "
+"use \"Users & Devices\" this is the actual Device and not the User.  Use "
 "Ctrl key to select multiple.."
 msgstr ""
 

@@ -112,7 +112,7 @@ msgid "Device List:"
 msgstr "Списък с Устройства:"
 
 #: page.paging.php:150
-msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the acutal Device and not the User.  Use Ctrl key to select multiple.."
+msgid "Select Device(s) to page. This is the phone that should be paged. In most installations, this is the same as the Extension. If you are configured to use \"Users & Devices\" this is the actual Device and not the User.  Use Ctrl key to select multiple.."
 msgstr "Изберете Устройство(а) за търсене. Това е телефонът който ще бъде търсен. В повечето инсталации съвпада с Вътрешната Линия. Ако използвате режим \"Потребители и Устройства\" е устройството, а не потребителя. Използвайте Ctrl за да изберете няколко."
 
 #: page.paging.php:171
