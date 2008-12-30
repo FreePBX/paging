@@ -305,7 +305,7 @@ function paging_get_config($engine) {
 			// Normal page version
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
 			$ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
-			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${DB(DND/${EXTEN:4})}" = "YES"]', 'skipself'));			
+			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:4}/user)})}" = "YES"]', 'skipself'));			
 			$ext->add($extpaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:4}'));
 			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_hangup());
