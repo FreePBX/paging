@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.5.0.6</version>
+	<version>2.6.0.0</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.6.0.0* #3448, perf improvments in large page groups
 		*2.5.0.6* localization fixes
 		*2.5.0.5* #3208, localization
 		*2.5.0.4* #3138 Sqlite3 fixes
@@ -27,6 +28,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.5/paging-2.5.0.6.tgz</location>
-	<md5sum>ed5edae74193f06e256d4217ba00ee21</md5sum>
+	<location>release/2.6/paging-2.6.0.0.tgz</location>
+	<md5sum>ed7f075130e944adeac8a17ce4d25f4b</md5sum>
 </module>
