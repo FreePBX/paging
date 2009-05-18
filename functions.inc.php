@@ -610,9 +610,10 @@ function paging_configpageload() {
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action']:null;
 	$extdisplay = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay']:null;
+	$tech_hardware = isset($_REQUEST['tech_hardware']) ? $_REQUEST['tech_hardware']:'';
 	
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
-	if ($action != 'del') {
+	if ($action != 'del' && $tech_hardware != 'virtual') {
 
 		$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp'", "getOne");
 		$section = _("Default Group Inclusion");
