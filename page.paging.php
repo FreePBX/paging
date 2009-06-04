@@ -15,6 +15,8 @@
 $display = isset($_REQUEST['display'])?$_REQUEST['display']:'paging';
 $type = isset($_REQUEST['type'])?$_REQUEST['type']:'tool';
 
+$tabindex = 0;
+
 $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $force_page = isset($_REQUEST['force_page']) ? $_REQUEST['force_page']:0;
 $duplex = isset($_REQUEST['duplex']) ? $_REQUEST['duplex']:0;
