@@ -1,10 +1,11 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.6.0.0</version>
+	<version>2.6.0.1</version>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.6.0.1* #3734
 		*2.6.0.0* #3448, perf improvments in large page groups
 		*2.5.0.6* localization fixes
 		*2.5.0.5* #3208, localization

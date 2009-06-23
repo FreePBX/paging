@@ -366,6 +366,7 @@ function paging_get_config($engine) {
 				foreach ($custom_vars as $key => $value) {
 					$ext->add($extpaging, $grp, '', new ext_setvar('_'.ltrim($key,'_'), $value));
 				}
+				$ext->add($extpaging, $grp, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
 
 				$ext->add($extpaging, $grp, '', new ext_page($dialstr));
 			}
