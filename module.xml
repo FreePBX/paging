@@ -1,12 +1,13 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.6.0.2</version>
+	<version>2.6.0.3</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.6.0.3* #3692
 		*2.6.0.2* added publisher/lic
 		*2.6.0.1* #3734
 		*2.6.0.0* #3448, perf improvments in large page groups

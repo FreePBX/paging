@@ -12,6 +12,7 @@
 function paging_get_config($engine) {
 	global $db;
 	global $ext; 
+	global $chan_dahdi;
 	switch($engine) {
 		case "asterisk":
 			// setup for intercom
@@ -247,6 +248,11 @@ function paging_get_config($engine) {
 
 			$macro = 'macro-autoanswer';
 			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${DB(DEVICE/${ARG1}/dial)}'));
+
+			// If we are in DAHDI compat mode, then we need to substitute DAHDI for ZAP
+			if ($chan_dahdi) {
+				$ext->add($macro, "s", '', new ext_execif('$["${DIAL:0:3}" = "ZAP"]', 'Set','DIAL=DAHDI${DIAL:3}'));
+			}
 			$ext->add($macro, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/macro)}" != "" ]', 'macro'));
 
 			// If there are no phone specific auto-answer vars, then we don't care what the phone is below
