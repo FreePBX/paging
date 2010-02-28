@@ -1,12 +1,13 @@
 <module>
 	<rawname>paging</rawname>
 	<name>Paging and Intercom</name>
-	<version>2.6.0.3</version>
+	<version>2.7.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<type>setup</type>
 	<category>Internal Options &amp; Configuration</category>
 	<changelog>
+		*2.7.0.0* localizations
 		*2.6.0.3* #3692
 		*2.6.0.2* added publisher/lic
 		*2.6.0.1* #3734
@@ -33,6 +34,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.6/paging-2.6.0.3.tgz</location>
-	<md5sum>0644ef1015447f3e7db6fc6bf17a9026</md5sum>
+	<location>release/2.7/paging-2.7.0.0.tgz</location>
+	<md5sum>58207187c99a6f78a59b8dc09b1b268e</md5sum>
 </module>
