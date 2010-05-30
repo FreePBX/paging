@@ -86,9 +86,6 @@ function paging_text() {
 	if ($offcode === '') {
 		$offcode = "("._("Disabled").")";
 	}
-?>
-<p>
-<?php 
 	echo _("This module is for specific phones that are capable of Paging or Intercom. This section is for configuring group paging, intercom is configured through <strong>Feature Codes</strong>. Intercom must be enabled on a handset before it will allow incoming calls. It is possible to restrict incoming intercom calls to specific extensions only, or to allow intercom calls from all extensions but explicitly deny from specific extensions.<br /><br />This module should work with Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM , and possibly other SIP phones (not ATAs). Any phone that is always set to auto-answer should also work (such as the console extension if configured).") 
 ?><br /><br /><?php
 	if ($intercom_code != '') {
@@ -97,7 +94,6 @@ function paging_text() {
 		echo _("Intercom mode is currently disabled, it can be enabled in the Feature Codes Panel.");
 	}
 ?>
-</p>
 <?php
 }
 
