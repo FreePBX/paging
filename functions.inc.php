@@ -13,8 +13,11 @@ function paging_get_config($engine) {
 	global $db;
 	global $ext; 
 	global $chan_dahdi;
+  global $version;
 	switch($engine) {
 		case "asterisk":
+      $ast_ge_16 = version_compare($version, "1.6", "ge");
+
 			// setup for intercom
 			$fcc = new featurecode('paging', 'intercom-prefix');
 			$intercom_code = $fcc->getCodeActive();
@@ -109,12 +112,20 @@ function paging_get_config($engine) {
 
 				$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
-				$ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
+
+        if ($ast_ge_16) {
+				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 's'));
+			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" == ""]', 'end'));			
+        } else {
+				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
+        }
 				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 				$ext->add($context, $code, 'end', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
-				$ext->add($context, $code, '', new ext_busy(), 'check',101);
-				$ext->add($context, $code, '', new ext_macro('hangupcall'));
+        if (!$ast_ge_16) {
+				  $ext->add($context, $code, '', new ext_busy(), 'check',101);
+				  $ext->add($context, $code, '', new ext_macro('hangupcall'));
+        }
 				$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
 				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$extpaging));
@@ -310,12 +321,19 @@ function paging_get_config($engine) {
 				
 			// Normal page version
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
-			$ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
+      if ($ast_ge_16) {
+			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 's'));
+			  $ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" == ""]', 'skipself'));			
+      } else {
+			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
+      }
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:4}/user)})}" = "YES"]', 'skipself'));			
 			$ext->add($extpaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:4}'));
 			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_hangup());
-			$ext->add($extpaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
+      if (!$ast_ge_16) {
+			  $ext->add($extpaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
+      }
 
 			// Force page version
 			$ext->add($extpaging, "_FPAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:5} ]','skipself'));
