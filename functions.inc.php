@@ -77,6 +77,7 @@ function paging_get_config($engine) {
 				$context = 'ext-intercom';
 				$ext->add($context, $code, '', new ext_macro('user-callerid'));
 				$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
+				$ext->add($context, $code, '', new ext_setvar('INTERCOM_CALL', 'TRUE'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/block)}" = "blocked"]', 'end'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(DND/${dialnumber})}" = "YES"]', 'end'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom/${AMPUSER})}" = "allow" ]', 'allow'));
@@ -119,7 +120,7 @@ function paging_get_config($engine) {
         } else {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
         }
-				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
 
 
         $ext->add($context, $code, 'end', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
