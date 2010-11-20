@@ -16,7 +16,7 @@ function paging_get_config($engine) {
   global $version;
 	switch($engine) {
 		case "asterisk":
-      $ast_ge_16 = version_compare($version, "1.6", "ge");
+      $ast_ge_14 = version_compare($version, "1.4", "ge");
 
 			// setup for intercom
 			$fcc = new featurecode('paging', 'intercom-prefix');
@@ -113,17 +113,21 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
 
-        if ($ast_ge_16) {
+        if ($ast_ge_14) {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 's'));
 			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" == ""]', 'end'));			
         } else {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
         }
 				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
-				$ext->add($context, $code, 'end', new ext_busy());
+
+
+        $ext->add($context, $code, 'end', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
+				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
-        if (!$ast_ge_16) {
-				  $ext->add($context, $code, '', new ext_busy(), 'check',101);
+        if (!$ast_ge_14) {
+          $ext->add($context, $code, '', new ext_execif('$[${ICOM_RETURN}]', 'Return'),'check',101);
+				  $ext->add($context, $code, '', new ext_busy());
 				  $ext->add($context, $code, '', new ext_macro('hangupcall'));
         }
 				$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
@@ -134,9 +138,12 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
 				$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 				$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
+        $ext->add($context, $code, '', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
+
 				$ext->add($context, $code, 'nointercom', new ext_noop('Intercom disallowed by ${dialnumber}'));
+        $ext->add($context, $code, '', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_playback('intercom&for&extension'));
 				$ext->add($context, $code, '', new ext_saydigits('${dialnumber}'));
 				$ext->add($context, $code, '', new ext_playback('is&disabled'));
@@ -321,7 +328,7 @@ function paging_get_config($engine) {
 				
 			// Normal page version
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
-      if ($ast_ge_16) {
+      if ($ast_ge_14) {
 			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 's'));
 			  $ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" == ""]', 'skipself'));			
       } else {
@@ -331,7 +338,7 @@ function paging_get_config($engine) {
 			$ext->add($extpaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:4}'));
 			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_hangup());
-      if (!$ast_ge_16) {
+      if (!$ast_ge_14) {
 			  $ext->add($extpaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
       }
 
