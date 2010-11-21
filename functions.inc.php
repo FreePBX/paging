@@ -123,11 +123,11 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
 
 
-        $ext->add($context, $code, 'end', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
+        $ext->add($context, $code, 'end', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
         if (!$ast_ge_14) {
-          $ext->add($context, $code, '', new ext_execif('$[${ICOM_RETURN}]', 'Return'),'check',101);
+          $ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'),'check',101);
 				  $ext->add($context, $code, '', new ext_busy());
 				  $ext->add($context, $code, '', new ext_macro('hangupcall'));
         }
@@ -139,12 +139,12 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
 				$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 				$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
-        $ext->add($context, $code, '', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
+        $ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 
 				$ext->add($context, $code, 'nointercom', new ext_noop('Intercom disallowed by ${dialnumber}'));
-        $ext->add($context, $code, '', new ext_execif('$[${ICOM_RETURN}]', 'Return'));
+        $ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_playback('intercom&for&extension'));
 				$ext->add($context, $code, '', new ext_saydigits('${dialnumber}'));
 				$ext->add($context, $code, '', new ext_playback('is&disabled'));
