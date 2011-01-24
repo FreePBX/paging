@@ -116,10 +116,11 @@ function paging_get_config($engine) {
 
         if ($ast_ge_14) {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 's'));
-			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" == ""]', 'end'));			
+			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));			
         } else {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
         }
+				$ext->add($context, $code, '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
 				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
 
 
@@ -331,7 +332,8 @@ function paging_get_config($engine) {
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
       if ($ast_ge_14) {
 			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 's'));
-			  $ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" == ""]', 'skipself'));			
+			  $ext->add($extpaging, "_PAGE.", '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
+			  $ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'skipself'));			
       } else {
 			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
       }
@@ -341,6 +343,26 @@ function paging_get_config($engine) {
 			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_hangup());
       if (!$ast_ge_14) {
 			  $ext->add($extpaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
+      }
+
+			// Try ChanSpy Version
+			$ext->add($extpaging, "_SPAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:5} ]','skipself'));
+      if ($ast_ge_14) {
+			  $ext->add($extpaging, "_SPAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:5}/dial)}', 's'));
+			  $ext->add($extpaging, "_SPAGE.", '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
+			  $ext->add($extpaging, "_SPAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'chanspy'));			
+      } else {
+			  $ext->add($extpaging, "_SPAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:5}/dial)}', 'js'));
+      }
+			$ext->add($extpaging, "_SPAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:5}/user)})}" = "YES"]', 'chanspy'));			
+			$ext->add($extpaging, "_SPAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:5}'));
+			$ext->add($extpaging, "_SPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+			$ext->add($extpaging, "_SPAGE.", 'skipself', new ext_hangup());
+			$ext->add($extpaging, "_SPAGE.", 'chanspy', new ext_execif('$["${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"]', 'ChanSpy','${DB(DEVICE/${EXTEN:5}/dial)}-,qW'));
+			$ext->add($extpaging, "_SPAGE.", '', new ext_noop_trace('Comparison: ${EXTEN:5}, "${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"',9));
+			$ext->add($extpaging, "_SPAGE.", '', new ext_hangup());
+      if (!$ast_ge_14) {
+			  $ext->add($extpaging, "_SPAGE.", '', new ext_hangup(''), 'AVAIL',101);
       }
 
 			// Force page version
