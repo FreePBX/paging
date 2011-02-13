@@ -377,7 +377,18 @@ function paging_get_config($engine) {
 			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 			foreach ($paging_groups as $thisgroup) {
 				$grp=trim($thisgroup['page_group']);
-				$pagemode = $thisgroup['force_page'] ? 'FPAGE' : 'PAGE';
+        switch ($thisgroup['force_page']) {
+        case 1:
+				  $pagemode = 'FPAGE';
+          break;
+        case 2:
+				  $pagemode = 'SPAGE';
+          break;
+        case 0:
+        default:
+				  $pagemode = 'PAGE';
+          break;
+        }
 				$sql = "SELECT ext FROM paging_groups WHERE page_number='$grp'";
 				$all_exts = $db->getAll($sql);
 				$dialstr='';

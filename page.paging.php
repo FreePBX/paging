@@ -166,10 +166,16 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 		<br>
 	</td></tr>
 
-	<tr><td><label for="force_page"><a href='#' class='info'><?php echo _("Force if busy") ?><span>
-	<?php echo _("If selected, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups ") ?></span></a></label></td>
-	<td><input type='checkbox' name='force_page' id="force_page" value='1' <?php if ($force_page) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
-
+	<tr><td><a href='#' class='info'><?php echo _("Force if busy") ?><span>
+	<?php echo _("If yes, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups. Setting to 'Whisper' will attempt to use the ChanSpy capability on SIP channels, resulting in the page being sent to the device's ear piece but not heard by the remote party. If ChanSpy is not supported on the device or otherwise fails, no page will get through. It probably does not make too much sense to choose duplex if using Whisper mode.").' '._("The Whisper mode is new and considered experimental.") ?></span></a></td>
+  <td>
+    <input id="force_page_no" type="radio" name="force_page" value="0" <?php echo $force_page == 0 ? "checked=\"yes\"":""?>/>
+    <label for="force_page_no"><?php echo _("No") ?></label>
+    <input id="force_page_yes" type="radio" name="force_page" value="1" <?php echo $force_page == 1 ? "checked=\"yes\"":""?>/>
+    <label for="force_page_yes"><?php echo _("Yes") ?></label>
+    <input id="force_page_whisper" type="radio" name="force_page" value="2" <?php echo $force_page == 2 ? "checked=\"yes\"":""?>/>
+  <label for="force_page_whisper"><?php echo _("Whisper") ?></label>
+  </td></tr>
 	<tr><td><label for="duplex"><a href='#' class='info'><?php echo _("Duplex") ?><span>
 	<?php echo _("Paging is typically one way for announcements only. Checking this will make the paging duplex, allowing all phones in the paging group to be able to talk and be heard by all. This makes it like an \"instant conference\"") ?></span></a></label></td>
 	<td><input type='checkbox' name='duplex' id="duplex" value='1' <?php if ($duplex) { echo 'CHECKED'; } ?> tabindex="<?php echo ++$tabindex;?>"></td></tr>
