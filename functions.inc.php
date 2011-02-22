@@ -618,6 +618,11 @@ function paging_check_default($extension) {
 	return (count($results) ? 1 : 0);
 }
 
+function paging_get_default() {
+	$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1", "getOne");
+  return $default_group;
+}
+
 function paging_set_default($extension, $value) {
 	$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1", "getOne");
 	if ($default_group == '') {

@@ -21,7 +21,7 @@ $action = isset($_REQUEST['action'])?$_REQUEST['action']:'';
 $force_page = isset($_REQUEST['force_page']) ? $_REQUEST['force_page']:0;
 $duplex = isset($_REQUEST['duplex']) ? $_REQUEST['duplex']:0;
 $default_group = isset($_REQUEST['default_group']) ? $_REQUEST['default_group']:0;
-$selection = isset($_REQUEST['selection'])?$_REQUEST['selection']:'';
+$extdisplay = isset($_REQUEST['extdisplay'])?$_REQUEST['extdisplay']:'';
 $pagelist = isset($_REQUEST['pagelist'])?$_REQUEST['pagelist']:'';
 $pagenbr = isset($_REQUEST['pagenbr'])?$_REQUEST['pagenbr']:'';
 $pagegrp = isset($_REQUEST['pagegrp'])?$_REQUEST['pagegrp']:'';
@@ -36,16 +36,16 @@ $description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
 
 switch ($action) {
 	case "add":
-		paging_sidebar($selection, $type, $display);
+		paging_sidebar($extdisplay, $type, $display);
 		paging_show(null, $display, $type);
 		break;
 	case "delete":
-		paging_del($selection);
+		paging_del($extdisplay);
 		redirect_standard();
 		break;
 	case "modify":
-		paging_sidebar($selection, $type, $display);
-		paging_show($selection, $display, $type);
+		paging_sidebar($extdisplay, $type, $display);
+		paging_show($extdisplay, $display, $type);
 		break;
 	case "submit":
 		//TODO: issue, we are deleting and adding at the same time so remeber later to check
@@ -57,15 +57,19 @@ switch ($action) {
 		if (!empty($usage_arr)) {
 			$conflict_url = array();
 			$conflict_url = framework_display_extension_usage_alert($usage_arr);
-			paging_sidebar($selection, $type, $display);
+			paging_sidebar($extdisplay, $type, $display);
 			paging_show($pagegrp, $display, $type, $conflict_url);
 		} else {
 			paging_modify($pagegrp, $pagenbr, $pagelist, $force_page, $duplex, $description, $default_group);
-			redirect_standard();
+      $_REQUEST['action'] = 'modify';
+      if ($extdisplay == '') {
+        $_REQUEST['extdisplay'] = $pagenbr;
+      }
+			redirect_standard('extdisplay','action');
 		}
 		break;
 	default:
-		paging_sidebar($selection, $type, $display);
+		paging_sidebar($extdisplay, $type, $display);
 		paging_text();
 }
 
@@ -110,7 +114,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 			$rows = 20;
 		}
 
-		$delURL = $_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete&amp;selection=${xtn}";
+		$delURL = $_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete&amp;extdisplay=${xtn}";
 		$tlabel = sprintf(_("Delete Group %s"),$xtn);
 		$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
 		echo "<a href=".$delURL.">".$label."</a>";
@@ -134,6 +138,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 	echo "<input type='hidden' name='display' value='${display}'>\n";
 	echo "<input type='hidden' name='type' value='${type}'>\n";
 	echo "<input type='hidden' name='pagegrp' value='{$xtn}'>\n";
+	echo "<input type='hidden' name='extdisplay' value='{$xtn}'>\n";
 	echo "<input type='hidden' name='action' value='submit'>\n";
 	echo "<table><tr><td colspan=2><h5>";
 	echo ($xtn)?_("Modify Paging Group"):_("Add Paging Group")."</h5></td></tr>\n";  ?>
@@ -226,19 +231,24 @@ function page_edit_onsubmit() {
 <?php
 }
 
-function paging_sidebar($selection, $type, $display) {
+function paging_sidebar($extdisplay, $type, $display) {
 	echo "<div class='rnav'><ul>\n";
-	echo "<li><a id='".($selection==''?'current':'std')."' ";
+	echo "<li><a id='".($extdisplay==''?'current':'std')."' ";
 	echo "href='config.php?type=${type}&amp;display=${display}&amp;action=add'>"._("Add Paging Group")."</a></li>"; 
 	//get the list of paging groups
 	$presults = paging_list();
+  $default_grp = paging_get_default();
+
+
+
 	if ($presults) {
 		foreach ($presults as $grouparr) {
 			$group = $grouparr['page_group'];
-			echo "<li><a id=\"".($selection==$group ? 'current':'std');
+      $hl = $group == $default_grp ? _(' [DEFAULT]') : '';
+			echo "<li><a class=\"".($extdisplay==$group ? 'current':'std');
 			echo "\" href=\"config.php?type=${type}&amp;display=";
-			echo "${display}&amp;selection=${group}&amp;action=modify\">";
-			echo $group." ".((trim($grouparr['description']) != '')?htmlspecialchars($grouparr['description']):_("Page Group"))."</a></li>";
+			echo "${display}&amp;extdisplay=${group}&amp;action=modify\">";
+			echo $group." ".((trim($grouparr['description']) != '')?htmlspecialchars($grouparr['description']):_("Page Group"))."$hl</a></li>";
 		}
 	} 
 	echo "</ul></div><div class='content'><h2>"._("Paging and Intercom")."</h2>\n";
