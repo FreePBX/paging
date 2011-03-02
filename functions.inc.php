@@ -326,7 +326,7 @@ function paging_get_config($engine) {
 
 			// Create the paging context that is used in the paging application for each phone to auto-answer
 			//
-			$ext->addInclude('from-internal-additional',$extpaging);
+			$ext->addInclude('from-internal-noxfer-additional',$extpaging);
 				
 			// Normal page version
 			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
