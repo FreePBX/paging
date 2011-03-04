@@ -411,19 +411,19 @@ function paging_get_config($engine) {
 				$ext->add($extpaging, $grp, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 
 				$ext->add($extpaging, $grp, '', new ext_setvar('_SIPURI', ''));
-				if (trim($alertinfo) != "") {
+				if (isset($alertinfo) && trim($alertinfo) != "") {
 					$ext->add($extpaging, $grp, '', new ext_setvar('_ALERTINFO', $alertinfo));
 				}
-				if (trim($callinfo) != "") {
+				if (isset($callinfo) && trim($callinfo) != "") {
 					$ext->add($extpaging, $grp, '', new ext_setvar('_CALLINFO', $callinfo));
 				}
-				if (trim($sipuri) != "") {
+				if (isset($sipuri) && trim($sipuri) != "") {
 					$ext->add($extpaging, $grp, '', new ext_setvar('_SIPURI', $sipuri));
 				}
-				if (trim($vxml_url) != "") {
+				if (isset($vxml_url) && trim($vxml_url) != "") {
 					$ext->add($extpaging, $grp, '', new ext_setvar('_VXML_URL', $vxml_url));
 				}
-				if (trim($doptions) != "") {
+				if (isset($doptions) && trim($doptions) != "") {
 					$ext->add($extpaging, $grp, '', new ext_setvar('_DOPTIONS', $doptions));
 				}
 				$ext->add($extpaging, $grp, '', new ext_setvar('_DTIME', $dtime));
