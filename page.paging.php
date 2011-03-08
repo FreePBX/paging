@@ -55,7 +55,6 @@ switch ($action) {
 			$usage_arr = framework_check_extension_usage($pagenbr);
 		}
 		if (!empty($usage_arr)) {
-			$conflict_url = array();
 			$conflict_url = framework_display_extension_usage_alert($usage_arr);
 			paging_sidebar($extdisplay, $type, $display);
 			paging_show($pagegrp, $display, $type, $conflict_url);
