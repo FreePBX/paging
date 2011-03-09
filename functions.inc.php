@@ -38,6 +38,7 @@ function paging_get_config($engine) {
 			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
 			$sipuri    = 'intercom=true';
 			$doptions = 'A(beep)';
+			$vxml_url = '';
 			$dtime = '5';
 			$custom_vars = array();
 			$autoanswer_arr = paging_get_autoanswer_defaults();
