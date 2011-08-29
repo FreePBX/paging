@@ -5,8 +5,7 @@
 	<version>2.9.0.5</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
-	<type>setup</type>
-	<category>Internal Options &amp; Configuration</category>
+	<category>Apps</category>
 	<changelog>
 		*2.9.0.5* #5000
 		*2.9.0.4* #4914
@@ -14,26 +13,6 @@
 		*2.9.0.2* #4851
 		*2.9.0.1* #4715
 		*2.9.0.0* #4648, #4651, #4653
-		*2.8.0.1* #4359
-		*2.8.0.0* #4309
-		*2.7.0.0* localizations
-		*2.6.0.3* #3692
-		*2.6.0.2* added publisher/lic
-		*2.6.0.1* #3734
-		*2.6.0.0* #3448, perf improvments in large page groups
-		*2.5.0.6* localization fixes
-		*2.5.0.5* #3208, localization
-		*2.5.0.4* #3138 Sqlite3 fixes
-		*2.5.0.3* #2530 typo _GLOBALS should be GLOBALS
-		*2.5.0.2* #2987, #3008 sqlite3 install script, spelling
-		*2.5.0.1* fix to make sure SIPURI is clear if not default set
-		*2.5.0.0* #2390, #2723 added configurable dial options (so beep can be removed), VXML_URL and any other custom channel variableoption to autoanswer
-		*2.4.0.5* #1939, #2843 Mitel Phone Support, Russian Translation, oldstyle module hooks added
-		*2.4.0.4* #2758 don't show intercom instructions when disabled, bogus codes were displayed
-		*2.4.0.3* added depends on 2.4.0
-		*2.4.0.2* small fix so duplicate extension link is displayed when conflicts are found
-		*2.4.0.1* #2559 typo in install script, extra \\ needed (you must un-install and re-install or delete paging_autoanswer table entries to take effect)
-		*2.4.0* CHANGELOG TRUNCATED See SVN Repository
 	</changelog>
 	<depends>
 		<version>2.4.0</version>

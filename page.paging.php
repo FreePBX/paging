@@ -29,7 +29,7 @@ $description = isset($_REQUEST['description'])?$_REQUEST['description']:'';
 
 ?>
 
-</div>
+
 <?php
 // Check to make sure that the paging database is propogated and
 // up to date.
@@ -252,6 +252,6 @@ function paging_sidebar($extdisplay, $type, $display) {
 			echo $group." ".((trim($grouparr['description']) != '')?htmlspecialchars($grouparr['description']):_("Page Group"))."$hl</a></li>";
 		}
 	} 
-	echo "</ul></div><div class='content'><h2>"._("Paging and Intercom")."</h2>\n";
+	echo "</ul></div><h2>"._("Paging and Intercom")."</h2>\n";
 }
 ?>
