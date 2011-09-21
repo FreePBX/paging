@@ -2,11 +2,12 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>2.9.0.5</version>
+	<version>2.10.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Applications</category>
 	<changelog>
+		*2.10.0.0* new version changes
 		*2.9.0.5* #5000
 		*2.9.0.4* #4914
 		*2.9.0.3* #2110
@@ -22,6 +23,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.9/paging-2.9.0.5.tgz</location>
-	<md5sum>35c68876702616239c25a62e4f91782e</md5sum>
+	<location>release/2.10/paging-2.10.0.0.tgz</location>
+	<md5sum>f9b00035995b62cf7d0df68252013d9f</md5sum>
 </module>
