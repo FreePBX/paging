@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 16:24+0200\n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
 "PO-Revision-Date: 2009-04-20 23:31+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -28,27 +28,21 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: functions.inc.php:391
 msgid "Page Group: "
 msgstr "Groupe Page :"
 
-#: functions.inc.php:551
 msgid "Exclude"
 msgstr "Exclure"
 
-#: functions.inc.php:552
 msgid "Include"
 msgstr "Inclure"
 
-#: functions.inc.php:572
 msgid "Default Group Inclusion"
 msgstr "Inclusion du Groupe par Défaut"
 
-#: functions.inc.php:575 page.paging.php:179
 msgid "Default Page Group"
 msgstr "Groupe Page Par Défaut"
 
-#: functions.inc.php:575
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
@@ -56,23 +50,18 @@ msgstr ""
 "Vous pouvez inclure ou exclure cette extension/ce périphérique dans le "
 "groupe page par défaut lors de la création ou de l'édition."
 
-#: install.php:4
 msgid "Intercom prefix"
 msgstr "Préfixe Intercom"
 
-#: install.php:12
 msgid "User Intercom Allow"
 msgstr "Autoriser Utilisateur Intercom"
 
-#: install.php:20
 msgid "User Intercom Disallow"
 msgstr "Ne pas autoriser Utilisateur Intercom"
 
-#: page.paging.php:79 page.paging.php:85
 msgid "Disabled"
 msgstr "Désactiver"
 
-#: page.paging.php:90
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -86,18 +75,18 @@ msgid ""
 "configured)."
 msgstr ""
 "Ce module est pour les téléphones spécifiques qui sont capable de Paging ou "
-"d'Intercom. Cette section permet de configurer le paging de groupe, l'intercom "
-"est configuré par le biais des <strong>Codes de Caractéristique</strong>. "
-"L'intercom doit être activé sur un combiné avant qu'il n'autorise les appels "
-"entrants. Il est possible de restreindre les appels entrants sur l'intercom à "
-"des extensions spécifiques uniquement, ou d'autoriser les appels sur intercom "
-"pour toutes les extensions mais d'explicitement les interdire à partir d'extensions "
-"spécifiques.<br /><br />Ce module devrait fonctionner avec  Aastra, Grandstream, "
-"Linksys/Sipura, Mitel, Polycom, SNOM, et probablement d'autres téléphones SIP "
-"(pas les ATA). Tout téléphone qui est toujours configuré pour répondre automatiquement "
-"devrait également fonctionner (telle que l'extension console si configurée)."
+"d'Intercom. Cette section permet de configurer le paging de groupe, "
+"l'intercom est configuré par le biais des <strong>Codes de Caractéristique</"
+"strong>. L'intercom doit être activé sur un combiné avant qu'il n'autorise "
+"les appels entrants. Il est possible de restreindre les appels entrants sur "
+"l'intercom à des extensions spécifiques uniquement, ou d'autoriser les "
+"appels sur intercom pour toutes les extensions mais d'explicitement les "
+"interdire à partir d'extensions spécifiques.<br /><br />Ce module devrait "
+"fonctionner avec  Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM, "
+"et probablement d'autres téléphones SIP (pas les ATA). Tout téléphone qui "
+"est toujours configuré pour répondre automatiquement devrait également "
+"fonctionner (telle que l'extension console si configurée)."
 
-#: page.paging.php:93
 #, php-format
 msgid ""
 "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
@@ -110,131 +99,150 @@ msgid ""
 "td><td>Explicitly deny extension nnn to intercom you (even if generally "
 "enabled)</td></tr></table>"
 msgstr ""
-"Exemple d'utilisation : <br /><table><tr><td><strong>%snnn</strong>:</td><td>Extension "
-"Intercom nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Permet à toutes "
-"les extensions de vous joindre sur l'intercom (sauf celles explicitement interdites)</td></"
-"tr><tr><td><strong>%snnn</strong>:</td><td>Autoriser explicitement l'extension nnn à "
-"vous joindre sur l'intercom (même si les autres sont désactivées)</td></tr><tr><td><strong>%s</"
-"strong>:</td><td>Interdire à toutes les extensions de vous joindre sur l'intercom (sauf celles "
-"explicitement autorisées)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Interdire explicitement à l'extension nnn de vous joindre sur l'intercom (même si généralement "
-"activé)</td></tr></table>"
+"Exemple d'utilisation : <br /><table><tr><td><strong>%snnn</strong>:</"
+"td><td>Extension Intercom nnn</td></tr><tr><td><strong>%s</strong>:</"
+"td><td>Permet à toutes les extensions de vous joindre sur l'intercom (sauf "
+"celles explicitement interdites)</td></tr><tr><td><strong>%snnn</strong>:</"
+"td><td>Autoriser explicitement l'extension nnn à vous joindre sur l'intercom "
+"(même si les autres sont désactivées)</td></tr><tr><td><strong>%s</strong>:</"
+"td><td>Interdire à toutes les extensions de vous joindre sur l'intercom "
+"(sauf celles explicitement autorisées)</td></tr><tr><td><strong>%snnn</"
+"strong>:</td><td>Interdire explicitement à l'extension nnn de vous joindre "
+"sur l'intercom (même si généralement activé)</td></tr></table>"
 
-#: page.paging.php:95
 msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
-"Le mode intercom est actuellement désactivé, il peut être activé dans le Panneau "
-"Codes de Caractéristiques."
+"Le mode intercom est actuellement désactivé, il peut être activé dans le "
+"Panneau Codes de Caractéristiques."
 
-#: page.paging.php:116
 #, php-format
 msgid "Delete Group %s"
 msgstr "Supprimer le Groupe %s"
 
-#: page.paging.php:124
 msgid "Conflicting Extensions"
 msgstr "Extensions Conflictuelles"
 
-#: page.paging.php:141
 msgid "Modify Paging Group"
 msgstr "Modifier le Groupe Paging"
 
-#: page.paging.php:141 page.paging.php:228
 msgid "Add Paging Group"
 msgstr "Ajouter un Groupe Paging"
 
-#: page.paging.php:143
 msgid "Paging Extension"
 msgstr "Extension Paging"
 
-#: page.paging.php:143
 msgid "The number users will dial to page this group"
 msgstr "Le numéro que composeront les utilisateurs pour pager ce groupe"
 
-#: page.paging.php:147
 msgid "Group Description"
 msgstr "Description du Groupe"
 
-#: page.paging.php:147
 msgid "Provide a descriptive title for this Page Group."
 msgstr "Titre descriptif pour ce Groupe de Page."
 
-#: page.paging.php:150
 msgid "Device List:"
 msgstr "Liste des Périphériques :"
 
-#: page.paging.php:150
 msgid ""
 "Select Device(s) to page. This is the phone that should be paged. In most "
 "installations, this is the same as the Extension. If you are configured to "
 "use \"Users & Devices\" this is the actual Device and not the User.  Use "
 "Ctrl key to select multiple.."
 msgstr ""
-"Sélectionner les périphériques à pager. Il s'agit du téléphone qui doit être pagé. "
-"Dans la plupart des installations, il s'agit en fait de l'extension. Si vous "
-"êtes configuré pour utiliser \"Utilisateurs & Périphériques\" il s'agit du périphérique "
-"actuel et pas de l'utilisateur. Utilisez la touche Ctrl pour faire un choix multiple..."
+"Sélectionner les périphériques à pager. Il s'agit du téléphone qui doit être "
+"pagé. Dans la plupart des installations, il s'agit en fait de l'extension. "
+"Si vous êtes configuré pour utiliser \"Utilisateurs & Périphériques\" il "
+"s'agit du périphérique actuel et pas de l'utilisateur. Utilisez la touche "
+"Ctrl pour faire un choix multiple..."
 
-#: page.paging.php:171
 msgid "Force if busy"
 msgstr "Forcer si occupé"
 
-#: page.paging.php:172
 msgid ""
-"If selected, will not check if the device is in use before paging it. This "
-"means conversations can be interrupted by a page (depending on how the "
-"device handles it). This is useful for \"emergency\" paging groups "
+"If yes, will not check if the device is in use before paging it. This means "
+"conversations can be interrupted by a page (depending on how the device "
+"handles it). This is useful for \"emergency\" paging groups. Setting to "
+"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being sent to the device's ear piece but not heard by "
+"the remote party. If ChanSpy is not supported on the device or otherwise "
+"fails, no page will get through. It probably does not make too much sense to "
+"choose duplex if using Whisper mode."
 msgstr ""
-"Si vous sélectionnez cette option, on ne vérifiera pas si le périphérique est "
-"en utilisation avant de le pager. Cela signifie que les conversations peuvent "
-"être interrompues par un page (dépend de comment le périphérique traite l'évènement). "
-"C'est utile pour les groupes de paging d'\"urgence\"."
 
-#: page.paging.php:175
+msgid "The Whisper mode is new and considered experimental."
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Whisper"
+msgstr ""
+
 msgid "Duplex"
 msgstr "Duplex"
 
-#: page.paging.php:176
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
 "Le paging est en général à sens unique, pour les annonces uniquement. Cocher "
-"cette case passera le paging en duplex, autorisant tous les téléphones dans le "
-"groupe de paging à parler et être entendus par tous. Cela donne un genre de "
-"\"conférence instantanée\"."
+"cette case passera le paging en duplex, autorisant tous les téléphones dans "
+"le groupe de paging à parler et être entendus par tous. Cela donne un genre "
+"de \"conférence instantanée\"."
 
-#: page.paging.php:180
 msgid ""
 "Each PBX system can have a single Default Page Group. If specified, "
 "extensions can be automatically added (or removed) from this group in the "
 "Extensions (or Devices) tab.<br />Making this group the default will uncheck "
 "the option from the current default group if specified."
 msgstr ""
-"Chaque système de PBX peut avoir un seul Groupe de Page par Défaut. Si spécifié, "
-"les extensions peuvent être automatiquement ajoutées (ou supprimées) de ce groupe "
-"dans l'onglet Extensions (ou Périphériques).<br />Faire de ce groupe le groupe par "
-"défaut décochera l'option de l'actuel groupe par défaut si spécifié." 
+"Chaque système de PBX peut avoir un seul Groupe de Page par Défaut. Si "
+"spécifié, les extensions peuvent être automatiquement ajoutées (ou "
+"supprimées) de ce groupe dans l'onglet Extensions (ou Périphériques).<br /"
+">Faire de ce groupe le groupe par défaut décochera l'option de l'actuel "
+"groupe par défaut si spécifié."
 
-#: page.paging.php:190
 msgid "Submit Changes"
 msgstr "Appliquer les Modifications"
 
-#: page.paging.php:199
 msgid "Please enter a valid Paging Extension"
 msgstr "Veuillez entrer une Extension de Paging valide"
 
-#: page.paging.php:200
 msgid "Please select at least one extension"
 msgstr "Veuillez sélectionner au moins une extension"
 
-#: page.paging.php:237
+msgid " [DEFAULT]"
+msgstr ""
+
 msgid "Page Group"
 msgstr "Groupe de Page"
 
-#: page.paging.php:240
 msgid "Paging and Intercom"
 msgstr "Paging et Intercom"
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. \tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
+#~ msgid ""
+#~ "If selected, will not check if the device is in use before paging it. "
+#~ "This means conversations can be interrupted by a page (depending on how "
+#~ "the device handles it). This is useful for \"emergency\" paging groups "
+#~ msgstr ""
+#~ "Si vous sélectionnez cette option, on ne vérifiera pas si le périphérique "
+#~ "est en utilisation avant de le pager. Cela signifie que les conversations "
+#~ "peuvent être interrompues par un page (dépend de comment le périphérique "
+#~ "traite l'évènement). C'est utile pour les groupes de paging d'\"urgence\"."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX - módulo paging module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-09-27 16:24+0200\n"
+"POT-Creation-Date: 2011-09-23 09:52+0000\n"
 "PO-Revision-Date: 2009-01-21 16:10+0100\n"
 "Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
 "Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
@@ -13,49 +13,38 @@ msgstr ""
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: functions.inc.php:391
 msgid "Page Group: "
 msgstr ""
 
-#: functions.inc.php:551
 msgid "Exclude"
 msgstr ""
 
-#: functions.inc.php:552
 msgid "Include"
 msgstr ""
 
-#: functions.inc.php:572
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:575 page.paging.php:179
 msgid "Default Page Group"
 msgstr ""
 
-#: functions.inc.php:575
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 
-#: install.php:4
 msgid "Intercom prefix"
 msgstr ""
 
-#: install.php:12
 msgid "User Intercom Allow"
 msgstr ""
 
-#: install.php:20
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: page.paging.php:79 page.paging.php:85
 msgid "Disabled"
 msgstr ""
 
-#: page.paging.php:90
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -69,7 +58,6 @@ msgid ""
 "configured)."
 msgstr ""
 
-#: page.paging.php:93
 #, php-format
 msgid ""
 "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
@@ -83,80 +71,81 @@ msgid ""
 "enabled)</td></tr></table>"
 msgstr ""
 
-#: page.paging.php:95
 msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
 
-#: page.paging.php:116
 #, php-format
 msgid "Delete Group %s"
 msgstr ""
 
-#: page.paging.php:124
 msgid "Conflicting Extensions"
 msgstr ""
 
-#: page.paging.php:141
 msgid "Modify Paging Group"
 msgstr ""
 
-#: page.paging.php:141 page.paging.php:228
 msgid "Add Paging Group"
 msgstr ""
 
-#: page.paging.php:143
 msgid "Paging Extension"
 msgstr ""
 
-#: page.paging.php:143
 msgid "The number users will dial to page this group"
 msgstr ""
 
-#: page.paging.php:147
 msgid "Group Description"
 msgstr ""
 
-#: page.paging.php:147
 msgid "Provide a descriptive title for this Page Group."
 msgstr ""
 
-#: page.paging.php:150
 msgid "Device List:"
 msgstr ""
 
-#: page.paging.php:150
 msgid ""
 "Select Device(s) to page. This is the phone that should be paged. In most "
 "installations, this is the same as the Extension. If you are configured to "
-"use \"Users & Devices\" this is the acutal Device and not the User.  Use "
+"use \"Users & Devices\" this is the actual Device and not the User.  Use "
 "Ctrl key to select multiple.."
 msgstr ""
 
-#: page.paging.php:171
 msgid "Force if busy"
 msgstr ""
 
-#: page.paging.php:172
 msgid ""
-"If selected, will not check if the device is in use before paging it. This "
-"means conversations can be interrupted by a page (depending on how the "
-"device handles it). This is useful for \"emergency\" paging groups "
+"If yes, will not check if the device is in use before paging it. This means "
+"conversations can be interrupted by a page (depending on how the device "
+"handles it). This is useful for \"emergency\" paging groups. Setting to "
+"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being sent to the device's ear piece but not heard by "
+"the remote party. If ChanSpy is not supported on the device or otherwise "
+"fails, no page will get through. It probably does not make too much sense to "
+"choose duplex if using Whisper mode."
 msgstr ""
 
-#: page.paging.php:175
+msgid "The Whisper mode is new and considered experimental."
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Whisper"
+msgstr ""
+
 msgid "Duplex"
 msgstr ""
 
-#: page.paging.php:176
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
 
-#: page.paging.php:180
 msgid ""
 "Each PBX system can have a single Default Page Group. If specified, "
 "extensions can be automatically added (or removed) from this group in the "
@@ -164,22 +153,31 @@ msgid ""
 "the option from the current default group if specified."
 msgstr ""
 
-#: page.paging.php:190
 msgid "Submit Changes"
 msgstr ""
 
-#: page.paging.php:199
 msgid "Please enter a valid Paging Extension"
 msgstr ""
 
-#: page.paging.php:200
 msgid "Please select at least one extension"
 msgstr ""
 
-#: page.paging.php:237
+msgid " [DEFAULT]"
+msgstr ""
+
 msgid "Page Group"
 msgstr ""
 
-#: page.paging.php:240
 msgid "Paging and Intercom"
+msgstr ""
+
+msgid "Applications"
+msgstr ""
+
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. \tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
