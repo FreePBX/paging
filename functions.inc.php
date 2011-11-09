@@ -37,7 +37,7 @@ function paging_get_config($engine) {
 			$alertinfo = 'Alert-Info: Ring Answer';
 			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
 			$sipuri    = 'intercom=true';
-			$doptions = 'A(beep)';
+			//$doptions = 'A(beep)';
 			$vxml_url = '';
 			$dtime = '5';
 			$custom_vars = array();
@@ -72,7 +72,7 @@ function paging_get_config($engine) {
 				}
 			}
 
-			$extpaging = 'ext-paging';
+			$apppaging = 'app-paging';
 			if (!empty($intercom_code)) {
 				$code = '_'.$intercom_code.'.';
 				$context = 'ext-intercom';
@@ -129,24 +129,24 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
         if (!$ast_ge_14) {
-          $ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'),'check',101);
-				  $ext->add($context, $code, '', new ext_busy());
-				  $ext->add($context, $code, '', new ext_macro('hangupcall'));
+          		$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'),'check',101);
+				$ext->add($context, $code, '', new ext_busy());
+				$ext->add($context, $code, '', new ext_macro('hangupcall'));
         }
 				$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
-				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$extpaging));
+				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$apppaging));
 				$ext->add($context, $code, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 				$ext->add($context, $code, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
 				$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 				$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
-        $ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
+        		$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 
 				$ext->add($context, $code, 'nointercom', new ext_noop('Intercom disallowed by ${dialnumber}'));
-        $ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
+        		$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_playback('intercom&for&extension'));
 				$ext->add($context, $code, '', new ext_saydigits('${dialnumber}'));
 				$ext->add($context, $code, '', new ext_playback('is&disabled'));
@@ -323,56 +323,63 @@ function paging_get_config($engine) {
 			if ($has_answermacro) {
 				$ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
 			}
-
-
-			// Create the paging context that is used in the paging application for each phone to auto-answer
-			//
-			$ext->addInclude('from-internal-noxfer-additional',$extpaging);
-				
+			
+			//auto answer stuff
+			//set autoanswer variables
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_SIPURI', ''));
+			if (isset($alertinfo) && trim($alertinfo) != "") {
+			        $ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_ALERTINFO', $alertinfo));
+			}
+			
+			if (isset($callinfo) && trim($callinfo) != "") {
+			        $ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_CALLINFO', $callinfo));
+			}
+			if (isset($sipuri) && trim($sipuri) != "") {
+			        $ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_SIPURI', $sipuri));
+			}
+			if (isset($vxml_url) && trim($vxml_url) != "") {
+			        $ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_VXML_URL', $vxml_url));
+			}
+			if (isset($doptions) && trim($doptions) != "") {
+			        $ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_DOPTIONS', $doptions));
+			}
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_DTIME', $dtime));
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_ANSWERMACRO', ''));
+			foreach ($custom_vars as $key => $value) {
+			        $ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_'.ltrim($key,'_'), $value));
+			}
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_macro('autoanswer','${EXTEN:9}'));
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_return());
+			
 			// Normal page version
-			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:4} ]','skipself'));
-      if ($ast_ge_14) {
-			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 's'));
-			  $ext->add($extpaging, "_PAGE.", '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
-			  $ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'skipself'));			
-      } else {
-			  $ext->add($extpaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
-      }
-			$ext->add($extpaging, "_PAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:4}/user)})}" = "YES"]', 'skipself'));			
-			$ext->add($extpaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:4}'));
-			$ext->add($extpaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
-			$ext->add($extpaging, "_PAGE.", 'skipself', new ext_hangup());
-      if (!$ast_ge_14) {
-			  $ext->add($extpaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
-      }
+			$ext->add($apppaging, "_PAGE.", '', new ext_gotoif('$[ "${AMPUSER}" = "${EXTEN:4}" ]','skipself'));
+			$ext->add($apppaging, "_PAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:4}/dial)}', 'js'));
+			$ext->add($apppaging, "_PAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:4}/user)})}" = "YES"]', 'skipself'));			
+			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:4},1'));
+			$ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+			$ext->add($apppaging, "_PAGE.", 'skipself', new ext_hangup());
+			$ext->add($apppaging, "_PAGE.", '', new ext_hangup(''), 'AVAIL',101);
 
 			// Try ChanSpy Version
-			$ext->add($extpaging, "_SPAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:5} ]','skipself'));
-      if ($ast_ge_14) {
-			  $ext->add($extpaging, "_SPAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:5}/dial)}', 's'));
-			  $ext->add($extpaging, "_SPAGE.", '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
-			  $ext->add($extpaging, "_SPAGE.", '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'chanspy'));			
-      } else {
-			  $ext->add($extpaging, "_SPAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:5}/dial)}', 'js'));
-      }
-			$ext->add($extpaging, "_SPAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:5}/user)})}" = "YES"]', 'chanspy'));			
-			$ext->add($extpaging, "_SPAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:5}'));
-			$ext->add($extpaging, "_SPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
-			$ext->add($extpaging, "_SPAGE.", 'skipself', new ext_hangup());
-			$ext->add($extpaging, "_SPAGE.", 'chanspy', new ext_execif('$["${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"]', 'ChanSpy','${DB(DEVICE/${EXTEN:5}/dial)}-,qW'));
-			$ext->add($extpaging, "_SPAGE.", '', new ext_noop_trace('Comparison: ${EXTEN:5}, "${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"',9));
-			$ext->add($extpaging, "_SPAGE.", '', new ext_hangup());
-      if (!$ast_ge_14) {
-			  $ext->add($extpaging, "_SPAGE.", '', new ext_hangup(''), 'AVAIL',101);
-      }
+			$ext->add($apppaging, "_SPAGE.", '', new ext_gotoif('$[ "${AMPUSER}" = "${EXTEN:5}" ]','skipself'));
+			$ext->add($apppaging, "_SPAGE.", 'AVAIL', new ext_chanisavail('${DB(DEVICE/${EXTEN:5}/dial)}', 'js'));
+			$ext->add($apppaging, "_SPAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:5}/user)})}" = "YES"]', 'chanspy'));			
+			$ext->add($apppaging, "_SPAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:5},1'));
+			$ext->add($apppaging, "_SPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+			$ext->add($apppaging, "_SPAGE.", 'skipself', new ext_hangup());
+			$ext->add($apppaging, "_SPAGE.", 'chanspy', new ext_execif('$["${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"]', 'ChanSpy','${DB(DEVICE/${EXTEN:5}/dial)}-,qW'));
+			$ext->add($apppaging, "_SPAGE.", '', new ext_noop_trace('Comparison: ${EXTEN:5}, "${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"',9));
+			$ext->add($apppaging, "_SPAGE.", '', new ext_hangup());
+			$ext->add($apppaging, "_SPAGE.", '', new ext_hangup(''), 'AVAIL',101);
+
 
 			// Force page version
-			$ext->add($extpaging, "_FPAGE.", '', new ext_gotoif('$[ ${AMPUSER} = ${EXTEN:5} ]','skipself'));
-			$ext->add($extpaging, "_FPAGE.", 'SKIPCHECK', new ext_macro('autoanswer','${EXTEN:5}'));
-			$ext->add($extpaging, "_FPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
-			$ext->add($extpaging, "_FPAGE.", 'skipself', new ext_hangup());
-
-			//
+			$ext->add($apppaging, "_FPAGE.", '', new ext_gotoif('$[ "${AMPUSER}" = "${EXTEN:5}" ]','skipself'));
+			$ext->add($apppaging, "_FPAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:5},1'));
+			$ext->add($apppaging, "_FPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+			$ext->add($apppaging, "_FPAGE.", 'skipself', new ext_hangup());
+			
 			// Now get a list of all the paging groups...
 			$sql = "SELECT page_group, force_page, duplex FROM paging_config";
 			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
@@ -393,49 +400,65 @@ function paging_get_config($engine) {
 				$sql = "SELECT ext FROM paging_groups WHERE page_number='$grp'";
 				$all_exts = $db->getAll($sql);
 				$dialstr='';
+				
+				// Create the paging context that is used in the paging application for each phone to auto-answer
+				//add ext-paging with goto's to our app-paging context and a hint for the page
+				$extpaging = 'ext-paging';
+				$ext->add($extpaging, $grp, '', new ext_goto($apppaging . ',' . $grp . ',1'));
+				$ext->addInclude('from-internal-noxfer-additional',$extpaging);
+				$ext->addHint($extpaging, $grp, 'Custom:PAGE' . $grp);
+				
+				//app-page dialplan
 				foreach($all_exts as $local_dial) {
 					if (strtoupper(substr($local_dial[0],-1)) == "X") {
 						$local_dial[0] = rtrim($local_dial[0],"xX");
 					}
+					$page_memebers[] = "LOCAL/$pagemode".trim($local_dial[0])."@".$apppaging;
 
-					$dialstr .= "LOCAL/$pagemode".trim($local_dial[0])."@".$extpaging."&";
 				}
-				// It will always end with an &, so lets take that off.
-				$dialstr = rtrim($dialstr, "&");
-
-				if ($thisgroup['duplex']) {
-					$dialstr .= ",d";
-				}
-				$ext->add($extpaging, $grp, '', new ext_answer(''));
-				$ext->add($extpaging, $grp, '', new ext_macro('user-callerid'));
-				// make AMPUSER inherited here, so we can skip the proper 'self' if using cidnum masquerading
-				$ext->add($extpaging, $grp, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
-
-				$ext->add($extpaging, $grp, '', new ext_setvar('_SIPURI', ''));
-				if (isset($alertinfo) && trim($alertinfo) != "") {
-					$ext->add($extpaging, $grp, '', new ext_setvar('_ALERTINFO', $alertinfo));
-				}
-				if (isset($callinfo) && trim($callinfo) != "") {
-					$ext->add($extpaging, $grp, '', new ext_setvar('_CALLINFO', $callinfo));
-				}
-				if (isset($sipuri) && trim($sipuri) != "") {
-					$ext->add($extpaging, $grp, '', new ext_setvar('_SIPURI', $sipuri));
-				}
-				if (isset($vxml_url) && trim($vxml_url) != "") {
-					$ext->add($extpaging, $grp, '', new ext_setvar('_VXML_URL', $vxml_url));
-				}
-				if (isset($doptions) && trim($doptions) != "") {
-					$ext->add($extpaging, $grp, '', new ext_setvar('_DOPTIONS', $doptions));
-				}
-				$ext->add($extpaging, $grp, '', new ext_setvar('_DTIME', $dtime));
-				$ext->add($extpaging, $grp, '', new ext_setvar('_ANSWERMACRO', ''));
-				foreach ($custom_vars as $key => $value) {
-					$ext->add($extpaging, $grp, '', new ext_setvar('_'.ltrim($key,'_'), $value));
-				}
-				$ext->add($extpaging, $grp, '', new ext_setvar('__FORWARD_CONTEXT', 'block-cf'));
-
-				$ext->add($extpaging, $grp, '', new ext_page($dialstr));
+				
+				$ext->add($apppaging, $grp, '', new ext_macro('user-callerid'));
+				$ext->add($apppaging, $grp, '', new ext_setvar('_PAGEGROUP', $grp));
+				$ext->add($apppaging, $grp, '', new ext_setvar('PAGE${PAGEGROUP}ADMIN', 'TRUE'));
+				
+				//if page group it in use, got to busy
+				$ext->add($apppaging, $grp, '', 
+					new ext_gotoif('$[${TRYLOCK(apppaging'. $grp .')}]', '', 'busy'));
+				
+				//set blf to in use
+				$ext->add($apppaging, $grp, 'devstate', 
+					new ext_setvar('DEVICE_STATE(Custom:PAGE' . $grp .')', 'INUSE'));
+				
+				$ext->add($apppaging, $grp, '', new ext_answer(''));
+				$ext->add($apppaging, $grp, '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
+				$ext->add($apppaging, $grp, '', 
+					new ext_set('PAGE_CONF_OPTS', '1doqsx' . (!$thisgroup['duplex'] ? 'm' : '')));
+				$ext->add($apppaging, $grp, 'agi', new ext_agi('page.agi,'
+												. 'extensions=' . implode(':',$page_memebers) . ','
+												. 'meetmeopts=${PAGE_CONF}\,${PAGE_CONF_OPTS}\,\,,'
+												. 'AMPUSER=${AMPUSER}'
+												));
+				//we cant use originate from the dialplan as the dialplan command is not asynchronous
+				//we would like to though...
+				//this code here as a sign of hope -MB
+				/*foreach ($page_memebers as $member) {
+					$ext->add($apppaging, $grp, 'page', new ext_originate($member,'app','meetme', '${PAGE_CONF}\,${PAGE_CONF_OPTS}'));
+				}*/					
+				unset($page_memebers);
+				$ext->add($apppaging, $grp, 'page', new ext_meetme('${PAGE_CONF},doqwxCAG(beep)'));
+				$ext->add($apppaging, $grp, '', new ext_hangup());
+				$ext->add($apppaging, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
+				$ext->add($apppaging, $grp, 'play-busy', new ext_busy(3));
+				$ext->add($apppaging, $grp, 'busy-hang', new ext_goto('ext-paging,h,1'));
+				
 			}
+			//h
+			$ext->add($apppaging, 'h', '', 
+				new ext_execif('$['
+								. '$["${PAGE${PAGEGROUP}ADMIN}" = "TRUE"]'
+								. ' & $[${ISNULL(${PAGE${PAGEGROUP}BUSY})}]'
+								. ']', 
+								'Set', 'DEVICE_STATE(Custom:PAGE${PAGEGROUP})=NOT_INUSE'));
 			
 		break;
 	}

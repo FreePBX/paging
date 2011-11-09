@@ -170,14 +170,30 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 		<br>
 	</td></tr>
 
-	<tr><td><a href='#' class='info'><?php echo _("Force if busy") ?><span>
-	<?php echo _("If yes, will not check if the device is in use before paging it. This means conversations can be interrupted by a page (depending on how the device handles it). This is useful for \"emergency\" paging groups. Setting to 'Whisper' will attempt to use the ChanSpy capability on SIP channels, resulting in the page being sent to the device's ear piece but not heard by the remote party. If ChanSpy is not supported on the device or otherwise fails, no page will get through. It probably does not make too much sense to choose duplex if using Whisper mode.").' '._("The Whisper mode is new and considered experimental.") ?></span></a></td>
+	<tr><td>
+		<?php echo fpbx_label(_("Busy Extensions"), 
+			_('<ul><li>"Skip" will not page any busy extension. All other extensions will '
+			. 'be paged as normal</li>'
+			. '<li>"Force" will not check if the device is in use before paging it. '
+			. 'This means conversations can be interrupted by a page (depending '
+			. 'on how the device handles it). This is useful for "emergency" '
+			. 'paging groups.</li>'
+			. '<li>"Whisper" will attempt to use the ChanSpy '
+			. 'capability on SIP channels, resulting in the page being sent to '
+			. 'the device\'s ear piece but not heard by the remote party. If '
+			. 'ChanSpy is not supported on the device or otherwise fails, no page '
+			. 'will get through. It probably does not make too much sense to choose '
+			. 'duplex if using Whisper mode.</li></ul>')
+			. ' ' 
+			. _('The Whisper mode is new and considered experimental.')
+			); ?>
+	</td>
   <td>
 	<span class="radioset">
 	    <input id="force_page_no" type="radio" name="force_page" value="0" <?php echo $force_page == 0 ? "checked=\"yes\"":""?>/>
-	    <label for="force_page_no"><?php echo _("No") ?></label>
+	    <label for="force_page_no"><?php echo _("Skip") ?></label>
 	    <input id="force_page_yes" type="radio" name="force_page" value="1" <?php echo $force_page == 1 ? "checked=\"yes\"":""?>/>
-	    <label for="force_page_yes"><?php echo _("Yes") ?></label>
+	    <label for="force_page_yes"><?php echo _("Force") ?></label>
 	    <input id="force_page_whisper" type="radio" name="force_page" value="2" <?php echo $force_page == 2 ? "checked=\"yes\"":""?>/>
 	  	<label for="force_page_whisper"><?php echo _("Whisper") ?></label>
 	</span>

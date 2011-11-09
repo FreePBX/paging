@@ -1,0 +1,63 @@
+#!/usr/bin/php -q
+<?php
+//include freepbx configuration 
+$restrict_mods = true;
+if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
+    include_once('/etc/asterisk/freepbx.conf');
+}
+list($agi, $vars) = __agi();
+$vars['extensions'] = explode(':', $vars['extensions']);
+dbug('extensions', $vars);
+
+/* TODO: run through the list here first and check for:
+ *       extension -- current device doing the page and yank them out if so
+ *       if not force page -- check if target extension (or is it device) is busy if so pull out of list
+ *       future - check if each specific extension needs modifications to auto-answer channel variables
+ *                so the conditional assignments can be skipped
+ *
+ *       extension will have to be changed to the raw extension and more intelligence added to here to
+ *       properly accomodated the above, and then changes to the auto-answer macro, etc.
+ */
+
+foreach ($vars['extensions'] as $ext) {	
+	/*if (strstr($ext, $vars['AMPUSER'] . '@ext-paging')) {
+		continue;
+	}*/
+	$astman->Originate(array(
+							'Channel'		=> $ext,
+							'CallerID'		=> $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
+							'Async'			=> 'true',
+							'Set'			=> 'AMPUSER=' . $vars['AMPUSER'],
+							'Application'	=> 'meetme',
+							'Data'			=> $vars['meetmeopts']
+							));
+}
+
+function __agi(){
+	require_once('phpagi.php');
+	$agi=new AGI();
+	foreach($agi->request as $key => $value){//strip agi_ prefix from keys
+		if(substr($key,0,4)=='agi_'){
+			$opts[substr($key,4)]=$value;
+		}
+	}
+
+	foreach($opts as $key => $value){//get passed in vars
+		if(substr($key,0,4)=='arg_'){
+			$expld=explode('=',$value);
+			$opts[$expld[0]]=$expld[1];
+			unset($opts[$key]);
+		}
+	}
+	
+	array_shift($_SERVER['argv']);
+	foreach($_SERVER['argv'] as $arg){
+		$arg=explode('=',$arg);
+		//remove leading '--'
+		if(substr($arg['0'],0,2) == '--'){$arg['0']=substr($arg['0'],2);}
+		$opts[$arg['0']]=isset($arg['1'])?$arg['1']:null;
+	}
+
+	return array($agi, $opts);
+}
+?>
