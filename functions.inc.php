@@ -422,7 +422,7 @@ function paging_get_config($engine) {
 				$ext->add($apppaging, $grp, '', new ext_setvar('PAGE${PAGEGROUP}ADMIN', 'TRUE'));
 				
 				//if page group it in use, got to busy
-				$ext->add($apppaging, $grp, '', 
+				$ext->add($apppaging, $grp, 'busy-check', 
 					new ext_gotoif('$[${TRYLOCK(apppaging'. $grp .')}]', '', 'busy'));
 				
 				//set blf to in use
@@ -431,8 +431,9 @@ function paging_get_config($engine) {
 				
 				$ext->add($apppaging, $grp, '', new ext_answer(''));
 				$ext->add($apppaging, $grp, '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
+				$page_opts = $amp_conf['ASTCONFAPP'] == 'app_meetme' ? '1doqsx' : '1qs';
 				$ext->add($apppaging, $grp, '', 
-					new ext_set('PAGE_CONF_OPTS', '1doqsx' . (!$thisgroup['duplex'] ? 'm' : '')));
+					new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
 				$ext->add($apppaging, $grp, 'agi', new ext_agi('page.agi,'
 												. 'extensions=' . implode(':',$page_memebers) . ','
 												. 'meetmeopts=${PAGE_CONF}\,${PAGE_CONF_OPTS}\,\,,'
@@ -445,7 +446,7 @@ function paging_get_config($engine) {
 					$ext->add($apppaging, $grp, 'page', new ext_originate($member,'app','meetme', '${PAGE_CONF}\,${PAGE_CONF_OPTS}'));
 				}*/					
 				unset($page_memebers);
-				$ext->add($apppaging, $grp, 'page', new ext_meetme('${PAGE_CONF},doqwxCAG(beep)'));
+				$ext->add($apppaging, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'doqwxAG(beep)'));
 				$ext->add($apppaging, $grp, '', new ext_hangup());
 				$ext->add($apppaging, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
 				$ext->add($apppaging, $grp, 'play-busy', new ext_busy(3));
@@ -554,8 +555,8 @@ function paging_get_pagingconfig($grp) {
 
 	$sql = "SELECT * FROM paging_config WHERE page_group='$grp'";
 	$results = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		$results = null;
+	if(!$results || DB::IsError($results)) {
+		return false;
 	}
 	$sql = "SELECT * FROM admin WHERE variable='default_page_grp' AND value='$grp'";
 	$default_group = $db->getRow($sql, DB_FETCHMODE_ASSOC);

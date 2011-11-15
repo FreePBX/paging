@@ -113,7 +113,7 @@ function paging_show($xtn, $display, $type, $conflict_url=array()) {
 			$rows = 20;
 		}
 
-		$delURL = $_SERVER['PHP_SELF']."?type=${type}&amp;display=${display}&amp;action=delete&amp;extdisplay=${xtn}";
+		$delURL = $_SERVER['PHP_SELF']."?display=${display}&amp;action=delete&amp;extdisplay=${xtn}";
 		$tlabel = sprintf(_("Delete Group %s"),$xtn);
 		$label = '<span><img width="16" height="16" border="0" title="'.$tlabel.'" alt="" src="images/core_delete.png"/>&nbsp;'.$tlabel.'</span>';
 		echo "<a href=".$delURL.">".$label."</a>";
@@ -251,7 +251,7 @@ function page_edit_onsubmit() {
 function paging_sidebar($extdisplay, $type, $display) {
 	echo "<div class='rnav'><ul>\n";
 	echo "<li><a id='".($extdisplay==''?'current':'std')."' ";
-	echo "href='config.php?type=${type}&amp;display=${display}&amp;action=add'>"._("Add Paging Group")."</a></li>"; 
+	echo "href='config.php?display=${display}&amp;action=add'>"._("Add Paging Group")."</a></li>"; 
 	//get the list of paging groups
 	$presults = paging_list();
   $default_grp = paging_get_default();
@@ -263,7 +263,7 @@ function paging_sidebar($extdisplay, $type, $display) {
 			$group = $grouparr['page_group'];
       $hl = $group == $default_grp ? _(' [DEFAULT]') : '';
 			echo "<li><a class=\"".($extdisplay==$group ? 'current':'std');
-			echo "\" href=\"config.php?type=${type}&amp;display=";
+			echo "\" href=\"config.php?display=";
 			echo "${display}&amp;extdisplay=${group}&amp;action=modify\">";
 			echo $group." ".((trim($grouparr['description']) != '')?htmlspecialchars($grouparr['description']):_("Page Group"))."$hl</a></li>";
 		}

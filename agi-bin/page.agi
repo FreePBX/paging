@@ -28,7 +28,7 @@ foreach ($vars['extensions'] as $ext) {
 							'CallerID'		=> $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
 							'Async'			=> 'true',
 							'Set'			=> 'AMPUSER=' . $vars['AMPUSER'],
-							'Application'	=> 'meetme',
+							'Application'	=> ($amp_conf['ASTCONFAPP'] == 'meetme' ? 'meetme' : 'confbridge'),
 							'Data'			=> $vars['meetmeopts']
 							));
 }
