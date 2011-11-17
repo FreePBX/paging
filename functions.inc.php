@@ -367,10 +367,9 @@ function paging_get_config($engine) {
 			$ext->add($apppaging, "_SPAGE.", '', new ext_gotoif('$["${DB(DND/${DB(DEVICE/${EXTEN:5}/user)})}" = "YES"]', 'chanspy'));			
 			$ext->add($apppaging, "_SPAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:5},1'));
 			$ext->add($apppaging, "_SPAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
-			$ext->add($apppaging, "_SPAGE.", 'skipself', new ext_hangup());
 			$ext->add($apppaging, "_SPAGE.", 'chanspy', new ext_execif('$["${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"]', 'ChanSpy','${DB(DEVICE/${EXTEN:5}/dial)}-,qW'));
 			$ext->add($apppaging, "_SPAGE.", '', new ext_noop_trace('Comparison: ${EXTEN:5}, "${CUT(DB(DEVICE/${EXTEN:5}/dial),/,1)}" = "SIP"',9));
-			$ext->add($apppaging, "_SPAGE.", '', new ext_hangup());
+			$ext->add($apppaging, "_SPAGE.", 'skipself', new ext_hangup());
 			$ext->add($apppaging, "_SPAGE.", '', new ext_hangup(''), 'AVAIL',101);
 
 
