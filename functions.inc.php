@@ -10,10 +10,7 @@
 //	Generates dialplan for paging  - is called from retrieve_conf
 
 function paging_get_config($engine) {
-	global $db;
-	global $ext; 
-	global $chan_dahdi;
-  global $version;
+	global $db, $ext, $chan_dahdi, $version, $amp_conf;
 	switch($engine) {
 		case "asterisk":
       $ast_ge_14 = version_compare($version, "1.4", "ge");
@@ -37,7 +34,7 @@ function paging_get_config($engine) {
 			$alertinfo = 'Alert-Info: Ring Answer';
 			$callinfo  = 'Call-Info: <uri>\;answer-after=0';
 			$sipuri    = 'intercom=true';
-			//$doptions = 'A(beep)';
+			$doptions = '';//'A(beep)';
 			$vxml_url = '';
 			$dtime = '5';
 			$custom_vars = array();
