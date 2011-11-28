@@ -430,19 +430,10 @@ function paging_get_config($engine) {
 				$page_opts = $amp_conf['ASTCONFAPP'] == 'app_meetme' ? '1doqsx' : '1qs';
 				$ext->add($apppaging, $grp, '', 
 					new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
-				$ext->add($apppaging, $grp, 'agi', new ext_agi('page.agi,'
-												. 'extensions=' . implode(':',$page_memebers) . ','
-												. 'meetmeopts=${PAGE_CONF}\,${PAGE_CONF_OPTS}\,\,,'
-												. 'AMPUSER=${AMPUSER}'
-												));
-				//we cant use originate from the dialplan as the dialplan command is not asynchronous
-				//we would like to though...
-				//this code here as a sign of hope -MB
-				/*foreach ($page_memebers as $member) {
-					$ext->add($apppaging, $grp, 'page', new ext_originate($member,'app','meetme', '${PAGE_CONF}\,${PAGE_CONF_OPTS}'));
-				}*/					
+				$ext->add($apppaging, $grp, '', new ext_set('PAGE_MEMBERS', base64_encode(serialize($page_memebers))));
+				$ext->add($apppaging, $grp, 'agi', new ext_agi('page.agi'));			
 				unset($page_memebers);
-				$ext->add($apppaging, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'doqwxAG(beep)'));
+				$ext->add($apppaging, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'doqwxAG'));
 				$ext->add($apppaging, $grp, '', new ext_hangup());
 				$ext->add($apppaging, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
 				$ext->add($apppaging, $grp, 'play-busy', new ext_busy(3));
@@ -456,6 +447,13 @@ function paging_get_config($engine) {
 								. ' & $[${ISNULL(${PAGE${PAGEGROUP}BUSY})}]'
 								. ']', 
 								'Set', 'DEVICE_STATE(Custom:PAGE${PAGEGROUP})=NOT_INUSE'));
+			
+			//page playback
+			$c = 'app-page-stream';
+			$ext->add($c, 's', '', new ext_wait(1));
+			$ext->add($c, 's', '', new ext_answer());
+			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
+			$ext->add($c, 's', '', new ext_hangup());
 			
 		break;
 	}

@@ -6,8 +6,23 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
     include_once('/etc/asterisk/freepbx.conf');
 }
 list($agi, $vars) = __agi();
-$vars['extensions'] = explode(':', $vars['extensions']);
-dbug('extensions', $vars);
+
+$get = array(
+		'AMPUSER',
+		'PAGE_CONF',
+		'PAGE_CONF_OPTS',
+		'PAGE_MEMBERS',
+		'STREAM'
+);
+
+foreach ($get as $g) {
+	$vars[$g] = agi_get_var($g);
+}
+
+$vars['PAGE_MEMBERS'] = unserialize(base64_decode($vars['PAGE_MEMBERS']));
+$vars['STREAM'] = $vars['STREAM'] ? $vars['STREAM'] : 'beep';
+
+dbug('vars', $vars);
 
 /* TODO: run through the list here first and check for:
  *       extension -- current device doing the page and yank them out if so
@@ -19,7 +34,7 @@ dbug('extensions', $vars);
  *       properly accomodated the above, and then changes to the auto-answer macro, etc.
  */
 
-foreach ($vars['extensions'] as $ext) {	
+foreach ($vars['PAGE_MEMBERS'] as $ext) {	
 	/*if (strstr($ext, $vars['AMPUSER'] . '@ext-paging')) {
 		continue;
 	}*/
@@ -27,11 +42,26 @@ foreach ($vars['extensions'] as $ext) {
 							'Channel'		=> $ext,
 							'CallerID'		=> $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
 							'Async'			=> 'true',
-							'Set'			=> 'AMPUSER=' . $vars['AMPUSER'],
-							'Application'	=> ($amp_conf['ASTCONFAPP'] == 'meetme' ? 'meetme' : 'confbridge'),
-							'Data'			=> $vars['meetmeopts']
+							'Variable'			=> 'AMPUSER=' . $vars['AMPUSER'],
+							'Application'	=> ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
+												? 'ConfBridge' : 'MeetMe'),
+							'Data'			=> $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,'
 							));
 }
+
+$beep = array(
+		'Channel'		=> 'Local/s@app-page-stream',
+		'CallerID'		=> 'Playback Stream',
+		'Async'			=> 'true',
+		'Variable'		=> array(
+							'PAGE_CONF=' . $vars['PAGE_CONF'],
+							'PAGE_CONF_OPTS=xq',
+							),
+		'Application'	=> 'Playback',
+		'Data'			=> $vars['STREAM']
+);
+dbug($beep);
+$astman->Originate($beep);
 
 function __agi(){
 	require_once('phpagi.php');
@@ -59,5 +89,16 @@ function __agi(){
 	}
 
 	return array($agi, $opts);
+}
+
+function agi_get_var($value) {
+	global $agi;
+	$r = $agi->get_variable($value);
+	
+	if ($r['result'] == 1) {
+		$result = $r['data'];
+		return $result;
+	}
+	return '';
 }
 ?>
