@@ -8,10 +8,17 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 list($agi, $vars) = __agi();
 
 $get = array(
+		'ALERTINFO',
+		'CALLINFO',
+		'SIPURI',
+		'VXML_URL',
+		'DOPTIONS',
+		'DTIME',
 		'AMPUSER',
 		'PAGE_CONF',
 		'PAGE_CONF_OPTS',
 		'PAGE_MEMBERS',
+		'PAGEMODE',
 		'STREAM'
 );
 
@@ -19,48 +26,105 @@ foreach ($get as $g) {
 	$vars[$g] = agi_get_var($g);
 }
 
-$vars['PAGE_MEMBERS'] = unserialize(base64_decode($vars['PAGE_MEMBERS']));
 $vars['STREAM'] = $vars['STREAM'] ? $vars['STREAM'] : 'beep';
 
-dbug('vars', $vars);
+// TODO: this deals with the mainstream ones. We could check in the dialplan if there are any others outside of these and only in that case evoke the
+//       new custom macro that gets generated to otherwise deal with these???
+//
 
-/* TODO: run through the list here first and check for:
- *       extension -- current device doing the page and yank them out if so
- *       if not force page -- check if target extension (or is it device) is busy if so pull out of list
- *       future - check if each specific extension needs modifications to auto-answer channel variables
- *                so the conditional assignments can be skipped
- *
- *       extension will have to be changed to the raw extension and more intelligence added to here to
- *       properly accomodated the above, and then changes to the auto-answer macro, etc.
- */
-
-foreach ($vars['PAGE_MEMBERS'] as $ext) {	
-	/*if (strstr($ext, $vars['AMPUSER'] . '@ext-paging')) {
-		continue;
-	}*/
-	$astman->Originate(array(
-							'Channel'		=> $ext,
-							'CallerID'		=> $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
-							'Async'			=> 'true',
-							'Variable'			=> 'AMPUSER=' . $vars['AMPUSER'],
-							'Application'	=> ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
-												? 'ConfBridge' : 'MeetMe'),
-							'Data'			=> $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,'
-							));
+if ($vars['ALERTINFO'] != '') {
+	$pass['ALERTINFO'] = $vars['ALERTINFO'];
+}
+if ($vars['CALLINFO'] != '') {
+	$pass['CALLINFO'] = $vars['CALLINFO'];
+}
+if ($vars['SIPURI'] != '') {
+	$pass['SIPURI'] = $vars['SIPURI'];
+}
+if ($vars['VXML_URL'] != '') {
+	$pass['VXML_URL'] = $vars['VXML_URL'];
+}
+if ($vars['DOPTIONS'] != '') {
+	$pass['DOPTIONS'] = $vars['DOPTIONS'];
+}
+if ($vars['DTIME'] != '') {
+	$pass['DTIME'] = $vars['DTIME'];
+}
+$base_vars = '__FORWARD_CONTEXT=block-cf,AMPUSER=' .  __pad_string($vars['AMPUSER']);
+foreach ($pass as $key => $val) {
+	$base_vars .= ',' . $key . '=' . __pad_string($val);
 }
 
+//dbug('vars', $vars);
+
+/* TODO: run through the list here first and check for:
+ *       future - check if each specific extension needs modifications to auto-answer channel variables
+ *                so the conditional assignments can be skipped
+ */
+
+$page_members = explode('-',$vars['PAGE_MEMBERS']);
+
+foreach ($page_members as $pm) {
+	$pagemode = 'PAGE';
+	$pass_vars = $base_vars;
+	// don't page ourselves ever
+	if ($pm == $vars['AMPUSER']) {
+		continue;
+	}
+	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD are ok to page)
+	if ($vars['PAGEMODE'] == 'PAGE') {
+		$ext_state = agi_get_var("EXTENSION_STATE($pm)");
+		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') {
+			continue;
+		}
+	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
+		$ext_state = agi_get_var("EXTENSION_STATE($pm)");
+		// if not idle but in a state we can try spying, then try
+		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') {
+			$device = $agi->database_get("DEVICE","$pm/dial");
+			$device = $device['data'];
+			$type = explode('/',$device,2);
+			if (strtolower($type[0]) != 'sip') {
+				continue;
+			}
+			switch ($ext_state) {
+			case "INUSE":
+			case "BUSY":
+			case "RINGINUSE":
+			case "HOLDINUSE":
+				// Try SPY
+				$pagemode = 'SPAGE';
+				$pass_vars .= ',' . 'SP_DEVICE=' . __pad_string($device);
+			break;
+			default:
+				// State is not amicable to spy or normal (such as RINGING) so skip it
+				continue;
+			break;
+			}
+		}
+	}
+
+	$astman->Originate(array(
+		'Channel'     => "Local/$pagemode" . "$pm@app-paging",
+		'CallerID'    => $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
+		'Async'       => 'true',
+		'Variable'    => $pass_vars,
+		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' ? 'ConfBridge' : 'MeetMe'),
+		'Data'        => $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,'
+	));
+}
+
+//TODO: is PAGE_CONF_OPTS correct for both meetme and conf_bridge?
+//
 $beep = array(
 		'Channel'		=> 'Local/s@app-page-stream',
 		'CallerID'		=> 'Playback Stream',
 		'Async'			=> 'true',
-		'Variable'		=> array(
-							'PAGE_CONF=' . $vars['PAGE_CONF'],
-							'PAGE_CONF_OPTS=xq',
-							),
+		'Variable'		=> 'PAGE_CONF=' . __pad_string($vars['PAGE_CONF']) . ',' .  'PAGE_CONF_OPTS=xq',
 		'Application'	=> 'Playback',
 		'Data'			=> $vars['STREAM']
 );
-dbug($beep);
+//dbug($beep);
 $astman->Originate($beep);
 
 function __agi(){
@@ -100,5 +164,9 @@ function agi_get_var($value) {
 		return $result;
 	}
 	return '';
+}
+
+function __pad_string($string) {
+	return str_replace(array('\\',',','='),array('\\\\','\\,','\\='),$string);
 }
 ?>
