@@ -50,6 +50,11 @@ if ($vars['DOPTIONS'] != '') {
 if ($vars['DTIME'] != '') {
 	$pass['DTIME'] = $vars['DTIME'];
 }
+
+// Remove an A(beeps) or equivalent if in DOPTIONS since paging ignores these but intercom may still use them
+if (!empty($pass['DOPTIONS'])) {
+	$pass['DOPTIONS'] = preg_replace('/A\((.*?)\)/i','',$pass['DOPTIONS']);
+}
 $base_vars = '__FORWARD_CONTEXT=block-cf,AMPUSER=' .  __pad_string($vars['AMPUSER']);
 foreach ($pass as $key => $val) {
 	$base_vars .= ',' . $key . '=' . __pad_string($val);
