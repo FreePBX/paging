@@ -9,17 +9,17 @@ list($agi, $vars) = __agi();
 
 $get = array(
 		'ALERTINFO',
+		'AMPUSER',
 		'CALLINFO',
-		'SIPURI',
-		'VXML_URL',
 		'DOPTIONS',
 		'DTIME',
-		'AMPUSER',
+		'PAGEMODE',
 		'PAGE_CONF',
 		'PAGE_CONF_OPTS',
 		'PAGE_MEMBERS',
-		'PAGEMODE',
-		'STREAM'
+		'SIPURI',
+		'STREAM',
+		'VXML_URL'
 );
 
 foreach ($get as $g) {
@@ -28,37 +28,28 @@ foreach ($get as $g) {
 
 $vars['STREAM'] = $vars['STREAM'] ? $vars['STREAM'] : 'beep';
 
-// TODO: this deals with the mainstream ones. We could check in the dialplan if there are any others outside of these and only in that case evoke the
-//       new custom macro that gets generated to otherwise deal with these???
-//
+// TODO: this deals with the mainstream ones. We could check in the dialplan if 
+//there are any others outside of these and only in that case evoke the
+//new custom macro that gets generated to otherwise deal with these???
 
-if ($vars['ALERTINFO'] != '') {
-	$pass['ALERTINFO'] = $vars['ALERTINFO'];
-}
-if ($vars['CALLINFO'] != '') {
-	$pass['CALLINFO'] = $vars['CALLINFO'];
-}
-if ($vars['SIPURI'] != '') {
-	$pass['SIPURI'] = $vars['SIPURI'];
-}
-if ($vars['VXML_URL'] != '') {
-	$pass['VXML_URL'] = $vars['VXML_URL'];
-}
-if ($vars['DOPTIONS'] != '') {
-	$pass['DOPTIONS'] = $vars['DOPTIONS'];
-}
-if ($vars['DTIME'] != '') {
-	$pass['DTIME'] = $vars['DTIME'];
-}
-
-// Remove an A(beeps) or equivalent if in DOPTIONS since paging ignores these but intercom may still use them
-if (!empty($pass['DOPTIONS'])) {
-	$pass['DOPTIONS'] = preg_replace('/A\((.*?)\)/i','',$pass['DOPTIONS']);
-}
+//set channel variables
 $base_vars = '__FORWARD_CONTEXT=block-cf,AMPUSER=' .  __pad_string($vars['AMPUSER']);
-foreach ($pass as $key => $val) {
-	$base_vars .= ',' . $key . '=' . __pad_string($val);
+$chan_vars = array(
+			'ALERTINFO',
+			'CALLINFO',
+			'DOPTIONS',
+			'DTIME',
+			'SIPURI',
+			'SIPURI',
+			'VXML_URL'
+);
+
+foreach ($chan_vars as $var) {
+	if ($vars[$var] != '') {
+		$base_vars .= ',' . $var . '=' . __pad_string($vars[$var]);
+	}
 }
+
 
 //dbug('vars', $vars);
 
@@ -67,7 +58,7 @@ foreach ($pass as $key => $val) {
  *                so the conditional assignments can be skipped
  */
 
-$page_members = explode('-',$vars['PAGE_MEMBERS']);
+$page_members = explode('-', $vars['PAGE_MEMBERS']);
 
 foreach ($page_members as $pm) {
 	$pagemode = 'PAGE';
@@ -79,48 +70,46 @@ foreach ($page_members as $pm) {
 	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD are ok to page)
 	if ($vars['PAGEMODE'] == 'PAGE') {
 		$ext_state = agi_get_var("EXTENSION_STATE($pm)");
-		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') {
+		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') { //TODO: change to in_array or a function
 			continue;
 		}
 	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
 		$ext_state = agi_get_var("EXTENSION_STATE($pm)");
 		// if not idle but in a state we can try spying, then try
-		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') {
-			$device = $agi->database_get("DEVICE","$pm/dial");
+		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') { //TODO: change to in_array or a function
+			$device = $agi->database_get("DEVICE", $pm . '/dial');
 			$device = $device['data'];
-			$type = explode('/',$device,2);
+			$type = explode('/', $device, 2);
 			if (strtolower($type[0]) != 'sip') {
 				continue;
 			}
 			switch ($ext_state) {
-			case "INUSE":
-			case "BUSY":
-			case "RINGINUSE":
-			case "HOLDINUSE":
-				// Try SPY
-				$pagemode = 'SPAGE';
-				$pass_vars .= ',' . 'SP_DEVICE=' . __pad_string($device);
-			break;
-			default:
-				// State is not amicable to spy or normal (such as RINGING) so skip it
-				continue;
-			break;
+				case "INUSE":
+				case "BUSY":
+				case "RINGINUSE":
+				case "HOLDINUSE":
+					// Try SPY
+					$pagemode = 'SPAGE';
+					$pass_vars .= ',' . 'SP_DEVICE=' . __pad_string($device);
+				break;
+				default:
+					// State is not amicable to spy or normal (such as RINGING) so skip it
+					continue;
+				break;
 			}
 		}
 	}
 
 	$astman->Originate(array(
-		'Channel'     => "Local/$pagemode" . "$pm@app-paging",
-		'CallerID'    => $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
-		'Async'       => 'true',
-		'Variable'    => $pass_vars,
-		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' ? 'ConfBridge' : 'MeetMe'),
-		'Data'        => $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,'
+			'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging',
+			'CallerID'    => $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
+			'Async'       => 'true',
+			'Variable'    => $pass_vars,
+			'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' ? 'ConfBridge' : 'MeetMe'),
+			'Data'        => $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,'
 	));
 }
 
-//TODO: is PAGE_CONF_OPTS correct for both meetme and conf_bridge?
-//
 $beep = array(
 		'Channel'		=> 'Local/s@app-page-stream',
 		'CallerID'		=> 'Playback Stream',
@@ -174,4 +163,5 @@ function agi_get_var($value) {
 function __pad_string($string) {
 	return str_replace(array('\\',',','='),array('\\\\','\\,','\\='),$string);
 }
+
 ?>

@@ -10,14 +10,10 @@
 //	Generates dialplan for paging  - is called from retrieve_conf
 
 function paging_get_config($engine) {
-	global $db;
-	global $ext; 
-	global $chan_dahdi;
-  global $version;
-  global $amp_conf;
+	global $db, $ext, $chan_dahdi, $version, $amp_conf;
 	switch($engine) {
 		case "asterisk":
-      $ast_ge_14 = version_compare($version, "1.4", "ge");
+			$ast_ge_14 = version_compare($version, "1.4", "ge");
 
 			// setup for intercom
 			$fcc = new featurecode('paging', 'intercom-prefix');
