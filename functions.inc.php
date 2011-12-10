@@ -331,11 +331,13 @@ function paging_get_config($engine) {
 			
 			//auto answer stuff
 			//set autoanswer variables
-			foreach ($custom_vars as $key => $value) {
-				$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_'.ltrim($key,'_'), $value));
+			if (!empty($custom_vars)) {
+				foreach ($custom_vars as $key => $value) {
+					$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_'.ltrim($key,'_'), $value));
+				}
+				$ext->add($apppaging, '_AUTOASWER.', '', new ext_macro('autoanswer','${EXTEN:9}'));
+				$ext->add($apppaging, '_AUTOASWER.', '', new ext_return());
 			}
-			$ext->add($apppaging, '_AUTOASWER.', '', new ext_macro('autoanswer','${EXTEN:9}'));
-			$ext->add($apppaging, '_AUTOASWER.', '', new ext_return());
 
 			// Setup Variables before AGI script
 			//
@@ -365,7 +367,13 @@ function paging_get_config($engine) {
 			$ext->add($apppaging, 'ssetup', '', new ext_return());
 				
 			// Normal page version (now used for Force also)
-			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:4},1'));
+			// If we had any custom_vars then call the AUTOASWER subroutine first, otherwise go
+			// straight to macro-autoanswer
+			if (!empty($custom_vars)) {
+				$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:4},1'));
+			} else {
+				$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer', '${EXTEN:4}'));
+			}
 			$ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 			$ext->add($apppaging, "_PAGE.", 'skipself', new ext_hangup());
 
