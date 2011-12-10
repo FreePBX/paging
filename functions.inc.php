@@ -119,7 +119,15 @@ function paging_get_config($engine) {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
         }
 				$ext->add($context, $code, '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
-				$ext->add($context, $code, '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
+				$dopt = '';
+				if ($amp_conf['AST_FUNC_CONNECTEDLINE']) {
+					$len = strlen($code)-2;
+					$dopt = 'I';
+					$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}" = ""]','godial'));
+					$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(name,i)', '${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}'));
+					$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(num)', '${EXTEN:' . $len . '}'));
+				}
+				$ext->add($context, $code, 'godial', new ext_dial('${DIAL}','${DTIME},' . $dopt . '${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
 
 
         $ext->add($context, $code, 'end', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
