@@ -1,5 +1,6 @@
 <?php 
 /* $Id $ */
+if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 /* paging_init - Is run every time the page is loaded, checks
    to make sure that the database is current and loaded, if not,
