@@ -33,7 +33,8 @@ $vars['STREAM'] = $vars['STREAM'] ? $vars['STREAM'] : 'beep';
 //new custom macro that gets generated to otherwise deal with these???
 
 //set channel variables
-$base_vars = '__FORWARD_CONTEXT=block-cf,AMPUSER=' .  __pad_string($vars['AMPUSER']);
+$base_vars['__FORWARD_CONTEXT'] = 'block-cf';
+$base_vars['AMPUSER'] = __pad_string($vars['AMPUSER']);
 $chan_vars = array(
 			'ALERTINFO',
 			'CALLINFO',
@@ -46,7 +47,7 @@ $chan_vars = array(
 
 foreach ($chan_vars as $var) {
 	if ($vars[$var] != '') {
-		$base_vars .= ',' . $var . '=' . __pad_string($vars[$var]);
+		$base_vars[$var]  = __pad_string($vars[$var]);
 	}
 }
 
@@ -90,7 +91,7 @@ foreach ($page_members as $pm) {
 				case "HOLDINUSE":
 					// Try SPY
 					$pagemode = 'SPAGE';
-					$pass_vars .= ',' . 'SP_DEVICE=' . __pad_string($device);
+					$pass_vars['SP_DEVICE'] = __pad_string($device);
 				break;
 				default:
 					// State is not amicable to spy or normal (such as RINGING) so skip it
@@ -114,7 +115,10 @@ $beep = array(
 		'Channel'		=> 'Local/s@app-page-stream',
 		'CallerID'		=> 'Playback Stream',
 		'Async'			=> 'true',
-		'Variable'		=> 'PAGE_CONF=' . __pad_string($vars['PAGE_CONF']) . ',' .  'PAGE_CONF_OPTS=xq',
+		'Variable'		=> array(
+								'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+								'PAGE_CONF_OPTS' => 'xq'
+							),
 		'Application'	=> 'Playback',
 		'Data'			=> $vars['STREAM']
 );

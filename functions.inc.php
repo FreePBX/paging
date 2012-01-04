@@ -363,7 +363,6 @@ function paging_get_config($engine) {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_ANSWERMACRO', ''));
 
 			$page_opts = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '1qs' : '1doqsx';
-			$ext->add($apppaging, 'ssetup', '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
 			$ext->add($apppaging, 'ssetup', '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
 			$ext->add($apppaging, 'ssetup', '', new ext_return());
 				
@@ -425,7 +424,8 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_answer(''));
 				$ext->add($apppagegroups, $grp, '', new ext_gosub('1','ssetup', $apppaging));
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGEMODE', $pagemode));
-				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_MEMBERS', implode('-',$all_exts)));
+				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_MEMBERS', implode('-', $all_exts)));
+				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
 				$ext->add($apppagegroups, $grp, 'agi', new ext_agi('page.agi'));			
 
 				//we cant use originate from the dialplan as the dialplan command is not asynchronous
