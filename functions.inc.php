@@ -416,7 +416,7 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
 					
 				//if page group it in use, goto to busy
-				$ext->add($apppagegroups, $grp, '', new ext_gotoif('$[${TRYLOCK(apppagegroups'. $grp .')}]', '', 'busy'));
+				$ext->add($apppagegroups, $grp, 'busy-check', new ext_gotoif('$[${TRYLOCK(apppagegroups'. $grp .')}]', '', 'busy'));
 					
 				//set blf to in use
 				$ext->add($apppagegroups, $grp, 'devstate', new ext_setvar('DEVICE_STATE(Custom:PAGE' . $grp .')', 'INUSE'));
@@ -438,7 +438,7 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_hangup());
 				$ext->add($apppagegroups, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
 				$ext->add($apppagegroups, $grp, 'play-busy', new ext_busy(3));
-				$ext->add($apppagegroups, $grp, 'busy-hang', new ext_goto('ext-paging,h,1'));
+				$ext->add($apppagegroups, $grp, 'busy-hang', new ext_goto('app-pagegroups,h,1'));
 			}
 			//h
 			$ext->add($apppagegroups, 'h', '', 
