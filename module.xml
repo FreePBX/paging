@@ -25,6 +25,6 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
-	<location>release/2.10/paging-2.10.0.1.tgz</location>
-	<md5sum>acfc4269f5d353aab2687682aa5ba941</md5sum>
+	<location>release/2.10/paging-2.10.0.2.tgz</location>
+	<md5sum>1a098b7043b207b2b182b23b76fa1f8a</md5sum>
 </module>
