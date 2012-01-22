@@ -385,6 +385,10 @@ function paging_get_config($engine) {
 			// Now get a list of all the paging groups...
 			$sql = "SELECT page_group, force_page, duplex FROM paging_config";
 			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+			
+			if (!$paging_groups) {
+				break;//no need to continue if we dont have any pagegroups
+			}
 			foreach ($paging_groups as $thisgroup) {
 				$grp=trim($thisgroup['page_group']);
 				switch ($thisgroup['force_page']) {
@@ -416,7 +420,7 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
 					
 				//if page group it in use, goto to busy
-				$ext->add($apppagegroups, $grp, 'busy-check', new ext_gotoif('$[${TRYLOCK(apppagegroups'. $grp .')}]', '', 'busy'));
+				$ext->add($apppagegroups, $grp, '', new ext_gotoif('$[${TRYLOCK(apppagegroups'. $grp .')}]', '', 'busy'));
 					
 				//set blf to in use
 				$ext->add($apppagegroups, $grp, 'devstate', new ext_setvar('DEVICE_STATE(Custom:PAGE' . $grp .')', 'INUSE'));
@@ -438,8 +442,9 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_hangup());
 				$ext->add($apppagegroups, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
 				$ext->add($apppagegroups, $grp, 'play-busy', new ext_busy(3));
-				$ext->add($apppagegroups, $grp, 'busy-hang', new ext_goto('app-pagegroups,h,1'));
+				$ext->add($apppagegroups, $grp, 'busy-hang', new ext_goto('ext-paging,h,1'));
 			}
+			
 			//h
 			$ext->add($apppagegroups, 'h', '', 
 				new ext_execif('$[${ISNULL(${PAGE${PAGEGROUP}BUSY})}]', 'Set', 'DEVICE_STATE(Custom:PAGE${PAGEGROUP})=NOT_INUSE'));
@@ -453,6 +458,25 @@ function paging_get_config($engine) {
 			
 		break;
 	}
+}
+
+// This is the hook for 'destinations'
+function paging_destinations() {
+	$results = paging_list();
+	// return an associative array with destination and description
+	if (isset($results)) {
+		foreach($results as $result){
+			$desc = $result['description'] ? $result['description'] : _('Page Group') . ' ' . $result['page_group'];
+			$extens[] = array('destination' => 'app-pagegroups,' . $result['page_group'] . ',1', 'description' => $desc);
+		}
+		return $extens;
+	} else {
+		return null;
+	}
+}
+
+function paging_getdest($exten) {
+	return array('pagegroups,'.$exten.',1');
 }
 
 function paging_get_autoanswer_defaults() {
