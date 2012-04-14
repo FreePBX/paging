@@ -111,7 +111,7 @@ $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default
 $result = $db->query($sql);
 $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Mitel', 'CALLINFO', 'Call-Info: <sip:broadworks.net>\\\\;answer-after=0')";
 $result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO	', 'Alert-Info: Intercom')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO', 'Alert-Info: Intercom')";
 $result = $db->query($sql);
 
 // Add dulex field
