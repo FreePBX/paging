@@ -7,6 +7,8 @@ if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freep
 }
 list($agi, $vars) = __agi();
 
+$ast_ge_10 = version_compare($amp_conf['ASTVERSION'], '10', 'ge');
+
 $get = array(
 		'ALERTINFO',
 		'AMPUSER',
@@ -60,31 +62,49 @@ foreach ($chan_vars as $var) {
  */
 
 $page_members = explode('-', $vars['PAGE_MEMBERS']);
+$this_chan = explode('-', agi_get_var("CHANNEL(name)"), 2);
 
 foreach ($page_members as $pm) {
 	$pagemode = 'PAGE';
 	$pass_vars = $base_vars;
-	// don't page ourselves ever
-	if ($pm == $vars['AMPUSER']) {
-		continue;
+
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+		$pass_vars['CONFBRIDGE(user,template)'] = $vars['PAGE_CONF_OPTS'] == 'duplex' ? 'page_user_duplex' : 'page_user';
 	}
+
+	$device = $agi->database_get("DEVICE", $pm . '/dial');
+	$device = $device['data'];
+	if ($device == $this_chan[0]) {
+		continue; // don't page ourselves
+	}
+
 	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD are ok to page)
+	// if FPAGE we use the PAGE context reset above but this will get skipped
 	if ($vars['PAGEMODE'] == 'PAGE') {
-		$ext_state = agi_get_var("EXTENSION_STATE($pm)");
-		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') { //TODO: change to in_array or a function
+		$dev_state = agi_get_var("DEVICE_STATE($device)");
+		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { //TODO: change to in_array or a function
 			continue;
 		}
+		$user = $agi->database_get("DEVICE", $pm . '/user');
+		$dnd = $user['data'] != '' ?  $agi->database_get("DND", $user['data']) : array('data' => '');
+		if ($dnd['data'] == 'YES') {
+			continue;
+		}
+	// try using Spy mode (whisper)
 	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
-		$ext_state = agi_get_var("EXTENSION_STATE($pm)");
+		$dev_state = agi_get_var("DEVICE_STATE($device)");
 		// if not idle but in a state we can try spying, then try
-		if ($ext_state != 'NOT_INUSE' && $ext_state != 'ONHOLD') { //TODO: change to in_array or a function
-			$device = $agi->database_get("DEVICE", $pm . '/dial');
-			$device = $device['data'];
+		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { //TODO: change to in_array or a function
+			$user = $agi->database_get("DEVICE", $pm . '/user');
+			$dnd = $user['data'] != '' ?  $agi->database_get("DND", $user['data']) : array('data' => '');
+			if ($dnd['data'] == 'YES') {
+				continue;
+			}
 			$type = explode('/', $device, 2);
 			if (strtolower($type[0]) != 'sip') {
 				continue;
 			}
-			switch ($ext_state) {
+			switch ($dev_state) {
 				case "INUSE":
 				case "BUSY":
 				case "RINGINUSE":
@@ -101,13 +121,18 @@ foreach ($page_members as $pm) {
 		}
 	}
 
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+			$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
+	} else {
+			$data_params = $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,';
+	}
 	$astman->Originate(array(
 			'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging',
 			'CallerID'    => $vars['calleridname'] . ' <' . $vars['callerid'] . '>',
 			'Async'       => 'true',
 			'Variable'    => $pass_vars,
 			'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' ? 'ConfBridge' : 'MeetMe'),
-			'Data'        => $vars['PAGE_CONF'] . ',' . $vars['PAGE_CONF_OPTS'] . ',,'
+			'Data'        => $data_params
 	));
 }
 

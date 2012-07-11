@@ -11,10 +11,11 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	Generates dialplan for paging  - is called from retrieve_conf
 
 function paging_get_config($engine) {
-	global $db, $ext, $chan_dahdi, $version, $amp_conf;
+	global $db, $ext, $chan_dahdi, $version, $amp_conf, $conferences_conf;
 	switch($engine) {
 		case "asterisk":
 			$ast_ge_14 = version_compare($version, "1.4", "ge");
+			$ast_ge_10 = version_compare($version, '10', 'ge');
 
 			// setup for intercom
 			$fcc = new featurecode('paging', 'intercom-prefix');
@@ -139,15 +140,22 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
         }
+
 				$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
-				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$apppaging));
+				$ds = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '${DIALSTR}-${CUT(DEVICES,&,${ITER})}' 
+					: '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$apppaging;
+				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', $ds));
 				$ext->add($context, $code, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
 				$ext->add($context, $code, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
 				$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
-				$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
-        		$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
+				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
+					$ext->add($context, $code, '', new ext_gosub('1', 'page', false, '${DIALSTR}'));
+				} else {
+					$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
+				}
+       	$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 
@@ -157,6 +165,24 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_saydigits('${dialnumber}'));
 				$ext->add($context, $code, '', new ext_playback('is&disabled'));
 				$ext->add($context, $code, '', new ext_congestion());
+
+				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
+					$sub = 'page';
+					$ext->add($context, $sub, '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
+					$ext->add($context, $sub, '', new ext_set('PAGEMODE', 'PAGE'));
+					$ext->add($context, $sub, '', new ext_set('PAGE_MEMBERS', '${ARG1}'));
+					$ext->add($context, $sub, '', new ext_set('PAGE_CONF_OPTS', 'duplex'));
+					$ext->add($context, $sub, '', new ext_agi('page.agi'));			
+					if ($ast_ge_10) { 
+						$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
+						$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
+						$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+						$ext->add($context, $sub, '', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
+					} else {
+						$ext->add($context, $sub, '', new ext_meetme('${PAGE_CONF}', 'doqwxAG'));
+					}
+					$ext->add($context, $sub, '', new ext_hangup());
+				}
 
 				$extintercomusers = 'ext-intercom-users';
 				$userlist = core_users_list();
@@ -389,6 +415,36 @@ function paging_get_config($engine) {
 			if (!$paging_groups) {
 				break;//no need to continue if we dont have any pagegroups
 			}
+
+			// If Asterisk 10 and app_confbridge:
+			//
+			// Common to admin:
+			//  d: dynamically addd conf
+			//  o: talker optimization (don't mix non-talkers)
+			//  q: quiet mode no enter/leave sounds
+			//  x: close conf when last marked user exits
+			//
+			// Not in Admin:
+			//  1: ???
+			//  s: present menu
+
+			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10 
+				&& isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
+				$pu = 'page_user';
+				$pud = 'page_user_duplex';
+				foreach (array($pu, $pud) as $u) {
+					$conferences_conf->addConfUser($u, 'quiet', 'yes');
+					$conferences_conf->addConfUser($u, 'announce_user_count', 'no');
+					$conferences_conf->addConfUser($u, 'wait_marked', 'yes');
+					$conferences_conf->addConfUser($u, 'end_marked', 'yes');
+					$conferences_conf->addConfUser($u, 'dsp_drop_silence', 'yes');
+					$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
+					$conferences_conf->addConfUser($u, 'admin', 'no');
+					$conferences_conf->addConfUser($u, 'marked', 'no');
+				}
+				$conferences_conf->addConfUser($pu, 'startmuted', 'yes');
+			}
+
 			foreach ($paging_groups as $thisgroup) {
 				$grp=trim($thisgroup['page_group']);
 				switch ($thisgroup['force_page']) {
@@ -429,7 +485,11 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_gosub('1','ssetup', $apppaging));
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGEMODE', $pagemode));
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_MEMBERS', implode('-', $all_exts)));
-				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
+				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+					$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', ($thisgroup['duplex'] ? 'duplex' : '')));
+				} else {
+					$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
+				}
 				$ext->add($apppagegroups, $grp, 'agi', new ext_agi('page.agi'));			
 
 				//we cant use originate from the dialplan as the dialplan command is not asynchronous
@@ -438,7 +498,31 @@ function paging_get_config($engine) {
 				/*foreach ($page_members as $member) {
 						$ext->add($apppagegroups, $grp, 'page', new ext_originate($member,'app','meetme', '${PAGE_CONF}\,${PAGE_CONF_OPTS}'));
 				}*/					
-				$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'doqwxAG'));
+				// TODO this is the master so set appropriate
+				//      This is what everyone else has: 1doqsx
+				//      Common:
+				//        d: dynamically addd conf
+				//        o: talker optimization (don't mix non-talkers)
+				//        q: quiet mode no enter/leave sounds
+				//        x: close conf when last marked user exits
+				//      Added:
+				//      	w: W() wait until marked user enters conf
+				//      	A: Set marked mode
+				//      	G: G() Play an intro announcemend in conference
+				//      Removed:
+				//        1: ???
+				//        s: present menu
+				//
+				//
+				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+					$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,template)', $pud));
+					$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
+					$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+					// TODO: should I have no menu?
+					$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
+				} else {
+					$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'doqwxAG'));
+				}
 				$ext->add($apppagegroups, $grp, '', new ext_hangup());
 				$ext->add($apppagegroups, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
 				$ext->add($apppagegroups, $grp, 'play-busy', new ext_busy(3));
@@ -453,7 +537,23 @@ function paging_get_config($engine) {
 			$c = 'app-page-stream';
 			$ext->add($c, 's', '', new ext_wait(1));
 			$ext->add($c, 's', '', new ext_answer());
-			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
+
+			// TODO: PAGE_CONF_OPTS reset in agi script so just use proper context if 10+confbridge no mute
+			// x: close conf when last marked user exits
+			// q: quiet mode no enter/leave sounds
+			//
+			// TODO: Ideally what we want is to mark the stream and wait for that, if no stream then no wait for makred user. However
+			//       it seems like to end a conference you have to have the kick after last marked user since there doesn't have to be
+			//       an admin as far as I can tell.
+			//
+			//
+			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+				$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
+				$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+				$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
+			} else {
+				$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
+			}
 			$ext->add($c, 's', '', new ext_hangup());
 			
 		break;

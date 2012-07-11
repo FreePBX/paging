@@ -113,6 +113,13 @@ $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Mitel',
 $result = $db->query($sql);
 $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO', 'Alert-Info: Intercom')";
 $result = $db->query($sql);
+//Migrate incorrect Polycom alert-info that was set by deleting then re-adding
+$sql = "DELETE FROM paging_autoanswer WHERE useragent = 'Polycom' AND var = 'ALERTINFO' AND setting = 'Alert-Info: info-Auto Answer'";
+$result = $db->query($sql);
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Polycom', 'ALERTINFO', 'Alert-Info: info=Auto Answer')";
+$result = $db->query($sql);
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium', 'ALERTINFO', 'Alert-Info: ring-answer')";
+$result = $db->query($sql);
 
 // Add dulex field
 //

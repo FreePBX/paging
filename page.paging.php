@@ -262,7 +262,7 @@ function paging_sidebar($extdisplay, $type, $display) {
 	if ($presults) {
 		foreach ($presults as $grouparr) {
 			$group = $grouparr['page_group'];
-      $hl = $group == $default_grp ? _(' [DEFAULT]') : '';
+      		$hl = $group == $default_grp ? _(' [DEFAULT]') : '';
 			echo "<li><a class=\"".($extdisplay==$group ? 'current':'std');
 			echo "\" href=\"config.php?display=";
 			echo "${display}&amp;extdisplay=${group}&amp;action=modify\">";
