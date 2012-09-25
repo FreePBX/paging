@@ -145,17 +145,20 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
 				$ds = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '${DIALSTR}-${CUT(DEVICES,&,${ITER})}' 
 					: '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$apppaging;
-				$ext->add($context, $code, 'begin', new ext_setvar('DIALSTR', $ds));
-				$ext->add($context, $code, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
+				$ext->add($context, $code, 'begin', new ext_chanisavail('${DB(DEVICE/${CUT(DEVICES,&,${ITER})}/dial)}','s'));
+				$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'skip'));
+				$ext->add($context, $code, '', new ext_setvar('DIALSTR', $ds));
+				$ext->add($context, $code, 'skip', new ext_setvar('ITER', '$[${ITER} + 1]'));
 				$ext->add($context, $code, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
+				$ext->add($context, $code, '', new ext_gotoif('$["${DIALSTR}" = ""]', 'end2'));
 				$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
 					$ext->add($context, $code, '', new ext_gosub('1', 'page', false, '${DIALSTR}'));
 				} else {
 					$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
 				}
-       	$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
+       	$ext->add($context, $code, 'end2', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 				$ext->add($context, $code, '', new ext_busy());
 				$ext->add($context, $code, '', new ext_macro('hangupcall'));
 
@@ -579,7 +582,7 @@ function paging_getdest($exten) {
 	return array('pagegroups,'.$exten.',1');
 }
 
-function paging_get_autoanswer_defaults() {
+function paging_get_autoanswer_defaults($orderd = false) {
 	global $db;
 
 	$sql = "SELECT * FROM paging_autoanswer WHERE useragent = 'default'";
@@ -587,7 +590,32 @@ function paging_get_autoanswer_defaults() {
 	if(DB::IsError($results)) {
 		$results = array();
 	} 
+	if ($orderd) {
+		foreach ($results as $r) {
+			$res[$r['var']] = $r['setting'];	
+		}
+		$results = $res;
+	}
 	return $results;
+}
+
+function paging_set_autoanswer_defaults($data) {
+	global $db;
+	
+	if (!is_array($data)) {
+		return false;
+	}	
+	
+	foreach ($data as $k => $v) {
+		$put[] = array('default', $k, $v);
+	}
+	
+	$sql = "REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (?, ?, ?)";
+	$sql = $db->prepare($sql);
+	$res = $db->executeMultiple($sql, $put);
+	db_e($res);
+	
+	return true;
 }
 
 function paging_get_autoanswer_useragents($useragent = '') {
@@ -612,12 +640,16 @@ function paging_list() {
 	if(DB::IsError($results)) {
 		$results = null;
 	} else {
+		$default = paging_get_default();
 		foreach ($results as $key => $list) {
 			$results[$key][0] = $list['page_group'];
+			if ($list['page_group'] === $default) {
+				$results[$key]['is_default'] = true;
+			} else {
+				$results[$key]['is_default'] = false;
+			}
 		}
 	}
-	// There should be a checkRange here I think, but I haven't looked into it yet.
-	//	return array('999', '998', '997');
 	return $results;
 }
 
