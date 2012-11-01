@@ -2,11 +2,12 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>2.10.0.8</version>
+	<version>2.11.0.0</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Applications</category>
 	<changelog>
+		*2.11.0.0* #6051
 		*2.10.0.8* #5965
 		*2.10.0.7* #5890, #5887
 		*2.10.0.6* adds fix for new Polycom firmware
@@ -31,6 +32,12 @@
 	<menuitems>
 		<paging>Paging and Intercom</paging>
 	</menuitems>
+	<popovers>
+		<paging>
+			<display>paging</display>
+			<action>add</action>
+		</paging>
+ 	</popovers>
 	<location>release/2.11/paging-2.10.0.8.tgz</location>
 	<md5sum>9e975b0070b1303338f982074e5d4500</md5sum>
 </module>
