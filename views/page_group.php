@@ -124,9 +124,9 @@ $table->add_row($label, form_checkbox('default_group', 1, $default_group));
 $html .= $table->generate();
 $html .= $hooks . br(2);
 
-$html .= form_submit('submit', _('Submit'));
+$html .= form_submit('Submit', _('Submit'));
 if ($extdisplay) {
-	$html .= form_submit('submit', _('Delete'));
+	$html .= form_submit('Submit', _('Delete'));
 }
 
 

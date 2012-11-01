@@ -15,7 +15,7 @@ $get_vars = array(
 		'pagegrp'		=> '',
 		'pagelist'		=> '',
 		'pagenbr'		=> '',
-		'submit'		=> '',
+		'Submit'		=> '',
 		'type'			=> 'tool',
 
 );
@@ -24,7 +24,7 @@ foreach ($get_vars as $k => $v) {
 	$vars[$k] = isset($_REQUEST[$k]) ? $_REQUEST[$k] : $v;
 }
 $vars['pagenbr'] = trim($vars['pagenbr']);
-if ($vars['submit'] == _('Delete')) {
+if ($vars['Submit'] == _('Delete')) {
 	$vars['action'] = 'delete';
 	$_REQUEST['action'] = 'delete';
 }
