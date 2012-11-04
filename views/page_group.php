@@ -25,7 +25,7 @@ if ($extdisplay) {
 //extension
 $label = fpbx_label(_('Paging Extension'),
 			_('The number users will dial to page this group'));
-$table->add_row($label, form_input('pagenbr', $extdisplay));
+$table->add_row($label, form_input('pagenbr', $extdisplay, 'class="extdisplay"'));
 
 //description
 $label = fpbx_label(_('Group Description'),
