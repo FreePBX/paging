@@ -391,7 +391,7 @@ function paging_get_config($engine) {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_DTIME', $dtime));
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_ANSWERMACRO', ''));
 
-			$page_opts = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '1qs' : '1doqsx';
+			$page_opts = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '1qs' : '1dqsx';
 			$ext->add($apppaging, 'ssetup', '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
 			$ext->add($apppaging, 'ssetup', '', new ext_return());
 				
@@ -524,7 +524,7 @@ function paging_get_config($engine) {
 					// TODO: should I have no menu?
 					$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
 				} else {
-					$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'doqwxAG'));
+					$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'dqwxAG'));
 				}
 				$ext->add($apppagegroups, $grp, '', new ext_hangup());
 				$ext->add($apppagegroups, $grp, 'busy', new ext_set('PAGE${PAGEGROUP}BUSY', 'TRUE'));
