@@ -41,6 +41,7 @@ function paging_get_config($engine) {
 			$dtime = '5';
 			$custom_vars = array();
 			$autoanswer_arr = paging_get_autoanswer_defaults();
+
 			foreach ($autoanswer_arr as $autosetting) {
 				switch (trim($autosetting['var'])) {
 					case 'ALERTINFO':
