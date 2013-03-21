@@ -36,7 +36,7 @@
 		<paging>Paging and Intercom</paging>
 	</menuitems>
 	<requirements>
-		<module>conferences<module>
+		<module>conferences</module>
 	</requirements>
 	<popovers>
 		<paging>
