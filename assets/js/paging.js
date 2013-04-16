@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 		$('#selected_dev > span').each(function(){
 			form.append('<input type="hidden" name="pagelist[]" value="' 
-				+ $(this).data('ext') + '">');
+				+ $(this).attr('data-ext') + '">');
 		});
 
 	});
