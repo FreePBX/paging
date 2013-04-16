@@ -45,6 +45,6 @@
 			<action>add</action>
 		</paging>
  	</popovers>
-	<location>release/2.11/paging-2.11.0.3.tgz</location>
-	<md5sum>5decec7083e77028ee78d09b5d44e35a</md5sum>
+	<location>release/2.11/paging-2.11.0.4.tgz</location>
+	<md5sum>1f58ea260650ce6518ae43f3559bc1fe</md5sum>
 </module>
