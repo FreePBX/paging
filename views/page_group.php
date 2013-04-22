@@ -41,7 +41,7 @@ $label = fpbx_label(_('Device List'),
 );
 $selected_dev = $notselected_dev = '';
 foreach ($device_list as $ext => $name) {
-	if (in_array($ext, $devices)) {
+	if (in_array($ext, $devices, true)) {
 		$selected_dev .= '<span data-ext="' . $ext . '">' . $name .'</span>';
 	} else {
 		$notselected_dev .= '<span data-ext="' . $ext . '">' . $name .'</span>';
