@@ -54,9 +54,8 @@ $selected_dev = form_fieldset(_('Selected'), $class . 'id="selected_dev" ' )
 $notselected_dev = form_fieldset(_('Not Selected'), $class . 'id="notselected_dev" ' )
 				. $notselected_dev 
 				. form_fieldset_close();
-$table->add_row($label, 
-	//form_multiselect('pagelist[]', $device_list, $devices));
-		$selected_dev, $notselected_dev);
+$table->add_row($label);
+$table->add_row('', $selected_dev, $notselected_dev);
 
 //busy ext
 $help[] = _('"Skip" will not page any busy extension. All other extensions '
