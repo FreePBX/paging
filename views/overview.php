@@ -1,6 +1,6 @@
 <?php
 $html = '';
-$html .= heading('Paging', 3) . '<hr class="paging-hr"/>';
+$html .= heading(_('Paging'), 3) . '<hr class="paging-hr"/>';
 $table = new CI_Table;
 
 $html .= '<div>';

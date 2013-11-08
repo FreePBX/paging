@@ -1,7 +1,7 @@
 <?php
 
 $html = '';
-$html .= heading('Paging and Intercom settings', 3) 
+$html .= heading(_('Paging and Intercom settings'), 3) 
 		. '<hr class="paging-hr"/>';
 
 $html .= form_open($_SERVER['REQUEST_URI']);
@@ -9,7 +9,7 @@ $html .= form_hidden('action', 'save_settings');
 
 $table = new CI_Table;
 $table->add_row(array('colspan' => 2,
-	'data' => heading('Auto-answer defaults', 5) . '<hr />'));
+	'data' => heading(_('Auto-answer defaults'), 5) . '<hr />'));
 
 $label = fpbx_label(_('Announcement'),
 			_('Annoucement to be played to remote part. Default is a beep'));

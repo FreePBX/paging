@@ -1,7 +1,7 @@
 <?php
 
 $html = ''; 
-$html .= heading('Paging', 3) . '<hr class="paging-hr"/>';
+$html .= heading(_('Paging'), 3) . '<hr class="paging-hr"/>';
 
 $html .= form_open($_SERVER['REQUEST_URI'], 'id="page_opts_form"');
 $html .= form_hidden('display', $display);
@@ -16,10 +16,10 @@ if ($conflict_url) {
 }
 if ($extdisplay) {
 	$table->add_row(array('colspan' => 2,
-		'data' => heading('Modify Paging Group', 5) . '<hr />'));
+		'data' => heading(_('Modify Paging Group'), 5) . '<hr />'));
 } else {
 	$table->add_row(array('colspan' => 2,
-		'data' => heading('Add Paging Group', 5) . '<hr />'));
+		'data' => heading(_('Add Paging Group'), 5) . '<hr />'));
 }
 
 //extension
@@ -117,7 +117,7 @@ $label = fpbx_label(_('Duplex'),
 $table->add_row($label, form_checkbox('duplex', 1, $duplex));
 
 //default
-$label = fpbx_label('Default Page Group');
+$label = fpbx_label(_('Default Page Group'));
 $table->add_row($label, form_checkbox('default_group', 1, $default_group));
 
 $html .= $table->generate();
