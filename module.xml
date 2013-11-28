@@ -40,4 +40,4 @@
  	</popovers>
 	<location>release/2.11/paging-2.11.0.0.tgz</location>
 	<md5sum>5a640be3aa2d662d6bb6eed27128f253</md5sum>
-</module>
+<supported><version>2.11</version></supported></module>
