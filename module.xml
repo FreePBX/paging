@@ -25,4 +25,4 @@
 	</menuitems>
 	<location>release/2.10/paging-2.10.0.0.tgz</location>
 	<md5sum>f9b00035995b62cf7d0df68252013d9f</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
