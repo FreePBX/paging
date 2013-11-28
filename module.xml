@@ -33,4 +33,4 @@
 	</menuitems>
 	<location>release/2.11/paging-2.10.0.8.tgz</location>
 	<md5sum>9e975b0070b1303338f982074e5d4500</md5sum>
-</module>
+<supported><version>2.10</version></supported></module>
