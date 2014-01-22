@@ -2,34 +2,12 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>2.11.0.7</version>
+	<version>12.0.1</version>
 	<publisher>FreePBX</publisher>
 	<license>GPLv2+</license>
 	<category>Applications</category>
 	<changelog>
-		*2.11.0.7* #6050
-		*2.11.0.6* re #6482 - just typecast it. 
-		*2.11.0.5* re #6482 - 
-		*2.11.0.4* allow devices with leading 0 
-		*2.11.0.3* Require conferences #6276
-		*2.11.0.2* #6338, #6380 
-		*2.11.0.1* #6055
-		*2.11.0.0* #6051
-		*2.10.0.8* #5965
-		*2.10.0.7* #5890, #5887
-		*2.10.0.6* adds fix for new Polycom firmware
-		*2.10.0.5* #5808, #5804, #5809
-		*2.10.0.4* re #5777 - 
-		*2.10.0.3* correct hangup context
-		*2.10.0.2* #5469, #5443, misc fixes
-		*2.10.0.1* #5443, #5451
-		*2.10.0.0* new version changes
-		*2.9.0.5* #5000
-		*2.9.0.4* #4914
-		*2.9.0.3* #2110
-		*2.9.0.2* #4851
-		*2.9.0.1* #4715
-		*2.9.0.0* #4648, #4651, #4653
+		*12.0.1* Initial Support for PJSip
 	</changelog>
 	<depends>
 		<version>2.4.0</version>
@@ -48,6 +26,10 @@
 			<action>add</action>
 		</paging>
  	</popovers>
+	<supported>
+		<version>12.0</version>
+	</supported>
+
 	<location>release/2.11/paging-2.11.0.7.tgz</location>
 	<md5sum>0a800b7068ce596aeff11247d09cba18</md5sum>
 </module>
