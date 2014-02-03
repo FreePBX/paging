@@ -2,11 +2,12 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>2.11.0.7</version>
+  <version>12.0.1alpha1</version>
   <publisher>FreePBX</publisher>
   <license>GPLv2+</license>
   <category>Applications</category>
   <changelog>
+	 	*12.0.1alpha1* Initial Support for PJSip
 		*2.11.0.7* #6050
 		*2.11.0.6* re #6482 - just typecast it. 
 		*2.11.0.5* re #6482 - 
@@ -51,6 +52,6 @@
   <location>release/2.11/paging-2.11.0.7.tgz</location>
   <md5sum>0a800b7068ce596aeff11247d09cba18</md5sum>
   <supported>
-    <version>2.10</version>
+    <version>12.0</version>
   </supported>
 </module>
