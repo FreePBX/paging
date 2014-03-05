@@ -79,6 +79,7 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_macro('user-callerid'));
 				$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
 				$ext->add($context, $code, '', new ext_setvar('INTERCOM_CALL', 'TRUE'));
+				$ext->add($context, $code, '', new ext_gosub('1','s','sub-record-check','exten,${dialnumber}'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/block)}" = "blocked"]', 'end'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(DND/${dialnumber})}" = "YES"]', 'end'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom/${AMPUSER})}" = "allow" ]', 'allow'));
