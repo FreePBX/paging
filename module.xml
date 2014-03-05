@@ -2,11 +2,12 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>2.11.0.7</version>
+  <version>2.11.0.8</version>
   <publisher>FreePBX</publisher>
   <license>GPLv2+</license>
   <category>Applications</category>
   <changelog>
+	  	*2.11.0.8* #7112 - Ensure intercom calls are recorded if requested.
 		*2.11.0.7* #6050
 		*2.11.0.6* re #6482 - just typecast it. 
 		*2.11.0.5* re #6482 - 
