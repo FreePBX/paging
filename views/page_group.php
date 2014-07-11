@@ -1,6 +1,6 @@
 <?php
 
-$html = ''; 
+$html = '';
 $html .= heading(_('Paging'), 3) . '<hr class="paging-hr"/>';
 
 $html .= form_open($_SERVER['REQUEST_URI'], 'id="page_opts_form"');
@@ -33,7 +33,7 @@ $label = fpbx_label(_('Group Description'),
 $table->add_row($label, form_input('description', $description));
 
 //device list
-$label = fpbx_label(_('Device List'), 
+$label = fpbx_label(_('Device List'),
 			_('Devices to page. Please note, paging calls the '
 			. 'actual device (and not the user). Amount of pagable devices is '
 			. 'restricted by the advanced setting key PAGINGMAXPARTICIPANTS '
@@ -46,13 +46,13 @@ foreach ($device_list as $ext => $name) {
 	} else {
 		$notselected_dev .= '<span data-ext="' . $ext . '">' . $name .'</span>';
 	}
-} 
+}
 $class = ' class="device_list ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ';
 $selected_dev = form_fieldset(_('Selected'), $class . 'id="selected_dev" ' )
-				. $selected_dev 
+				. $selected_dev
 				. form_fieldset_close();
 $notselected_dev = form_fieldset(_('Not Selected'), $class . 'id="notselected_dev" ' )
-				. $notselected_dev 
+				. $notselected_dev
 				. form_fieldset_close();
 $table->add_row($label);
 $table->add_row('', $selected_dev, $notselected_dev);
@@ -78,8 +78,7 @@ $data = array(
 		'value'	=> 0
 );
 $force_page == 0 ? $data['checked'] = 'checked' : '';
-$skip = form_label(_('Skip'), 'force_page_no')
-		. form_radio($data);
+$skip = form_radio($data) . form_label(_('Skip'), 'force_page_no');
 
 $data = array(
 		'id'	=> 'force_page_yes',
@@ -87,8 +86,7 @@ $data = array(
 		'value'	=> 1
 );
 $force_page == 1 ? $data['checked'] = 'checked' : '';
-$force = form_label(_('Force'), 'force_page_yes')
-		. form_radio($data);
+$force = form_radio($data) . form_label(_('Force'), 'force_page_yes');
 
 
 $data = array(
@@ -97,19 +95,18 @@ $data = array(
 		'value'	=> 2
 );
 $force_page == 2 ? $data['checked'] = 'checked' : '';
-$whisper = form_label(_('Whisper'), 'force_page_whisper')
-		. form_radio($data);
+$whisper = form_radio($data) . form_label(_('Whisper'), 'force_page_whisper');
 
 $label = fpbx_label(_('Busy Extensions'), ul($help));
 $table->add_row(
-	$label, 
+	$label,
 	'<span class="radioset">'
 	. $skip . $force . $whisper
 	. '</span>'
 );
 
 //duplex
-$label = fpbx_label(_('Duplex'), 
+$label = fpbx_label(_('Duplex'),
 			_('Paging is typically one way for announcements only. '
 			. 'Checking this will make the paging duplex, allowing all '
 			. 'phones in the paging group to be able to talk and be '
