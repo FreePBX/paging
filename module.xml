@@ -2,25 +2,26 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>12.0.1alpha1</version>
+  <version>12.0.1alpha2</version>
   <publisher>FreePBX</publisher>
   <license>GPLv2+</license>
   <category>Applications</category>
   <changelog>
+    *12.0.1beta1* Fix Radio button grouping
 	 	*12.0.1alpha1* Initial Support for PJSip
 		*2.11.0.7* #6050
-		*2.11.0.6* re #6482 - just typecast it. 
-		*2.11.0.5* re #6482 - 
-		*2.11.0.4* allow devices with leading 0 
+		*2.11.0.6* re #6482 - just typecast it.
+		*2.11.0.5* re #6482 -
+		*2.11.0.4* allow devices with leading 0
 		*2.11.0.3* Require conferences #6276
-		*2.11.0.2* #6338, #6380 
+		*2.11.0.2* #6338, #6380
 		*2.11.0.1* #6055
 		*2.11.0.0* #6051
 		*2.10.0.8* #5965
 		*2.10.0.7* #5890, #5887
 		*2.10.0.6* adds fix for new Polycom firmware
 		*2.10.0.5* #5808, #5804, #5809
-		*2.10.0.4* re #5777 - 
+		*2.10.0.4* re #5777 -
 		*2.10.0.3* correct hangup context
 		*2.10.0.2* #5469, #5443, misc fixes
 		*2.10.0.1* #5443, #5451
@@ -35,7 +36,7 @@
   <depends>
     <version>2.4.0</version>
   </depends>
-  <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. 
+  <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
 	Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
   <menuitems>
     <paging>Paging and Intercom</paging>
