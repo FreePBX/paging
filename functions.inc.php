@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* $Id $ */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
@@ -7,7 +7,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 /* paging_init - Is run every time the page is loaded, checks
    to make sure that the database is current and loaded, if not,
-   it propogates it. I expect that extra code will go here to 
+   it propogates it. I expect that extra code will go here to
    check for version upgrades, etc, of the paging database, to
    allow for easy upgrades. */
 
@@ -121,7 +121,7 @@ function paging_get_config($engine) {
 
         if ($ast_ge_14) {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 's'));
-			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));			
+			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));
         } else {
 				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
         }
@@ -148,7 +148,7 @@ function paging_get_config($engine) {
 
 				$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
 				$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
-				$ds = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '${DIALSTR}-${CUT(DEVICES,&,${ITER})}' 
+				$ds = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '${DIALSTR}-${CUT(DEVICES,&,${ITER})}'
 					: '${DIALSTR}&LOCAL/PAGE${CUT(DEVICES,&,${ITER})}@'.$apppaging;
 				$ext->add($context, $code, 'begin', new ext_chanisavail('${DB(DEVICE/${CUT(DEVICES,&,${ITER})}/dial)}','s'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'skip'));
@@ -180,8 +180,8 @@ function paging_get_config($engine) {
 					$ext->add($context, $sub, '', new ext_set('PAGEMODE', 'PAGE'));
 					$ext->add($context, $sub, '', new ext_set('PAGE_MEMBERS', '${ARG1}'));
 					$ext->add($context, $sub, '', new ext_set('PAGE_CONF_OPTS', 'duplex'));
-					$ext->add($context, $sub, '', new ext_agi('page.agi'));			
-					if ($ast_ge_10) { 
+					$ext->add($context, $sub, '', new ext_agi('page.agi'));
+					if ($ast_ge_10) {
 						$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
 						$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
 						$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
@@ -204,7 +204,7 @@ function paging_get_config($engine) {
 				$context = $extintercomusers;
 				$ext->addInclude('from-internal-additional', $context);
 			}
-			
+
 			$fcc = new featurecode('paging', 'intercom-on');
 			$oncode = $fcc->getCodeActive();
 			unset($fcc);
@@ -237,11 +237,11 @@ function paging_get_config($engine) {
 				$ext->add($context, $oncode, '', new ext_playback('is&invalid'));
 				$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 			}
-			
+
 			$fcc = new featurecode('paging', 'intercom-off');
 			$offcode = $fcc->getCodeActive();
 			unset($fcc);
-	
+
 			if ($offcode) {
 				$ext->add($context, $offcode, '', new ext_answer(''));
 				$ext->add($context, $offcode, '', new ext_wait('1'));
@@ -319,7 +319,13 @@ function paging_get_config($engine) {
 			// If there are no phone specific auto-answer vars, then we don't care what the phone is below
 			//
 			if (!empty($autoanswer_arr)) {
-				$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
+				global $version;
+				//http://issues.freepbx.org/browse/FREEPBX-7715
+				if(version_compare($version,"12","<")) {
+					$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
+				} else {
+					$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)},useragent)}'));
+				}
 			}
 			// We used to set all the variables here (ALERTINFO, CALLINFO, etc. That has been moved to each
 			// paging group and the intercom main macro, since it was redundant for every phone causing a lot
@@ -363,7 +369,7 @@ function paging_get_config($engine) {
 			if ($has_answermacro) {
 				$ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
 			}
-			
+
 			//auto answer stuff
 			//set autoanswer variables
 			if (!empty($custom_vars)) {
@@ -390,7 +396,7 @@ function paging_get_config($engine) {
 			if (isset($alertinfo) && trim($alertinfo) != "") {
 				$ext->add($apppaging, 'ssetup', '', new ext_set('_ALERTINFO', $alertinfo));
 			}
-			
+
 			if (isset($callinfo) && trim($callinfo) != "") {
 				$ext->add($apppaging, 'ssetup', '', new ext_set('_CALLINFO', $callinfo));
 			}
@@ -409,7 +415,7 @@ function paging_get_config($engine) {
 			$page_opts = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '1qs' : '1dqsx';
 			$ext->add($apppaging, 'ssetup', '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
 			$ext->add($apppaging, 'ssetup', '', new ext_return());
-				
+
 			// Normal page version (now used for Force also)
 			// If we had any custom_vars then call the AUTOASWER subroutine first, otherwise go
 			// straight to macro-autoanswer
@@ -429,7 +435,7 @@ function paging_get_config($engine) {
 			// Now get a list of all the paging groups...
 			$sql = "SELECT page_group, force_page, duplex FROM paging_config";
 			$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-			
+
 			if (!$paging_groups) {
 				break;//no need to continue if we dont have any pagegroups
 			}
@@ -446,7 +452,7 @@ function paging_get_config($engine) {
 			//  1: ???
 			//  s: present menu
 
-			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10 
+			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10
 				&& isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
 				$pu = 'page_user';
 				$pud = 'page_user_duplex';
@@ -480,42 +486,42 @@ function paging_get_config($engine) {
 
 				$sql = "SELECT ext FROM paging_groups WHERE page_number='$grp'";
 				$all_exts = $db->getCol($sql);
-					
+
 				// Create the paging context that is used in the paging application for each phone to auto-answer
 				//add ext-paging with goto's to our app-paging context and a hint for the page
 				$extpaging = 'ext-paging';
 				$ext->add($extpaging, $grp, '', new ext_goto($apppagegroups . ',' . $grp . ',1'));
 				$ext->addInclude('from-internal-noxfer-additional',$extpaging);
 				$ext->addHint($extpaging, $grp, 'Custom:PAGE' . $grp);
-					
+
 				//app-page dialplan
-					
+
 				$ext->add($apppagegroups, $grp, '', new ext_macro('user-callerid'));
 				$ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
-					
+
 				//if page group it in use, goto to busy
 				$ext->add($apppagegroups, $grp, 'busy-check', new ext_gotoif('$[${TRYLOCK(apppagegroups'. $grp .')}]', '', 'busy'));
-					
+
 				//set blf to in use
 				$ext->add($apppagegroups, $grp, 'devstate', new ext_setvar('DEVICE_STATE(Custom:PAGE' . $grp .')', 'INUSE'));
-					
+
 				$ext->add($apppagegroups, $grp, '', new ext_answer(''));
 				$ext->add($apppagegroups, $grp, '', new ext_gosub('1','ssetup', $apppaging));
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGEMODE', $pagemode));
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_MEMBERS', implode('-', $all_exts)));
-				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 					$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', ($thisgroup['duplex'] ? 'duplex' : '')));
 				} else {
 					$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
 				}
-				$ext->add($apppagegroups, $grp, 'agi', new ext_agi('page.agi'));			
+				$ext->add($apppagegroups, $grp, 'agi', new ext_agi('page.agi'));
 
 				//we cant use originate from the dialplan as the dialplan command is not asynchronous
 				//we would like to though...
 				//this code here as a sign of hope -MB
 				/*foreach ($page_members as $member) {
 						$ext->add($apppagegroups, $grp, 'page', new ext_originate($member,'app','meetme', '${PAGE_CONF}\,${PAGE_CONF_OPTS}'));
-				}*/					
+				}*/
 				// TODO this is the master so set appropriate
 				//      This is what everyone else has: 1doqsx
 				//      Common:
@@ -532,7 +538,7 @@ function paging_get_config($engine) {
 				//        s: present menu
 				//
 				//
-				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+				if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 					$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,template)', $pud));
 					$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
 					$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
@@ -546,11 +552,11 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, 'play-busy', new ext_busy(3));
 				$ext->add($apppagegroups, $grp, 'busy-hang', new ext_goto('app-pagegroups,h,1'));
 			}
-			
+
 			//h
-			$ext->add($apppagegroups, 'h', '', 
+			$ext->add($apppagegroups, 'h', '',
 				new ext_execif('$[${ISNULL(${PAGE${PAGEGROUP}BUSY})}]', 'Set', 'DEVICE_STATE(Custom:PAGE${PAGEGROUP})=NOT_INUSE'));
-			
+
 			//page playback
 			$c = 'app-page-stream';
 			$ext->add($c, 's', '', new ext_wait(1));
@@ -565,7 +571,7 @@ function paging_get_config($engine) {
 			//       an admin as far as I can tell.
 			//
 			//
-			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 				$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
 				$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
 				$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
@@ -573,7 +579,7 @@ function paging_get_config($engine) {
 				$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
 			}
 			$ext->add($c, 's', '', new ext_hangup());
-			
+
 		break;
 	}
 }
@@ -604,10 +610,10 @@ function paging_get_autoanswer_defaults($orderd = false) {
 	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		$results = array();
-	} 
+	}
 	if ($orderd) {
 		foreach ($results as $r) {
-			$res[$r['var']] = $r['setting'];	
+			$res[$r['var']] = $r['setting'];
 		}
 		$results = $res;
 	}
@@ -616,20 +622,20 @@ function paging_get_autoanswer_defaults($orderd = false) {
 
 function paging_set_autoanswer_defaults($data) {
 	global $db;
-	
+
 	if (!is_array($data)) {
 		return false;
-	}	
-	
+	}
+
 	foreach ($data as $k => $v) {
 		$put[] = array('default', $k, $v);
 	}
-	
+
 	$sql = "REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (?, ?, ?)";
 	$sql = $db->prepare($sql);
 	$res = $db->executeMultiple($sql, $put);
 	db_e($res);
-	
+
 	return true;
 }
 
@@ -643,7 +649,7 @@ function paging_get_autoanswer_useragents($useragent = '') {
 	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
 	if(DB::IsError($results)) {
 		$results = array();
-	} 
+	}
 	return $results;
 }
 
@@ -697,11 +703,11 @@ function paging_get_devs($grp) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
-	$grp = $db->escapeSimple($grp); 
+	$grp = $db->escapeSimple($grp);
 
 	$sql = "SELECT ext FROM paging_groups where page_number='$grp'";
 	$results = $db->getAll($sql);
-	if(DB::IsError($results)) 
+	if(DB::IsError($results))
 		$results = array();
 	foreach ($results as $val)
 		$tmparray[] = $val[0];
@@ -712,7 +718,7 @@ function paging_get_pagingconfig($grp) {
 	global $db;
 
 	// Just in case someone's trying to be smart with a SQL injection.
-	$grp = $db->escapeSimple($grp); 
+	$grp = $db->escapeSimple($grp);
 
 	$sql = "SELECT * FROM paging_config WHERE page_group='$grp'";
 	$results = $db->getRow($sql, DB_FETCHMODE_ASSOC);
@@ -754,7 +760,7 @@ function paging_del($xtn) {
 		var_dump($res);
 		die_freepbx("Error in paging_del(): ");
 	}
-	
+
 	$sql = "DELETE FROM paging_config WHERE page_group='$xtn'";
 	$res = $db->query($sql);
 	if (DB::isError($res)) {
@@ -762,14 +768,14 @@ function paging_del($xtn) {
 		die_freepbx("Error in paging_del(): ");
 	}
 	sql("DELETE FROM `admin` WHERE variable = 'default_page_grp' AND value = '$xtn'");
-	
+
 	needreload();
 }
 
 function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group) {
 	global $db;
 
-	// $plist contains a string of extensions, with \n as a seperator. 
+	// $plist contains a string of extensions, with \n as a seperator.
 	// Split that up first.
 	if (is_array($plist)) {
 		$xtns = $plist;
@@ -779,22 +785,22 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='', $defaul
 	foreach (array_keys($xtns) as $val) {
 		$val = $db->escapeSimple(trim($xtns[$val]));
 		// Sanity check input.
-		
+
 		$sql = "INSERT INTO paging_groups(page_number, ext) VALUES ('$xtn', '$val')";
 		$db->query($sql);
 	}
-	
+
 	$description = $db->escapeSimple(trim($description));
 	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description) VALUES ('$xtn', '$force_page', '$duplex', '$description')";
 	$db->query($sql);
-	
+
 	if ($default_group) {
 		sql("DELETE FROM `admin` WHERE variable = 'default_page_grp'");
 		sql("INSERT INTO `admin` (variable, value) VALUES ('default_page_grp', '$xtn')");
 	} else {
 		sql("DELETE FROM `admin` WHERE variable = 'default_page_grp' AND value = '$xtn'");
 	}
-	
+
 	needreload();
 }
 
@@ -819,7 +825,7 @@ function paging_set_default($extension, $value) {
 		sql("INSERT INTO paging_groups (page_number, ext) VALUES ('$default_group', '$extension')");
 	}
 }
-	
+
 function paging_configpageinit($pagename) {
 	global $currentcomponent;
 
@@ -849,7 +855,7 @@ function paging_configpageinit($pagename) {
 function paging_applyhooks() {
 	global $currentcomponent;
 
-	// Add the 'process' function - this gets called when the page is loaded, to hook into 
+	// Add the 'process' function - this gets called when the page is loaded, to hook into
 	// displaying stuff on the page.
 	$currentcomponent->addoptlistitem('page_group', '0', _("Exclude"));
 	$currentcomponent->addoptlistitem('page_group', '1', _("Include"));
@@ -868,7 +874,7 @@ function paging_configpageload() {
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action']:null;
 	$extdisplay = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware']) ? $_REQUEST['tech_hardware']:'';
-	
+
 	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
 	if ($action != 'del' && $tech_hardware != 'virtual') {
 
@@ -877,7 +883,7 @@ function paging_configpageload() {
 		if ($default_group != "") {
 			$in_default_page_grp = paging_check_default($extdisplay);
 			$currentcomponent->addguielem($section, new gui_selectbox('in_default_page_grp', $currentcomponent->getoptlist('page_group'), $in_default_page_grp, _('Default Page Group'), _('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
-		} 
+		}
 	}
 }
 
