@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* $Id$ */
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
@@ -46,22 +46,22 @@ switch ($vars['action']) {
 			break;
 		} else {
 			//limit saved devices to PAGINGMAXPARTICIPANTS
-			if (isset($amp_conf['PAGINGMAXPARTICIPANTS']) 
+			if (isset($amp_conf['PAGINGMAXPARTICIPANTS'])
 				&& $amp_conf['PAGINGMAXPARTICIPANTS']
 			) {
 				$vars['pagelist'] = array_slice(
-									$vars['pagelist'], 
-									0, 
+									$vars['pagelist'],
+									0,
 									$amp_conf['PAGINGMAXPARTICIPANTS']);
 			}
 
 			paging_modify(
-				$vars['pagegrp'], 
-				$vars['pagenbr'], 
-				$vars['pagelist'], 
-				$vars['force_page'], 
-				$vars['duplex'], 
-				$vars['description'], 
+				$vars['pagegrp'],
+				$vars['pagenbr'],
+				$vars['pagelist'],
+				$vars['force_page'],
+				$vars['duplex'],
+				$vars['description'],
 				$vars['default_group']
 			);
 			$_REQUEST['action'] = $vars['action'] = 'modify';
@@ -75,7 +75,7 @@ switch ($vars['action']) {
 	case 'save_settings':
 		$def = paging_get_autoanswer_defaults(true);
 		$d = '';
-		
+
 		if (ctype_digit($vars['announce'])) {
 			$r = recordings_get($vars['announce']);
 			if ($r) {
@@ -106,7 +106,7 @@ switch ($vars['action']) {
 		} elseif ($vars['announce'] != 'beep') {
 				$d = $a;
 		}
-		
+
 		paging_set_autoanswer_defaults(array('DOPTIONS' => $a));
 		needreload();
 		break;
@@ -129,6 +129,7 @@ switch ($vars['action']) {
 		} else {
 			$vars['devices'] = array();
 		}
+		$module_hook = moduleHook::create();
 		$vars['hooks'] = $module_hook->hookHtml;
 		foreach (core_devices_list() as $d) {
 			$vars['device_list'][$d[0]] = $d[0] . ' - ' . $d[1];
@@ -141,7 +142,7 @@ switch ($vars['action']) {
 		//build recordings list
 		$vars['rec_list']['none'] = _('None');
 		$vars['rec_list']['beep'] = _('Default');
-		
+
 		if (!function_exists('recordings_list')) {
 			$announce = 'default';
 		} else {
@@ -153,7 +154,7 @@ switch ($vars['action']) {
 			//get paging defaults
 			$def = paging_get_autoanswer_defaults(true);
 			$vars['announce'] = 'beep';//defaults to beep!
-			
+
 			if (isset($def['DOPTIONS'])) {
 				preg_match('/A\((.*?)\)/', $def['DOPTIONS'], $m);
 				//blank file? That would be 'none'
