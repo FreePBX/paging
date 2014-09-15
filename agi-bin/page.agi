@@ -3,26 +3,26 @@
 //include freepbx configuration 
 $restrict_mods = true;
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-    include_once('/etc/asterisk/freepbx.conf');
+	include_once('/etc/asterisk/freepbx.conf');
 }
 list($agi, $vars) = __agi();
 
 $ast_ge_10 = version_compare($amp_conf['ASTVERSION'], '10', 'ge');
 
 $get = array(
-		'ALERTINFO'			=> '',
-		'AMPUSER'			=> '',
-		'CALLINFO'			=> '',
-		'DOPTIONS'			=> '',
-		'DTIME'				=> '',
-		'LEAD_WAIT'			=> 5,
-		'PAGEMODE'			=> '',
-		'PAGE_CONF'			=> '',
-		'PAGE_CONF_OPTS'	=> '',
-		'PAGE_MEMBERS'		=> '',
-		'SIPURI'			=> '',
-		'STREAM'			=> 'beep',
-		'VXML_URL'			=> ''
+	'ALERTINFO'	=> '',
+	'AMPUSER'	=> '',
+	'CALLINFO'	=> '',
+	'DOPTIONS'	=> '',
+	'DTIME'		=> '',
+	'LEAD_WAIT'	=> 5,
+	'PAGEMODE'	=> '',
+	'PAGE_CONF'	=> '',
+	'PAGE_CONF_OPTS'	=> '',
+	'PAGE_MEMBERS'		=> '',
+	'SIPURI'	=> '',
+	'STREAM'	=> 'beep',
+	'VXML_URL'	=> ''
 );
 
 foreach ($get as $k => $v) {
@@ -32,8 +32,8 @@ foreach ($get as $k => $v) {
 
 //clear stream if requested
 $vars['STREAM'] = $vars['STREAM'] == 'NONE'
-				? ''
-				: $vars['STREAM'];
+	? ''
+	: $vars['STREAM'];
 
 // TODO: this deals with the mainstream ones. We could check in the dialplan if 
 //there are any others outside of these and only in that case evoke the
@@ -43,13 +43,13 @@ $vars['STREAM'] = $vars['STREAM'] == 'NONE'
 $base_vars['__FORWARD_CONTEXT'] = 'block-cf';
 $base_vars['AMPUSER'] = __pad_string($vars['AMPUSER']);
 $chan_vars = array(
-			'ALERTINFO',
-			'CALLINFO',
-			'DOPTIONS',
-			'DTIME',
-			'SIPURI',
-			'SIPURI',
-			'VXML_URL'
+	'ALERTINFO',
+	'CALLINFO',
+	'DOPTIONS',
+	'DTIME',
+	'SIPURI',
+	'SIPURI',
+	'VXML_URL'
 );
 
 foreach ($chan_vars as $var) {
@@ -78,15 +78,15 @@ $this_chan = explode('-', agi_get_var("CHANNEL(name)"), 2);
  * as a marked user
  */
 $lead = array(
-		'Channel'	=> 'Local/s@app-page-stream',
-		'CallerID'	=> 'Page Startup',
-		'Async'		=> 'true',
-		'Variable'	=> array(
-						'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
-						'PAGE_CONF_OPTS' => 'xqA'
-					),
-		'Application'=> 'Wait',
-		'Data'		=> $vars['LEAD_WAIT']
+	'Channel'	=> 'Local/s@app-page-stream',
+	'CallerID'	=> 'Page Startup',
+	'Async'		=> 'true',
+	'Variable'	=> array(
+		'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+		'PAGE_CONF_OPTS' => 'xqA'
+	),
+	'Application'=> 'Wait',
+	'Data'		=> $vars['LEAD_WAIT']
 );
 $astman->Originate($lead);
 
@@ -97,9 +97,9 @@ foreach ($page_members as $pm) {
 
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
 		$pass_vars['CONFBRIDGE(user,template)'] 
-				= $vars['PAGE_CONF_OPTS'] == 'duplex' 
-				? 'page_user_duplex' 
-				: 'page_user';
+			= $vars['PAGE_CONF_OPTS'] == 'duplex' 
+			? 'page_user_duplex' 
+			: 'page_user';
 	}
 
 	$device = $agi->database_get("DEVICE", $pm . '/dial');
@@ -119,12 +119,12 @@ foreach ($page_members as $pm) {
 		}
 		$user = $agi->database_get("DEVICE", $pm . '/user');
 		$dnd = $user['data'] != '' 
-				?  $agi->database_get("DND", $user['data']) 
-				: array('data' => '');
+			?  $agi->database_get("DND", $user['data']) 
+			: array('data' => '');
 		if ($dnd['data'] == 'YES') {
 			continue;
 		}
-	// try using Spy mode (whisper)
+		// try using Spy mode (whisper)
 	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
 		$dev_state = agi_get_var("DEVICE_STATE($device)");
 		// if not idle but in a state we can try spying, then try
@@ -142,57 +142,57 @@ foreach ($page_members as $pm) {
 				continue;
 			}
 			switch ($dev_state) {
-				case "INUSE":
-				case "BUSY":
-				case "RINGINUSE":
-				case "HOLDINUSE":
-					// Try SPY
-					$pagemode = 'SPAGE';
-					$pass_vars['SP_DEVICE'] = __pad_string($device);
+			case "INUSE":
+			case "BUSY":
+			case "RINGINUSE":
+			case "HOLDINUSE":
+				// Try SPY
+				$pagemode = 'SPAGE';
+				$pass_vars['SP_DEVICE'] = __pad_string($device);
 				break;
-				default:
-					// State is not amicable to spy or normal 
-					// (such as RINGING) so skip it
-					continue;
+			default:
+				// State is not amicable to spy or normal 
+				// (such as RINGING) so skip it
+				continue;
 				break;
 			}
 		}
 	}
 
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
-			$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
+		$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
 	} else {
-			$data_params = $vars['PAGE_CONF'] 
-							. ',' 
-							. $vars['PAGE_CONF_OPTS'] 
-							. ',,';
+		$data_params = $vars['PAGE_CONF'] 
+			. ',' 
+			. $vars['PAGE_CONF_OPTS'] 
+			. ',,';
 	}
 	$astman->Originate(array(
-			'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging',
-			'CallerID'    => $vars['calleridname'] 
-							. ' <' 
-							. $vars['callerid'] 
-							. '>',
-			'Async'       => 'true',
-			'Variable'    => $pass_vars,
-			'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
-								? 'ConfBridge' 
-								: 'MeetMe'),
-			'Data'        => $data_params
+		'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging',
+		'CallerID'    => $vars['calleridname'] 
+		. ' <' 
+		. $vars['callerid'] 
+		. '>',
+		'Async'       => 'true',
+		'Variable'    => $pass_vars,
+		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
+		? 'ConfBridge' 
+		: 'MeetMe'),
+		'Data'        => $data_params
 	));
 }
 
 if ($vars['STREAM']) {
 	$beep = array(
-			'Channel'	=> 'Local/s@app-page-stream',
-			'CallerID'	=> 'Playback Stream',
-			'Async'		=> 'true',
-			'Variable'	=> array(
-							'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
-							'PAGE_CONF_OPTS' => 'xq'
-						),
-			'Application'=> 'Playback',
-			'Data'		=> $vars['STREAM']
+		'Channel'	=> 'Local/s@app-page-stream',
+		'CallerID'	=> 'Playback Stream',
+		'Async'		=> 'true',
+		'Variable'	=> array(
+			'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+			'PAGE_CONF_OPTS' => 'xq'
+		),
+		'Application'=> 'Playback',
+		'Data'		=> $vars['STREAM']
 	);
 	//dbug($beep);
 	$astman->Originate($beep);
@@ -214,7 +214,7 @@ function __agi(){
 			unset($opts[$key]);
 		}
 	}
-	
+
 	array_shift($_SERVER['argv']);
 	foreach($_SERVER['argv'] as $arg){
 		$arg=explode('=',$arg);
@@ -229,7 +229,7 @@ function __agi(){
 function agi_get_var($value) {
 	global $agi;
 	$r = $agi->get_variable($value);
-	
+
 	if ($r['result'] == 1) {
 		$result = $r['data'];
 		return $result;
@@ -239,9 +239,9 @@ function agi_get_var($value) {
 
 function __pad_string($string) {
 	return str_replace(
-			array('\\', ',', '='),
-			array('\\\\', '\\,', '\\='),
-			$string
-		);
+		array('\\', ',', '='),
+		array('\\\\', '\\,', '\\='),
+		$string
+	);
 }
 
