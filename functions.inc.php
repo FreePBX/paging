@@ -324,10 +324,11 @@ function paging_get_config($engine) {
 				global $version;
 				//http://issues.freepbx.org/browse/FREEPBX-7715
 				if(version_compare($version,"12","<")) {
-					$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
+					$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
 				} else {
-					$ext->add($macro, "s", '', new ext_setvar('phone', '${SIPPEER(${CUT(DIAL,/,2)},useragent)}'));
+					$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)},useragent)}'));
 				}
+				$ext->add($macro, "s", '', new ext_execif('$["${KNOWNAGENT}" != ""]', 'Set', 'USERAGENT=${KNOWNAGENT}'));
 			}
 			// We used to set all the variables here (ALERTINFO, CALLINFO, etc. That has been moved to each
 			// paging group and the intercom main macro, since it was redundant for every phone causing a lot
@@ -353,7 +354,7 @@ function paging_get_config($engine) {
 					case 'DTIME':
 					default:
 						if (trim($data) != "") {
-							$ext->add($macro, "s", '', new ext_execif('$["${phone:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
+							$ext->add($macro, "s", '', new ext_execif('$["${USERAGENT:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
 						}
 						break;
 				}
@@ -364,8 +365,6 @@ function paging_get_config($engine) {
 			if ($has_answermacro) {
 				$ext->add($macro, "s", '', new ext_gotoif('$["${ANSWERMACRO}" != ""]','macro2'));
 			}
-			//$ext->add($macro, "s", '', new ext_execif('$["${ALERTINFO}" != ""]', 'SipAddHeader','Alert-Info: ${ALERTINFO}'));
-			//$ext->add($macro, "s", '', new ext_execif('$["${CALLINFO}" != ""]', 'SipAddHeader','Call-Info: ${CALLINFO}'));
 			$ext->add($macro, "s", '', new ext_execif('$["${SIPURI}" != ""]', 'Set','__SIP_URI_OPTIONS=${SIPURI}'));
 			$ext->add($macro, "s", 'macro', new ext_macro('${DB(DEVICE/${ARG1}/autoanswer/macro)}','${ARG1}'), 'n',2);
 			if ($has_answermacro) {
