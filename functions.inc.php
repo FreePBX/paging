@@ -308,7 +308,9 @@ function paging_get_config($engine) {
 			$autoanswer_arr = paging_get_autoanswer_useragents();
 
 			$macro = 'macro-autoanswer';
-			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${DB(DEVICE/${ARG1}/dial)}'));
+			// PJSip is picky about its connection string. Page.agi figures out what the
+			// dial strings should be, and feeds it in as part of the Originate call.
+			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${KNOWNDIAL}'));
 
 			// If we are in DAHDI compat mode, then we need to substitute DAHDI for ZAP
 			if ($chan_dahdi) {
