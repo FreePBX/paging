@@ -107,9 +107,6 @@ function paging_get_config($engine) {
 				if (trim($vxml_url) != "") {
 					$ext->add($context, $code, '', new ext_setvar('_VXML_URL', $vxml_url));
 				}
-				if (trim($doptions) != "") {
-					$ext->add($context, $code, '', new ext_setvar('_DOPTIONS', $doptions));
-				}
 				foreach ($custom_vars as $key => $value) {
 					$ext->add($context, $code, '', new ext_setvar('_'.ltrim($key,'_'), $value));
 				}
@@ -118,6 +115,7 @@ function paging_get_config($engine) {
 
 				$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
+				$ext->add($context, $code, '', new ext_setvar('_DOPTIONS', $doptions));
 
 				$ext->add($context, $code, 'check', new ext_chanisavail('${DEVICE}', 's'));
 				$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));
@@ -434,9 +432,6 @@ function paging_get_config($engine) {
 			if (isset($vxml_url) && trim($vxml_url) != "") {
 				$ext->add($apppaging, 'ssetup', '', new ext_set('_VXML_URL', $vxml_url));
 			}
-			if (isset($doptions) && trim($doptions) != "") {
-				$ext->add($apppaging, 'ssetup', '', new ext_set('_DOPTIONS', $doptions));
-			}
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_DTIME', $dtime));
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_ANSWERMACRO', ''));
 
@@ -452,6 +447,7 @@ function paging_get_config($engine) {
 			} else {
 				$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer', '${EXTEN:4}'));
 			}
+			$ext->add($apppaging, "_PAGE.", '', new ext_set('_DOPTIONS', $doptions));
 			$ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
 			$ext->add($apppaging, "_PAGE.", 'skipself', new ext_hangup());
 
