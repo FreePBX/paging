@@ -119,12 +119,8 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
 				$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
 
-        if ($ast_ge_14) {
-				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 's'));
-			    $ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));
-        } else {
-				  $ext->add($context, $code, 'check', new ext_chanisavail('${DIAL}', 'sj'));
-        }
+				$ext->add($context, $code, 'check', new ext_chanisavail('${DEVICE}', 's'));
+				$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));
 				$ext->add($context, $code, '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
 				$dopt = '';
 				if ($amp_conf['AST_FUNC_CONNECTEDLINE']) {
@@ -308,9 +304,40 @@ function paging_get_config($engine) {
 			$autoanswer_arr = paging_get_autoanswer_useragents();
 
 			$macro = 'macro-autoanswer';
-			// PJSip is picky about its connection string. Page.agi figures out what the
-			// dial strings should be, and feeds it in as part of the Originate call.
-			$ext->add($macro, "s", '', new ext_setvar('DIAL', '${KNOWNDIAL}'));
+			// Do we already know what the correct string is? This may have been handed to us
+			// by page.agi.
+			$ext->add($macro, "s", '', new ext_gotoif('$["${KNOWNDIAL}" != ""]', 'knowndial'));
+
+			// Do we have a PJSIP Endpoint?
+			$ext->add($macro, "s", '', new ext_setvar('DEVICE', '${DB(DEVICE/${ARG1}/dial)}'));
+			$ext->add($macro, "s", '', new ext_gotoif('$["${DEVICE:0:5}" == "PJSIP" ]', 'dopjsip'));
+
+			// We're not pjsip, so our dial is going to be our device
+			$ext->add($macro, "s", '', new ext_setvar('KNOWNDIAL', '${DEVICE}'));
+			$ext->add($macro, "s", '', new ext_goto('knowndial'));
+
+			// Handle PJSIP stuff.
+			$ext->add($macro, "s", 'dopjsip', new ext_setvar('KNOWNDIAL', '${PJSIP_DIAL_CONTACTS(${ARG1})}'));
+			// If there's an ampersand, there's more than one device registered to this endpoint, and we
+			// need to page, rather than intercom.
+			$ext->add($macro, "s", '', new ext_gotoif('$[${REGEX("&" ${KNOWNDIAL})} == 0]', 'knowndial'));
+			// Bugger. However, we can hard-code some settings here that'll make our life a bit easier.
+			$ext->add($macro, "s", '', new ext_gosub('1','ssetup', 'app-paging'));
+			$ext->add($macro, "s", '', new ext_setvar('PAGEMODE', 'PAGE'));
+			$ext->add($macro, "s", '', new ext_setvar('PAGE_CONF_OPTS', 'duplex'));
+			$ext->add($macro, "s", '', new ext_setvar('STREAM', 'NONE'));
+			$ext->add($macro, "s", '', new ext_setvar('PAGE_MEMBERS', '${ARG1}'));
+			// Start the AGI to get the clients into the conf
+			$ext->add($macro, "s", '', new ext_agi('page.agi'));
+			// Now I need to join the conf as admin.
+			$ext->add($macro, "s", '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
+			$ext->add($macro, "s", '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
+			$ext->add($macro, "s", '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+			$ext->add($macro, "s", '', new ext_meetme('${PAGE_CONF}',',','admin_menu')); // ext_confbridge, actually.
+			$ext->add($macro, "s", '', new ext_hangup()); // Don't even try to continue after this.
+
+			// Right. Bypassing all that, it's a single device, and, we know what our dial string is.
+			$ext->add($macro, "s", 'knowndial', new ext_setvar('DIAL', '${KNOWNDIAL}'));
 
 			// If we are in DAHDI compat mode, then we need to substitute DAHDI for ZAP
 			if ($chan_dahdi) {
