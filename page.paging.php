@@ -74,7 +74,7 @@ switch ($vars['action']) {
 		break;
 	case 'save_settings':
 		$def = paging_get_autoanswer_defaults(true);
-		$d = '';
+		$doptions = 'b(autoanswer^s^1(${ALERTINFO},${CALLINFO}))';
 
 		if (ctype_digit($vars['announce'])) {
 			$r = recordings_get($vars['announce']);
@@ -83,28 +83,11 @@ switch ($vars['action']) {
 			} else {
 				$vars['announce'] = 'beep';
 			}
-			$a = 'A(' . $vars['announce'] . ')';
+			$a = 'A(' . $vars['announce'] . ')'.$doptions;
 		} elseif ($vars['announce'] == 'none') {
-			$a = 'A()';
+			$a = "A()$doptions";
 		} elseif ($vars['announce'] == 'beep') {
-			$a = 'A(beep)';
-		}
-
-		//if doptions is already set
-		if (isset($def['DOPTIONS'])) {
-			preg_match('/A\((.+?)\)/', $def['DOPTIONS'], $m);
-
-			//if we already have an A() options, strip it out & replace it
-			if (isset($m[0])) {
-				$d = str_replace($m[0], $a, $def['DOPTIONS']);
-			//otherwise, append it to whats already there
-			} else {
-				$d = $def['DOPTIONS'] . $a;
-			}
-		//if we dont have doptions, and the annoucement isnt 'beep'
-		//(i.e. the defualt), set d
-		} elseif ($vars['announce'] != 'beep') {
-				$d = $a;
+			$a = "A(beep)$doptions";
 		}
 
 		paging_set_autoanswer_defaults(array('DOPTIONS' => $a));

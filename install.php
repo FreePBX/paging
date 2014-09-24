@@ -156,4 +156,3 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 	$sql = "ALTER TABLE `paging_config` ADD PRIMARY KEY ( `page_group` )";
 	$result = $db->query($sql);
 }
-?>
