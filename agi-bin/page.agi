@@ -20,6 +20,7 @@ $get = array(
 	'PAGE_CONF'	=> '',
 	'PAGE_CONF_OPTS'	=> '',
 	'PAGE_MEMBERS'		=> '',
+	'MCAST'		=> '',
 	'SIPURI'	=> '',
 	'STREAM'	=> 'beep',
 	'VXML_URL'	=> ''
@@ -60,7 +61,8 @@ foreach ($chan_vars as $var) {
 
 // This is who we want to page.
 $page_members = explode('-', $vars['PAGE_MEMBERS']);
-if (!$page_members || !$page_members[0]) {
+$mcast = explode('-', $vars['MCAST']);
+if (!$page_members[0] && !$mcast[0]) {
 	// No members of this group?
 	$agi->stream_file('error');
 	exit;
@@ -144,7 +146,16 @@ foreach ($page_members as $pm) {
 	}
 }
 
+// Finally add any multicast entries.
+foreach ($mcast as $addr) {
+	$devices[] = array("MulticastRTP/basic/$addr", "rtp", "rtp");
+}
+
 foreach ($devices as $dev) {
+	if (!$dev[0]) { // If MCAST only..
+		continue;
+	}
+
 	$pagemode = 'PAGE';
 	$pass_vars = $base_vars;
 
@@ -169,8 +180,12 @@ foreach ($devices as $dev) {
 
 	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD 
 	// are ok to page). if FPAGE we use the PAGE context reset above but 
-	//this will get skipped
-	$dev_state = get_device_state($device);
+	// this will get skipped
+	if ($useragent == "rtp") {
+		$dev_state = "NOT_INUSE";
+	} else {
+		$dev_state = get_device_state($device);
+	}
 	// $agi->verbose("device $device has state $dev_state", 0);
 	if ($vars['PAGEMODE'] == 'PAGE') {
 		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
