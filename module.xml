@@ -2,12 +2,13 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>12.0.6</version>
+  <version>12.0.7</version>
   <publisher>Schmooze Com Inc</publisher>
   <license>GPLv3+</license>
   <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
   <category>Applications</category>
   <changelog>
+    *12.0.7* Add skeleton support for Multicast RTP
     *12.0.6* Fix regression where paging wouldn't work with Asterisk 1.8
     *12.0.5* Changing the announcement would break auto answer.
     *12.0.4* Auto-Answer fixes for PJSip and chan_sip
@@ -17,7 +18,7 @@
     *12.0.1alpha1* Initial Support for PJSip
   </changelog>
   <depends>
-    <version>12.0.1rc18</version>
+    <version>12.0.2</version>
   </depends>
   <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
 	Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
