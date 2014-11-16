@@ -2,12 +2,13 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>12.0.7</version>
+  <version>12.0.8</version>
   <publisher>Schmooze Com Inc</publisher>
   <license>GPLv3+</license>
   <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
   <category>Applications</category>
   <changelog>
+    *12.0.8* Add option to force paging through to in-use devices.
     *12.0.7* Add skeleton support for Multicast RTP
     *12.0.6* Fix regression where paging wouldn't work with Asterisk 1.8
     *12.0.5* Changing the announcement would break auto answer.
