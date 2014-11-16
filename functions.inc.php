@@ -119,7 +119,14 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, '', new ext_setvar('_DOPTIONS', $doptions));
 
 			$ext->add($context, $code, 'check', new ext_chanisavail('${DEVICE}', 's'));
+
+			// If it's ringing for an inbound call, we should page.
+			$ext->add($context, $code, '', new ext_execif('$["${AVAILSTATUS}" = "6"]', 'Set', 'AVAILORIGCHAN=${DEVICE}'));
+
+			// Did we have a device we can page? If so, go to continue. If not, check for
+			// paging override functions.
 			$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" != ""]', 'continue'));
+
 			// Check the intercom override.
 			$ext->add($context, $code, '', new ext_execif('$["${OVERRIDE}" = ""]', 'Set', 'OVERRIDE=reject'));
 			$ext->add($context, $code, '', new ext_gotoif('$["${OVERRIDE}" = "reject"]', 'end'));
