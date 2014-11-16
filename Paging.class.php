@@ -83,5 +83,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			throw new \Exception("No Extension given");
 		}
 		$this->setConfig("intercom-override", $override, $ext);
+		$astman = $this->FreePBX->astman;
+		$astman->database_put('AMPUSER', "$ext/intercom/override", $override);
 	}
 }

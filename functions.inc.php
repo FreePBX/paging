@@ -90,6 +90,7 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${dialnumber}/intercom)}" = "disabled" ]', 'nointercom'));
 			$ext->add($context, $code, 'allow', new ext_dbget('DEVICES','AMPUSER/${dialnumber}/device'));
 			$ext->add($context, $code, '', new ext_gotoif('$["${DEVICES}" = "" ]', 'end'));
+			$ext->add($context, $code, '', new ext_dbget('OVERRIDE','AMPUSER/${dialnumber}/intercom/override'));
 			$ext->add($context, $code, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 
 			/* Set these up so that macro-autoanswer doesn't have to
@@ -118,23 +119,32 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, '', new ext_setvar('_DOPTIONS', $doptions));
 
 			$ext->add($context, $code, 'check', new ext_chanisavail('${DEVICE}', 's'));
-			$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" = ""]', 'end'));
-			$ext->add($context, $code, '', new ext_noop_trace('AVAILCHAN: ${AVAILCHAN}, AVAILORIGCHAN: ${AVAILORIGCHAN}, AVAILSTATUS: ${AVAILSTATUS}',5));
-			$dopt = '';
-			if ($amp_conf['AST_FUNC_CONNECTEDLINE']) {
-				$len = strlen($code)-2;
-				$dopt = 'I';
-				$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}" = ""]','godial'));
-				$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(name,i)', '${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}'));
-				$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(num)', '${EXTEN:' . $len . '}'));
-			}
+			$ext->add($context, $code, '', new ext_gotoif('$["${AVAILORIGCHAN}" != ""]', 'continue'));
+			// Check the intercom override.
+			$ext->add($context, $code, '', new ext_execif('$["${OVERRIDE}" = ""]', 'Set', 'OVERRIDE=reject'));
+			$ext->add($context, $code, '', new ext_gotoif('$["${OVERRIDE}" = "reject"]', 'end'));
+
+			// We don't know what the phones are going to do. Let's be generous.
+			$ext->add($context, $code, '', new ext_set('DTIME', '30'));
+
+			// If it's ring, treat it as a normal call.
+			$ext->add($context, $code, '', new ext_execif('$["${OVERRIDE}" = "ring"]', 'Set', 'DOPTIONS=A(beep)'));
+
+			// It's something else. Assume it's force, and just smash the device.
+			$ext->add($context, $code, 'continue', new ext_noop('Continuing with page',5));
+
+			$len = strlen($code)-2;
+			$dopt = 'I'; // Don't sent connectedline updates.
+			$ext->add($context, $code, '', new ext_gotoif('$["${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}" = ""]','godial'));
+			$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(name,i)', '${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}'));
+			$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(num)', '${EXTEN:' . $len . '}'));
+
 			// If it's less than Asterisk 11, manually run the add sip header macro.
 			if (!$ast_ge_11) {
-				$ext->add($context, $code, '', new ext_gosub('1', 's', 'autoanswer', '${ALERTINFO},${CALLINFO}'));
+				$ext->add($context, $code, '', new ext_gosubif('$["${OVERRIDE}" != "ring"]', 'autoanswer,s,1', false, '${ALERTINFO},${CALLINFO}'));
 			}
 
 			$ext->add($context, $code, 'godial', new ext_dial('${DIAL}','${DTIME},' . $dopt . '${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
-
 
 			$ext->add($context, $code, 'end', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 			$ext->add($context, $code, '', new ext_busy());
