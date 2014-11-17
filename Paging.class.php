@@ -68,9 +68,10 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 
 	public function getOverride($ext = false) {
 		if ($ext === false) {
-			throw new \Exception("No Extension given");
+			$or = "reject";
+		} else {
+			$or = $this->getConfig("intercom-override", $ext);
 		}
-		$or = $this->getConfig("intercom-override", $ext);
 		if (!$or) {
 			return "reject";
 		} else {
