@@ -103,22 +103,22 @@ if(DB::IsError($check)) {
 // These are the three most common ways of auto answering.
 // If the table is already populated then error will be ignored and user data will not get altered
 //
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', 'Call-Info: <uri>\\\\;answer-after=0')";
+// Recreate defaults
+$sql = "DELETE FROM paging_autoanswer";
 $result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'ALERTINFO', 'Alert-Info: Ring Answer')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', '<uri>\\\\;answer-after=0')";
+$result = $db->query($sql);
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'ALERTINFO', 'Ring Answer')";
 $result = $db->query($sql);
 $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'SIPURI', 'intercom=true')";
 $result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Mitel', 'CALLINFO', 'Call-Info: <sip:broadworks.net>\\\\;answer-after=0')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Mitel', 'CALLINFO', '<sip:broadworks.net>\\\\;answer-after=0')";
 $result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO', 'Alert-Info: Intercom')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO', 'Intercom')";
 $result = $db->query($sql);
-//Migrate incorrect Polycom alert-info that was set by deleting then re-adding
-$sql = "DELETE FROM paging_autoanswer WHERE useragent = 'Polycom' AND var = 'ALERTINFO' AND setting = 'Alert-Info: info-Auto Answer'";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Polycom', 'ALERTINFO', 'info=Auto Answer')";
 $result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Polycom', 'ALERTINFO', 'Alert-Info: info=Auto Answer')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium', 'ALERTINFO', 'Alert-Info: ring-answer')";
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium', 'ALERTINFO', 'ring-answer')";
 $result = $db->query($sql);
 
 // Add dulex field
@@ -156,4 +156,3 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 	$sql = "ALTER TABLE `paging_config` ADD PRIMARY KEY ( `page_group` )";
 	$result = $db->query($sql);
 }
-?>

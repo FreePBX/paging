@@ -3,26 +3,27 @@
 //include freepbx configuration 
 $restrict_mods = true;
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
-    include_once('/etc/asterisk/freepbx.conf');
+	include_once('/etc/asterisk/freepbx.conf');
 }
 list($agi, $vars) = __agi();
 
 $ast_ge_10 = version_compare($amp_conf['ASTVERSION'], '10', 'ge');
 
 $get = array(
-		'ALERTINFO'			=> '',
-		'AMPUSER'			=> '',
-		'CALLINFO'			=> '',
-		'DOPTIONS'			=> '',
-		'DTIME'				=> '',
-		'LEAD_WAIT'			=> 5,
-		'PAGEMODE'			=> '',
-		'PAGE_CONF'			=> '',
-		'PAGE_CONF_OPTS'	=> '',
-		'PAGE_MEMBERS'		=> '',
-		'SIPURI'			=> '',
-		'STREAM'			=> 'beep',
-		'VXML_URL'			=> ''
+	'ALERTINFO'	=> '',
+	'AMPUSER'	=> '',
+	'CALLINFO'	=> '',
+	'DOPTIONS'	=> '',
+	'DTIME'		=> '',
+	'LEAD_WAIT'	=> 5,
+	'PAGEMODE'	=> '',
+	'PAGE_CONF'	=> '',
+	'PAGE_CONF_OPTS'	=> '',
+	'PAGE_MEMBERS'		=> '',
+	'MCAST'		=> '',
+	'SIPURI'	=> '',
+	'STREAM'	=> 'beep',
+	'VXML_URL'	=> ''
 );
 
 foreach ($get as $k => $v) {
@@ -32,8 +33,8 @@ foreach ($get as $k => $v) {
 
 //clear stream if requested
 $vars['STREAM'] = $vars['STREAM'] == 'NONE'
-				? ''
-				: $vars['STREAM'];
+	? ''
+	: $vars['STREAM'];
 
 // TODO: this deals with the mainstream ones. We could check in the dialplan if 
 //there are any others outside of these and only in that case evoke the
@@ -43,13 +44,13 @@ $vars['STREAM'] = $vars['STREAM'] == 'NONE'
 $base_vars['__FORWARD_CONTEXT'] = 'block-cf';
 $base_vars['AMPUSER'] = __pad_string($vars['AMPUSER']);
 $chan_vars = array(
-			'ALERTINFO',
-			'CALLINFO',
-			'DOPTIONS',
-			'DTIME',
-			'SIPURI',
-			'SIPURI',
-			'VXML_URL'
+	'ALERTINFO',
+	'CALLINFO',
+	'DOPTIONS',
+	'DTIME',
+	'SIPURI',
+	'SIPURI',
+	'VXML_URL'
 );
 
 foreach ($chan_vars as $var) {
@@ -58,75 +59,147 @@ foreach ($chan_vars as $var) {
 	}
 }
 
-
-//dbug('vars', $vars);
-
-/* TODO: run through the list here first and check for:
- * future - check if each specific extension needs modifications to 
- * auto-answer channel variables so the conditional assignments can 
- * be skipped
- */
-
+// This is who we want to page.
 $page_members = explode('-', $vars['PAGE_MEMBERS']);
-$this_chan = explode('-', agi_get_var("CHANNEL(name)"), 2);
+$mcast = explode('-', $vars['MCAST']);
+if (!$page_members[0] && !$mcast[0]) {
+	// No members of this group?
+	$agi->stream_file('error');
+	exit;
+}
+
+// Figure out who we are
+list($this_chan, ) = explode('-', agi_get_var("CHANNEL(name)"), 2); // SIP/123, IAX/123, DAHDI/3, etc
+list( , $myext) = explode('/', $this_chan); 
+
+// Are we pjsip? We need to get our REAL URI.
+if (substr($this_chan, 0, 5) == "PJSIP") {
+	$caller = agi_get_var("CHANNEL(pjsip,remote_addr)");
+	// Make it into a Dial()able string
+	$this_chan .= "/sip:$myext@$caller";
+}
 
 /* Create a temp leader to address the issue of members being paged 
  * followed by the real leader hanging up, resulting in hung paged phones 
  * becasue the leader never left. Since the conference ends when the LAST 
- * leader hangs up, this leader stays on just long enough to allow the real  * leader to get going.
+ * leader hangs up, this leader stays on just long enough to allow the real  
+ * leader to enter.
  * note: we got to app-page-stream since it simply enters the conference 
  * as a marked user
  */
 $lead = array(
-		'Channel'	=> 'Local/s@app-page-stream',
-		'CallerID'	=> 'Page Startup',
-		'Async'		=> 'true',
-		'Variable'	=> array(
-						'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
-						'PAGE_CONF_OPTS' => 'xqA'
-					),
-		'Application'=> 'Wait',
-		'Data'		=> $vars['LEAD_WAIT']
+	'Channel'	=> 'Local/s@app-page-stream',
+	'CallerID'	=> 'Page Startup',
+	'Async'		=> 'true',
+	'Variable'	=> array(
+		'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+		'PAGE_CONF_OPTS' => 'xqA'
+	),
+	'Application'=> 'Wait',
+	'Data'		=> $vars['LEAD_WAIT']
 );
 $astman->Originate($lead);
 
 
+// Grab all Asterisk 12-and-above PJSIP Registrations,
+// as we may need them later.
+$pjsips = $astman->database_show('registrar/contact');
+$pjsipcontacts = array();
+foreach ($pjsips as $contact => $entry) {
+        $item = json_decode($entry, true);
+        if ($item === false) {
+                // Not PJsip, or, incorrect phpagi version
+                continue;
+        }
+        // I found a PJSIP device. Which aor is it linked to?
+        // /registrar/contact/301;@sip:301@10.46.80.100:5060
+        list($prefix, ) = explode(';', $contact); // /registrar/contact/301
+        $tmparr = explode('/', $prefix); // array('registrar', 'contact', '301')
+        $dev = array_pop($tmparr); // 301
+	// Add it to our array, for later.
+        $pjsipcontacts[$dev][] = $item;
+}
+
+// Now, loop through everyone we're meant to call, and get their
+// destination.
+$devices = array();
 foreach ($page_members as $pm) {
+	$device = $agi->database_get("DEVICE", $pm . '/dial');
+	$device = $device['data'];
+	// If this is NOT a PJSIP device, then just add it and continue on..
+	if (substr($device, 0, 5) != "PJSIP") {
+		// Make sure we don't call ourselves..
+		if ($this_chan != $device) {
+			$devices[] = array($device, false, $pm);
+		}
+		continue;
+	}
+	// It's a PJSIP Device. 
+	if (isset($pjsipcontacts[$pm])) {
+		foreach ($pjsipcontacts[$pm] as $pjdev) {
+			$dev = "PJSIP/$pm/".$pjdev['uri'];
+			// $agi->verbose("Checking '$dev' against '$this_chan'", 0);
+			if ($dev != $this_chan) {
+				$devices[] = array($dev, $pjdev['user_agent'], $pm);
+			}
+		}
+	}
+}
+
+// Finally add any multicast entries.
+foreach ($mcast as $addr) {
+	$devices[] = array("MulticastRTP/basic/$addr", "rtp", "rtp");
+}
+
+foreach ($devices as $dev) {
+	if (!$dev[0]) { // If MCAST only..
+		continue;
+	}
+
 	$pagemode = 'PAGE';
 	$pass_vars = $base_vars;
 
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
 		$pass_vars['CONFBRIDGE(user,template)'] 
-				= $vars['PAGE_CONF_OPTS'] == 'duplex' 
-				? 'page_user_duplex' 
-				: 'page_user';
+			= $vars['PAGE_CONF_OPTS'] == 'duplex' 
+			? 'page_user_duplex' 
+			: 'page_user';
 	}
 
-	$device = $agi->database_get("DEVICE", $pm . '/dial');
-	$device = $device['data'];
-	if ($device == $this_chan[0]) {
-		continue; // don't page ourselves
+	$device = $dev[0];
+	$useragent = $dev[1];
+	$pm = $dev[2];
+
+	// We may already know about the agent, without needing to
+	// query asterisk later.
+	if ($useragent) {
+		$pass_vars['KNOWNAGENT'] = $useragent;
 	}
+
+	$pass_vars['KNOWNDIAL'] = $device;
 
 	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD 
 	// are ok to page). if FPAGE we use the PAGE context reset above but 
-	//this will get skipped
+	// this will get skipped
+	if ($useragent == "rtp") {
+		$dev_state = "NOT_INUSE";
+	} else {
+		$dev_state = get_device_state($device);
+	}
+	// $agi->verbose("device $device has state $dev_state", 0);
 	if ($vars['PAGEMODE'] == 'PAGE') {
-		$dev_state = agi_get_var("DEVICE_STATE($device)");
 		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
-			//TODO: change to in_array or a function
 			continue;
 		}
 		$user = $agi->database_get("DEVICE", $pm . '/user');
 		$dnd = $user['data'] != '' 
-				?  $agi->database_get("DND", $user['data']) 
-				: array('data' => '');
+			?  $agi->database_get("DND", $user['data']) 
+			: array('data' => '');
 		if ($dnd['data'] == 'YES') {
 			continue;
 		}
-	// try using Spy mode (whisper)
+		// try using Spy mode (whisper)
 	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
-		$dev_state = agi_get_var("DEVICE_STATE($device)");
 		// if not idle but in a state we can try spying, then try
 		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
 			//TODO: change to in_array or a function
@@ -142,64 +215,66 @@ foreach ($page_members as $pm) {
 				continue;
 			}
 			switch ($dev_state) {
-				case "INUSE":
-				case "BUSY":
-				case "RINGINUSE":
-				case "HOLDINUSE":
-					// Try SPY
-					$pagemode = 'SPAGE';
-					$pass_vars['SP_DEVICE'] = __pad_string($device);
+			case "INUSE":
+			case "BUSY":
+			case "RINGINUSE":
+			case "HOLDINUSE":
+				// Try SPY
+				$pagemode = 'SPAGE';
+				$pass_vars['SP_DEVICE'] = __pad_string($device);
 				break;
-				default:
-					// State is not amicable to spy or normal 
-					// (such as RINGING) so skip it
-					continue;
+			default:
+				// State is not amicable to spy or normal 
+				// (such as RINGING) so skip it
+				continue;
 				break;
 			}
 		}
 	}
 
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
-			$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
+		$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
 	} else {
-			$data_params = $vars['PAGE_CONF'] 
-							. ',' 
-							. $vars['PAGE_CONF_OPTS'] 
-							. ',,';
+		$data_params = $vars['PAGE_CONF'] 
+			. ',' 
+			. $vars['PAGE_CONF_OPTS'] 
+			. ',,';
 	}
 	$astman->Originate(array(
-			'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging',
-			'CallerID'    => $vars['calleridname'] 
-							. ' <' 
-							. $vars['callerid'] 
-							. '>',
-			'Async'       => 'true',
-			'Variable'    => $pass_vars,
-			'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
-								? 'ConfBridge' 
-								: 'MeetMe'),
-			'Data'        => $data_params
+		'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging/n',
+		'CallerID'    => $vars['calleridname'] 
+		. ' <' 
+		. $vars['callerid'] 
+		. '>',
+		'Async'       => 'true',
+		'Codec'		=> 'ulaw',
+		'Variable'    => $pass_vars,
+		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
+		? 'ConfBridge' 
+		: 'MeetMe'),
+		'Data'        => $data_params
 	));
 }
 
 if ($vars['STREAM']) {
 	$beep = array(
-			'Channel'	=> 'Local/s@app-page-stream',
-			'CallerID'	=> 'Playback Stream',
-			'Async'		=> 'true',
-			'Variable'	=> array(
-							'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
-							'PAGE_CONF_OPTS' => 'xq'
-						),
-			'Application'=> 'Playback',
-			'Data'		=> $vars['STREAM']
+		'Channel'	=> 'Local/s@app-page-stream',
+		'CallerID'	=> 'Playback Stream',
+		'Async'		=> 'true',
+		'Variable'	=> array(
+			'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+			'PAGE_CONF_OPTS' => 'xq'
+		),
+		'Application'=> 'Playback',
+		'Data'		=> $vars['STREAM']
 	);
 	//dbug($beep);
 	$astman->Originate($beep);
 }
 
 function __agi(){
-	require_once('phpagi.php');
+	global $amp_conf;
+	include_once $amp_conf['ASTAGIDIR'].'/phpagi.php';
 	$agi=new AGI();
 	foreach($agi->request as $key => $value){//strip agi_ prefix from keys
 		if(substr($key,0,4)=='agi_'){
@@ -214,7 +289,7 @@ function __agi(){
 			unset($opts[$key]);
 		}
 	}
-	
+
 	array_shift($_SERVER['argv']);
 	foreach($_SERVER['argv'] as $arg){
 		$arg=explode('=',$arg);
@@ -229,7 +304,7 @@ function __agi(){
 function agi_get_var($value) {
 	global $agi;
 	$r = $agi->get_variable($value);
-	
+
 	if ($r['result'] == 1) {
 		$result = $r['data'];
 		return $result;
@@ -239,10 +314,36 @@ function agi_get_var($value) {
 
 function __pad_string($string) {
 	return str_replace(
-			array('\\', ',', '='),
-			array('\\\\', '\\,', '\\='),
-			$string
-		);
+		array('\\', ',', '='),
+		array('\\\\', '\\,', '\\='),
+		$string
+	);
 }
 
-?>
+function get_device_state($dev) {
+	if (substr($dev, 0, 5) != "PJSIP") {
+		return agi_get_var("DEVICE_STATE($dev)");
+	}
+	global $astman, $agi;
+	// There's no way to get the state of an individual PJSIP device at the moment,
+	// but we can see, sorta, if it's in use. Sub-optimal, yes.
+	//
+	// If they're running a derpy version of astman...
+	if (!method_exists($astman, "PJSIPShowEndpoint")) {
+		return "ERROR";
+	}
+	// We only want the actual device ID
+	list( , $id, ) = explode('/', $dev);
+	// $agi->verbose("Looking for $id state", 0);
+	$cmd = $astman->PJSIPShowEndpoint($id);
+	if (!isset($cmd[0]['DeviceState'])) {
+		return "UNKNOWN";
+	}
+	$state = $cmd[0]['DeviceState'];
+	switch ($state) {
+	case "Not in use":
+		return "NOT_INUSE";
+	default:
+		return "UNAVAILABLE";
+	}
+}
