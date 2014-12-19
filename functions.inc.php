@@ -513,6 +513,10 @@ function paging_get_config($engine) {
 				$conferences_conf->addConfUser($pu, 'startmuted', 'yes');
 			}
 
+		$extpaging = 'ext-paging';
+		if(!empty($paging_groups)) {
+			$ext->addInclude('from-internal-noxfer-additional',$extpaging);
+		}
 		foreach ($paging_groups as $thisgroup) {
 			$grp=trim($thisgroup['page_group']);
 			switch ($thisgroup['force_page']) {
@@ -533,9 +537,8 @@ function paging_get_config($engine) {
 
 			// Create the paging context that is used in the paging application for each phone to auto-answer
 			//add ext-paging with goto's to our app-paging context and a hint for the page
-			$extpaging = 'ext-paging';
+
 			$ext->add($extpaging, $grp, '', new ext_goto($apppagegroups . ',' . $grp . ',1'));
-			$ext->addInclude('from-internal-noxfer-additional',$extpaging);
 			$ext->addHint($extpaging, $grp, 'Custom:PAGE' . $grp);
 
 			//app-page dialplan
