@@ -552,7 +552,6 @@ function paging_get_config($engine) {
 			//set blf to in use
 			$ext->add($apppagegroups, $grp, 'devstate', new ext_setvar('DEVICE_STATE(Custom:PAGE' . $grp .')', 'INUSE'));
 
-			$ext->add($apppagegroups, $grp, '', new ext_answer(''));
 			$ext->add($apppagegroups, $grp, '', new ext_gosub('1','ssetup', $apppaging));
 			$ext->add($apppagegroups, $grp, '', new ext_set('PAGEMODE', $pagemode));
 			$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_MEMBERS', implode('-', $all_exts)));
@@ -590,8 +589,10 @@ function paging_get_config($engine) {
 				$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
 				$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
 				// TODO: should I have no menu?
+				$ext->add($apppagegroups, $grp, '', new ext_answer(''));
 				$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
 			} else {
+				$ext->add($apppagegroups, $grp, '', new ext_answer(''));
 				$ext->add($apppagegroups, $grp, 'page', new ext_meetme('${PAGE_CONF}', 'dqwxAG'));
 			}
 			$ext->add($apppagegroups, $grp, '', new ext_hangup());
