@@ -12,7 +12,7 @@ $li[] = '<hr />';
 
 foreach ($groups as $group) {
 	$li[] = '<a href="config.php?display=paging&'
-			. 'extdisplay=' . $group['page_group'] . '&'
+			. 'extdisplay=' . urlencode($group['page_group']) . '&'
 			. 'action=modify"'
 			. ( $extdisplay == $group['page_group'] 
 				? ' class="current" ' 
