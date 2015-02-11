@@ -7,55 +7,278 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 18:03-0500\n"
 "PO-Revision-Date: 2014-11-18 13:36+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
-"Language-Team: Bulgarian "
-"<http://git.freepbx.org/projects/freepbx/paging/bg_BG/>\n"
-"Language: bg_BG\n"
+"Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/paging/"
+"bg_BG/>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 1.10-dev\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "Page Group: "
-msgstr "Група на Търсене: "
+#: /usr/src/freepbx/paging/views/page_group.php:63
+msgid ""
+"\"Force\" will not check if the device is in use before paging it. This "
+"means conversations can be interrupted by a page (depending on how the "
+"device handles it). This is useful for \"emergency\" paging groups."
+msgstr ""
 
-msgid "Exclude"
-msgstr "Изключи"
+#: /usr/src/freepbx/paging/views/page_group.php:61
+msgid ""
+"\"Skip\" will not page any busy extension. All other extensions will be "
+"paged as normal"
+msgstr ""
 
-msgid "Include"
-msgstr "Включи"
+#: /usr/src/freepbx/paging/views/page_group.php:67
+msgid ""
+"\"Whisper\" will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being \"sent to the device's earpiece \"whispered\" to "
+"the user but not heard by the remote party. If ChanSpy is not supported on "
+"the device or otherwise fails, no page will get through. It probably does "
+"not make too much sense to choose duplex if using Whisper mode."
+msgstr ""
 
+#: /usr/src/freepbx/paging/Paging.class.php:62
+msgid ""
+"<strong>Force</strong><br> Send the headers telling the phone to go into "
+"auto answer mode. This may not work, and is dependant on the phone."
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:60
+msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:61
+msgid ""
+"<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
+"extension (if Call Waiting is disabled, this will return BUSY"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:22
+msgid "Add Paging Group"
+msgstr "Добави Група на Търсене"
+
+#: /usr/src/freepbx/paging/views/settings.php:15
+msgid "Annoucement to be played to remote part. Default is a beep"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:14
+msgid "Announcement"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:12
+msgid "Auto-answer defaults"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:100
+msgid "Busy Extensions"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:14
+msgid "Conflicting Extensions"
+msgstr "Вътрешни Линии в Конфликт"
+
+#: /usr/src/freepbx/paging/page.paging.php:127
+#: /usr/src/freepbx/paging/views/rnav.php:25
+msgid "Default"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:930
 msgid "Default Group Inclusion"
 msgstr "Включване на Група По-Подразбиране"
 
+#: /usr/src/freepbx/paging/functions.inc.php:933
+#: /usr/src/freepbx/paging/views/page_group.php:117
 msgid "Default Page Group"
 msgstr "Група По-Подразбиране за Търсене"
 
-msgid ""
-"You can include or exclude this extension/device from being part of the "
-"default page group when creating or editing."
+#: /usr/src/freepbx/paging/page.paging.php:27
+#: /usr/src/freepbx/paging/views/page_group.php:125
+msgid "Delete"
 msgstr ""
-"Можете да включите или изключите този потребител/вътрешна линия от това да "
-"бъде част от групата по-подразбиране за търсене."
 
-msgid "Intercom prefix"
-msgstr "Интерком Префикс"
+#: /usr/src/freepbx/paging/views/page_group.php:36
+msgid "Device List"
+msgstr ""
 
-msgid "User Intercom Allow"
-msgstr "Разреши Потребителски Интерком"
+#: /usr/src/freepbx/paging/views/page_group.php:37
+msgid ""
+"Devices to page. Please note, paging calls the actual device (and not the "
+"user). Amount of pagable devices is restricted by the advanced setting key "
+"PAGINGMAXPARTICIPANTS and is currently set to "
+msgstr ""
 
-msgid "User Intercom Disallow"
-msgstr "Забрани Потребителски Интерком"
+#: /usr/src/freepbx/paging/views/overview.php:19
+msgid ""
+"Disable all extensions from intercom you (except those explicitly allowed)"
+msgstr ""
 
+#: /usr/src/freepbx/paging/page.paging.php:161
 msgid "Disabled"
 msgstr "Забранен"
 
+#: /usr/src/freepbx/paging/views/page_group.php:109
+msgid "Duplex"
+msgstr "Двупосочно"
+
+#: /usr/src/freepbx/paging/views/overview.php:13
+msgid "Enable all extensions to intercom you (except those explicitly denied)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:10
+msgid "Example usage:"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:908
+msgid "Exclude"
+msgstr "Изключи"
+
+#: /usr/src/freepbx/paging/views/overview.php:16
+msgid ""
+"Explicitly allow extension nnn to intercom you (even if others are disabled)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:22
+msgid ""
+"Explicitly deny extension nnn to intercom you (even if generally enabled)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:54
+#: /usr/src/freepbx/paging/views/page_group.php:89
+msgid "Force"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/rnav.php:6
+msgid "General Settings"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:31
+msgid "Group Description"
+msgstr "Описание за Група"
+
+#: /usr/src/freepbx/paging/functions.inc.php:909
+msgid "Include"
+msgstr "Включи"
+
+#: /usr/src/freepbx/paging/Paging.class.php:58
+msgid "Intercom Override"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:11
+msgid "Intercom extension nnn"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:27
+msgid ""
+"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
+"Panel."
+msgstr ""
+"Режим Интерком за момента е забранен, може да се активира в меню Специални "
+"Кодове."
+
+#: /usr/src/freepbx/paging/install.php:5
+msgid "Intercom prefix"
+msgstr "Интерком Префикс"
+
+#: /usr/src/freepbx/paging/views/page_group.php:19
+msgid "Modify Paging Group"
+msgstr "Редактирай Група на Търсене"
+
+#: /usr/src/freepbx/paging/views/rnav.php:9
+msgid "New Paging Group"
+msgstr ""
+
+#: /usr/src/freepbx/paging/page.paging.php:126
+msgid "None"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:54
+msgid "Not Selected"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/rnav.php:3
+msgid "Overview"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:641
+msgid "Page Group"
+msgstr "Група на Търсене"
+
+#: /usr/src/freepbx/paging/views/rnav.php:23
+msgid "Page Group "
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:743
+msgid "Page Group: "
+msgstr "Група на Търсене: "
+
+#: /usr/src/freepbx/paging/views/overview.php:3
+#: /usr/src/freepbx/paging/views/page_group.php:4
+msgid "Paging"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:26
+msgid "Paging Extension"
+msgstr "Вътрешен Номер за Търсене"
+
+#: /usr/src/freepbx/paging/Paging.class.php:57
+msgid "Paging and Intercom"
+msgstr "Търсене и Интерком"
+
+#: /usr/src/freepbx/paging/views/settings.php:4
+msgid "Paging and Intercom settings"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:110
+msgid ""
+"Paging is typically one way for announcements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"Търсенето по принцип е едностранно и е само за съобщения. Маркирайки това ще "
+"направите търсенето двупосочно, позволявайки на всички телефони в групата да "
+"могат да говорят и да бъдат чувани от всички. получава се нещо като \"спешна "
+"конференция\""
+
+#: /usr/src/freepbx/paging/views/page_group.php:32
+msgid "Provide a descriptive title for this Page Group."
+msgstr "Наименование за тази Група на Търсене."
+
+#: /usr/src/freepbx/paging/Paging.class.php:52
+msgid "Reject"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:53
+msgid "Ring"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:19
+msgid "Save"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:51
+msgid "Selected"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:81
+msgid "Skip"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:123
+msgid "Submit"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:27
+msgid "The number users will dial to page this group"
+msgstr "Номерът който потребителите ще набират за да търсят тази група"
+
+#: /usr/src/freepbx/paging/views/overview.php:7
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -79,168 +302,142 @@ msgstr ""
 "евентуално с други SIP телефони (без ATA). Всеки телефон настроен да "
 "отговаря автоматично на обажданията също би трябвало да работи."
 
-#, php-format
+#: /usr/src/freepbx/paging/install.php:6
+msgid "User Intercom Allow"
+msgstr "Разреши Потребителски Интерком"
+
+#: /usr/src/freepbx/paging/install.php:7
+msgid "User Intercom Disallow"
+msgstr "Забрани Потребителски Интерком"
+
+#: /usr/src/freepbx/paging/Paging.class.php:59
 msgid ""
-"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
-"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
-"extensions to intercom you (except those explicitly denied)</td></"
-"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
-"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
-"strong>:</td><td>Disable all extensions from intercom you (except those "
-"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Explicitly deny extension nnn to intercom you (even if generally "
-"enabled)</td></tr></table>"
+"When using Intercom to page an extension, if the extension is in use, you "
+"have three options."
 msgstr ""
-"Пример за използване:<br /><table><tr><td><strong>%snnn</strong>:</"
-"td><td>Интерком с вътрешна линия nnn</td></tr><tr><td><strong>%s</strong>:</"
-"td><td>Разрешава интерком към вас от всички вътрешни линии (с изключение на "
-"изрично забранените)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Изрично разрешява вътрешна линия nnn за интерком с вас (дори и "
-"другите да са забранени)</td></tr><tr><td><strong>%s</strong>:</"
-"td><td>Забранява интерком към вас от всички вътрешни линии (с изключение на "
-"изрично разрешените)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Изрично забранява вътрешна линия nnn за интерком с вас (дори и "
-"другите да са разрешени)</td></tr></table>"
 
-msgid ""
-"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
-"Panel."
-msgstr ""
-"Режим Интерком за момента е забранен, може да се активира в меню Специални "
-"Кодове."
-
-#, php-format
-msgid "Delete Group %s"
-msgstr "Изтрий Група %s"
-
-msgid "Conflicting Extensions"
-msgstr "Вътрешни Линии в Конфликт"
-
-msgid "Modify Paging Group"
-msgstr "Редактирай Група на Търсене"
-
-msgid "Add Paging Group"
-msgstr "Добави Група на Търсене"
-
-msgid "Paging Extension"
-msgstr "Вътрешен Номер за Търсене"
-
-msgid "The number users will dial to page this group"
-msgstr "Номерът който потребителите ще набират за да търсят тази група"
-
-msgid "Group Description"
-msgstr "Описание за Група"
-
-msgid "Provide a descriptive title for this Page Group."
-msgstr "Наименование за тази Група на Търсене."
-
-msgid "Device List:"
-msgstr "Списък с Устройства:"
-
-msgid ""
-"Select Device(s) to page. This is the phone that should be paged. In most "
-"installations, this is the same as the Extension. If you are configured to "
-"use \"Users & Devices\" this is the actual Device and not the User.  Use "
-"Ctrl key to select multiple.."
-msgstr ""
-"Изберете Устройство(а) за търсене. Това е телефонът който ще бъде търсен. В "
-"повечето инсталации съвпада с Вътрешната Линия. Ако използвате режим "
-"\"Потребители и Устройства\" е устройството, а не потребителя. Използвайте "
-"Ctrl за да изберете няколко."
-
-msgid "Force if busy"
-msgstr "Не проверявай за заето"
-
-msgid ""
-"If yes, will not check if the device is in use before paging it. This means "
-"conversations can be interrupted by a page (depending on how the device "
-"handles it). This is useful for \"emergency\" paging groups. Setting to "
-"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
-"resulting in the page being sent to the device's ear piece but not heard by "
-"the remote party. If ChanSpy is not supported on the device or otherwise "
-"fails, no page will get through. It probably does not make too much sense to "
-"choose duplex if using Whisper mode."
-msgstr ""
-"Ако е Да, няма да провери дали устройството се използва преди да го потърси. "
-"Това означава, че разговорите могат да бъдат прекъснати от търсенето (в "
-"зависимост от начина по който устройството се справя). Това е полезно за \""
-"спешни\" групи на търсене. Настройка на \"Тайно\" ще се опита да използва "
-"ChanSpy на SIP канали, като търсенето се изпраща до устройството, но без да "
-"се чува от отсрещната страна. Ако ChanSpy не се поддържа от устройството или "
-"по друг начин пропадне, няма да премине търсенето. Няма смисъл да избирате "
-"дуплекс, ако използвате режим Тайно."
-
-msgid "The Whisper mode is new and considered experimental."
-msgstr "Режим Тайно е нов и се приема за експериментален."
-
-msgid "No"
-msgstr "Не"
-
-msgid "Yes"
-msgstr "Да"
-
+#: /usr/src/freepbx/paging/views/page_group.php:98
 msgid "Whisper"
 msgstr "Тайно"
 
-msgid "Duplex"
-msgstr "Двупосочно"
-
+#: /usr/src/freepbx/paging/functions.inc.php:933
 msgid ""
-"Paging is typically one way for announcements only. Checking this will make "
-"the paging duplex, allowing all phones in the paging group to be able to "
-"talk and be heard by all. This makes it like an \"instant conference\""
+"You can include or exclude this extension/device from being part of the "
+"default page group when creating or editing."
 msgstr ""
-"Търсенето по принцип е едностранно и е само за съобщения. Маркирайки това ще "
-"направите търсенето двупосочно, позволявайки на всички телефони в групата да "
-"могат да говорят и да бъдат чувани от всички. получава се нещо като \"спешна "
-"конференция\""
+"Можете да включите или изключите този потребител/вътрешна линия от това да "
+"бъде част от групата по-подразбиране за търсене."
 
-msgid ""
-"Each PBX system can have a single Default Page Group. If specified, "
-"extensions can be automatically added (or removed) from this group in the "
-"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
-"the option from the current default group if specified."
-msgstr ""
-"Всяка телефонна централа може да има по-една Група По-Подразбиране за "
-"Търсене. Ако е определена, вътрешните лиии могат автоматично да бъдат "
-"добавяни (или премахвани) от тази група по-подразбиране в меню Вътрешни "
-"Линии (или Потребители).<br />Определянето на тази група да бъде по-"
-"подразбиране ще размаркира опцията от текущата група по-подразбиране."
+#~ msgid ""
+#~ "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>Intercom extension nnn</td></tr><tr><td><strong>%s</strong>:</"
+#~ "td><td>Enable all extensions to intercom you (except those explicitly "
+#~ "denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow "
+#~ "extension nnn to intercom you (even if others are disabled)</td></"
+#~ "tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from "
+#~ "intercom you (except those explicitly allowed)</td></tr><tr><td><strong>%"
+#~ "snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you "
+#~ "(even if generally enabled)</td></tr></table>"
+#~ msgstr ""
+#~ "Пример за използване:<br /><table><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>Интерком с вътрешна линия nnn</td></tr><tr><td><strong>%s</strong>:"
+#~ "</td><td>Разрешава интерком към вас от всички вътрешни линии (с "
+#~ "изключение на изрично забранените)</td></tr><tr><td><strong>%snnn</"
+#~ "strong>:</td><td>Изрично разрешява вътрешна линия nnn за интерком с вас "
+#~ "(дори и другите да са забранени)</td></tr><tr><td><strong>%s</strong>:</"
+#~ "td><td>Забранява интерком към вас от всички вътрешни линии (с изключение "
+#~ "на изрично разрешените)</td></tr><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>Изрично забранява вътрешна линия nnn за интерком с вас (дори и "
+#~ "другите да са разрешени)</td></tr></table>"
 
-msgid "Submit Changes"
-msgstr "Приеми Промените"
+#~ msgid "Delete Group %s"
+#~ msgstr "Изтрий Група %s"
 
-msgid "Please enter a valid Paging Extension"
-msgstr "Моля въведете правилен номер на Вътрешен Номер за Търсене"
+#~ msgid "Device List:"
+#~ msgstr "Списък с Устройства:"
 
-msgid "Please select at least one extension"
-msgstr "Моля изберете поне една вътрешна линия"
+#~ msgid ""
+#~ "Select Device(s) to page. This is the phone that should be paged. In most "
+#~ "installations, this is the same as the Extension. If you are configured "
+#~ "to use \"Users & Devices\" this is the actual Device and not the User.  "
+#~ "Use Ctrl key to select multiple.."
+#~ msgstr ""
+#~ "Изберете Устройство(а) за търсене. Това е телефонът който ще бъде търсен. "
+#~ "В повечето инсталации съвпада с Вътрешната Линия. Ако използвате режим "
+#~ "\"Потребители и Устройства\" е устройството, а не потребителя. "
+#~ "Използвайте Ctrl за да изберете няколко."
 
-msgid " [DEFAULT]"
-msgstr " [ПО-ПОДРАЗБИРАНЕ]"
+#~ msgid "Force if busy"
+#~ msgstr "Не проверявай за заето"
 
-msgid "Page Group"
-msgstr "Група на Търсене"
+#~ msgid ""
+#~ "If yes, will not check if the device is in use before paging it. This "
+#~ "means conversations can be interrupted by a page (depending on how the "
+#~ "device handles it). This is useful for \"emergency\" paging groups. "
+#~ "Setting to 'Whisper' will attempt to use the ChanSpy capability on SIP "
+#~ "channels, resulting in the page being sent to the device's ear piece but "
+#~ "not heard by the remote party. If ChanSpy is not supported on the device "
+#~ "or otherwise fails, no page will get through. It probably does not make "
+#~ "too much sense to choose duplex if using Whisper mode."
+#~ msgstr ""
+#~ "Ако е Да, няма да провери дали устройството се използва преди да го "
+#~ "потърси. Това означава, че разговорите могат да бъдат прекъснати от "
+#~ "търсенето (в зависимост от начина по който устройството се справя). Това "
+#~ "е полезно за \"спешни\" групи на търсене. Настройка на \"Тайно\" ще се "
+#~ "опита да използва ChanSpy на SIP канали, като търсенето се изпраща до "
+#~ "устройството, но без да се чува от отсрещната страна. Ако ChanSpy не се "
+#~ "поддържа от устройството или по друг начин пропадне, няма да премине "
+#~ "търсенето. Няма смисъл да избирате дуплекс, ако използвате режим Тайно."
 
-msgid "Paging and Intercom"
-msgstr "Търсене и Интерком"
+#~ msgid "The Whisper mode is new and considered experimental."
+#~ msgstr "Режим Тайно е нов и се приема за експериментален."
 
-msgid "Applications"
-msgstr "Приложения"
+#~ msgid "No"
+#~ msgstr "Не"
 
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. \tAlso creates an Intercom feature code that can "
-"be used as a prefix to talk directly to one person, as well as optional "
-"feature codes to block/allow intercom calls to all users as well as blocking "
-"specific users or only allowing specific users."
-msgstr ""
-"Позволява създаването на групи на търсене за извършване на известявания "
-"посредством вградения в повечето SIP телефони високоговорител. \tСъщо така "
-"създава Интерком специален код който да се използва като префикс за директно "
-"обаждане към определен човек, както и като допънителен специален код за "
-"блокиране/позволяване на интерком обаждания към всички потребители или към "
-"определени потребители."
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid ""
+#~ "Each PBX system can have a single Default Page Group. If specified, "
+#~ "extensions can be automatically added (or removed) from this group in the "
+#~ "Extensions (or Devices) tab.<br />Making this group the default will "
+#~ "uncheck the option from the current default group if specified."
+#~ msgstr ""
+#~ "Всяка телефонна централа може да има по-една Група По-Подразбиране за "
+#~ "Търсене. Ако е определена, вътрешните лиии могат автоматично да бъдат "
+#~ "добавяни (или премахвани) от тази група по-подразбиране в меню Вътрешни "
+#~ "Линии (или Потребители).<br />Определянето на тази група да бъде по-"
+#~ "подразбиране ще размаркира опцията от текущата група по-подразбиране."
+
+#~ msgid "Submit Changes"
+#~ msgstr "Приеми Промените"
+
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "Моля въведете правилен номер на Вътрешен Номер за Търсене"
+
+#~ msgid "Please select at least one extension"
+#~ msgstr "Моля изберете поне една вътрешна линия"
+
+#~ msgid " [DEFAULT]"
+#~ msgstr " [ПО-ПОДРАЗБИРАНЕ]"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid ""
+#~ "Allows creation of paging groups to make announcements using the speaker "
+#~ "built into most SIP phones. \tAlso creates an Intercom feature code that "
+#~ "can be used as a prefix to talk directly to one person, as well as "
+#~ "optional feature codes to block/allow intercom calls to all users as well "
+#~ "as blocking specific users or only allowing specific users."
+#~ msgstr ""
+#~ "Позволява създаването на групи на търсене за извършване на известявания "
+#~ "посредством вградения в повечето SIP телефони високоговорител. \tСъщо "
+#~ "така създава Интерком специален код който да се използва като префикс за "
+#~ "директно обаждане към определен човек, както и като допънителен специален "
+#~ "код за блокиране/позволяване на интерком обаждания към всички потребители "
+#~ "или към определени потребители."
 
 #~ msgid ""
 #~ "If selected, will not check if the device is in use before paging it. "

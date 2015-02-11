@@ -7,49 +7,271 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-23 09:52+0000\n"
+"POT-Creation-Date: 2015-02-11 18:03-0500\n"
 "PO-Revision-Date: 2009-01-31 13:31+0800\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Chinese\n"
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "Page Group: "
-msgstr "传呼组："
+#: /usr/src/freepbx/paging/views/page_group.php:63
+msgid ""
+"\"Force\" will not check if the device is in use before paging it. This "
+"means conversations can be interrupted by a page (depending on how the "
+"device handles it). This is useful for \"emergency\" paging groups."
+msgstr ""
 
-msgid "Exclude"
-msgstr "排除"
+#: /usr/src/freepbx/paging/views/page_group.php:61
+msgid ""
+"\"Skip\" will not page any busy extension. All other extensions will be "
+"paged as normal"
+msgstr ""
 
-msgid "Include"
-msgstr "包括"
+#: /usr/src/freepbx/paging/views/page_group.php:67
+msgid ""
+"\"Whisper\" will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being \"sent to the device's earpiece \"whispered\" to "
+"the user but not heard by the remote party. If ChanSpy is not supported on "
+"the device or otherwise fails, no page will get through. It probably does "
+"not make too much sense to choose duplex if using Whisper mode."
+msgstr ""
 
+#: /usr/src/freepbx/paging/Paging.class.php:62
+msgid ""
+"<strong>Force</strong><br> Send the headers telling the phone to go into "
+"auto answer mode. This may not work, and is dependant on the phone."
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:60
+msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:61
+msgid ""
+"<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
+"extension (if Call Waiting is disabled, this will return BUSY"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:22
+msgid "Add Paging Group"
+msgstr "添加传呼组"
+
+#: /usr/src/freepbx/paging/views/settings.php:15
+msgid "Annoucement to be played to remote part. Default is a beep"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:14
+msgid "Announcement"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:12
+msgid "Auto-answer defaults"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:100
+msgid "Busy Extensions"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:14
+msgid "Conflicting Extensions"
+msgstr "分机冲突"
+
+#: /usr/src/freepbx/paging/page.paging.php:127
+#: /usr/src/freepbx/paging/views/rnav.php:25
+msgid "Default"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:930
 msgid "Default Group Inclusion"
 msgstr "包含在默认传呼组中"
 
+#: /usr/src/freepbx/paging/functions.inc.php:933
+#: /usr/src/freepbx/paging/views/page_group.php:117
 msgid "Default Page Group"
 msgstr "默认传呼组"
 
+#: /usr/src/freepbx/paging/page.paging.php:27
+#: /usr/src/freepbx/paging/views/page_group.php:125
+msgid "Delete"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:36
+msgid "Device List"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:37
 msgid ""
-"You can include or exclude this extension/device from being part of the "
-"default page group when creating or editing."
-msgstr "在创建或者编辑默认传呼组时，你可以将此分机/设备包含在里面或从其中排除"
+"Devices to page. Please note, paging calls the actual device (and not the "
+"user). Amount of pagable devices is restricted by the advanced setting key "
+"PAGINGMAXPARTICIPANTS and is currently set to "
+msgstr ""
 
-msgid "Intercom prefix"
-msgstr "直接对讲前缀"
+#: /usr/src/freepbx/paging/views/overview.php:19
+msgid ""
+"Disable all extensions from intercom you (except those explicitly allowed)"
+msgstr ""
 
-msgid "User Intercom Allow"
-msgstr "允许直接对讲的用户"
-
-msgid "User Intercom Disallow"
-msgstr "禁止直接对讲的用户"
-
+#: /usr/src/freepbx/paging/page.paging.php:161
 msgid "Disabled"
 msgstr "进用"
 
+#: /usr/src/freepbx/paging/views/page_group.php:109
+msgid "Duplex"
+msgstr "双工"
+
+#: /usr/src/freepbx/paging/views/overview.php:13
+msgid "Enable all extensions to intercom you (except those explicitly denied)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:10
+msgid "Example usage:"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:908
+msgid "Exclude"
+msgstr "排除"
+
+#: /usr/src/freepbx/paging/views/overview.php:16
+msgid ""
+"Explicitly allow extension nnn to intercom you (even if others are disabled)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:22
+msgid ""
+"Explicitly deny extension nnn to intercom you (even if generally enabled)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:54
+#: /usr/src/freepbx/paging/views/page_group.php:89
+msgid "Force"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/rnav.php:6
+msgid "General Settings"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:31
+msgid "Group Description"
+msgstr "传呼组描述"
+
+#: /usr/src/freepbx/paging/functions.inc.php:909
+msgid "Include"
+msgstr "包括"
+
+#: /usr/src/freepbx/paging/Paging.class.php:58
+msgid "Intercom Override"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:11
+msgid "Intercom extension nnn"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:27
+msgid ""
+"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
+"Panel."
+msgstr "直接对讲模式目前被禁用，可以在功能代码面版中启用。"
+
+#: /usr/src/freepbx/paging/install.php:5
+msgid "Intercom prefix"
+msgstr "直接对讲前缀"
+
+#: /usr/src/freepbx/paging/views/page_group.php:19
+msgid "Modify Paging Group"
+msgstr "更改传呼组"
+
+#: /usr/src/freepbx/paging/views/rnav.php:9
+msgid "New Paging Group"
+msgstr ""
+
+#: /usr/src/freepbx/paging/page.paging.php:126
+msgid "None"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:54
+msgid "Not Selected"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/rnav.php:3
+msgid "Overview"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:641
+msgid "Page Group"
+msgstr "集体传呼组"
+
+#: /usr/src/freepbx/paging/views/rnav.php:23
+msgid "Page Group "
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:743
+msgid "Page Group: "
+msgstr "传呼组："
+
+#: /usr/src/freepbx/paging/views/overview.php:3
+#: /usr/src/freepbx/paging/views/page_group.php:4
+msgid "Paging"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:26
+msgid "Paging Extension"
+msgstr "传呼组的分机号"
+
+#: /usr/src/freepbx/paging/Paging.class.php:57
+msgid "Paging and Intercom"
+msgstr "集体传呼和直接对讲"
+
+#: /usr/src/freepbx/paging/views/settings.php:4
+msgid "Paging and Intercom settings"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:110
+msgid ""
+"Paging is typically one way for announcements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"集体传呼一般都是单向的，多用于通知公告。钩选此项可以让传呼成为双向的（双"
+"工），以让在组中的所有电话都可以向所有其他电话发言。这个功能看起来有些“即时的"
+"电话会议”的意味。"
+
+#: /usr/src/freepbx/paging/views/page_group.php:32
+msgid "Provide a descriptive title for this Page Group."
+msgstr "为这个传呼组设置一个描述性的标题"
+
+#: /usr/src/freepbx/paging/Paging.class.php:52
+msgid "Reject"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:53
+msgid "Ring"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:19
+msgid "Save"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:51
+msgid "Selected"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:81
+msgid "Skip"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:123
+msgid "Submit"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:27
+msgid "The number users will dial to page this group"
+msgstr "这个号码用来代表此集体传呼组"
+
+#: /usr/src/freepbx/paging/views/overview.php:7
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -70,143 +292,78 @@ msgstr ""
 "Mitel、Polycom、SNOM的产品，也可能支持其他（非ATA的）SIP电话。任何电话设置成"
 "自动接听的电话应该也可以工作（比如配置好的控制台分机）。"
 
-#, php-format
+#: /usr/src/freepbx/paging/install.php:6
+msgid "User Intercom Allow"
+msgstr "允许直接对讲的用户"
+
+#: /usr/src/freepbx/paging/install.php:7
+msgid "User Intercom Disallow"
+msgstr "禁止直接对讲的用户"
+
+#: /usr/src/freepbx/paging/Paging.class.php:59
 msgid ""
-"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
-"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
-"extensions to intercom you (except those explicitly denied)</td></"
-"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
-"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
-"strong>:</td><td>Disable all extensions from intercom you (except those "
-"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Explicitly deny extension nnn to intercom you (even if generally "
-"enabled)</td></tr></table>"
-msgstr ""
-"使用范例：<br /><table><tr><td><strong>%snnn</strong>:</td><td>直接对讲分机"
-"号 nnn</td></tr><tr><td><strong>%s</strong>:</td><td>允许所有分机同你直接对讲"
-"（除了那些明确拒绝的分机）</td></tr><tr><td><strong>%snnn</strong>:</td><td>"
-"明确的允许分机 nnn 与你直接对讲（即使设置了拒绝所有分机与你直接对讲）</td></"
-"tr><tr><td><strong>%s</strong>:</td><td>禁止所有的分机与你直接对讲（除了那些"
-"明确允许的以外）</td></tr><tr><td><strong>%snnn</strong>:</td><td>明确拒绝分"
-"机 nnn 与你直接对讲（即使设置了允许所有分机与你直接对讲）</td></tr></table>"
-
-msgid ""
-"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
-"Panel."
-msgstr "直接对讲模式目前被禁用，可以在功能代码面版中启用。"
-
-#, php-format
-msgid "Delete Group %s"
-msgstr "删除传呼组 %s"
-
-msgid "Conflicting Extensions"
-msgstr "分机冲突"
-
-msgid "Modify Paging Group"
-msgstr "更改传呼组"
-
-msgid "Add Paging Group"
-msgstr "添加传呼组"
-
-msgid "Paging Extension"
-msgstr "传呼组的分机号"
-
-msgid "The number users will dial to page this group"
-msgstr "这个号码用来代表此集体传呼组"
-
-msgid "Group Description"
-msgstr "传呼组描述"
-
-msgid "Provide a descriptive title for this Page Group."
-msgstr "为这个传呼组设置一个描述性的标题"
-
-msgid "Device List:"
-msgstr "设备列表："
-
-msgid ""
-"Select Device(s) to page. This is the phone that should be paged. In most "
-"installations, this is the same as the Extension. If you are configured to "
-"use \"Users & Devices\" this is the actual Device and not the User.  Use "
-"Ctrl key to select multiple.."
+"When using Intercom to page an extension, if the extension is in use, you "
+"have three options."
 msgstr ""
 
-msgid "Force if busy"
-msgstr "无论对方是否占线都强制传呼"
-
-msgid ""
-"If yes, will not check if the device is in use before paging it. This means "
-"conversations can be interrupted by a page (depending on how the device "
-"handles it). This is useful for \"emergency\" paging groups. Setting to "
-"'Whisper' will attempt to use the ChanSpy capability on SIP channels, "
-"resulting in the page being sent to the device's ear piece but not heard by "
-"the remote party. If ChanSpy is not supported on the device or otherwise "
-"fails, no page will get through. It probably does not make too much sense to "
-"choose duplex if using Whisper mode."
-msgstr ""
-
-msgid "The Whisper mode is new and considered experimental."
-msgstr ""
-
-msgid "No"
-msgstr ""
-
-msgid "Yes"
-msgstr ""
-
+#: /usr/src/freepbx/paging/views/page_group.php:98
 msgid "Whisper"
 msgstr ""
 
-msgid "Duplex"
-msgstr "双工"
-
+#: /usr/src/freepbx/paging/functions.inc.php:933
 msgid ""
-"Paging is typically one way for announcements only. Checking this will make "
-"the paging duplex, allowing all phones in the paging group to be able to "
-"talk and be heard by all. This makes it like an \"instant conference\""
-msgstr ""
-"集体传呼一般都是单向的，多用于通知公告。钩选此项可以让传呼成为双向的（双"
-"工），以让在组中的所有电话都可以向所有其他电话发言。这个功能看起来有些“即时的"
-"电话会议”的意味。"
+"You can include or exclude this extension/device from being part of the "
+"default page group when creating or editing."
+msgstr "在创建或者编辑默认传呼组时，你可以将此分机/设备包含在里面或从其中排除"
 
-msgid ""
-"Each PBX system can have a single Default Page Group. If specified, "
-"extensions can be automatically added (or removed) from this group in the "
-"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
-"the option from the current default group if specified."
-msgstr ""
-"每一个PBX系统可以有一个单独的默认集体传呼小组。如果事先指定好，某些分机可以自"
-"动的被加入到（或从其中删除）这个小组的分机（或设备）标签。<br />如果把这个小"
-"组设置成默认小组，原来的默认小组就不再成为默认小组，自然它在这个项目上的钩就"
-"没有了。"
+#~ msgid ""
+#~ "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>Intercom extension nnn</td></tr><tr><td><strong>%s</strong>:</"
+#~ "td><td>Enable all extensions to intercom you (except those explicitly "
+#~ "denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow "
+#~ "extension nnn to intercom you (even if others are disabled)</td></"
+#~ "tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from "
+#~ "intercom you (except those explicitly allowed)</td></tr><tr><td><strong>%"
+#~ "snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you "
+#~ "(even if generally enabled)</td></tr></table>"
+#~ msgstr ""
+#~ "使用范例：<br /><table><tr><td><strong>%snnn</strong>:</td><td>直接对讲分"
+#~ "机号 nnn</td></tr><tr><td><strong>%s</strong>:</td><td>允许所有分机同你直"
+#~ "接对讲（除了那些明确拒绝的分机）</td></tr><tr><td><strong>%snnn</strong>:"
+#~ "</td><td>明确的允许分机 nnn 与你直接对讲（即使设置了拒绝所有分机与你直接对"
+#~ "讲）</td></tr><tr><td><strong>%s</strong>:</td><td>禁止所有的分机与你直接"
+#~ "对讲（除了那些明确允许的以外）</td></tr><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>明确拒绝分机 nnn 与你直接对讲（即使设置了允许所有分机与你直接对讲）"
+#~ "</td></tr></table>"
 
-msgid "Submit Changes"
-msgstr "提交更改"
+#~ msgid "Delete Group %s"
+#~ msgstr "删除传呼组 %s"
 
-msgid "Please enter a valid Paging Extension"
-msgstr "请输入一个有效的集体传呼分机"
+#~ msgid "Device List:"
+#~ msgstr "设备列表："
 
-msgid "Please select at least one extension"
-msgstr "请选择至少一个分机"
+#~ msgid "Force if busy"
+#~ msgstr "无论对方是否占线都强制传呼"
 
-msgid " [DEFAULT]"
-msgstr ""
+#~ msgid ""
+#~ "Each PBX system can have a single Default Page Group. If specified, "
+#~ "extensions can be automatically added (or removed) from this group in the "
+#~ "Extensions (or Devices) tab.<br />Making this group the default will "
+#~ "uncheck the option from the current default group if specified."
+#~ msgstr ""
+#~ "每一个PBX系统可以有一个单独的默认集体传呼小组。如果事先指定好，某些分机可"
+#~ "以自动的被加入到（或从其中删除）这个小组的分机（或设备）标签。<br />如果把"
+#~ "这个小组设置成默认小组，原来的默认小组就不再成为默认小组，自然它在这个项目"
+#~ "上的钩就没有了。"
 
-msgid "Page Group"
-msgstr "集体传呼组"
+#~ msgid "Submit Changes"
+#~ msgstr "提交更改"
 
-msgid "Paging and Intercom"
-msgstr "集体传呼和直接对讲"
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "请输入一个有效的集体传呼分机"
 
-msgid "Applications"
-msgstr ""
-
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. \tAlso creates an Intercom feature code that can "
-"be used as a prefix to talk directly to one person, as well as optional "
-"feature codes to block/allow intercom calls to all users as well as blocking "
-"specific users or only allowing specific users."
-msgstr ""
+#~ msgid "Please select at least one extension"
+#~ msgstr "请选择至少一个分机"
 
 #~ msgid ""
 #~ "Select Device(s) to page. This is the phone that should be paged. In most "

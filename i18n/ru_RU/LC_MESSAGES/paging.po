@@ -7,51 +7,270 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-02 00:52+0200\n"
+"POT-Creation-Date: 2015-02-11 18:03-0500\n"
 "PO-Revision-Date: 2012-11-1 16:38+0100\n"
 "Last-Translator: Alexander Kozyrev <ceo@postmet.com>\n"
 "Language-Team: Russian <faq@postmet.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "Page Group"
-msgstr "Пейджинг-группа"
+#: /usr/src/freepbx/paging/views/page_group.php:63
+msgid ""
+"\"Force\" will not check if the device is in use before paging it. This "
+"means conversations can be interrupted by a page (depending on how the "
+"device handles it). This is useful for \"emergency\" paging groups."
+msgstr ""
 
-msgid "Page Group: "
-msgstr "Пейджинг-группа:"
+#: /usr/src/freepbx/paging/views/page_group.php:61
+msgid ""
+"\"Skip\" will not page any busy extension. All other extensions will be "
+"paged as normal"
+msgstr ""
 
-msgid "Exclude"
-msgstr "Исключить"
+#: /usr/src/freepbx/paging/views/page_group.php:67
+msgid ""
+"\"Whisper\" will attempt to use the ChanSpy capability on SIP channels, "
+"resulting in the page being \"sent to the device's earpiece \"whispered\" to "
+"the user but not heard by the remote party. If ChanSpy is not supported on "
+"the device or otherwise fails, no page will get through. It probably does "
+"not make too much sense to choose duplex if using Whisper mode."
+msgstr ""
 
-msgid "Include"
-msgstr "Включить"
+#: /usr/src/freepbx/paging/Paging.class.php:62
+msgid ""
+"<strong>Force</strong><br> Send the headers telling the phone to go into "
+"auto answer mode. This may not work, and is dependant on the phone."
+msgstr ""
 
+#: /usr/src/freepbx/paging/Paging.class.php:60
+msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:61
+msgid ""
+"<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
+"extension (if Call Waiting is disabled, this will return BUSY"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:22
+msgid "Add Paging Group"
+msgstr "Добавить пейджинг-группу"
+
+#: /usr/src/freepbx/paging/views/settings.php:15
+msgid "Annoucement to be played to remote part. Default is a beep"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:14
+msgid "Announcement"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:12
+msgid "Auto-answer defaults"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:100
+msgid "Busy Extensions"
+msgstr "Занятые внутренние номера"
+
+#: /usr/src/freepbx/paging/views/page_group.php:14
+msgid "Conflicting Extensions"
+msgstr "Конфликт внутренних номеров"
+
+#: /usr/src/freepbx/paging/page.paging.php:127
+#: /usr/src/freepbx/paging/views/rnav.php:25
+msgid "Default"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:930
 msgid "Default Group Inclusion"
 msgstr "Включения в дефолтную группу"
 
+#: /usr/src/freepbx/paging/functions.inc.php:933
+#: /usr/src/freepbx/paging/views/page_group.php:117
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
-msgid ""
-"You can include or exclude this extension/device from being part of the "
-"default page group when creating or editing."
+#: /usr/src/freepbx/paging/page.paging.php:27
+#: /usr/src/freepbx/paging/views/page_group.php:125
+msgid "Delete"
 msgstr ""
-"Можно включать или исключать этот внутренний номер/устройство из дефолтной "
-"пейджинговой группы при создании или редактировании."
 
-msgid "Intercom prefix"
-msgstr "Префикс интеркома"
+#: /usr/src/freepbx/paging/views/page_group.php:36
+msgid "Device List"
+msgstr ""
 
-msgid "User Intercom Allow"
-msgstr "Пользователь Интерком разрешён"
+#: /usr/src/freepbx/paging/views/page_group.php:37
+msgid ""
+"Devices to page. Please note, paging calls the actual device (and not the "
+"user). Amount of pagable devices is restricted by the advanced setting key "
+"PAGINGMAXPARTICIPANTS and is currently set to "
+msgstr ""
 
-msgid "User Intercom Disallow"
-msgstr "Пользователь Интерком запрещён"
+#: /usr/src/freepbx/paging/views/overview.php:19
+msgid ""
+"Disable all extensions from intercom you (except those explicitly allowed)"
+msgstr ""
 
+#: /usr/src/freepbx/paging/page.paging.php:161
 msgid "Disabled"
 msgstr "Выключено"
 
+#: /usr/src/freepbx/paging/views/page_group.php:109
+msgid "Duplex"
+msgstr "Дуплекс"
+
+#: /usr/src/freepbx/paging/views/overview.php:13
+msgid "Enable all extensions to intercom you (except those explicitly denied)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:10
+msgid "Example usage:"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:908
+msgid "Exclude"
+msgstr "Исключить"
+
+#: /usr/src/freepbx/paging/views/overview.php:16
+msgid ""
+"Explicitly allow extension nnn to intercom you (even if others are disabled)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:22
+msgid ""
+"Explicitly deny extension nnn to intercom you (even if generally enabled)"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:54
+#: /usr/src/freepbx/paging/views/page_group.php:89
+msgid "Force"
+msgstr "Форсированный режим"
+
+#: /usr/src/freepbx/paging/views/rnav.php:6
+msgid "General Settings"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:31
+msgid "Group Description"
+msgstr "Описание группы"
+
+#: /usr/src/freepbx/paging/functions.inc.php:909
+msgid "Include"
+msgstr "Включить"
+
+#: /usr/src/freepbx/paging/Paging.class.php:58
+msgid "Intercom Override"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:11
+msgid "Intercom extension nnn"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/overview.php:27
+msgid ""
+"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
+"Panel."
+msgstr ""
+"Режим интерком выключен, он должен быть задествован в панели Сервисные коды"
+
+#: /usr/src/freepbx/paging/install.php:5
+msgid "Intercom prefix"
+msgstr "Префикс интеркома"
+
+#: /usr/src/freepbx/paging/views/page_group.php:19
+msgid "Modify Paging Group"
+msgstr "Модифицировать пейджинг-группу"
+
+#: /usr/src/freepbx/paging/views/rnav.php:9
+msgid "New Paging Group"
+msgstr ""
+
+#: /usr/src/freepbx/paging/page.paging.php:126
+msgid "None"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:54
+msgid "Not Selected"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/rnav.php:3
+msgid "Overview"
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:641
+msgid "Page Group"
+msgstr "Пейджинг-группа"
+
+#: /usr/src/freepbx/paging/views/rnav.php:23
+msgid "Page Group "
+msgstr ""
+
+#: /usr/src/freepbx/paging/functions.inc.php:743
+msgid "Page Group: "
+msgstr "Пейджинг-группа:"
+
+#: /usr/src/freepbx/paging/views/overview.php:3
+#: /usr/src/freepbx/paging/views/page_group.php:4
+msgid "Paging"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:26
+msgid "Paging Extension"
+msgstr "Внутренний номер для пейджинга"
+
+#: /usr/src/freepbx/paging/Paging.class.php:57
+msgid "Paging and Intercom"
+msgstr "Пейджинг и интерком"
+
+#: /usr/src/freepbx/paging/views/settings.php:4
+msgid "Paging and Intercom settings"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:110
+msgid ""
+"Paging is typically one way for announcements only. Checking this will make "
+"the paging duplex, allowing all phones in the paging group to be able to "
+"talk and be heard by all. This makes it like an \"instant conference\""
+msgstr ""
+"Пейджинг обычно односторонний вид связи, только для объявлений. Отметив тут, "
+"можно задействовать дуплексную связь в обе стороны, разрешая всем телефонам "
+"в пейджинговой группе говорить и слышать всех. Это выглядит как \"мгновенная "
+"конференция\""
+
+#: /usr/src/freepbx/paging/views/page_group.php:32
+msgid "Provide a descriptive title for this Page Group."
+msgstr "Предлагается создать внятное описание для этой пейджинговой группы."
+
+#: /usr/src/freepbx/paging/Paging.class.php:52
+msgid "Reject"
+msgstr ""
+
+#: /usr/src/freepbx/paging/Paging.class.php:53
+msgid "Ring"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/settings.php:19
+msgid "Save"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:51
+msgid "Selected"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:81
+msgid "Skip"
+msgstr "Пропускать"
+
+#: /usr/src/freepbx/paging/views/page_group.php:123
+msgid "Submit"
+msgstr ""
+
+#: /usr/src/freepbx/paging/views/page_group.php:27
+msgid "The number users will dial to page this group"
+msgstr "Этот номер служит для звонка в эту группу"
+
+#: /usr/src/freepbx/paging/views/overview.php:7
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -78,171 +297,142 @@ msgstr ""
 "интерком, который также вполне приемлем (как и консольное расширение, если "
 "оно сконфигурено)."
 
-#, php-format
+#: /usr/src/freepbx/paging/install.php:6
+msgid "User Intercom Allow"
+msgstr "Пользователь Интерком разрешён"
+
+#: /usr/src/freepbx/paging/install.php:7
+msgid "User Intercom Disallow"
+msgstr "Пользователь Интерком запрещён"
+
+#: /usr/src/freepbx/paging/Paging.class.php:59
 msgid ""
-"Example usage:<br /><table><tr><td><strong>%snnn</strong>:</td><td>Intercom "
-"extension nnn</td></tr><tr><td><strong>%s</strong>:</td><td>Enable all "
-"extensions to intercom you (except those explicitly denied)</td></"
-"tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow extension nnn to "
-"intercom you (even if others are disabled)</td></tr><tr><td><strong>%s</"
-"strong>:</td><td>Disable all extensions from intercom you (except those "
-"explicitly allowed)</td></tr><tr><td><strong>%snnn</strong>:</"
-"td><td>Explicitly deny extension nnn to intercom you (even if generally "
-"enabled)</td></tr></table>"
+"When using Intercom to page an extension, if the extension is in use, you "
+"have three options."
 msgstr ""
-"Пример использования:<br /><table><tr><td><strong>%snnn</strong>:</"
-"td><td>Внутренний номер Интеркома nnn</td></tr><tr><td><strong>%s</strong>:</"
-"td><td>Разрешить всем внутренним номерам  вызывать вас по громкой связи "
-"(кроме тех, которые явно отклонены)</td></tr><tr><td><strong>%snnn</strong>:"
-"</td><td>Явным образом разрешить внутреннему номеру nnn вызывать вас по "
-"громкой связи (даже если остальные отключены)</td></tr><tr><td><strong>%s</"
-"strong>:</td><td>Запретиь всем внутренним номерам вызывать вас по громкой "
-"связи (кроме тех, которым разрешено явно)</td></tr><tr><td><strong>%snnn</"
-"strong>:</td><td> Явным образом запретить внутреннему номеру nnn вызывать "
-"вас по громкой связи (даже если остальные включены)</td></tr></table>"
 
-msgid ""
-"Intercom mode is currently disabled, it can be enabled in the Feature Codes "
-"Panel."
-msgstr ""
-"Режим интерком выключен, он должен быть задествован в панели Сервисные коды"
-
-#, php-format
-msgid "Delete Group %s"
-msgstr "Удалить группу %s"
-
-msgid "Conflicting Extensions"
-msgstr "Конфликт внутренних номеров"
-
-msgid "Modify Paging Group"
-msgstr "Модифицировать пейджинг-группу"
-
-msgid "Add Paging Group"
-msgstr "Добавить пейджинг-группу"
-
-msgid "Paging Extension"
-msgstr "Внутренний номер для пейджинга"
-
-msgid "The number users will dial to page this group"
-msgstr "Этот номер служит для звонка в эту группу"
-
-msgid "Group Description"
-msgstr "Описание группы"
-
-msgid "Provide a descriptive title for this Page Group."
-msgstr "Предлагается создать внятное описание для этой пейджинговой группы."
-
-msgid "Device List:"
-msgstr "Список устройств:"
-
-msgid ""
-"Select Device(s) to page. This is the phone that should be paged. In most "
-"installations, this is the same as the Extension. If you are configured to "
-"use \"Users & Devices\" this is the actual Device and not the User.  Use "
-"Ctrl key to select multiple.."
-msgstr ""
-"Выбрать устройство(-ва) для пейджинга. Это телефони, которые должны "
-"вызываться. В большинстве случаев это тоже, что и внутренние номера. Если "
-"сконфигурировано использование \"Пользователи и Устройства\" то это "
-"актуальней для устройства, а не для пользователя. Используйте Ctrl + клик "
-"для множественного выделения."
-
-msgid "Busy Extensions"
-msgstr "Занятые внутренние номера"
-
-msgid ""
-"<ul><li>\"Skip\" will not page any busy extension. All other extensions will "
-"be paged as normal</li><li>\"Force\" will not check if the device is in use "
-"before paging it. This means conversations can be interrupted by a page "
-"(depending on how the device handles it). This is useful for \"emergency\" "
-"paging groups.</li><li>\"Whisper\" will attempt to use the ChanSpy "
-"capability on SIP channels, resulting in the page being sent to the device's "
-"ear piece but not heard by the remote party. If ChanSpy is not supported on "
-"the device or otherwise fails, no page will get through. It probably does "
-"not make too much sense to choose duplex if using Whisper mode.</li></ul>"
-msgstr ""
-"<ul><li>\"Пропускать\" - не соединяет с внутренними номерами со статусом "
-"'Занято'. Все другие внутренние номера будут подключены в пейджинг обычным "
-"образом. </li><li>\"Форсированный режим\" - перед подключением не "
-"проверяется статус устройств In use перед пейджингом. Это предполагает, что "
-"соединение может быть прервано пейджингом (в зависимости от того, "
-"поддерживает устройство этот функционал или нет). Это может быть "
-"необходимым, например, для аварийных пейджинговых групп. </li><li>\"Шопот\" "
-"- будет использовать возможности ChanSpy на каналах SIP, результатом этого "
-"будет прослушивание помещения вокруг удалённых пейджинговых устройств и "
-"необнаружимость такого присутствия при этом. Если конечное устройство не "
-"поддерживает возможности прослушивания ChanSpy, или произойдёт сбой по "
-"другой какой-то причине, то пейджинг просто не происходит. Возможно не будет "
-"хватать чувствительности в дуплексном режиме, если используется режим Шопот."
-"</li></ul>"
-
-msgid "The Whisper mode is new and considered experimental."
-msgstr "Режим 'Шопот' - новинка, находится в стадии эксперимента."
-
-msgid "Skip"
-msgstr "Пропускать"
-
-msgid "Force"
-msgstr "Форсированный режим"
-
+#: /usr/src/freepbx/paging/views/page_group.php:98
 msgid "Whisper"
 msgstr "Шопот"
 
-msgid "Duplex"
-msgstr "Дуплекс"
-
+#: /usr/src/freepbx/paging/functions.inc.php:933
 msgid ""
-"Paging is typically one way for announcements only. Checking this will make "
-"the paging duplex, allowing all phones in the paging group to be able to "
-"talk and be heard by all. This makes it like an \"instant conference\""
+"You can include or exclude this extension/device from being part of the "
+"default page group when creating or editing."
 msgstr ""
-"Пейджинг обычно односторонний вид связи, только для объявлений. Отметив тут, "
-"можно задействовать дуплексную связь в обе стороны, разрешая всем телефонам "
-"в пейджинговой группе говорить и слышать всех. Это выглядит как \"мгновенная "
-"конференция\""
+"Можно включать или исключать этот внутренний номер/устройство из дефолтной "
+"пейджинговой группы при создании или редактировании."
 
-msgid ""
-"Each PBX system can have a single Default Page Group. If specified, "
-"extensions can be automatically added (or removed) from this group in the "
-"Extensions (or Devices) tab.<br />Making this group the default will uncheck "
-"the option from the current default group if specified."
-msgstr ""
-"Каждая АТС может иметь одну дефолтную пейджинг-группу, Если указано, то "
-"внутренние номера будут добавляться (или удаляться) в эту группу в секции "
-"Внутренние номера.<br />Делая эту группу дефолтной предыдущие добавления "
-"номеров в дефолтную группу утратят значение."
+#~ msgid ""
+#~ "Example usage:<br /><table><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>Intercom extension nnn</td></tr><tr><td><strong>%s</strong>:</"
+#~ "td><td>Enable all extensions to intercom you (except those explicitly "
+#~ "denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow "
+#~ "extension nnn to intercom you (even if others are disabled)</td></"
+#~ "tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from "
+#~ "intercom you (except those explicitly allowed)</td></tr><tr><td><strong>%"
+#~ "snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you "
+#~ "(even if generally enabled)</td></tr></table>"
+#~ msgstr ""
+#~ "Пример использования:<br /><table><tr><td><strong>%snnn</strong>:</"
+#~ "td><td>Внутренний номер Интеркома nnn</td></tr><tr><td><strong>%s</"
+#~ "strong>:</td><td>Разрешить всем внутренним номерам  вызывать вас по "
+#~ "громкой связи (кроме тех, которые явно отклонены)</td></"
+#~ "tr><tr><td><strong>%snnn</strong>:</td><td>Явным образом разрешить "
+#~ "внутреннему номеру nnn вызывать вас по громкой связи (даже если остальные "
+#~ "отключены)</td></tr><tr><td><strong>%s</strong>:</td><td>Запретиь всем "
+#~ "внутренним номерам вызывать вас по громкой связи (кроме тех, которым "
+#~ "разрешено явно)</td></tr><tr><td><strong>%snnn</strong>:</td><td> Явным "
+#~ "образом запретить внутреннему номеру nnn вызывать вас по громкой связи "
+#~ "(даже если остальные включены)</td></tr></table>"
 
-msgid "Submit Changes"
-msgstr "Применить изменения"
+#~ msgid "Delete Group %s"
+#~ msgstr "Удалить группу %s"
 
-msgid "Please enter a valid Paging Extension"
-msgstr "Введите правильный номер для пейджинга"
+#~ msgid "Device List:"
+#~ msgstr "Список устройств:"
 
-msgid "Please select at least one extension"
-msgstr "Выберите хотя бы один внутренний номер"
+#~ msgid ""
+#~ "Select Device(s) to page. This is the phone that should be paged. In most "
+#~ "installations, this is the same as the Extension. If you are configured "
+#~ "to use \"Users & Devices\" this is the actual Device and not the User.  "
+#~ "Use Ctrl key to select multiple.."
+#~ msgstr ""
+#~ "Выбрать устройство(-ва) для пейджинга. Это телефони, которые должны "
+#~ "вызываться. В большинстве случаев это тоже, что и внутренние номера. Если "
+#~ "сконфигурировано использование \"Пользователи и Устройства\" то это "
+#~ "актуальней для устройства, а не для пользователя. Используйте Ctrl + клик "
+#~ "для множественного выделения."
 
-msgid " [DEFAULT]"
-msgstr " [ПО УМОЛЧАНИЮ]"
+#~ msgid ""
+#~ "<ul><li>\"Skip\" will not page any busy extension. All other extensions "
+#~ "will be paged as normal</li><li>\"Force\" will not check if the device is "
+#~ "in use before paging it. This means conversations can be interrupted by a "
+#~ "page (depending on how the device handles it). This is useful for "
+#~ "\"emergency\" paging groups.</li><li>\"Whisper\" will attempt to use the "
+#~ "ChanSpy capability on SIP channels, resulting in the page being sent to "
+#~ "the device's ear piece but not heard by the remote party. If ChanSpy is "
+#~ "not supported on the device or otherwise fails, no page will get through. "
+#~ "It probably does not make too much sense to choose duplex if using "
+#~ "Whisper mode.</li></ul>"
+#~ msgstr ""
+#~ "<ul><li>\"Пропускать\" - не соединяет с внутренними номерами со статусом "
+#~ "'Занято'. Все другие внутренние номера будут подключены в пейджинг "
+#~ "обычным образом. </li><li>\"Форсированный режим\" - перед подключением не "
+#~ "проверяется статус устройств In use перед пейджингом. Это предполагает, "
+#~ "что соединение может быть прервано пейджингом (в зависимости от того, "
+#~ "поддерживает устройство этот функционал или нет). Это может быть "
+#~ "необходимым, например, для аварийных пейджинговых групп. </li><li>\"Шопот"
+#~ "\" - будет использовать возможности ChanSpy на каналах SIP, результатом "
+#~ "этого будет прослушивание помещения вокруг удалённых пейджинговых "
+#~ "устройств и необнаружимость такого присутствия при этом. Если конечное "
+#~ "устройство не поддерживает возможности прослушивания ChanSpy, или "
+#~ "произойдёт сбой по другой какой-то причине, то пейджинг просто не "
+#~ "происходит. Возможно не будет хватать чувствительности в дуплексном "
+#~ "режиме, если используется режим Шопот.</li></ul>"
 
-msgid "Paging and Intercom"
-msgstr "Пейджинг и интерком"
+#~ msgid "The Whisper mode is new and considered experimental."
+#~ msgstr "Режим 'Шопот' - новинка, находится в стадии эксперимента."
 
-msgid "Applications"
-msgstr "Приложения"
+#~ msgid ""
+#~ "Each PBX system can have a single Default Page Group. If specified, "
+#~ "extensions can be automatically added (or removed) from this group in the "
+#~ "Extensions (or Devices) tab.<br />Making this group the default will "
+#~ "uncheck the option from the current default group if specified."
+#~ msgstr ""
+#~ "Каждая АТС может иметь одну дефолтную пейджинг-группу, Если указано, то "
+#~ "внутренние номера будут добавляться (или удаляться) в эту группу в секции "
+#~ "Внутренние номера.<br />Делая эту группу дефолтной предыдущие добавления "
+#~ "номеров в дефолтную группу утратят значение."
 
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. \tAlso creates an Intercom feature code that can "
-"be used as a prefix to talk directly to one person, as well as optional "
-"feature codes to block/allow intercom calls to all users as well as blocking "
-"specific users or only allowing specific users."
-msgstr ""
-"Разрешает созданным пейджинговым группам делать анонсы при помощи встроеных "
-"в большинство SIP телефонов динамиков. \tТакже создаёт сервисный код для "
-"Интеркома, которым можно пользоваться как префиксом для сообщений по громкой "
-"связи, а также, опционально, сервисный код для включения/блокировки вызовов "
-"интеркома для всех пользователей, и включать/блокировать эту возможность "
-"отдельным пользователям."
+#~ msgid "Submit Changes"
+#~ msgstr "Применить изменения"
+
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "Введите правильный номер для пейджинга"
+
+#~ msgid "Please select at least one extension"
+#~ msgstr "Выберите хотя бы один внутренний номер"
+
+#~ msgid " [DEFAULT]"
+#~ msgstr " [ПО УМОЛЧАНИЮ]"
+
+#~ msgid "Applications"
+#~ msgstr "Приложения"
+
+#~ msgid ""
+#~ "Allows creation of paging groups to make announcements using the speaker "
+#~ "built into most SIP phones. \tAlso creates an Intercom feature code that "
+#~ "can be used as a prefix to talk directly to one person, as well as "
+#~ "optional feature codes to block/allow intercom calls to all users as well "
+#~ "as blocking specific users or only allowing specific users."
+#~ msgstr ""
+#~ "Разрешает созданным пейджинговым группам делать анонсы при помощи "
+#~ "встроеных в большинство SIP телефонов динамиков. \tТакже создаёт "
+#~ "сервисный код для Интеркома, которым можно пользоваться как префиксом для "
+#~ "сообщений по громкой связи, а также, опционально, сервисный код для "
+#~ "включения/блокировки вызовов интеркома для всех пользователей, и включать/"
+#~ "блокировать эту возможность отдельным пользователям."
 
 #~ msgid "Force if busy"
 #~ msgstr "Форсировать, если занят."
