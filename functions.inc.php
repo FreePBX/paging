@@ -475,15 +475,6 @@ function paging_get_config($engine) {
 		$ext->add($apppaging, "_SPAGE.", 'chanspy', new ext_chanspy('${SP_DEVICE}-','qW'));
 		$ext->add($apppaging, "_SPAGE.", '', new ext_hangup());
 
-		$apppagegroups = 'app-pagegroups';
-		// Now get a list of all the paging groups...
-		$sql = "SELECT page_group, force_page, duplex FROM paging_config";
-		$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-
-		if (!$paging_groups) {
-			break;//no need to continue if we dont have any pagegroups
-		}
-
 		// If Asterisk 10 and app_confbridge:
 		//
 		// Common to admin:
@@ -496,22 +487,56 @@ function paging_get_config($engine) {
 		//  1: ???
 		//  s: present menu
 
-		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11
-			&& isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
-				$pu = 'page_user';
-				$pud = 'page_user_duplex';
-				foreach (array($pu, $pud) as $u) {
-					$conferences_conf->addConfUser($u, 'quiet', 'yes');
-					$conferences_conf->addConfUser($u, 'announce_user_count', 'no');
-					$conferences_conf->addConfUser($u, 'wait_marked', 'yes');
-					$conferences_conf->addConfUser($u, 'end_marked', 'yes');
-					$conferences_conf->addConfUser($u, 'dsp_drop_silence', 'yes');
-					$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
-					$conferences_conf->addConfUser($u, 'admin', 'no');
-					$conferences_conf->addConfUser($u, 'marked', 'no');
-				}
-				$conferences_conf->addConfUser($pu, 'startmuted', 'yes');
+		//See http://issues.freepbx.org/browse/FREEPBX-8796
+		//before you even think about removing this to after checking for a page group!
+		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11 && isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
+			$pu = 'page_user';
+			$pud = 'page_user_duplex';
+			foreach (array($pu, $pud) as $u) {
+				$conferences_conf->addConfUser($u, 'quiet', 'yes');
+				$conferences_conf->addConfUser($u, 'announce_user_count', 'no');
+				$conferences_conf->addConfUser($u, 'wait_marked', 'yes');
+				$conferences_conf->addConfUser($u, 'end_marked', 'yes');
+				$conferences_conf->addConfUser($u, 'dsp_drop_silence', 'yes');
+				$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
+				$conferences_conf->addConfUser($u, 'admin', 'no');
+				$conferences_conf->addConfUser($u, 'marked', 'no');
 			}
+			$conferences_conf->addConfUser($pu, 'startmuted', 'yes');
+		}
+
+		//page playback
+		$c = 'app-page-stream';
+		$ext->add($c, 's', '', new ext_wait(1));
+		$ext->add($c, 's', '', new ext_answer());
+
+		// TODO: PAGE_CONF_OPTS reset in agi script so just use proper context if 10+confbridge no mute
+		// x: close conf when last marked user exits
+		// q: quiet mode no enter/leave sounds
+		//
+		// TODO: Ideally what we want is to mark the stream and wait for that, if no stream then no wait for makred user. However
+		//       it seems like to end a conference you have to have the kick after last marked user since there doesn't have to be
+		//       an admin as far as I can tell.
+		//
+		//
+		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11) {
+			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
+			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
+		} else {
+			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
+		}
+		$ext->add($c, 's', '', new ext_hangup());
+
+
+		$apppagegroups = 'app-pagegroups';
+		// Now get a list of all the paging groups...
+		$sql = "SELECT page_group, force_page, duplex FROM paging_config";
+		$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+
+		if (!$paging_groups) {
+			break;//no need to continue if we dont have any pagegroups
+		}
 
 		$extpaging = 'ext-paging';
 		if(!empty($paging_groups)) {
@@ -602,31 +627,7 @@ function paging_get_config($engine) {
 		}
 
 		//h
-		$ext->add($apppagegroups, 'h', '',
-			new ext_execif('$[${ISNULL(${PAGE${PAGEGROUP}BUSY})}]', 'Set', 'DEVICE_STATE(Custom:PAGE${PAGEGROUP})=NOT_INUSE'));
-
-		//page playback
-		$c = 'app-page-stream';
-		$ext->add($c, 's', '', new ext_wait(1));
-		$ext->add($c, 's', '', new ext_answer());
-
-		// TODO: PAGE_CONF_OPTS reset in agi script so just use proper context if 10+confbridge no mute
-		// x: close conf when last marked user exits
-		// q: quiet mode no enter/leave sounds
-		//
-		// TODO: Ideally what we want is to mark the stream and wait for that, if no stream then no wait for makred user. However
-		//       it seems like to end a conference you have to have the kick after last marked user since there doesn't have to be
-		//       an admin as far as I can tell.
-		//
-		//
-		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11) {
-			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
-			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
-			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
-		} else {
-			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
-		}
-		$ext->add($c, 's', '', new ext_hangup());
+		$ext->add($apppagegroups, 'h', '', new ext_execif('$[${ISNULL(${PAGE${PAGEGROUP}BUSY})}]', 'Set', 'DEVICE_STATE(Custom:PAGE${PAGEGROUP})=NOT_INUSE'));
 
 		break;
 	}

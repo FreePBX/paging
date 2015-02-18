@@ -2,12 +2,13 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>12.0.10</version>
+  <version>12.0.11</version>
   <publisher>Schmooze Com Inc</publisher>
   <license>GPLv3+</license>
   <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
   <category>Applications</category>
   <changelog>
+    *12.0.11* FREEPBX-8796 Generate default paging if no page groups
     *12.0.10* FREEPBX-8622 Move answer to after the page agi so that we get all devices into the conference first
     *12.0.9* FREEPBX-8474 Remove duplicate includes from context
     *12.0.8.1* Add option to force paging through to in-use devices.
