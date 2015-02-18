@@ -2,12 +2,13 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>12.0.11</version>
+  <version>12.0.12</version>
   <publisher>Schmooze Com Inc</publisher>
   <license>GPLv3+</license>
   <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
   <category>Applications</category>
   <changelog>
+    *12.0.12* FREEPBX-6273
     *12.0.11* FREEPBX-8796 Generate default paging if no page groups
     *12.0.10* FREEPBX-8622 Move answer to after the page agi so that we get all devices into the conference first
     *12.0.9* FREEPBX-8474 Remove duplicate includes from context
@@ -23,15 +24,13 @@
   </changelog>
   <depends>
     <version>12.0.2</version>
+    <module>conferences</module>
   </depends>
   <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
 	Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
   <menuitems>
     <paging>Paging and Intercom</paging>
   </menuitems>
-  <requirements>
-    <module>conferences</module>
-  </requirements>
   <popovers>
     <paging>
       <display>paging</display>
