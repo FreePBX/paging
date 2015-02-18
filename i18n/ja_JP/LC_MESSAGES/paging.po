@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-11 18:03-0500\n"
+"POT-Creation-Date: 2015-02-18 18:52-0500\n"
 "PO-Revision-Date: 2014-02-24 06:39+0200\n"
 "Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
 "Language-Team: Japanese <http://192.168.30.85/projects/freepbx/paging/ja/>\n"
@@ -48,7 +48,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 1.8\n"
 
-#: /usr/src/freepbx/paging/views/page_group.php:63
+#: views/page_group.php:63
 msgid ""
 "\"Force\" will not check if the device is in use before paging it. This "
 "means conversations can be interrupted by a page (depending on how the "
@@ -58,7 +58,7 @@ msgstr ""
 "す。これによって、宛先の相手が通話中でも、通話に割り込むことができるため、緊"
 "急グループページングなどの場合に役立ちます。"
 
-#: /usr/src/freepbx/paging/views/page_group.php:61
+#: views/page_group.php:61
 msgid ""
 "\"Skip\" will not page any busy extension. All other extensions will be "
 "paged as normal"
@@ -66,7 +66,7 @@ msgstr ""
 "「スキップ」に設定すると、通話中の内線宛にはページングを行いません。他の内線"
 "は通常通りページングします"
 
-#: /usr/src/freepbx/paging/views/page_group.php:67
+#: views/page_group.php:67
 msgid ""
 "\"Whisper\" will attempt to use the ChanSpy capability on SIP channels, "
 "resulting in the page being \"sent to the device's earpiece \"whispered\" to "
@@ -80,70 +80,81 @@ msgstr ""
 "は、ページングは実行されません。ささやきモードを使用している場合はデュプレッ"
 "クスを選択してもおそらくあまり意味がありません。"
 
-#: /usr/src/freepbx/paging/Paging.class.php:62
+#: Paging.class.php:62
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: /usr/src/freepbx/paging/Paging.class.php:60
+#: Paging.class.php:60
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: /usr/src/freepbx/paging/Paging.class.php:61
+#: Paging.class.php:61
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: /usr/src/freepbx/paging/views/page_group.php:22
+#: views/page_group.php:22
 msgid "Add Paging Group"
 msgstr "ページンググループ追加"
 
-#: /usr/src/freepbx/paging/views/settings.php:15
+#: paging.i18n.php:5
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones.\n"
+"\tAlso creates an Intercom feature code that can be used as a prefix to talk "
+"directly to one person, as well as optional feature codes to block/allow "
+"intercom calls to all users as well as blocking specific users or only "
+"allowing specific users."
+msgstr ""
+
+#: views/settings.php:15
 msgid "Annoucement to be played to remote part. Default is a beep"
 msgstr "リモートパートに対して再生するアナウンス。デフォルトはビープ音です"
 
-#: /usr/src/freepbx/paging/views/settings.php:14
+#: views/settings.php:14
 msgid "Announcement"
 msgstr "アナウンス"
 
-#: /usr/src/freepbx/paging/views/settings.php:12
+#: paging.i18n.php:4
+msgid "Applications"
+msgstr "アプリケーション"
+
+#: views/settings.php:12
 msgid "Auto-answer defaults"
 msgstr "自動応答デフォルト"
 
-#: /usr/src/freepbx/paging/views/page_group.php:100
+#: views/page_group.php:100
 msgid "Busy Extensions"
 msgstr "通話中の内線"
 
-#: /usr/src/freepbx/paging/views/page_group.php:14
+#: views/page_group.php:14
 msgid "Conflicting Extensions"
 msgstr "内線の競合"
 
-#: /usr/src/freepbx/paging/page.paging.php:127
-#: /usr/src/freepbx/paging/views/rnav.php:25
+#: page.paging.php:127 views/rnav.php:25
 msgid "Default"
 msgstr "デフォルト"
 
-#: /usr/src/freepbx/paging/functions.inc.php:930
+#: functions.inc.php:931
 msgid "Default Group Inclusion"
 msgstr "デフォルトグループを含む"
 
-#: /usr/src/freepbx/paging/functions.inc.php:933
-#: /usr/src/freepbx/paging/views/page_group.php:117
+#: functions.inc.php:934 views/page_group.php:117
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
-#: /usr/src/freepbx/paging/page.paging.php:27
-#: /usr/src/freepbx/paging/views/page_group.php:125
+#: page.paging.php:27 views/page_group.php:125
 msgid "Delete"
 msgstr "削除"
 
-#: /usr/src/freepbx/paging/views/page_group.php:36
+#: views/page_group.php:36
 msgid "Device List"
 msgstr "デバイスリスト"
 
-#: /usr/src/freepbx/paging/views/page_group.php:37
+#: views/page_group.php:37
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -153,74 +164,73 @@ msgstr ""
 "れる物です。ページングが可能なデバイス数は、詳細設定のキー "
 "PAGINMAXPARTICIPANTS によって指定されています。現在の設定は次の通りです： "
 
-#: /usr/src/freepbx/paging/views/overview.php:19
+#: views/overview.php:19
 msgid ""
 "Disable all extensions from intercom you (except those explicitly allowed)"
 msgstr ""
 "明示的に許可した内線を除き、全ての内線からあなたへインターカムを無効にします"
 
-#: /usr/src/freepbx/paging/page.paging.php:161
+#: page.paging.php:161
 msgid "Disabled"
 msgstr "無効"
 
-#: /usr/src/freepbx/paging/views/page_group.php:109
+#: views/page_group.php:109
 msgid "Duplex"
 msgstr "デュプレックス"
 
-#: /usr/src/freepbx/paging/views/overview.php:13
+#: views/overview.php:13
 msgid "Enable all extensions to intercom you (except those explicitly denied)"
 msgstr ""
 "明示的に拒否された物を除き、すべての内線からあなたへのインターコムを可能にし"
 "ます"
 
-#: /usr/src/freepbx/paging/views/overview.php:10
+#: views/overview.php:10
 msgid "Example usage:"
 msgstr "使用例："
 
-#: /usr/src/freepbx/paging/functions.inc.php:908
+#: functions.inc.php:909
 msgid "Exclude"
 msgstr "含まない"
 
-#: /usr/src/freepbx/paging/views/overview.php:16
+#: views/overview.php:16
 msgid ""
 "Explicitly allow extension nnn to intercom you (even if others are disabled)"
 msgstr ""
 "もし他の設定が無効になっていた場合でも、内線 nnn からあなたへのインターコムを"
 "明示的に許可します"
 
-#: /usr/src/freepbx/paging/views/overview.php:22
+#: views/overview.php:22
 msgid ""
 "Explicitly deny extension nnn to intercom you (even if generally enabled)"
 msgstr ""
 "全般設定が有効になっていた場合でも、内線 nnn からあなたへのインターコムを明示"
 "的に拒否します"
 
-#: /usr/src/freepbx/paging/Paging.class.php:54
-#: /usr/src/freepbx/paging/views/page_group.php:89
+#: Paging.class.php:54 views/page_group.php:89
 msgid "Force"
 msgstr "強制"
 
-#: /usr/src/freepbx/paging/views/rnav.php:6
+#: views/rnav.php:6
 msgid "General Settings"
 msgstr "一般設定"
 
-#: /usr/src/freepbx/paging/views/page_group.php:31
+#: views/page_group.php:31
 msgid "Group Description"
 msgstr "グループ説明"
 
-#: /usr/src/freepbx/paging/functions.inc.php:909
+#: functions.inc.php:910
 msgid "Include"
 msgstr "含む"
 
-#: /usr/src/freepbx/paging/Paging.class.php:58
+#: Paging.class.php:58
 msgid "Intercom Override"
 msgstr ""
 
-#: /usr/src/freepbx/paging/views/overview.php:11
+#: views/overview.php:11
 msgid "Intercom extension nnn"
 msgstr "インターコム内線 nnn"
 
-#: /usr/src/freepbx/paging/views/overview.php:27
+#: views/overview.php:27
 msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
@@ -228,60 +238,59 @@ msgstr ""
 "インターコムモードは現在無効になっております、キーコードパネルより有効にする"
 "ことができます。"
 
-#: /usr/src/freepbx/paging/install.php:5
+#: install.php:5
 msgid "Intercom prefix"
 msgstr "インターコムプリフィックス"
 
-#: /usr/src/freepbx/paging/views/page_group.php:19
+#: views/page_group.php:19
 msgid "Modify Paging Group"
 msgstr "ページンググループを修正"
 
-#: /usr/src/freepbx/paging/views/rnav.php:9
+#: views/rnav.php:9
 msgid "New Paging Group"
 msgstr "新規ページンググループ"
 
-#: /usr/src/freepbx/paging/page.paging.php:126
+#: page.paging.php:126
 msgid "None"
 msgstr "なし"
 
-#: /usr/src/freepbx/paging/views/page_group.php:54
+#: views/page_group.php:54
 msgid "Not Selected"
 msgstr "未選択"
 
-#: /usr/src/freepbx/paging/views/rnav.php:3
+#: views/rnav.php:3
 msgid "Overview"
 msgstr "一覧"
 
-#: /usr/src/freepbx/paging/functions.inc.php:641
+#: functions.inc.php:642
 msgid "Page Group"
 msgstr "ページンググループ"
 
-#: /usr/src/freepbx/paging/views/rnav.php:23
+#: views/rnav.php:23
 msgid "Page Group "
 msgstr "ページンググループ"
 
-#: /usr/src/freepbx/paging/functions.inc.php:743
+#: functions.inc.php:744
 msgid "Page Group: "
 msgstr "ページンググループ："
 
-#: /usr/src/freepbx/paging/views/overview.php:3
-#: /usr/src/freepbx/paging/views/page_group.php:4
+#: views/overview.php:3 views/page_group.php:4
 msgid "Paging"
 msgstr "ページング"
 
-#: /usr/src/freepbx/paging/views/page_group.php:26
+#: views/page_group.php:26
 msgid "Paging Extension"
 msgstr "ページング内線"
 
-#: /usr/src/freepbx/paging/Paging.class.php:57
+#: Paging.class.php:57 paging.i18n.php:3 paging.i18n.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
-#: /usr/src/freepbx/paging/views/settings.php:4
+#: views/settings.php:4
 msgid "Paging and Intercom settings"
 msgstr "ページング & インターコム設定"
 
-#: /usr/src/freepbx/paging/views/page_group.php:110
+#: views/page_group.php:110
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -292,39 +301,39 @@ msgstr ""
 "端末同士で相互に通話することが許可されます。これは、\"簡易会議\"のような挙動"
 "になります。"
 
-#: /usr/src/freepbx/paging/views/page_group.php:32
+#: views/page_group.php:32
 msgid "Provide a descriptive title for this Page Group."
 msgstr "このページンググループの説明タイトル。"
 
-#: /usr/src/freepbx/paging/Paging.class.php:52
+#: Paging.class.php:52
 msgid "Reject"
 msgstr ""
 
-#: /usr/src/freepbx/paging/Paging.class.php:53
+#: Paging.class.php:53
 msgid "Ring"
 msgstr ""
 
-#: /usr/src/freepbx/paging/views/settings.php:19
+#: views/settings.php:19
 msgid "Save"
 msgstr "保存"
 
-#: /usr/src/freepbx/paging/views/page_group.php:51
+#: views/page_group.php:51
 msgid "Selected"
 msgstr "選択済み"
 
-#: /usr/src/freepbx/paging/views/page_group.php:81
+#: views/page_group.php:81
 msgid "Skip"
 msgstr "スキップ"
 
-#: /usr/src/freepbx/paging/views/page_group.php:123
+#: views/page_group.php:123
 msgid "Submit"
 msgstr "送信"
 
-#: /usr/src/freepbx/paging/views/page_group.php:27
+#: views/page_group.php:27
 msgid "The number users will dial to page this group"
 msgstr "このグループへページングするためにユーザーがダイヤルする番号"
 
-#: /usr/src/freepbx/paging/views/overview.php:7
+#: views/overview.php:7
 msgid ""
 "This module is for specific phones that are capable of Paging or Intercom. "
 "This section is for configuring group paging, intercom is configured through "
@@ -348,34 +357,31 @@ msgstr ""
 "す。常に自動応答するように設定されている電話機とも動作します。(例：コンソール"
 "内線が設定されている場合)。"
 
-#: /usr/src/freepbx/paging/install.php:6
+#: install.php:6
 msgid "User Intercom Allow"
 msgstr "ユーザーインターコムを許可"
 
-#: /usr/src/freepbx/paging/install.php:7
+#: install.php:7
 msgid "User Intercom Disallow"
 msgstr "ユーザーインターコムを禁止"
 
-#: /usr/src/freepbx/paging/Paging.class.php:59
+#: Paging.class.php:59
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
 
-#: /usr/src/freepbx/paging/views/page_group.php:98
+#: views/page_group.php:98
 msgid "Whisper"
 msgstr "ウィスパー"
 
-#: /usr/src/freepbx/paging/functions.inc.php:933
+#: functions.inc.php:934
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
-
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "
