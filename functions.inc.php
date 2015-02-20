@@ -786,7 +786,6 @@ function paging_get_pagingconfig($grp) {
 
 function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0) {
 	global $db;
-
 	// Just in case someone's trying to be smart with a SQL injection.
 	$xtn = $db->escapeSimple($xtn);
 
@@ -913,8 +912,7 @@ function paging_applyhooks() {
 	$currentcomponent->addguifunc('paging_configpageload');
 }
 
-/*
- */
+
 // This is called before the page is actually displayed, so we can use addguielem().
 function paging_configpageload() {
 	global $currentcomponent;

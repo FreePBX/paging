@@ -103,3 +103,25 @@ function dev_limit(id) {
 	}
 	return $('#selected_dev > span').length < fpbx.conf.PAGINGMAXPARTICIPANTS;
 }
+
+$(document).ready(function(){
+	$("#bnavgrid").bootstrapTable({
+		method: 'get',
+		url: '?display=paging&action=getJSON&jdata=grid&quietmode=1',
+		cache: false,
+		striped: false,
+		showColumns: false,
+		columns: [
+			{
+				title: _("Page Groups"),
+				field: 'link',
+				formatter: linkFormatter,
+			}
+			]
+	});
+});
+
+function linkFormatter(value){
+	html = '<a href="?display=paging&view=form&extdisplay='+value[1]+'"><i class="fa fa-pencil"></i>&nbsp'+_("Edit: ")+value[0]+'</a>';
+	return html;
+}
