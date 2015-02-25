@@ -4,6 +4,10 @@ namespace FreePBX\modules;
 
 class Paging extends \FreePBX_Helpers implements \BMO {
 
+	public function __construct($freepbx = null) {
+		$this->freepbx = $freepbx;
+	}
+
 	public function install() {
 
 	}
@@ -37,7 +41,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		return;
 	}
 
-	public function doConfigPageInit($page) { 
+	public function doConfigPageInit($page) {
 		$conf = \FreePBX::Config();
 		$ramp_conf = $conf->get_conf_settings();
 		foreach ($ramp_conf as $key => $value) {
@@ -119,12 +123,11 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 							$vars['default_group']
 						);
 						$request['action'] = $vars['action'] = 'modify';
-						if ($vars['extdisplay'] === '') {
-							$request['extdisplay'] =
-							$vars['extdisplay'] = $vars['pagenbr'];
+						if ($vars['extdisplay'] == '' || ($vars['pagegrp'] != $vars['pagenbr'])) {
+							$request['extdisplay'] = $vars['extdisplay'] = $vars['pagenbr'];
 						}
-						//TODO: Fix redirects in BMO
-						//redirect_standard('extdisplay', 'action');
+						$_REQUEST['extdisplay'] = $vars['extdisplay'];
+						$this->freepbx->View->redirect_standard('extdisplay');
 					}
 					break;
 				case 'save_settings':
@@ -160,9 +163,9 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 							echo json_encode($rdata);
 							exit();
 						break;
-						
+
 						default:
-							echo json_encode(array('error' => _("Unknown Request")));	
+							echo json_encode(array('error' => _("Unknown Request")));
 							exit();
 						break;
 					}
@@ -209,9 +212,10 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			throw new \Exception("No Extension given");
 		}
 		$this->setConfig("intercom-override", $override, $ext);
-		$astman = $this->FreePBX->astman;
+		$astman = $this->freepbx->astman;
 		$astman->database_put('AMPUSER', "$ext/intercom/override", $override);
 	}
+
 	public function getActionBar($request) {
 		$buttons = array();
 		switch($request['display']) {

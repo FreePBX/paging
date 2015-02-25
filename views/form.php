@@ -1,4 +1,4 @@
-<?php 
+<?php
 extract($request);
 if($extdisplay){
 	$thisGRP = paging_get_pagingconfig($extdisplay);
@@ -7,6 +7,8 @@ if($extdisplay){
 	$pagenbr = $extdisplay;
 	$pagegrp = $extdisplay;
 	$delURL = '?display=paging&action=delete&extdisplay='.urlencode($extdisplay);
+} else {
+	$force_page = "0";
 }
 
 $device_list = array();
@@ -28,10 +30,10 @@ $devhtml .= '<h4>'._('Selected').'</h4><fieldset id="selected_dev" '.$class.'>'.
 $devhtml .= '<h4>'._('Not Selected').'</h4><fieldset id="notselected_dev" '.$class.'>'.$notselected_dev.'</fieldset>';
 ?>
 <form class="fpbx-submit" name="page_opts_form" id="page_opts_form" data-fpbx-delete="<?php echo $delURL?>" method="POST">
-<input type="hidden" name="view" value="form"> 
-<input type="hidden" name="display" value="paging"> 
-<input type="hidden" name="action" value="submit"> 
-<input type="hidden" name="pagegrp" value="<?php echo $pagegrp?>"> 
+<input type="hidden" name="view" value="form">
+<input type="hidden" name="display" value="paging">
+<input type="hidden" name="action" value="submit">
+<input type="hidden" name="pagegrp" value="<?php echo $pagegrp?>">
 
 <!--Paging Extension-->
 <div class="element-container">
@@ -44,7 +46,7 @@ $devhtml .= '<h4>'._('Not Selected').'</h4><fieldset id="notselected_dev" '.$cla
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="pagenbr"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="pagenbr" name="pagenbr" value="<?php echo $pagenbr ?>">
+						<input type="text" class="form-control extdisplay" id="pagenbr" name="pagenbr" value="<?php echo $pagenbr ?>">
 					</div>
 				</div>
 			</div>
@@ -193,10 +195,7 @@ $devhtml .= '<h4>'._('Not Selected').'</h4><fieldset id="notselected_dev" '.$cla
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="default_group-help" class="help-block fpbx-help-block"><?php echo _('Paging is typically one way for announcements only. '
-			. 'Checking this will make the paging duplex, allowing all '
-			. 'phones in the paging group to be able to talk and be '
-			. 'heard by all. This makes it like an "instant conference"')?></span>
+			<span id="default_group-help" class="help-block fpbx-help-block"><?php echo _('If you choose to make a Page Group the "default" page group, a checkbox will appear in the Extensions Module that will allow you to include or exclude that Extension in the default Page Group when editing said extension')?></span>
 		</div>
 	</div>
 </div>
