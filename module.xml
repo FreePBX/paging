@@ -42,6 +42,6 @@
   <location>release/2.11/paging-2.11.0.7.tgz</location>
   <md5sum>0a800b7068ce596aeff11247d09cba18</md5sum>
   <supported>
-    <version>12.0</version>
+    <version>13.0</version>
   </supported>
 </module>
