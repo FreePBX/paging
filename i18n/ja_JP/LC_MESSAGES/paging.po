@@ -38,15 +38,16 @@ msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-02-18 18:52-0500\n"
-"PO-Revision-Date: 2014-02-24 06:39+0200\n"
-"Last-Translator: Kenichi Fukaumi <k.fukaumi@qloog.com>\n"
-"Language-Team: Japanese <http://192.168.30.85/projects/freepbx/paging/ja/>\n"
+"PO-Revision-Date: 2015-02-19 12:34+0200\n"
+"Last-Translator: Kevin <kevin@qloog.com>\n"
+"Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
+"ja_JP/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ja\n"
+"Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 1.8\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: views/page_group.php:63
 msgid ""
@@ -85,16 +86,20 @@ msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
+"<strong>強制</strong><br> 電話機に自動応答するヘッダーを送信します。未対応の"
+"機種の場合はこの設定が効かない場合があります。"
 
 #: Paging.class.php:60
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
-msgstr ""
+msgstr "<strong>拒否</strong><br> この内線に発信した人にBUSY信号を返します"
 
 #: Paging.class.php:61
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
+"<strong>リング</strong><br> 通常の通話として扱って、内線を鳴らします。キャッ"
+"チホンが無効の場合は、BUSY信号を返します"
 
 #: views/page_group.php:22
 msgid "Add Paging Group"
@@ -109,6 +114,12 @@ msgid ""
 "intercom calls to all users as well as blocking specific users or only "
 "allowing specific users."
 msgstr ""
+"ページンググループを作成できます。多くのSIP電話機に搭載されているスピーカーを"
+"使って、グループに対してアナウンスや呼出など放送します。\n"
+"　また、インターコムの機能コードを作成することによって、一人に対して直接通話"
+"することも可能です。さらにオプションの機能コードを使うと、インターコム通話を"
+"許可もしくはブロックすることが可能で、ユーザー毎に許可・ブロックする設定もで"
+"きます。"
 
 #: views/settings.php:15
 msgid "Annoucement to be played to remote part. Default is a beep"
@@ -224,7 +235,7 @@ msgstr "含む"
 
 #: Paging.class.php:58
 msgid "Intercom Override"
-msgstr ""
+msgstr "インターコムオーバーライド"
 
 #: views/overview.php:11
 msgid "Intercom extension nnn"
@@ -307,11 +318,11 @@ msgstr "このページンググループの説明タイトル。"
 
 #: Paging.class.php:52
 msgid "Reject"
-msgstr ""
+msgstr "拒否"
 
 #: Paging.class.php:53
 msgid "Ring"
-msgstr ""
+msgstr "リング"
 
 #: views/settings.php:19
 msgid "Save"
@@ -370,6 +381,8 @@ msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
+"インターコム機能で内線にページングするときに、もしその内線が使用中の場合は3つ"
+"の選択肢があります。"
 
 #: views/page_group.php:98
 msgid "Whisper"
