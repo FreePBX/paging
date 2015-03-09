@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 18:52-0500\n"
+"POT-Creation-Date: 2015-03-06 17:40-0500\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -105,21 +105,14 @@ msgstr ""
 msgid "Add Paging Group"
 msgstr "ページンググループ追加"
 
-#: paging.i18n.php:5
+#: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones.\n"
-"\tAlso creates an Intercom feature code that can be used as a prefix to talk "
-"directly to one person, as well as optional feature codes to block/allow "
-"intercom calls to all users as well as blocking specific users or only "
-"allowing specific users."
+"built into most SIP phones.\tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
-"ページンググループを作成できます。多くのSIP電話機に搭載されているスピーカーを"
-"使って、グループに対してアナウンスや呼出など放送します。\n"
-"　また、インターコムの機能コードを作成することによって、一人に対して直接通話"
-"することも可能です。さらにオプションの機能コードを使うと、インターコム通話を"
-"許可もしくはブロックすることが可能で、ユーザー毎に許可・ブロックする設定もで"
-"きます。"
 
 #: views/settings.php:15
 msgid "Annoucement to be played to remote part. Default is a beep"
@@ -129,7 +122,7 @@ msgstr "リモートパートに対して再生するアナウンス。デフォ
 msgid "Announcement"
 msgstr "アナウンス"
 
-#: paging.i18n.php:4
+#: paging.i18n.php:6 paging.i18n.php:12
 msgid "Applications"
 msgstr "アプリケーション"
 
@@ -293,7 +286,7 @@ msgstr "ページング"
 msgid "Paging Extension"
 msgstr "ページング内線"
 
-#: Paging.class.php:57 paging.i18n.php:3 paging.i18n.php:7
+#: Paging.class.php:57 paging.i18n.php:4 paging.i18n.php:10
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
@@ -395,6 +388,21 @@ msgid ""
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
+
+#~ msgid ""
+#~ "Allows creation of paging groups to make announcements using the speaker "
+#~ "built into most SIP phones.\n"
+#~ "\tAlso creates an Intercom feature code that can be used as a prefix to "
+#~ "talk directly to one person, as well as optional feature codes to block/"
+#~ "allow intercom calls to all users as well as blocking specific users or "
+#~ "only allowing specific users."
+#~ msgstr ""
+#~ "ページンググループを作成できます。多くのSIP電話機に搭載されているスピー"
+#~ "カーを使って、グループに対してアナウンスや呼出など放送します。\n"
+#~ "　また、インターコムの機能コードを作成することによって、一人に対して直接通"
+#~ "話することも可能です。さらにオプションの機能コードを使うと、インターコム通"
+#~ "話を許可もしくはブロックすることが可能で、ユーザー毎に許可・ブロックする設"
+#~ "定もできます。"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "

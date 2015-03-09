@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-02-18 18:52-0500\n"
+"POT-Creation-Date: 2015-03-06 17:40-0500\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -72,14 +72,13 @@ msgstr ""
 msgid "Add Paging Group"
 msgstr "Lägg till anropsgrupp"
 
-#: paging.i18n.php:5
+#: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones.\n"
-"\tAlso creates an Intercom feature code that can be used as a prefix to talk "
-"directly to one person, as well as optional feature codes to block/allow "
-"intercom calls to all users as well as blocking specific users or only "
-"allowing specific users."
+"built into most SIP phones.\tAlso creates an Intercom feature code that can "
+"be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
 
 #: views/settings.php:15
@@ -90,7 +89,7 @@ msgstr ""
 msgid "Announcement"
 msgstr ""
 
-#: paging.i18n.php:4
+#: paging.i18n.php:6 paging.i18n.php:12
 msgid "Applications"
 msgstr ""
 
@@ -244,7 +243,7 @@ msgstr ""
 msgid "Paging Extension"
 msgstr "Anknytningsnummer för grupp"
 
-#: Paging.class.php:57 paging.i18n.php:3 paging.i18n.php:7
+#: Paging.class.php:57 paging.i18n.php:4 paging.i18n.php:10
 msgid "Paging and Intercom"
 msgstr "Snabbtelefon"
 
