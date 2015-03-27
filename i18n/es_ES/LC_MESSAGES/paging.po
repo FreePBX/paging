@@ -53,7 +53,7 @@ msgstr ""
 
 #: views/page_group.php:22
 msgid "Add Paging Group"
-msgstr ""
+msgstr "Agregar Grupo Megafonía"
 
 #: paging.i18n.php:8
 msgid ""
@@ -86,7 +86,7 @@ msgstr ""
 
 #: views/page_group.php:14
 msgid "Conflicting Extensions"
-msgstr ""
+msgstr "Conflicto Extensiones"
 
 #: page.paging.php:127 views/rnav.php:25
 msgid "Default"
@@ -94,11 +94,11 @@ msgstr ""
 
 #: functions.inc.php:931
 msgid "Default Group Inclusion"
-msgstr ""
+msgstr "Grupo Inclusión Por Defecto"
 
 #: functions.inc.php:934 views/page_group.php:117
 msgid "Default Page Group"
-msgstr ""
+msgstr "Grupo Megafonía Por Defecto"
 
 #: page.paging.php:27 views/page_group.php:125
 msgid "Delete"
@@ -122,11 +122,11 @@ msgstr ""
 
 #: page.paging.php:161
 msgid "Disabled"
-msgstr ""
+msgstr "Deshabilitado"
 
 #: views/page_group.php:109
 msgid "Duplex"
-msgstr ""
+msgstr "Duplex"
 
 #: views/overview.php:13
 msgid "Enable all extensions to intercom you (except those explicitly denied)"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: functions.inc.php:909
 msgid "Exclude"
-msgstr ""
+msgstr "Excluir"
 
 #: views/overview.php:16
 msgid ""
@@ -160,11 +160,11 @@ msgstr ""
 
 #: views/page_group.php:31
 msgid "Group Description"
-msgstr ""
+msgstr "Descripción Grupo"
 
 #: functions.inc.php:910
 msgid "Include"
-msgstr ""
+msgstr "Incluir"
 
 #: Paging.class.php:58
 msgid "Intercom Override"
@@ -179,14 +179,16 @@ msgid ""
 "Intercom mode is currently disabled, it can be enabled in the Feature Codes "
 "Panel."
 msgstr ""
+"El Modo de Megafonía está actualmente deshabilitado, puede ser activado en "
+"el Panel Códigos  de Servicio."
 
 #: install.php:5
 msgid "Intercom prefix"
-msgstr ""
+msgstr "Prefijo Megafonía"
 
 #: views/page_group.php:19
 msgid "Modify Paging Group"
-msgstr ""
+msgstr "Modificar Grupo Megafonía"
 
 #: views/rnav.php:9
 msgid "New Paging Group"
@@ -206,7 +208,7 @@ msgstr ""
 
 #: functions.inc.php:642
 msgid "Page Group"
-msgstr ""
+msgstr "Grupo Megafonía"
 
 #: views/rnav.php:23
 msgid "Page Group "
@@ -214,7 +216,7 @@ msgstr ""
 
 #: functions.inc.php:744
 msgid "Page Group: "
-msgstr ""
+msgstr "Grupo Megafonía"
 
 #: views/overview.php:3 views/page_group.php:4
 msgid "Paging"
@@ -222,11 +224,11 @@ msgstr ""
 
 #: views/page_group.php:26
 msgid "Paging Extension"
-msgstr ""
+msgstr "Extensión Megafonía"
 
 #: Paging.class.php:57 paging.i18n.php:4 paging.i18n.php:10
 msgid "Paging and Intercom"
-msgstr ""
+msgstr "Megafonía"
 
 #: views/settings.php:4
 msgid "Paging and Intercom settings"
@@ -238,10 +240,14 @@ msgid ""
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
+"La Megafonía es típicamente una forma de hacer anuncios solamente. Marcando "
+"esto hará la comunicación duplex, que permite a todos los teléfonos en el "
+"grupo de megafonía para poder hablar y ser escuchados por todos. Esto hace "
+"que sea como una \"conferencia instantánea\""
 
 #: views/page_group.php:32
 msgid "Provide a descriptive title for this Page Group."
-msgstr ""
+msgstr "Escriba un título descriptivo para este grupo."
 
 #: Paging.class.php:52
 msgid "Reject"
@@ -269,7 +275,7 @@ msgstr ""
 
 #: views/page_group.php:27
 msgid "The number users will dial to page this group"
-msgstr ""
+msgstr "El número para llamar a este grupo"
 
 #: views/overview.php:7
 msgid ""
@@ -284,14 +290,25 @@ msgid ""
 "set to auto-answer should also work (such as the console extension if "
 "configured)."
 msgstr ""
+"Este módulo es específico para los terminales que permiten (descuelge) "
+"megafonía o intercomunicación. Esta sección es para la configuración de "
+"Grupos de Megafonía, se configuran a través de <strong>Códigos de "
+"Servicio</strong>. La Megafonía debe estar habilitada en un terminal antes "
+"de permitir las llamadas entrantes. Es posible restringir las llamadas de "
+"megafonía sólo a extensiones específicas, o habilitar para todas las "
+"extensiones, y denegar explícitamente a las extensiones que quiera.<br /><br "
+"/>Este módulo puede trabajar con Aastra, Grandstream, Linksys/Sipura, Mitel, "
+"Polycom, SNOM, y posiblemente en otros teléfonos SIP (no ATAs). Cualquier "
+"teléfono que tenga fijada la auto-respuesta también debería funcionar (como "
+"la extensión de la consola, si si configurada)."
 
 #: install.php:6
 msgid "User Intercom Allow"
-msgstr ""
+msgstr "Habilitar Ext Megafonía"
 
 #: install.php:7
 msgid "User Intercom Disallow"
-msgstr ""
+msgstr "Deshabilitar Ext Megafonía"
 
 #: Paging.class.php:59
 msgid ""
@@ -301,10 +318,12 @@ msgstr ""
 
 #: views/page_group.php:98
 msgid "Whisper"
-msgstr ""
+msgstr "Susurrar"
 
 #: functions.inc.php:934
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+"Se puede incluir o excluir esta extensión/dispositivo para formar parte del "
+"grupo por defecto de megafonía al crear o editar."
