@@ -3,12 +3,16 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo paging module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 17:40-0500\n"
-"PO-Revision-Date: 2009-01-21 16:10+0100\n"
-"Last-Translator: Juan Asensio Sánchez <okelet@gmail.com>\n"
-"Language-Team: Juan Asensio Sánchez <okelet@gmail.com>\n"
+"PO-Revision-Date: 2015-03-30 08:26+0200\n"
+"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"Language-Team: Spanish "
+"<http://weblate.freepbx.org/projects/freepbx/paging/es_ES/>\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: SPAIN\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -19,12 +23,19 @@ msgid ""
 "means conversations can be interrupted by a page (depending on how the "
 "device handles it). This is useful for \"emergency\" paging groups."
 msgstr ""
+"\"Forzar\" no va a comprobar si el dispositivo está en uso antes de una "
+"llamada de búsqueda (paging) . Esto significa que  conversaciones pueden ser "
+"interrumpidos por un paging (dependiendo de la forma en que el dispositivo "
+"se ocupa de ella). Esto es útil para grupos de localización de \"emergencia\""
+"."
 
 #: views/page_group.php:61
 msgid ""
 "\"Skip\" will not page any busy extension. All other extensions will be "
 "paged as normal"
 msgstr ""
+"\"Skip\"no hara paging a una extensión ocupada. Todas las demás extensiones "
+"que pueden ser llamadas (paged)  normalmente"
 
 #: views/page_group.php:67
 msgid ""
@@ -34,22 +45,36 @@ msgid ""
 "the device or otherwise fails, no page will get through. It probably does "
 "not make too much sense to choose duplex if using Whisper mode."
 msgstr ""
+"\"Whisper/Susurro\" intentará utilizar la capacidad ChanSpy en canales SIP, "
+"lo que resulta en el page es que se está \"enviando por el auricular del "
+"dispositivo \"susurro\" para el usuario, pero no se escucha del lado remoto. "
+"Si ChanSpy no se admite en el dispositivo o alguna otra falla ocurre, no se "
+"hará un paging. Probablemente no tiene demasiado sentido para elegir duplex "
+"si se utiliza el modo Whisper."
 
 #: Paging.class.php:62
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
+"<strong> Fuerza/Force </strong> Enviar los encabezados que dicen que el "
+"teléfono entre en modo de respuesta automática. Esto puede no funcionar, y "
+"depende del teléfono."
 
 #: Paging.class.php:60
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
+"<strong>Rechazar/Reject</strong><br> Devuelve una señal de OCUPADO a la "
+"persona que llama"
 
 #: Paging.class.php:61
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
+"<strong>Trimbra/Ring</strong> Tratar al Page como una llamada normal, y "
+"llamará a la extensión (si la llamada en espera está desactivada, este "
+"volverá OCUPADO"
 
 #: views/page_group.php:22
 msgid "Add Paging Group"
@@ -63,26 +88,33 @@ msgid ""
 "feature codes to block/allow intercom calls to all users as well as blocking "
 "specific users or only allowing specific users."
 msgstr ""
+"Permite la creación de grupos de localización (paging) para hacer anuncios "
+"utilizando el altavoz incorporado en la mayoría de los teléfonos SIP. → "
+"También crea un código de función de intercomunicación que se puede utilizar "
+"como prefijo para hablar directamente con una persona, así como los códigos "
+"de funciones opcionales para bloquear / permitir que las llamadas internas a "
+"todos los usuarios, así como el bloqueo de usuarios específicos o permitir "
+"sólo determinados usuarios."
 
 #: views/settings.php:15
 msgid "Annoucement to be played to remote part. Default is a beep"
-msgstr ""
+msgstr "Anuncio que se reproducirá a una parte remota. Por defecto es un pitido"
 
 #: views/settings.php:14
 msgid "Announcement"
-msgstr ""
+msgstr "Anuncio"
 
 #: paging.i18n.php:6 paging.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 #: views/settings.php:12
 msgid "Auto-answer defaults"
-msgstr ""
+msgstr "Auto--answer por defecto"
 
 #: views/page_group.php:100
 msgid "Busy Extensions"
-msgstr ""
+msgstr "Extensiones Ocupadas"
 
 #: views/page_group.php:14
 msgid "Conflicting Extensions"
@@ -90,7 +122,7 @@ msgstr "Conflicto Extensiones"
 
 #: page.paging.php:127 views/rnav.php:25
 msgid "Default"
-msgstr ""
+msgstr "Por Defecto"
 
 #: functions.inc.php:931
 msgid "Default Group Inclusion"
@@ -102,11 +134,11 @@ msgstr "Grupo Megafonía Por Defecto"
 
 #: page.paging.php:27 views/page_group.php:125
 msgid "Delete"
-msgstr ""
+msgstr "Eliminar"
 
 #: views/page_group.php:36
 msgid "Device List"
-msgstr ""
+msgstr "Lista de Dispositivos"
 
 #: views/page_group.php:37
 msgid ""
@@ -114,11 +146,17 @@ msgid ""
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
+"Dispositivos a anunciar (page). Tenga en cuenta, \"Paging\" llama al "
+"dispositivo real (y no el usuario). La Cantidad de dispositivos \"pagable\" "
+"está restringido por la llave (key) avanzada PAGINGMAXPARTICIPANTS y se fija "
+"actualmente "
 
 #: views/overview.php:19
 msgid ""
 "Disable all extensions from intercom you (except those explicitly allowed)"
 msgstr ""
+"Desactivar todas las extensiones de intercomunicarse con usted (excepto los "
+"permitidos explícitamente)"
 
 #: page.paging.php:161
 msgid "Disabled"
@@ -131,10 +169,12 @@ msgstr "Duplex"
 #: views/overview.php:13
 msgid "Enable all extensions to intercom you (except those explicitly denied)"
 msgstr ""
+"Habilitar todas las extensiones intercomunicarse usted (excepto los negados "
+"explícitamente)"
 
 #: views/overview.php:10
 msgid "Example usage:"
-msgstr ""
+msgstr "Ejemplo de uso:"
 
 #: functions.inc.php:909
 msgid "Exclude"
@@ -144,19 +184,23 @@ msgstr "Excluir"
 msgid ""
 "Explicitly allow extension nnn to intercom you (even if others are disabled)"
 msgstr ""
+"Explícitamente permite extensión nnn  intercomunicarse con usted (aunque "
+"otros están desactivados)"
 
 #: views/overview.php:22
 msgid ""
 "Explicitly deny extension nnn to intercom you (even if generally enabled)"
 msgstr ""
+"Explícitamente negar extensión nnn  a intercomunicarse usted (aunque este "
+"habilitado en forma global)"
 
 #: Paging.class.php:54 views/page_group.php:89
 msgid "Force"
-msgstr ""
+msgstr "Forzar"
 
 #: views/rnav.php:6
 msgid "General Settings"
-msgstr ""
+msgstr "Configuración General"
 
 #: views/page_group.php:31
 msgid "Group Description"
@@ -168,11 +212,11 @@ msgstr "Incluir"
 
 #: Paging.class.php:58
 msgid "Intercom Override"
-msgstr ""
+msgstr "Anular Intercom"
 
 #: views/overview.php:11
 msgid "Intercom extension nnn"
-msgstr ""
+msgstr "Intercom a extensión nnn"
 
 #: views/overview.php:27
 msgid ""
@@ -192,19 +236,19 @@ msgstr "Modificar Grupo Megafonía"
 
 #: views/rnav.php:9
 msgid "New Paging Group"
-msgstr ""
+msgstr "Nuevo Group de Paging"
 
 #: page.paging.php:126
 msgid "None"
-msgstr ""
+msgstr "ninguno"
 
 #: views/page_group.php:54
 msgid "Not Selected"
-msgstr ""
+msgstr "No seleccionado"
 
 #: views/rnav.php:3
 msgid "Overview"
-msgstr ""
+msgstr "Visión de Conjunto"
 
 #: functions.inc.php:642
 msgid "Page Group"
@@ -212,7 +256,7 @@ msgstr "Grupo Megafonía"
 
 #: views/rnav.php:23
 msgid "Page Group "
-msgstr ""
+msgstr "Grupo de Paging "
 
 #: functions.inc.php:744
 msgid "Page Group: "
@@ -220,7 +264,7 @@ msgstr "Grupo Megafonía"
 
 #: views/overview.php:3 views/page_group.php:4
 msgid "Paging"
-msgstr ""
+msgstr "Paging / Voceo"
 
 #: views/page_group.php:26
 msgid "Paging Extension"
@@ -232,7 +276,7 @@ msgstr "Megafonía"
 
 #: views/settings.php:4
 msgid "Paging and Intercom settings"
-msgstr ""
+msgstr "Configuración de Intercom y Voceo"
 
 #: views/page_group.php:110
 msgid ""
@@ -251,27 +295,27 @@ msgstr "Escriba un título descriptivo para este grupo."
 
 #: Paging.class.php:52
 msgid "Reject"
-msgstr ""
+msgstr "Rechazo"
 
 #: Paging.class.php:53
 msgid "Ring"
-msgstr ""
+msgstr "Trimbrar"
 
 #: views/settings.php:19
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 #: views/page_group.php:51
 msgid "Selected"
-msgstr ""
+msgstr "Seleccionado"
 
 #: views/page_group.php:81
 msgid "Skip"
-msgstr ""
+msgstr "Saltar"
 
 #: views/page_group.php:123
 msgid "Submit"
-msgstr ""
+msgstr "Enviar"
 
 #: views/page_group.php:27
 msgid "The number users will dial to page this group"
@@ -315,6 +359,8 @@ msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
+"Al usar Intercom para vocear a una extensión, si la extensión está en uso, "
+"usted tiene tres opciones."
 
 #: views/page_group.php:98
 msgid "Whisper"
