@@ -7,6 +7,7 @@ $request = $_REQUEST;
 switch ($request['view']) {
 	case 'form':
 		$content = load_view(__DIR__.'/views/formwrap.php', array('request' => $request, 'amp_conf'=> $amp_conf));
+
 	break;
 	default:
 		$content = load_view(__DIR__.'/views/overview.php', array('request' => $request));

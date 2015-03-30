@@ -36,6 +36,7 @@
   <popovers>
     <paging>
       <display>paging</display>
+      <view>form</view>
       <action>add</action>
     </paging>
   </popovers>
