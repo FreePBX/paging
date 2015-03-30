@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: FreePBX - módulo paging module spanish translation\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-03-06 17:40-0500\n"
-"PO-Revision-Date: 2015-03-30 08:26+0200\n"
+"PO-Revision-Date: 2015-03-30 08:27+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish "
 "<http://weblate.freepbx.org/projects/freepbx/paging/es_ES/>\n"
@@ -164,7 +164,7 @@ msgstr "Deshabilitado"
 
 #: views/page_group.php:109
 msgid "Duplex"
-msgstr "Duplex"
+msgstr "Duplo"
 
 #: views/overview.php:13
 msgid "Enable all extensions to intercom you (except those explicitly denied)"
@@ -260,7 +260,7 @@ msgstr "Grupo de Paging "
 
 #: functions.inc.php:744
 msgid "Page Group: "
-msgstr "Grupo Megafonía"
+msgstr "Grupo Megafonía: "
 
 #: views/overview.php:3 views/page_group.php:4
 msgid "Paging"
