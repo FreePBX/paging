@@ -2,12 +2,13 @@
   <rawname>paging</rawname>
   <repo>standard</repo>
   <name>Paging and Intercom</name>
-  <version>12.0.13</version>
+  <version>12.0.14</version>
   <publisher>Schmooze Com Inc</publisher>
   <license>GPLv3+</license>
   <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
   <category>Applications</category>
   <changelog>
+    *12.0.14* Fix 'Codec' param when originating calls.
     *12.0.13* FREEPBX-7508 Invalid character for extension
     *12.0.12* FREEPBX-6273 Add depends, remove requirements regression
     *12.0.11* FREEPBX-8796 Generate default paging if no page groups
