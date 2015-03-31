@@ -241,18 +241,13 @@ foreach ($devices as $dev) {
 			. ',,';
 	}
 	$astman->Originate(array(
-		'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging/n',
-		'CallerID'    => $vars['calleridname'] 
-		. ' <' 
-		. $vars['callerid'] 
-		. '>',
-		'Async'       => 'true',
-		'Codec'		=> 'ulaw',
-		'Variable'    => $pass_vars,
-		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
-		? 'ConfBridge' 
-		: 'MeetMe'),
-		'Data'        => $data_params
+		'Channel'	=> 'Local/' . $pagemode . $pm . '@app-paging/n',
+		'CallerID'	=> $vars['calleridname'].' <'.$vars['callerid'].'>',
+		'Async'		=> 'true',
+		'Codecs'	=> 'ulaw',
+		'Variable'	=> $pass_vars,
+		'Application'	=> ($amp_conf['ASTCONFAPP'] == 'app_confbridge' ? 'ConfBridge' : 'MeetMe'),
+		'Data'		=> $data_params
 	));
 }
 
