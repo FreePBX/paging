@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:53-0400\n"
+"POT-Creation-Date: 2015-04-03 14:30-0400\n"
 "PO-Revision-Date: 2009-01-31 13:31+0800\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
@@ -18,23 +18,23 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: Paging.class.php:190
+#: Paging.class.php:192
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:188
+#: Paging.class.php:190
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:189
+#: Paging.class.php:191
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:137
+#: views/form.php:177
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -70,7 +70,18 @@ msgid ""
 msgstr ""
 
 #: views/settings.php:63
-msgid "Annoucement to be played to remote part. Default is a beep"
+msgid "Annoucement to be played to remote party. Default is a beep"
+msgstr ""
+
+#: views/form.php:148
+msgid ""
+"Annoucement to be played to remote party. If set to Default it will use the "
+"global setting from Page Groups. If Page Groups is not defined then it will "
+"default to beep"
+msgstr ""
+
+#: views/form.php:134
+msgid "Announcement"
 msgstr ""
 
 #: paging.i18n.php:6 paging.i18n.php:12
@@ -81,42 +92,46 @@ msgstr ""
 msgid "Auto-answer defaults"
 msgstr ""
 
-#: views/form.php:120
+#: views/form.php:34
+msgid "Beep"
+msgstr ""
+
+#: views/form.php:160
 msgid "Busy Extensions"
 msgstr "忙状态分机"
 
-#: views/grid.php:14 views/settings.php:4
+#: views/form.php:33 views/grid.php:14 views/settings.php:4
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:929
+#: functions.inc.php:959
 msgid "Default Group Inclusion"
 msgstr "包含在默认传呼组中"
 
-#: functions.inc.php:932 views/form.php:183
+#: functions.inc.php:962 views/form.php:223
 msgid "Default Page Group"
 msgstr "默认传呼组"
 
-#: Paging.class.php:85 Paging.class.php:227
+#: Paging.class.php:86 Paging.class.php:229
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:81 views/grid.php:12
+#: views/form.php:95 views/grid.php:12
 msgid "Description"
 msgstr ""
 
-#: views/form.php:93
+#: views/form.php:107
 msgid "Device List"
 msgstr "设备列表"
 
-#: views/form.php:105
+#: views/form.php:119
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: views/form.php:153
+#: views/form.php:193
 msgid "Duplex"
 msgstr "双工"
 
@@ -124,30 +139,30 @@ msgstr "双工"
 msgid "Edit: "
 msgstr ""
 
-#: functions.inc.php:908
+#: functions.inc.php:938
 msgid "Exclude"
 msgstr "排除"
 
-#: Paging.class.php:182 views/form.php:127
+#: Paging.class.php:184 views/form.php:167
 msgid "Force"
 msgstr ""
 
-#: views/form.php:69
+#: views/form.php:83
 msgid "Group Description"
 msgstr "传呼组描述"
 
-#: views/form.php:198
+#: views/form.php:238
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:909
+#: functions.inc.php:939
 msgid "Include"
 msgstr "包括"
 
-#: Paging.class.php:186
+#: Paging.class.php:188
 msgid "Intercom Override"
 msgstr ""
 
@@ -159,11 +174,11 @@ msgstr "直接对讲前缀"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:160 views/form.php:190
+#: views/form.php:200 views/form.php:230
 msgid "No"
 msgstr ""
 
-#: views/settings.php:3
+#: views/form.php:32 views/settings.php:3
 msgid "None"
 msgstr ""
 
@@ -171,11 +186,11 @@ msgstr ""
 msgid "Not Selected"
 msgstr "未选择分机"
 
-#: functions.inc.php:642 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "集体传呼组"
 
-#: functions.inc.php:744
+#: functions.inc.php:774
 msgid "Page Group: "
 msgstr "传呼组："
 
@@ -183,7 +198,7 @@ msgstr "传呼组："
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:45
+#: views/form.php:59
 msgid "Paging Extension"
 msgstr "传呼组的分机号"
 
@@ -191,7 +206,7 @@ msgstr "传呼组的分机号"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:185 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:187 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "集体传呼和直接对讲"
@@ -200,7 +215,7 @@ msgstr "集体传呼和直接对讲"
 msgid "Paging and Intercom settings"
 msgstr ""
 
-#: views/form.php:168
+#: views/form.php:208
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -210,15 +225,15 @@ msgstr ""
 "工），以让在组中的所有电话都可以向所有其他电话发言。这个功能看起来有些“即时的"
 "电话会议”的意味。"
 
-#: Paging.class.php:180
+#: Paging.class.php:182
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:232
+#: Paging.class.php:234
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:181
+#: Paging.class.php:183
 msgid "Ring"
 msgstr ""
 
@@ -230,15 +245,15 @@ msgstr "已选择分机"
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:125
+#: views/form.php:165
 msgid "Skip"
 msgstr ""
 
-#: Paging.class.php:237 views/settings.php:68
+#: Paging.class.php:239 views/settings.php:68
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:57
+#: views/form.php:71
 msgid "The number users will dial to page this group"
 msgstr "这个号码用来代表此集体传呼组"
 
@@ -263,7 +278,7 @@ msgstr ""
 "Mitel、Polycom、SNOM的产品，也可能支持其他（非ATA的）SIP电话。任何电话设置成"
 "自动接听的电话应该也可以工作（比如配置好的控制台分机）。"
 
-#: Paging.class.php:168
+#: Paging.class.php:170
 msgid "Unknown Request"
 msgstr ""
 
@@ -275,21 +290,21 @@ msgstr "允许直接对讲的用户"
 msgid "User Intercom Disallow"
 msgstr "禁止直接对讲的用户"
 
-#: Paging.class.php:187
+#: Paging.class.php:189
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
 
-#: views/form.php:129
+#: views/form.php:169
 msgid "Whisper"
 msgstr ""
 
-#: views/form.php:158 views/form.php:188
+#: views/form.php:198 views/form.php:228
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:932
+#: functions.inc.php:962
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

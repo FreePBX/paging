@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-09 12:53-0400\n"
+"POT-Creation-Date: 2015-04-03 14:30-0400\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -30,23 +30,23 @@ msgstr ""
 "X-Poedit-Language: Swedish\n"
 "X-Poedit-Country: SWEDEN\n"
 
-#: Paging.class.php:190
+#: Paging.class.php:192
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:188
+#: Paging.class.php:190
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:189
+#: Paging.class.php:191
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:137
+#: views/form.php:177
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -82,7 +82,18 @@ msgid ""
 msgstr ""
 
 #: views/settings.php:63
-msgid "Annoucement to be played to remote part. Default is a beep"
+msgid "Annoucement to be played to remote party. Default is a beep"
+msgstr ""
+
+#: views/form.php:148
+msgid ""
+"Annoucement to be played to remote party. If set to Default it will use the "
+"global setting from Page Groups. If Page Groups is not defined then it will "
+"default to beep"
+msgstr ""
+
+#: views/form.php:134
+msgid "Announcement"
 msgstr ""
 
 #: paging.i18n.php:6 paging.i18n.php:12
@@ -93,42 +104,46 @@ msgstr ""
 msgid "Auto-answer defaults"
 msgstr ""
 
-#: views/form.php:120
+#: views/form.php:34
+msgid "Beep"
+msgstr ""
+
+#: views/form.php:160
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/grid.php:14 views/settings.php:4
+#: views/form.php:33 views/grid.php:14 views/settings.php:4
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:929
+#: functions.inc.php:959
 msgid "Default Group Inclusion"
 msgstr "Standard gruppinkludering"
 
-#: functions.inc.php:932 views/form.php:183
+#: functions.inc.php:962 views/form.php:223
 msgid "Default Page Group"
 msgstr "Standard anropsgrupp"
 
-#: Paging.class.php:85 Paging.class.php:227
+#: Paging.class.php:86 Paging.class.php:229
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:81 views/grid.php:12
+#: views/form.php:95 views/grid.php:12
 msgid "Description"
 msgstr ""
 
-#: views/form.php:93
+#: views/form.php:107
 msgid "Device List"
 msgstr ""
 
-#: views/form.php:105
+#: views/form.php:119
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: views/form.php:153
+#: views/form.php:193
 msgid "Duplex"
 msgstr "Tvåvägs-samtal"
 
@@ -136,30 +151,30 @@ msgstr "Tvåvägs-samtal"
 msgid "Edit: "
 msgstr ""
 
-#: functions.inc.php:908
+#: functions.inc.php:938
 msgid "Exclude"
 msgstr "Exkludera"
 
-#: Paging.class.php:182 views/form.php:127
+#: Paging.class.php:184 views/form.php:167
 msgid "Force"
 msgstr ""
 
-#: views/form.php:69
+#: views/form.php:83
 msgid "Group Description"
 msgstr "Beskrivning för gruppen"
 
-#: views/form.php:198
+#: views/form.php:238
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:909
+#: functions.inc.php:939
 msgid "Include"
 msgstr "Inkludera"
 
-#: Paging.class.php:186
+#: Paging.class.php:188
 msgid "Intercom Override"
 msgstr ""
 
@@ -171,11 +186,11 @@ msgstr "Prefix för snabbtelefon"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:160 views/form.php:190
+#: views/form.php:200 views/form.php:230
 msgid "No"
 msgstr "Nej"
 
-#: views/settings.php:3
+#: views/form.php:32 views/settings.php:3
 msgid "None"
 msgstr ""
 
@@ -183,11 +198,11 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:642 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Anropsgrupp"
 
-#: functions.inc.php:744
+#: functions.inc.php:774
 msgid "Page Group: "
 msgstr "Anropsgrupp: "
 
@@ -195,7 +210,7 @@ msgstr "Anropsgrupp: "
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:45
+#: views/form.php:59
 msgid "Paging Extension"
 msgstr "Anknytningsnummer för grupp"
 
@@ -203,7 +218,7 @@ msgstr "Anknytningsnummer för grupp"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:185 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:187 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Snabbtelefon"
@@ -212,7 +227,7 @@ msgstr "Snabbtelefon"
 msgid "Paging and Intercom settings"
 msgstr ""
 
-#: views/form.php:168
+#: views/form.php:208
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -222,15 +237,15 @@ msgstr ""
 "anropet att vara tvåvägs, alla telefoner i anropsgruppen kan prata och höras "
 "av varandra. Kan med fördel användas för \"omedelbar konferens\"."
 
-#: Paging.class.php:180
+#: Paging.class.php:182
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:232
+#: Paging.class.php:234
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:181
+#: Paging.class.php:183
 msgid "Ring"
 msgstr ""
 
@@ -242,15 +257,15 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:125
+#: views/form.php:165
 msgid "Skip"
 msgstr ""
 
-#: Paging.class.php:237 views/settings.php:68
+#: Paging.class.php:239 views/settings.php:68
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:57
+#: views/form.php:71
 msgid "The number users will dial to page this group"
 msgstr "Numret att använda för att anropa denna grupp"
 
@@ -277,7 +292,7 @@ msgstr ""
 "Mitel, Polycom, SNOM och troligtvis andra SIP-telefoner (inga s.k. ATA-"
 "boxar). Telefoner med funktionen auto-answer bör också fungera."
 
-#: Paging.class.php:168
+#: Paging.class.php:170
 msgid "Unknown Request"
 msgstr ""
 
@@ -289,21 +304,21 @@ msgstr "Tillåt snabbtelefon"
 msgid "User Intercom Disallow"
 msgstr "Förhindra snabbtelefon"
 
-#: Paging.class.php:187
+#: Paging.class.php:189
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
 
-#: views/form.php:129
+#: views/form.php:169
 msgid "Whisper"
 msgstr "Viskningsläge"
 
-#: views/form.php:158 views/form.php:188
+#: views/form.php:198 views/form.php:228
 msgid "Yes"
 msgstr "Ja"
 
-#: functions.inc.php:932
+#: functions.inc.php:962
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
