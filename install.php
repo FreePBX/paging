@@ -22,12 +22,12 @@ $fcc->setDefault('*54');
 $fcc->update();
 unset($fcc);
 
-// User intercom disable 
+// User intercom disable
 $fcc = new featurecode('paging', 'intercom-off');
 $fcc->setDescription('User Intercom Disallow');
 $fcc->setDefault('*55');
 $fcc->update();
-unset($fcc);	
+unset($fcc);
 
 // Remove old tables that were never used
 //
@@ -42,8 +42,8 @@ if(DB::IsError($result)) {
 	die_freepbx($result->getDebugInfo());
 }
 
-$sql = "CREATE TABLE IF NOT EXISTS paging_groups 
-	( page_number VARCHAR(50), 
+$sql = "CREATE TABLE IF NOT EXISTS paging_groups
+	( page_number VARCHAR(50),
 	  ext VARCHAR(25),
 		PRIMARY KEY (page_number, ext)
 	)";
@@ -77,12 +77,13 @@ if(DB::IsError($check)) {
 	if(DB::IsError($result)) {
 		die_freepbx($result->getDebugInfo());
 	}
-	
-	$sql = "CREATE TABLE IF NOT EXISTS paging_config 
-		( page_group VARCHAR(255), 
+
+	$sql = "CREATE TABLE IF NOT EXISTS paging_config
+		( page_group VARCHAR(255),
 	  	force_page INTEGER(1) NOT NULL,
 			duplex     INTEGER(1) NOT NULL default '0',
 			description VARCHAR(255) NOT NULL default '',
+			announcement VARCHAR(255) NULL,
 			PRIMARY KEY (page_group)
 		)";
 	$result = $db->query($sql);
@@ -98,7 +99,7 @@ if(DB::IsError($check)) {
 	}
 }
 
-// Set the initial default values, if already 
+// Set the initial default values, if already
 
 // These are the three most common ways of auto answering.
 // If the table is already populated then error will be ignored and user data will not get altered
@@ -139,6 +140,17 @@ $sql = "SELECT description FROM paging_config";
 $result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($result)) {
 	$sql = "ALTER TABLE paging_config ADD description VARCHAR(255) NOT NULL default ''";
+	$results = $db->query($sql);
+	if(DB::IsError($results)) {
+	        die_freepbx($results->getMessage());
+	}
+}
+// Add announcement field
+//
+$sql = "SELECT announcement FROM paging_config";
+$result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($result)) {
+	$sql = "ALTER TABLE paging_config ADD announcement VARCHAR(255) NULL";
 	$results = $db->query($sql);
 	if(DB::IsError($results)) {
 	        die_freepbx($results->getMessage());

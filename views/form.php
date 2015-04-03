@@ -28,6 +28,20 @@ foreach ($device_list as $ext => $name) {
 $class = ' class="device_list ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ';
 $devhtml .= '<h4>'._('Selected').'</h4><fieldset id="selected_dev" '.$class.'>'.$selected_dev.'</fieldset>';
 $devhtml .= '<h4>'._('Not Selected').'</h4><fieldset id="notselected_dev" '.$class.'>'.$notselected_dev.'</fieldset>';
+
+$rec_list['none'] = _('None');
+$rec_list['default'] = _('Default');
+$rec_list['beep'] = _('Beep');
+$thisGRP['announcement'] = !empty($thisGRP['announcement']) ? $thisGRP['announcement'] : 'default';
+if (function_exists('recordings_list'))  {
+	//build recordings list
+	foreach (recordings_list() as $rec) {
+		$rec_list[$rec['id']] = $rec['displayname'];
+	}
+}
+foreach ($rec_list as $key => $value) {
+	$aopts .= '<option value='.$key.' '.(($key == $thisGRP['announcement'])?'SELECTED':'').'>'.$value.'</option>';
+}
 ?>
 <form class="fpbx-submit" name="page_opts_form" id="page_opts_form" data-fpbx-delete="<?php echo $delURL?>" method="POST">
 <input type="hidden" name="view" value="form">
@@ -110,6 +124,32 @@ $devhtml .= '<h4>'._('Not Selected').'</h4><fieldset id="notselected_dev" '.$cla
 	</div>
 </div>
 <!--END Device List-->
+<!--Announcement-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="announcement"><?php echo _("Announcement") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="announcement"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="announcement" name="announcement">
+							<?php echo $aopts?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="announcement-help" class="help-block fpbx-help-block"><?php echo _("Annoucement to be played to remote party. If set to Default it will use the global setting from Page Groups. If Page Groups is not defined then it will default to beep")?></span>
+		</div>
+	</div>
+</div>
+<!--END Announcement-->
 <!--Busy Extensions-->
 <div class="element-container">
 	<div class="row">

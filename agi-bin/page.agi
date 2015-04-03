@@ -1,6 +1,6 @@
 #!/usr/bin/php -q
 <?php
-//include freepbx configuration 
+//include freepbx configuration
 $restrict_mods = true;
 if (!@include_once(getenv('FREEPBX_CONF') ? getenv('FREEPBX_CONF') : '/etc/freepbx.conf')) {
 	include_once('/etc/asterisk/freepbx.conf');
@@ -23,6 +23,7 @@ $get = array(
 	'MCAST'		=> '',
 	'SIPURI'	=> '',
 	'STREAM'	=> 'beep',
+	'ANNOUNCEMENT' => '',
 	'VXML_URL'	=> ''
 );
 
@@ -31,12 +32,12 @@ foreach ($get as $k => $v) {
 	$vars[$k] = $tmp ? $tmp : $v;
 }
 
-//clear stream if requested
-$vars['STREAM'] = $vars['STREAM'] == 'NONE'
-	? ''
-	: $vars['STREAM'];
+dbug($vars);
 
-// TODO: this deals with the mainstream ones. We could check in the dialplan if 
+//clear stream if requested
+$vars['STREAM'] = $vars['STREAM'] == 'NONE' ? '' : $vars['STREAM'];
+
+// TODO: this deals with the mainstream ones. We could check in the dialplan if
 //there are any others outside of these and only in that case evoke the
 //new custom macro that gets generated to otherwise deal with these???
 
@@ -50,7 +51,8 @@ $chan_vars = array(
 	'DTIME',
 	'SIPURI',
 	'SIPURI',
-	'VXML_URL'
+	'VXML_URL',
+	'ANNOUNCEMENT'
 );
 
 foreach ($chan_vars as $var) {
@@ -70,7 +72,7 @@ if (!$page_members[0] && !$mcast[0]) {
 
 // Figure out who we are
 list($this_chan, ) = explode('-', agi_get_var("CHANNEL(name)"), 2); // SIP/123, IAX/123, DAHDI/3, etc
-list( , $myext) = explode('/', $this_chan); 
+list( , $myext) = explode('/', $this_chan);
 
 // Are we pjsip? We need to get our REAL URI.
 if (substr($this_chan, 0, 5) == "PJSIP") {
@@ -79,12 +81,12 @@ if (substr($this_chan, 0, 5) == "PJSIP") {
 	$this_chan .= "/sip:$myext@$caller";
 }
 
-/* Create a temp leader to address the issue of members being paged 
- * followed by the real leader hanging up, resulting in hung paged phones 
- * becasue the leader never left. Since the conference ends when the LAST 
- * leader hangs up, this leader stays on just long enough to allow the real  
+/* Create a temp leader to address the issue of members being paged
+ * followed by the real leader hanging up, resulting in hung paged phones
+ * becasue the leader never left. Since the conference ends when the LAST
+ * leader hangs up, this leader stays on just long enough to allow the real
  * leader to enter.
- * note: we got to app-page-stream since it simply enters the conference 
+ * note: we got to app-page-stream since it simply enters the conference
  * as a marked user
  */
 $lead = array(
@@ -134,7 +136,7 @@ foreach ($page_members as $pm) {
 		}
 		continue;
 	}
-	// It's a PJSIP Device. 
+	// It's a PJSIP Device.
 	if (isset($pjsipcontacts[$pm])) {
 		foreach ($pjsipcontacts[$pm] as $pjdev) {
 			$dev = "PJSIP/$pm/".$pjdev['uri'];
@@ -159,10 +161,10 @@ foreach ($devices as $dev) {
 	$pagemode = 'PAGE';
 	$pass_vars = $base_vars;
 
-	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
-		$pass_vars['CONFBRIDGE(user,template)'] 
-			= $vars['PAGE_CONF_OPTS'] == 'duplex' 
-			? 'page_user_duplex' 
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
+		$pass_vars['CONFBRIDGE(user,template)']
+			= $vars['PAGE_CONF_OPTS'] == 'duplex'
+			? 'page_user_duplex'
 			: 'page_user';
 	}
 
@@ -178,8 +180,8 @@ foreach ($devices as $dev) {
 
 	$pass_vars['KNOWNDIAL'] = $device;
 
-	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD 
-	// are ok to page). if FPAGE we use the PAGE context reset above but 
+	// if not force mode, don't page busy extension (NOT_INUSE or ONHOLD
+	// are ok to page). if FPAGE we use the PAGE context reset above but
 	// this will get skipped
 	if ($useragent == "rtp") {
 		$dev_state = "NOT_INUSE";
@@ -188,12 +190,12 @@ foreach ($devices as $dev) {
 	}
 	// $agi->verbose("device $device has state $dev_state", 0);
 	if ($vars['PAGEMODE'] == 'PAGE') {
-		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
+		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') {
 			continue;
 		}
 		$user = $agi->database_get("DEVICE", $pm . '/user');
-		$dnd = $user['data'] != '' 
-			?  $agi->database_get("DND", $user['data']) 
+		$dnd = $user['data'] != ''
+			?  $agi->database_get("DND", $user['data'])
 			: array('data' => '');
 		if ($dnd['data'] == 'YES') {
 			continue;
@@ -201,11 +203,11 @@ foreach ($devices as $dev) {
 		// try using Spy mode (whisper)
 	} elseif ($vars['PAGEMODE'] == 'SPAGE') {
 		// if not idle but in a state we can try spying, then try
-		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') { 
+		if ($dev_state != 'NOT_INUSE' && $dev_state != 'ONHOLD') {
 			//TODO: change to in_array or a function
 			$user = $agi->database_get("DEVICE", $pm . '/user');
-			$dnd = $user['data'] != '' 
-				?  $agi->database_get("DND", $user['data']) 
+			$dnd = $user['data'] != ''
+				?  $agi->database_get("DND", $user['data'])
 				: array('data' => '');
 			if ($dnd['data'] == 'YES') {
 				continue;
@@ -224,7 +226,7 @@ foreach ($devices as $dev) {
 				$pass_vars['SP_DEVICE'] = __pad_string($device);
 				break;
 			default:
-				// State is not amicable to spy or normal 
+				// State is not amicable to spy or normal
 				// (such as RINGING) so skip it
 				continue;
 				break;
@@ -232,25 +234,25 @@ foreach ($devices as $dev) {
 		}
 	}
 
-	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) { 
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 		$data_params = $vars['PAGE_CONF'] . ',,,' . 'user_menu';
 	} else {
-		$data_params = $vars['PAGE_CONF'] 
-			. ',' 
-			. $vars['PAGE_CONF_OPTS'] 
+		$data_params = $vars['PAGE_CONF']
+			. ','
+			. $vars['PAGE_CONF_OPTS']
 			. ',,';
 	}
 	$astman->Originate(array(
 		'Channel'     => 'Local/' . $pagemode . $pm . '@app-paging/n',
-		'CallerID'    => $vars['calleridname'] 
-		. ' <' 
-		. $vars['callerid'] 
+		'CallerID'    => $vars['calleridname']
+		. ' <'
+		. $vars['callerid']
 		. '>',
 		'Async'       => 'true',
 		'Codec'		=> 'ulaw',
 		'Variable'    => $pass_vars,
-		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge' 
-		? 'ConfBridge' 
+		'Application' => ($amp_conf['ASTCONFAPP'] == 'app_confbridge'
+		? 'ConfBridge'
 		: 'MeetMe'),
 		'Data'        => $data_params
 	));

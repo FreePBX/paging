@@ -60,7 +60,7 @@ foreach ($rec_list as $key => $value) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="announce-help" class="help-block fpbx-help-block"><?php echo _("Annoucement to be played to remote part. Default is a beep")?></span>
+			<span id="announce-help" class="help-block fpbx-help-block"><?php echo _("Annoucement to be played to remote party. Default is a beep")?></span>
 		</div>
 	</div>
 </div>

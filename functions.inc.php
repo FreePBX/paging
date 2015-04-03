@@ -463,12 +463,14 @@ function paging_get_config($engine) {
 		} else {
 			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer', '${EXTEN:4}'));
 		}
-		$ext->add($apppaging, "_PAGE.", '', new ext_set('_DOPTIONS', $doptions));
+		//strip the global Announcement out of doptions (We use our announcement variable lower --V)
+		$doptions2 = preg_replace("/A\([^\)]*\)/","",$doptions);
+		$ext->add($apppaging, "_PAGE.", '', new ext_set('_DOPTIONS', $doptions2));
 		// If it's less than Asterisk 11, manually run the add sip header macro.
 		if (!$ast_ge_11) {
 			$ext->add($apppaging, "_PAGE.", '', new ext_gosub('1', 's', 'autoanswer', '${ALERTINFO},${CALLINFO}'));
 		}
-		$ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},${DOPTIONS}'));
+		$ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},A(${ANNOUNCEMENT})${DOPTIONS}'));
 		$ext->add($apppaging, "_PAGE.", 'skipself', new ext_hangup());
 
 		// Try ChanSpy Version
@@ -531,7 +533,7 @@ function paging_get_config($engine) {
 
 		$apppagegroups = 'app-pagegroups';
 		// Now get a list of all the paging groups...
-		$sql = "SELECT page_group, force_page, duplex FROM paging_config";
+		$sql = "SELECT page_group, force_page, duplex, announcement FROM paging_config";
 		$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 
 		if (!$paging_groups) {
@@ -585,6 +587,34 @@ function paging_get_config($engine) {
 			} else {
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
 			}
+			//Default announcement is a beep
+			$announcement = "beep";
+			//extract our "global default announcement" from the doptions and set it to announcement
+			if(preg_match("/A\(([^\)]*)\)/",$doptions,$matches)) {
+				$announcement = isset($matches[1]) ? $matches[1] : "";
+			}
+			//get our individual page group announcement if set
+			if(!empty($thisgroup['announcement'])) {
+				switch($thisgroup['announcement']) {
+					case "beep":
+						$announcement = "beep";
+					break;
+					case "none":
+						$announcement = "";
+					break;
+					case "default":
+						//do nothing
+					break;
+					default:
+						if(function_exists('recordings_get_file')) {
+							$announcement = recordings_get_file($thisgroup['announcement']);
+						} else {
+							$announcement = "";
+						}
+					break;
+				}
+			}
+			$ext->add($apppagegroups, $grp, '', new ext_set('ANNOUNCEMENT', $announcement));
 			$ext->add($apppagegroups, $grp, 'agi', new ext_agi('page.agi'));
 
 			//we cant use originate from the dialplan as the dialplan command is not asynchronous
@@ -784,7 +814,7 @@ function paging_get_pagingconfig($grp) {
 	return $results;
 }
 
-function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0) {
+function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0, $announcement=0) {
 	global $db;
 	// Just in case someone's trying to be smart with a SQL injection.
 	$xtn = $db->escapeSimple($xtn);
@@ -793,7 +823,7 @@ function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description
 	paging_del($oldxtn);
 
 	// Now add it all back in.
-	paging_add($xtn, $plist, $force_page, $duplex, $description, $default_group);
+	paging_add($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement);
 
 	// Aaad we need a reload.
 	needreload();
@@ -820,7 +850,7 @@ function paging_del($xtn) {
 	needreload();
 }
 
-function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group) {
+function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group, $announcement=0) {
 	global $db;
 
 	// $plist contains a string of extensions, with \n as a seperator.
@@ -839,7 +869,7 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='', $defaul
 	}
 
 	$description = $db->escapeSimple(trim($description));
-	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description) VALUES ('$xtn', '$force_page', '$duplex', '$description')";
+	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description, announcement) VALUES ('$xtn', '$force_page', '$duplex', '$description', '$announcement')";
 	$db->query($sql);
 
 	if ($default_group) {
