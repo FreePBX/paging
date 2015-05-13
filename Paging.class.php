@@ -130,7 +130,6 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 							$request['extdisplay'] = $vars['extdisplay'] = $vars['pagenbr'];
 						}
 						$_REQUEST['extdisplay'] = $vars['extdisplay'];
-						$this->freepbx->View->redirect_standard('extdisplay');
 					}
 					break;
 				case 'save_settings':
@@ -313,5 +312,46 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		$sql = "INSERT INTO admin (variable,value) VALUES ('default_page_grp',:ext) ON DUPLICATE KEY UPDATE value = :ext";
 		$stmt = $this->db->prepare($sql);
 		return $stmt->execute(array('ext' => $ext));
+	}
+	public function hookForm(){
+	$module_hook = \moduleHook::create();
+	$mods = \FreePBX::Hooks()->processHooks();
+	$sections = array();
+	foreach($mods as $mod => $contents) {
+		if(empty($contents)) {
+			continue;
+		}
+		if(is_array($contents)) {
+			foreach($contents as $content) {
+				if(!isset($sections[$content['rawname']])) {
+					$sections[$content['rawname']] = array(
+						"title" => $content['title'],
+						"rawname" => $content['rawname'],
+						"content" => $content['content']
+					);
+				} else {
+					$sections[$content['rawname']]['content'] .= $content['content'];
+				}
+			}
+		} else {
+			if(!isset($sections[$mod])) {
+				$sections[$mod] = array(
+					"title" => ucfirst(strtolower($mod)),
+					"rawname" => $mod,
+					"content" => $contents
+				);
+			} else {
+				$sections[$mod]['content'] .= $contents;
+			}
+		}
+	}
+	$hookcontent = '';
+	foreach ($sections as $data) {
+		$hookcontent .= '<div class="section-title" data-for="paginghook'.$data['rawname'].'"><h3><i class="fa fa-minus"></i> '.$data['title'].'</h3></div>';
+		$hookcontent .= '<div class="section" data-id="paginghook'.$data['rawname'].'">';
+		$hookcontent .=	 $data['content'];
+		$hookcontent .= '</div>';
+	}
+	return array("hookContent" => $hookcontent, "oldHooks" => $module_hook->hookHtml);
 	}
 }

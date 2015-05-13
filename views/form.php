@@ -1,4 +1,5 @@
 <?php
+$hooks = \FreePBX::Paging()->hookForm();
 extract($request);
 if($extdisplay){
 	$thisGRP = paging_get_pagingconfig($extdisplay);
@@ -14,8 +15,10 @@ if($extdisplay){
 	$pagenbr = '';
 	$pagegrp = '';
 	$delURL = '';
+	$duplex = '0';
+	$description = '';
 }
-
+$default_group = \FreePBX::Paging()->getDefaultGroup();
 $device_list = array();
 foreach (core_devices_list() as $d) {
 	$device_list[$d[0]] = $d[0] . ' - ' . $d[1];
@@ -246,4 +249,6 @@ foreach ($rec_list as $key => $value) {
 	</div>
 </div>
 <!--END Default Page Group-->
+<?php echo $hooks['hookContent'] ?>
+<?php echo $hooks['oldHooks'] ?>
 </form>
