@@ -30,6 +30,7 @@ if (!function_exists('recordings_list')) {
 		}
 	}
 }
+$aopts = '';
 foreach ($rec_list as $key => $value) {
 	$aopts .= '<option value='.$key.' '.(($key == $announce)?'SELECTED':'').'>'.$value.'</option>';
 }

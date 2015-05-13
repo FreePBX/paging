@@ -1,20 +1,15 @@
 <?php
-$groups = paging_list();
-foreach ($groups as $g) {
-	$grows .= '<tr><td>'.$g['page_group'].'</td><td>'.$g['description'].'</td><td><a href="?display=paging&view=form&extdisplay='.urlencode($g['page_group']).'"><i class="fa fa-edit"></i></a>&nbsp;<a href="config.php?display=paging&action=delete&extdisplay='.urlencode($g['page_group']).'" class="delAction"><i class="fa fa-trash"></i></a></td><td>'.($g['is_default']?'<i class="fa fa-check"></i>':'').'</td></tr>';
-}
-?>
 
-<table class="table table-striped">
-<thead>
-	<tr>
-		<th><?php echo _("Page Group")?></th>
-		<th><?php echo _("Description")?></th>
-		<th><?php echo _("Actions")?></th>
-		<th><?php echo _("Default")?></th>
-	</tr>	
-</thead>
-<tbody>
-	<?php echo $grows ?>
-</tbody>
+    $dataurl = "ajax.php?module=paging&command=getJSON&jdata=grid";
+?>
+<a href="config.php?display=paging&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp; <?php echo _("Add Page Group") ?></a>
+ <table id="pagegrid" data-url="<?php echo $dataurl?>" data-cache="false" data-single-select="true" data-checkbox-header="false" data-select-item-name="mkdefault" data-pagination="true" data-search="true" data-toggle="table" class="table table-striped">
+    <thead>
+            <tr>
+            <th data-field="page_group" data-sortable="true"><?php echo _("Page Group")?></th>
+            <th data-field="description"><?php echo _("Description")?></th>
+            <th data-field="page_group" data-formatter="linkFormatter"><?php echo _("Actions")?></th>
+            <th data-field="is_default" data-formatter="defaultCheck" data-checkbox="true"><?php echo _("Default")?></th>
+        </tr>
+    </thead>
 </table>

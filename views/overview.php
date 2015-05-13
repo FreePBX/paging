@@ -14,7 +14,7 @@ $request = $_REQUEST;
 	</div>
 	<div class = "display full-border">
 		<div class="row">
-			<div class="col-sm-9">
+			<div class="col-sm-12">
 				<div class="fpbx-container">
 						<ul class="nav nav-tabs" role="tablist">
 							<li role="presentation" data-name="groups" class="active">
@@ -33,17 +33,11 @@ $request = $_REQUEST;
 								<?php echo load_view(__DIR__.'/grid.php', array('request' => $request ))?>
 							</div>
 							<div role="tabpanel" id="settings" class="tab-pane">
-								<?php echo load_view(__DIR__.'/settings.php', array('request' => $request ))?>		
+								<?php echo load_view(__DIR__.'/settings.php', array('request' => $request ))?>
 							</div>
 						</div>
-				</div>
-			</div>
-			<div class="col-sm-3 hidden-xs bootnav">
-				<div class="list-group">
-					<?php echo load_view(__DIR__.'/bootnav.php', array('request' => $request ))?>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
-

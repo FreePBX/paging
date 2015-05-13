@@ -6,6 +6,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 
 	public function __construct($freepbx = null) {
 		$this->freepbx = $freepbx;
+		$this->db = $freepbx->Database;
 	}
 
 	public function install() {
@@ -242,11 +243,75 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 				if(empty($request['extdisplay'])){
 					unset($buttons['delete']);
 				}
+				$request['view'] = isset($request['view'])?$request['view']:'';
 				if($request['view'] != 'form'){
-					unset($buttons);
+					$buttons = array();
 				}
 				return $buttons;
 			break;
 		}
+	}
+	public function ajaxRequest($req, &$setting) {
+       switch ($req) {
+           case 'getJSON':
+           case 'setDefault':
+               return true;
+           break;
+           default:
+               return false;
+           break;
+       }
+   }
+   public function ajaxHandler(){
+       switch ($_REQUEST['command']) {
+           case 'getJSON':
+               switch ($_REQUEST['jdata']) {
+                   case 'grid':
+                       return array_values($this->listGroups());
+                   break;
+                   default:
+                       return false;
+                   break;
+               }
+           break;
+					 case 'setDefault':
+							$this->setDefaultGroup($_REQUEST['ext']);
+					 break;
+           default:
+               return false;
+           break;
+       }
+   }
+	public function listGroups(){
+		$sql = "SELECT page_group, description FROM paging_config ORDER BY page_group";
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+		$results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		if(!$results) {
+			$results = array();
+		} else {
+			$default = $this->getDefaultGroup();
+			foreach ($results as $key => $list) {
+				$results[$key][0] = $list['page_group'];
+				if ($list['page_group'] === $default) {
+					$results[$key]['is_default'] = true;
+				} else {
+					$results[$key]['is_default'] = false;
+				}
+			}
+		}
+		return $results;
+	}
+	public function getDefaultGroup(){
+	 	$sql = "SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1";
+		$stmt = $this->db->query($sql);
+		$result = $stmt->fetchObject();
+		$default_group = $result->value;
+		return $default_group;
+	}
+	public function setDefaultGroup($ext){
+		$sql = "INSERT INTO admin (variable,value) VALUES ('default_page_grp',:ext) ON DUPLICATE KEY UPDATE value = :ext";
+		$stmt = $this->db->prepare($sql);
+		return $stmt->execute(array('ext' => $ext));
 	}
 }

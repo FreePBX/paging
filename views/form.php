@@ -9,6 +9,11 @@ if($extdisplay){
 	$delURL = '?display=paging&action=delete&extdisplay='.urlencode($extdisplay);
 } else {
 	$force_page = "0";
+	$devices = array();
+	$ext = '';
+	$pagenbr = '';
+	$pagegrp = '';
+	$delURL = '';
 }
 
 $device_list = array();
@@ -39,6 +44,7 @@ if (function_exists('recordings_list'))  {
 		$rec_list[$rec['id']] = $rec['displayname'];
 	}
 }
+$aopts ='';
 foreach ($rec_list as $key => $value) {
 	$aopts .= '<option value='.$key.' '.(($key == $thisGRP['announcement'])?'SELECTED':'').'>'.$value.'</option>';
 }

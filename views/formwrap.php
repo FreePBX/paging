@@ -1,4 +1,4 @@
-<?		
+<?
 //	License for all code of this FreePBX module can be found in the license file inside the module directory
 //	Copyright 2015 Sangoma Technologies.
 //
@@ -16,7 +16,7 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-3 hidden-xs bootnav <?php echo $request['fw_popover']?'hidden':''?>">
+			<div class="col-sm-3 hidden-xs bootnav <?php echo isset($request['fw_popover'])?'hidden':''?>">
 				<div class="list-group">
 					<?php echo load_view(__DIR__.'/bootnav.php', array('request' => $request ))?>
 				</div>

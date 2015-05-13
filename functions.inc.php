@@ -733,24 +733,8 @@ function paging_get_autoanswer_useragents($useragent = '') {
 }
 
 function paging_list() {
-	global $db;
-
-	$sql = "SELECT page_group, description FROM paging_config ORDER BY page_group";
-	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		$results = null;
-	} else {
-		$default = paging_get_default();
-		foreach ($results as $key => $list) {
-			$results[$key][0] = $list['page_group'];
-			if ($list['page_group'] === $default) {
-				$results[$key]['is_default'] = true;
-			} else {
-				$results[$key]['is_default'] = false;
-			}
-		}
-	}
-	return $results;
+	$result = \FreePBX::Paging()->listGroups();
+	return $result;
 }
 
 function paging_check_extensions($exten=true) {
@@ -889,8 +873,7 @@ function paging_check_default($extension) {
 }
 
 function paging_get_default() {
-	$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1", "getOne");
-	return $default_group;
+	return \FreePBX::Paging()->getDefaultGroup();
 }
 
 function paging_set_default($extension, $value) {

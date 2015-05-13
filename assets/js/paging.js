@@ -17,14 +17,14 @@ $(document).ready(function() {
 		deactivate: function(){dev_list_height();},
 		receive: function(i, ui) {
 			//if dev_limit returns false, cancel the move
-			dev_limit($(ui.item).parent().attr('id')) 
+			dev_limit($(ui.item).parent().attr('id'))
 				|| $(ui.sender).sortable('cancel');
 		}
 	}).disableSelection();
-	
+
 	//set device width so there all the same size
 	dev_list_item_width();
-	
+
 	//resize device lists, now that there 'sortabled' and 'buttoned'
 	dev_list_height();
 
@@ -33,7 +33,7 @@ $(document).ready(function() {
 		var to = $(this).parent().attr('id') == 'selected_dev'
 					? 'notselected_dev'
 					: 'selected_dev';
-		
+
 		//dont transfer devices if at limit
 		if (!dev_limit(to)) {
 			return false;
@@ -47,7 +47,7 @@ $(document).ready(function() {
 		var form = $(this);
 
 		$('#selected_dev > span').each(function(){
-			form.append('<input type="hidden" name="pagelist[]" value="' 
+			form.append('<input type="hidden" name="pagelist[]" value="'
 				+ $(this).attr('data-ext') + '">');
 		});
 
@@ -96,7 +96,7 @@ function dev_limit(id) {
 	if (id == 'notselected_dev') {
 		return true;
 	}
-	
+
 	//if key isnt set, just return true
 	if (typeof fpbx.conf.PAGINGMAXPARTICIPANTS == 'undefined') {
 		return true;
@@ -107,21 +107,32 @@ function dev_limit(id) {
 $(document).ready(function(){
 	$("#bnavgrid").bootstrapTable({
 		method: 'get',
-		url: '?display=paging&action=getJSON&jdata=grid&quietmode=1',
+		url: 'ajax.php?module=paging&command=getJSON&jdata=grid',
 		cache: false,
 		striped: false,
 		showColumns: false,
 		columns: [
 			{
 				title: _("Page Groups"),
-				field: 'link',
-				formatter: linkFormatter,
+				field: 'page_group',
+				formatter: bnLinkFormatter,
 			}
 			]
 	});
 });
 
 function linkFormatter(value){
-	html = '<a href="?display=paging&view=form&extdisplay='+value[1]+'"><i class="fa fa-pencil"></i>&nbsp'+_("Edit: ")+value[0]+'</a>';
+	html = '<a href="?display=paging&view=form&extdisplay='+value+'"><i class="fa fa-pencil"></i>&nbsp;</a>';
+	html += '<a href="?display=paging&action=delete&extdisplay='+value+'"><i class="fa fa-trash" class="delAction"></i>&nbsp;</a>';
 	return html;
 }
+function bnLinkFormatter(value){
+	html = '<a href="?display=paging&view=form&extdisplay='+value+'"><i class="fa fa-pencil"></i>&nbsp;'+value+'</a>';
+	return html;
+}
+
+$('#pagegrid').bootstrapTable({
+	onCheck: function(row){
+		$.get('ajax.php?module=paging&command=setDefault&ext='+row.page_group,function(data,status){console.log(data)});
+	},
+});
