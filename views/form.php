@@ -20,6 +20,8 @@ if($extdisplay){
 }
 $default_group = \FreePBX::Paging()->getDefaultGroup();
 $device_list = array();
+$cdl = core_devices_list();
+$cdl = is_array($cdl)?$cdl:array();
 foreach (core_devices_list() as $d) {
 	$device_list[$d[0]] = $d[0] . ' - ' . $d[1];
 }
@@ -43,7 +45,9 @@ $rec_list['beep'] = _('Beep');
 $thisGRP['announcement'] = !empty($thisGRP['announcement']) ? $thisGRP['announcement'] : 'default';
 if (function_exists('recordings_list'))  {
 	//build recordings list
-	foreach (recordings_list() as $rec) {
+	$rl = recordings_list();
+	$rl = is_array($rl)?$rl:array();
+	foreach ($rl as $rec) {
 		$rec_list[$rec['id']] = $rec['displayname'];
 	}
 }
