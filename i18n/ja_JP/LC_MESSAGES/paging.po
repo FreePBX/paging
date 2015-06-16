@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-03 14:30-0400\n"
+"POT-Creation-Date: 2015-06-16 15:36-0400\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -69,7 +69,7 @@ msgstr ""
 "<strong>リング</strong><br> 通常の通話として扱って、内線を鳴らします。キャッ"
 "チホンが無効の場合は、BUSY信号を返します"
 
-#: views/form.php:177
+#: views/form.php:190
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -87,79 +87,66 @@ msgid ""
 "</ul>"
 msgstr ""
 
-#: views/grid.php:13
+#: views/grid.php:11
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:7
+#: views/grid.php:5
 msgid "Add Page Group"
 msgstr ""
 
-#: paging.i18n.php:8
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones.\tAlso creates an Intercom feature code that can "
-"be used as a prefix to talk directly to one person, as well as optional "
-"feature codes to block/allow intercom calls to all users as well as blocking "
-"specific users or only allowing specific users."
-msgstr ""
-
-#: views/settings.php:63
+#: views/settings.php:64
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:148
+#: views/form.php:161
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
 
-#: views/form.php:134
+#: views/form.php:147
 msgid "Announcement"
 msgstr "アナウンス"
 
-#: paging.i18n.php:6 paging.i18n.php:12
-msgid "Applications"
-msgstr "アプリケーション"
-
-#: views/settings.php:49
+#: views/settings.php:50
 msgid "Auto-answer defaults"
 msgstr "自動応答デフォルト"
 
-#: views/form.php:34
+#: views/form.php:44
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:160
+#: views/form.php:173
 msgid "Busy Extensions"
 msgstr "通話中の内線"
 
-#: views/form.php:33 views/grid.php:14 views/settings.php:4
+#: views/form.php:43 views/grid.php:12 views/settings.php:4
 msgid "Default"
 msgstr "デフォルト"
 
-#: functions.inc.php:959
+#: functions.inc.php:942
 msgid "Default Group Inclusion"
 msgstr "デフォルトグループを含む"
 
-#: functions.inc.php:962 views/form.php:223
+#: functions.inc.php:945 views/form.php:236
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
-#: Paging.class.php:86 Paging.class.php:229
+#: Paging.class.php:87 Paging.class.php:229
 msgid "Delete"
 msgstr "削除"
 
-#: views/form.php:95 views/grid.php:12
+#: views/form.php:108 views/grid.php:10
 msgid "Description"
 msgstr ""
 
-#: views/form.php:107
+#: views/form.php:120
 msgid "Device List"
 msgstr "デバイスリスト"
 
-#: views/form.php:119
+#: views/form.php:132
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -169,34 +156,30 @@ msgstr ""
 "れる物です。ページングが可能なデバイス数は、詳細設定のキー "
 "PAGINMAXPARTICIPANTS によって指定されています。現在の設定は次の通りです： "
 
-#: views/form.php:193
+#: views/form.php:206
 msgid "Duplex"
 msgstr "デュプレックス"
 
-#: assets/js/paging.js:125
-msgid "Edit: "
-msgstr ""
-
-#: functions.inc.php:938
+#: functions.inc.php:921
 msgid "Exclude"
 msgstr "含まない"
 
-#: Paging.class.php:184 views/form.php:167
+#: Paging.class.php:184 views/form.php:180
 msgid "Force"
 msgstr "強制"
 
-#: views/form.php:83
+#: views/form.php:96
 msgid "Group Description"
 msgstr "グループ説明"
 
-#: views/form.php:238
+#: views/form.php:251
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:939
+#: functions.inc.php:922
 msgid "Include"
 msgstr "含む"
 
@@ -212,23 +195,23 @@ msgstr "インターコムプリフィックス"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:200 views/form.php:230
+#: views/form.php:213 views/form.php:243
 msgid "No"
 msgstr "いいえ"
 
-#: views/form.php:32 views/settings.php:3
+#: views/form.php:42 views/settings.php:3
 msgid "None"
 msgstr "なし"
 
-#: views/form.php:30
+#: views/form.php:40
 msgid "Not Selected"
 msgstr "未選択"
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:9
 msgid "Page Group"
 msgstr "ページンググループ"
 
-#: functions.inc.php:774
+#: functions.inc.php:758
 msgid "Page Group: "
 msgstr "ページンググループ："
 
@@ -236,7 +219,7 @@ msgstr "ページンググループ："
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:59
+#: views/form.php:72
 msgid "Paging Extension"
 msgstr "ページング内線"
 
@@ -244,16 +227,15 @@ msgstr "ページング内線"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:187 paging.i18n.php:4 paging.i18n.php:10
-#: views/overview.php:7
+#: Paging.class.php:187 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
-#: views/settings.php:37
+#: views/settings.php:38
 msgid "Paging and Intercom settings"
 msgstr "ページング & インターコム設定"
 
-#: views/form.php:208
+#: views/form.php:221
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -276,7 +258,7 @@ msgstr ""
 msgid "Ring"
 msgstr "リング"
 
-#: views/form.php:29
+#: views/form.php:39
 msgid "Selected"
 msgstr "選択済み"
 
@@ -284,15 +266,15 @@ msgstr "選択済み"
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:165
+#: views/form.php:178
 msgid "Skip"
 msgstr "スキップ"
 
-#: Paging.class.php:239 views/settings.php:68
+#: Paging.class.php:239 views/settings.php:69
 msgid "Submit"
 msgstr "送信"
 
-#: views/form.php:71
+#: views/form.php:84
 msgid "The number users will dial to page this group"
 msgstr "このグループへページングするためにユーザーがダイヤルする番号"
 
@@ -340,21 +322,24 @@ msgstr ""
 "インターコム機能で内線にページングするときに、もしその内線が使用中の場合は3つ"
 "の選択肢があります。"
 
-#: views/form.php:169
+#: views/form.php:182
 msgid "Whisper"
 msgstr "ウィスパー"
 
-#: views/form.php:198 views/form.php:228
+#: views/form.php:211 views/form.php:241
 msgid "Yes"
 msgstr "はい"
 
-#: functions.inc.php:962
+#: functions.inc.php:945
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
+
+#~ msgid "Applications"
+#~ msgstr "アプリケーション"
 
 #~ msgid "Annoucement to be played to remote part. Default is a beep"
 #~ msgstr "リモートパートに対して再生するアナウンス。デフォルトはビープ音です"
