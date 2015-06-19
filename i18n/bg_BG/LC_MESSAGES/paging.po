@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 15:36-0400\n"
+"POT-Creation-Date: 2015-06-19 18:21-0400\n"
 "PO-Revision-Date: 2014-11-18 13:36+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/paging/"
@@ -56,11 +56,11 @@ msgid ""
 "</ul>"
 msgstr ""
 
-#: views/grid.php:11
+#: views/grid.php:14
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:5
+#: views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:43 views/grid.php:12 views/settings.php:4
+#: views/form.php:43 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr "Група По-Подразбиране за Търсене"
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:108 views/grid.php:10
+#: views/form.php:108 views/grid.php:12
 msgid "Description"
 msgstr ""
 
@@ -173,7 +173,7 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:9
+#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Група на Търсене"
 

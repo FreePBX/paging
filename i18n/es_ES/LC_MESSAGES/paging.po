@@ -32,11 +32,11 @@ msgid ""
 "</ul>"
 msgstr ""
 
-#: views/grid.php:11
+#: views/grid.php:14
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:5
+#: views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -67,7 +67,7 @@ msgstr ""
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:43 views/grid.php:12 views/settings.php:4
+#: views/form.php:43 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -83,7 +83,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:108 views/grid.php:10
+#: views/form.php:108 views/grid.php:12
 msgid "Description"
 msgstr ""
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:9
+#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr ""
 

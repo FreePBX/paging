@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 15:36-0400\n"
+"POT-Creation-Date: 2015-06-19 18:21-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,11 +51,11 @@ msgid ""
 "</ul>"
 msgstr ""
 
-#: views/grid.php:11
+#: views/grid.php:14
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:5
+#: views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -87,7 +87,7 @@ msgid "Busy Extensions"
 msgstr ""
 
 #: views/form.php:43
-#: views/grid.php:12
+#: views/grid.php:13
 #: views/settings.php:4
 msgid "Default"
 msgstr ""
@@ -107,7 +107,7 @@ msgid "Delete"
 msgstr ""
 
 #: views/form.php:108
-#: views/grid.php:10
+#: views/grid.php:12
 msgid "Description"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 
 #: functions.inc.php:672
 #: views/formwrap.php:9
-#: views/grid.php:9
+#: views/grid.php:11
 msgid "Page Group"
 msgstr ""
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 15:36-0400\n"
+"POT-Creation-Date: 2015-06-19 18:21-0400\n"
 "PO-Revision-Date: 2015-05-04 00:15+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -54,11 +54,11 @@ msgid ""
 "</ul>"
 msgstr ""
 
-#: views/grid.php:11
+#: views/grid.php:14
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:5
+#: views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Busy Extensions"
 msgstr "Занятые внутренние номера"
 
-#: views/form.php:43 views/grid.php:12 views/settings.php:4
+#: views/form.php:43 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -105,7 +105,7 @@ msgstr "Дефолтная пейджинг-группа"
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:108 views/grid.php:10
+#: views/form.php:108 views/grid.php:12
 msgid "Description"
 msgstr ""
 
@@ -171,7 +171,7 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:9
+#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Пейджинг-группа"
 
