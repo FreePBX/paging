@@ -130,6 +130,9 @@ function bnLinkFormatter(value){
 	html = '<a href="?display=paging&view=form&extdisplay='+value+'"><i class="fa fa-pencil"></i>&nbsp;'+value+'</a>';
 	return html;
 }
+function defaultCheck(val){
+	return val;
+}
 
 $('#pagegrid').bootstrapTable({
 	onCheck: function(row){

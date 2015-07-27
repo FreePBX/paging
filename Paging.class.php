@@ -303,9 +303,10 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 	}
 	public function getDefaultGroup(){
 	 	$sql = "SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1";
-		$stmt = $this->db->query($sql);
-		$result = $stmt->fetchObject();
-		$default_group = $result->value;
+		$stmt = $this->db->prepare($sql);
+		$stmt->execute();
+		$result = $stmt->fetchColumn();
+		$default_group = $result;
 		return $default_group;
 	}
 	public function setDefaultGroup($ext){
