@@ -150,7 +150,9 @@ foreach ($page_members as $pm) {
 
 // Finally add any multicast entries.
 foreach ($mcast as $addr) {
-	$devices[] = array("MulticastRTP/basic/$addr", "rtp", "rtp");
+	if(!empty($addr)) {
+		$devices[] = array("MulticastRTP/basic/$addr", "rtp", "rtp");
+	}
 }
 
 foreach ($devices as $dev) {

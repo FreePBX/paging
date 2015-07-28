@@ -54,7 +54,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 
 		if ($page == "extensions" || $page == "users") {
 			// Catch the POST.
-			if (isset($request['extdisplay'])) {
+			if (isset($request['extdisplay']) && isset($request['intercom_override'])) {
 				if (preg_match('/override=(.+)/', $request['intercom_override'], $match)) {
 					$this->setOverride($request['extdisplay'], $match[1]);
 				}
