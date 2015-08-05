@@ -79,6 +79,10 @@ function paging_get_config($engine) {
 		if (!empty($intercom_code)) {
 			$code = '_'.$intercom_code.'.';
 			$context = 'ext-intercom';
+			// Add for languages
+			$ext->add($context, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$context.',${CHANNEL(language)})}]', $context.',${CHANNEL(language)},${ARG1}', $context.',en,${ARG1}'));
+			$ext->add($context, 'lang-playback', '', new ext_return());
+
 			$ext->add($context, $code, '', new ext_macro('user-callerid'));
 			$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
 			$ext->add($context, $code, '', new ext_setvar('INTERCOM_CALL', 'TRUE'));
@@ -179,9 +183,7 @@ function paging_get_config($engine) {
 
 			$ext->add($context, $code, 'nointercom', new ext_noop('Intercom disallowed by ${dialnumber}'));
 			$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
-			$ext->add($context, $code, '', new ext_playback('intercom&for&extension'));
-			$ext->add($context, $code, '', new ext_saydigits('${dialnumber}'));
-			$ext->add($context, $code, '', new ext_playback('is&disabled'));
+			$ext->add($context, $code, '', new ext_gosub('1', 'lang-playback', $context, 'hook_0'));
 			$ext->add($context, $code, '', new ext_congestion());
 
 			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
@@ -201,6 +203,17 @@ function paging_get_config($engine) {
 				}
 				$ext->add($context, $sub, '', new ext_hangup());
 			}
+			
+			$lang = 'en'; // English
+			$ext->add($context, $lang, 'hook_0', new ext_playback('intercom&for&extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('is&disabled'));
+			$ext->add($context, $lang, '', new ext_return());
+			$lang = 'ja'; // Japanese
+			$ext->add($context, $lang, 'hook_0', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('jp-no&intercom&jp-wa&disabled-2'));
+			$ext->add($context, $lang, '', new ext_return());
 
 			$extintercomusers = 'ext-intercom-users';
 			$userlist = core_users_list();
@@ -212,6 +225,9 @@ function paging_get_config($engine) {
 			}
 
 			$context = $extintercomusers;
+			// for language handling which is done on a per context basis
+			$ext->add($context, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$context.',${CHANNEL(language)})}]', $context.',${CHANNEL(language)},${ARG1}', $context.',en,${ARG1}'));
+			$ext->add($context, 'lang-playback', '', new ext_return());
 			$ext->addInclude('from-internal-additional', $context);
 		}
 
@@ -229,23 +245,47 @@ function paging_get_config($engine) {
 
 			$target = '${EXTEN:'.strlen($oncode).'}';
 			$oncode = "_".$oncode.".";
+			$ext->add($context, $oncode, '', new ext_setvar('dialnumber', '${EVAL(${EXTEN:'.strlen(substr($oncode, 1, -1)).'})}')); // Asterisk variable for saydigits languages
 			$ext->add($context, $oncode, '', new ext_answer(''));
 			$ext->add($context, $oncode, '', new ext_wait('1'));
 			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $oncode, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/'.$target.')}" = "allow" ]}','unset'));
 			$ext->add($context, $oncode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN:3}/device)} != 1]','invaliduser'));
 			$ext->add($context, $oncode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'allow'));
-			$ext->add($context, $oncode, '', new ext_playback('intercom&enabled&for&extension&number'));
-			$ext->add($context, $oncode, '', new ext_saydigits($target));
+			$ext->add($context, $oncode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_1'));
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $oncode, 'unset', new ext_dbdeltree('AMPUSER/${AMPUSER}/intercom/'.$target));
-			$ext->add($context, $oncode, '', new ext_playback('intercom&enabled&cancelled&for&extension&number'));
-			$ext->add($context, $oncode, '', new ext_saydigits($target));
+			$ext->add($context, $oncode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_2'));
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
-			$ext->add($context, $oncode, 'invaliduser', new ext_playback('extension&number'));
-			$ext->add($context, $oncode, '', new ext_saydigits($target));
-			$ext->add($context, $oncode, '', new ext_playback('is&invalid'));
+			$ext->add($context, $oncode, 'invaliduser', new ext_gosub('1', 'lang-playback', $context, 'hook_3'));
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
+			
+			$lang = 'en'; // English
+			$ext->add($context, $lang, 'hook_1', new ext_playback('intercom&from&extension&number'));
+//			$ext->add($context, $lang, '', new ext_saydigits($target));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('enabled'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_2', new ext_playback('intercom&enabled&cancelled&for&extension&number'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_3', new ext_playback('extension&number'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('invalid'));
+			$ext->add($context, $lang, '', new ext_return());
+			$lang = 'ja'; // Japanese
+			$ext->add($context, $lang, 'hook_1', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('jp-kara&jp-no&intercom&jp-wo&allow'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_2', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('jp-kara&jp-no&intercom&setting&jp-wo&cancelled'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_3', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('invalid'));
+			$ext->add($context, $lang, '', new ext_return());
 		}
 
 		$fcc = new featurecode('paging', 'intercom-off');
@@ -262,23 +302,46 @@ function paging_get_config($engine) {
 
 			$target = '${EXTEN:'.strlen($offcode).'}';
 			$offcode = "_".$offcode.".";
+			$ext->add($context, $offcode, '', new ext_setvar('dialnumber', '${EVAL(${EXTEN:'.strlen(substr($offcode, 1, -1)).'})}')); // Asterisk variable for saydigits languages
 			$ext->add($context, $offcode, '', new ext_answer(''));
 			$ext->add($context, $offcode, '', new ext_wait('1'));
 			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $offcode, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/'.$target.')}" = "deny" ]}','unset2'));
 			$ext->add($context, $offcode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN:3}/device)} != 1]','invaliduser2'));
 			$ext->add($context, $offcode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'deny'));
-			$ext->add($context, $offcode, '', new ext_playback('intercom&disabled&for&extension&number'));
-			$ext->add($context, $offcode, '', new ext_saydigits($target));
+			$ext->add($context, $offcode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_4'));
 			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $offcode, 'unset2', new ext_dbdeltree('AMPUSER/${AMPUSER}/intercom/'.$target));
-			$ext->add($context, $offcode, '', new ext_playback('intercom&disabled&cancelled&for&extension&number'));
-			$ext->add($context, $offcode, '', new ext_saydigits($target));
+			$ext->add($context, $offcode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_5'));
 			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
-			$ext->add($context, $offcode, 'invaliduser2', new ext_playback('extension&number'));
-			$ext->add($context, $offcode, '', new ext_saydigits($target));
-			$ext->add($context, $offcode, '', new ext_playback('is&invalid'));
+			$ext->add($context, $offcode, 'invaliduser2', new ext_gosub('1', 'lang-playback', $context, 'hook_6'));
 			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
+
+			$lang = 'en';
+			$ext->add($context, $lang, 'hook_4', new ext_playback('intercom&from&extension&number'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('disabled'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_5', new ext_playback('intercom&disabled&cancelled&for&extension&number'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_6', new ext_playback('extension&number'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('invalid'));
+			$ext->add($context, $lang, '', new ext_return());
+			$lang = 'ja';
+			$ext->add($context, $lang, 'hook_4', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('jp-kara&jp-no&intercom&jp-wo&deny'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_5', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('jp-kara&jp-no&intercom&setting&jp-wo&cancelled'));
+			$ext->add($context, $lang, '', new ext_return());
+			$ext->add($context, $lang, 'hook_6', new ext_playback('extension'));
+			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
+			$ext->add($context, $lang, '', new ext_playback('invalid'));
+			$ext->add($context, $lang, '', new ext_return());
 		}
 
 			/* Create macro-autoanswer that will try to intelligently set the
