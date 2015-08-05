@@ -262,7 +262,6 @@ function paging_get_config($engine) {
 			
 			$lang = 'en'; // English
 			$ext->add($context, $lang, 'hook_1', new ext_playback('intercom&from&extension&number'));
-//			$ext->add($context, $lang, '', new ext_saydigits($target));
 			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
 			$ext->add($context, $lang, '', new ext_playback('enabled'));
 			$ext->add($context, $lang, '', new ext_return());
