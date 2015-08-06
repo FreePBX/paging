@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:21-0400\n"
+"POT-Creation-Date: 2015-08-06 16:49-0700\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -126,11 +126,11 @@ msgstr "通話中の内線"
 msgid "Default"
 msgstr "デフォルト"
 
-#: functions.inc.php:942
+#: functions.inc.php:1004
 msgid "Default Group Inclusion"
 msgstr "デフォルトグループを含む"
 
-#: functions.inc.php:945 views/form.php:236
+#: functions.inc.php:1007 views/form.php:236
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
@@ -160,7 +160,7 @@ msgstr ""
 msgid "Duplex"
 msgstr "デュプレックス"
 
-#: functions.inc.php:921
+#: functions.inc.php:983
 msgid "Exclude"
 msgstr "含まない"
 
@@ -179,7 +179,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:922
+#: functions.inc.php:984
 msgid "Include"
 msgstr "含む"
 
@@ -207,11 +207,11 @@ msgstr "なし"
 msgid "Not Selected"
 msgstr "未選択"
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:734 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "ページンググループ"
 
-#: functions.inc.php:758
+#: functions.inc.php:820
 msgid "Page Group: "
 msgstr "ページンググループ："
 
@@ -330,7 +330,7 @@ msgstr "ウィスパー"
 msgid "Yes"
 msgstr "はい"
 
-#: functions.inc.php:945
+#: functions.inc.php:1007
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

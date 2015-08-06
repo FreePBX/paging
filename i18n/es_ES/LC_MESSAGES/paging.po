@@ -71,11 +71,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:942
+#: functions.inc.php:1004
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:945 views/form.php:236
+#: functions.inc.php:1007 views/form.php:236
 msgid "Default Page Group"
 msgstr ""
 
@@ -102,7 +102,7 @@ msgstr ""
 msgid "Duplex"
 msgstr ""
 
-#: functions.inc.php:921
+#: functions.inc.php:983
 msgid "Exclude"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:922
+#: functions.inc.php:984
 msgid "Include"
 msgstr ""
 
@@ -149,11 +149,11 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:734 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr ""
 
-#: functions.inc.php:758
+#: functions.inc.php:820
 msgid "Page Group: "
 msgstr ""
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:945
+#: functions.inc.php:1007
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

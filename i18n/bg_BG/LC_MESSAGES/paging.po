@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-19 18:21-0400\n"
+"POT-Creation-Date: 2015-08-06 16:49-0700\n"
 "PO-Revision-Date: 2014-11-18 13:36+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/paging/"
@@ -95,11 +95,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:942
+#: functions.inc.php:1004
 msgid "Default Group Inclusion"
 msgstr "Включване на Група По-Подразбиране"
 
-#: functions.inc.php:945 views/form.php:236
+#: functions.inc.php:1007 views/form.php:236
 msgid "Default Page Group"
 msgstr "Група По-Подразбиране за Търсене"
 
@@ -126,7 +126,7 @@ msgstr ""
 msgid "Duplex"
 msgstr "Двупосочно"
 
-#: functions.inc.php:921
+#: functions.inc.php:983
 msgid "Exclude"
 msgstr "Изключи"
 
@@ -145,7 +145,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:922
+#: functions.inc.php:984
 msgid "Include"
 msgstr "Включи"
 
@@ -173,11 +173,11 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:672 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:734 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Група на Търсене"
 
-#: functions.inc.php:758
+#: functions.inc.php:820
 msgid "Page Group: "
 msgstr "Група на Търсене: "
 
@@ -294,7 +294,7 @@ msgstr "Тайно"
 msgid "Yes"
 msgstr "Да"
 
-#: functions.inc.php:945
+#: functions.inc.php:1007
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
