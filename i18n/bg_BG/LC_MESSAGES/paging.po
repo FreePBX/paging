@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX v2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-06 16:49-0700\n"
+"POT-Creation-Date: 2015-09-02 12:14-0700\n"
 "PO-Revision-Date: 2014-11-18 13:36+0200\n"
 "Last-Translator: Chavdar <chavdar_75@yahoo.com>\n"
 "Language-Team: Bulgarian <http://git.freepbx.org/projects/freepbx/paging/"
@@ -38,7 +38,7 @@ msgid ""
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:190
+#: views/form.php:192
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -68,14 +68,14 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:161
+#: views/form.php:163
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
 
-#: views/form.php:147
+#: views/form.php:149
 msgid "Announcement"
 msgstr ""
 
@@ -83,15 +83,15 @@ msgstr ""
 msgid "Auto-answer defaults"
 msgstr ""
 
-#: views/form.php:44
+#: views/form.php:46
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:173
+#: views/form.php:175
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:43 views/grid.php:13 views/settings.php:4
+#: views/form.php:45 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Default Group Inclusion"
 msgstr "Включване на Група По-Подразбиране"
 
-#: functions.inc.php:1007 views/form.php:236
+#: functions.inc.php:1007 views/form.php:238
 msgid "Default Page Group"
 msgstr "Група По-Подразбиране за Търсене"
 
@@ -107,22 +107,22 @@ msgstr "Група По-Подразбиране за Търсене"
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:108 views/grid.php:12
+#: views/form.php:110 views/grid.php:12
 msgid "Description"
 msgstr ""
 
-#: views/form.php:120
+#: views/form.php:122
 msgid "Device List"
 msgstr ""
 
-#: views/form.php:132
+#: views/form.php:134
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: views/form.php:206
+#: views/form.php:208
 msgid "Duplex"
 msgstr "Двупосочно"
 
@@ -130,15 +130,15 @@ msgstr "Двупосочно"
 msgid "Exclude"
 msgstr "Изключи"
 
-#: Paging.class.php:184 views/form.php:180
+#: Paging.class.php:184 views/form.php:182
 msgid "Force"
 msgstr ""
 
-#: views/form.php:96
+#: views/form.php:98
 msgid "Group Description"
 msgstr "Описание за Група"
 
-#: views/form.php:251
+#: views/form.php:253
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -161,15 +161,15 @@ msgstr "Интерком Префикс"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:213 views/form.php:243
+#: views/form.php:215 views/form.php:245
 msgid "No"
 msgstr "Не"
 
-#: views/form.php:42 views/settings.php:3
+#: views/form.php:44 views/settings.php:3
 msgid "None"
 msgstr ""
 
-#: views/form.php:40
+#: views/form.php:42
 msgid "Not Selected"
 msgstr ""
 
@@ -185,7 +185,7 @@ msgstr "Група на Търсене: "
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:72
+#: views/form.php:74
 msgid "Paging Extension"
 msgstr "Вътрешен Номер за Търсене"
 
@@ -201,7 +201,7 @@ msgstr "Търсене и Интерком"
 msgid "Paging and Intercom settings"
 msgstr ""
 
-#: views/form.php:221
+#: views/form.php:223
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Ring"
 msgstr ""
 
-#: views/form.php:39
+#: views/form.php:41
 msgid "Selected"
 msgstr ""
 
@@ -232,7 +232,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:178
+#: views/form.php:180
 msgid "Skip"
 msgstr ""
 
@@ -240,7 +240,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:84
+#: views/form.php:86
 msgid "The number users will dial to page this group"
 msgstr "Номерът който потребителите ще набират за да търсят тази група"
 
@@ -286,11 +286,11 @@ msgid ""
 "have three options."
 msgstr ""
 
-#: views/form.php:182
+#: views/form.php:184
 msgid "Whisper"
 msgstr "Тайно"
 
-#: views/form.php:211 views/form.php:241
+#: views/form.php:213 views/form.php:243
 msgid "Yes"
 msgstr "Да"
 
