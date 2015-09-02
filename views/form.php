@@ -75,7 +75,7 @@ foreach ($rec_list as $key => $value) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="pagenbr"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="text" class="form-control extdisplay" id="pagenbr" name="pagenbr" value="<?php echo $pagenbr ?>">
+						<input type="number" class="form-control extdisplay" id="pagenbr" name="pagenbr" value="<?php echo $pagenbr ?>">
 					</div>
 				</div>
 			</div>
