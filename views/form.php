@@ -22,7 +22,9 @@ $default_group = \FreePBX::Paging()->getDefaultGroup();
 $device_list = array();
 $cdl = core_devices_list();
 $cdl = is_array($cdl)?$cdl:array();
-foreach (core_devices_list() as $d) {
+$devs = core_devices_list();
+$devs = is_array($devs)?$devs:array();
+foreach ($devs as $d) {
 	$device_list[$d[0]] = $d[0] . ' - ' . $d[1];
 }
 $devhtml ='';
