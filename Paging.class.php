@@ -109,10 +109,12 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 						if (isset($amp_conf['PAGINGMAXPARTICIPANTS'])
 							&& $amp_conf['PAGINGMAXPARTICIPANTS']
 						) {
-							$vars['pagelist'] = array_slice(
-												$vars['pagelist'],
-												0,
-												$amp_conf['PAGINGMAXPARTICIPANTS']);
+							if (!empty($vars['pagelist'])) {
+								$vars['pagelist'] = array_slice(
+									$vars['pagelist'],
+									0,
+									$amp_conf['PAGINGMAXPARTICIPANTS']);
+							}
 						}
 
 						paging_modify(
