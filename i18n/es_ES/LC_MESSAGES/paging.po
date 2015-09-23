@@ -1,14 +1,14 @@
-#: Paging.class.php:192
+#: Paging.class.php:194
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:190
+#: Paging.class.php:192
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:191
+#: Paging.class.php:193
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -79,7 +79,7 @@ msgstr ""
 msgid "Default Page Group"
 msgstr ""
 
-#: Paging.class.php:87 Paging.class.php:229
+#: Paging.class.php:87 Paging.class.php:231
 msgid "Delete"
 msgstr ""
 
@@ -106,7 +106,7 @@ msgstr ""
 msgid "Exclude"
 msgstr ""
 
-#: Paging.class.php:184 views/form.php:182
+#: Paging.class.php:186 views/form.php:182
 msgid "Force"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgstr ""
 msgid "Include"
 msgstr ""
 
-#: Paging.class.php:188
+#: Paging.class.php:190
 msgid "Intercom Override"
 msgstr ""
 
@@ -169,7 +169,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:187 views/overview.php:7
+#: Paging.class.php:189 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr ""
 
@@ -184,15 +184,15 @@ msgid ""
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
 
-#: Paging.class.php:182
+#: Paging.class.php:184
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:234
+#: Paging.class.php:236
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:183
+#: Paging.class.php:185
 msgid "Ring"
 msgstr ""
 
@@ -208,7 +208,7 @@ msgstr ""
 msgid "Skip"
 msgstr ""
 
-#: Paging.class.php:239 views/settings.php:69
+#: Paging.class.php:241 views/settings.php:69
 msgid "Submit"
 msgstr ""
 
@@ -230,7 +230,7 @@ msgid ""
 "configured)."
 msgstr ""
 
-#: Paging.class.php:170
+#: Paging.class.php:172
 msgid "Unknown Request"
 msgstr ""
 
@@ -242,7 +242,7 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: Paging.class.php:189
+#: Paging.class.php:191
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."

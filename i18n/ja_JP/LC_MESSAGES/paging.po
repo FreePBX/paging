@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 12:14-0700\n"
+"POT-Creation-Date: 2015-09-23 12:02-0700\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -49,7 +49,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Paging.class.php:192
+#: Paging.class.php:194
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -57,11 +57,11 @@ msgstr ""
 "<strong>強制</strong><br> 電話機に自動応答するヘッダーを送信します。未対応の"
 "機種の場合はこの設定が効かない場合があります。"
 
-#: Paging.class.php:190
+#: Paging.class.php:192
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr "<strong>拒否</strong><br> この内線に発信した人にBUSY信号を返します"
 
-#: Paging.class.php:191
+#: Paging.class.php:193
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -134,7 +134,7 @@ msgstr "デフォルトグループを含む"
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
-#: Paging.class.php:87 Paging.class.php:229
+#: Paging.class.php:87 Paging.class.php:231
 msgid "Delete"
 msgstr "削除"
 
@@ -164,7 +164,7 @@ msgstr "デュプレックス"
 msgid "Exclude"
 msgstr "含まない"
 
-#: Paging.class.php:184 views/form.php:182
+#: Paging.class.php:186 views/form.php:182
 msgid "Force"
 msgstr "強制"
 
@@ -183,7 +183,7 @@ msgstr ""
 msgid "Include"
 msgstr "含む"
 
-#: Paging.class.php:188
+#: Paging.class.php:190
 msgid "Intercom Override"
 msgstr "インターコムオーバーライド"
 
@@ -227,7 +227,7 @@ msgstr "ページング内線"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:187 views/overview.php:7
+#: Paging.class.php:189 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
@@ -246,15 +246,15 @@ msgstr ""
 "端末同士で相互に通話することが許可されます。これは、\"簡易会議\"のような挙動"
 "になります。"
 
-#: Paging.class.php:182
+#: Paging.class.php:184
 msgid "Reject"
 msgstr "拒否"
 
-#: Paging.class.php:234
+#: Paging.class.php:236
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:183
+#: Paging.class.php:185
 msgid "Ring"
 msgstr "リング"
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "Skip"
 msgstr "スキップ"
 
-#: Paging.class.php:239 views/settings.php:69
+#: Paging.class.php:241 views/settings.php:69
 msgid "Submit"
 msgstr "送信"
 
@@ -302,7 +302,7 @@ msgstr ""
 "す。常に自動応答するように設定されている電話機とも動作します。(例：コンソール"
 "内線が設定されている場合)。"
 
-#: Paging.class.php:170
+#: Paging.class.php:172
 msgid "Unknown Request"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr "ユーザーインターコムを許可"
 msgid "User Intercom Disallow"
 msgstr "ユーザーインターコムを禁止"
 
-#: Paging.class.php:189
+#: Paging.class.php:191
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
