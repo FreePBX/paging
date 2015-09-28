@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 12:02-0700\n"
+"POT-Creation-Date: 2015-09-28 15:51-0700\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -49,7 +49,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Paging.class.php:194
+#: Paging.class.php:195
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -57,11 +57,11 @@ msgstr ""
 "<strong>強制</strong><br> 電話機に自動応答するヘッダーを送信します。未対応の"
 "機種の場合はこの設定が効かない場合があります。"
 
-#: Paging.class.php:192
+#: Paging.class.php:193
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr "<strong>拒否</strong><br> この内線に発信した人にBUSY信号を返します"
 
-#: Paging.class.php:193
+#: Paging.class.php:194
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -95,7 +95,7 @@ msgstr ""
 msgid "Add Page Group"
 msgstr ""
 
-#: views/settings.php:64
+#: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
@@ -110,7 +110,7 @@ msgstr ""
 msgid "Announcement"
 msgstr "アナウンス"
 
-#: views/settings.php:50
+#: views/settings.php:53
 msgid "Auto-answer defaults"
 msgstr "自動応答デフォルト"
 
@@ -126,15 +126,15 @@ msgstr "通話中の内線"
 msgid "Default"
 msgstr "デフォルト"
 
-#: functions.inc.php:1004
+#: functions.inc.php:1005
 msgid "Default Group Inclusion"
 msgstr "デフォルトグループを含む"
 
-#: functions.inc.php:1007 views/form.php:238
+#: functions.inc.php:1008 views/form.php:238
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
-#: Paging.class.php:87 Paging.class.php:231
+#: Paging.class.php:87 Paging.class.php:246
 msgid "Delete"
 msgstr "削除"
 
@@ -156,15 +156,19 @@ msgstr ""
 "れる物です。ページングが可能なデバイス数は、詳細設定のキー "
 "PAGINMAXPARTICIPANTS によって指定されています。現在の設定は次の通りです： "
 
+#: views/settings.php:79
+msgid "Drop Silence"
+msgstr ""
+
 #: views/form.php:208
 msgid "Duplex"
 msgstr "デュプレックス"
 
-#: functions.inc.php:983
+#: functions.inc.php:984
 msgid "Exclude"
 msgstr "含まない"
 
-#: Paging.class.php:186 views/form.php:182
+#: Paging.class.php:187 views/form.php:182
 msgid "Force"
 msgstr "強制"
 
@@ -179,11 +183,11 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Include"
 msgstr "含む"
 
-#: Paging.class.php:190
+#: Paging.class.php:191
 msgid "Intercom Override"
 msgstr "インターコムオーバーライド"
 
@@ -195,7 +199,7 @@ msgstr "インターコムプリフィックス"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:215 views/form.php:245
+#: views/form.php:215 views/form.php:245 views/settings.php:86
 msgid "No"
 msgstr "いいえ"
 
@@ -207,11 +211,11 @@ msgstr "なし"
 msgid "Not Selected"
 msgstr "未選択"
 
-#: functions.inc.php:734 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "ページンググループ"
 
-#: functions.inc.php:820
+#: functions.inc.php:821
 msgid "Page Group: "
 msgstr "ページンググループ："
 
@@ -227,11 +231,11 @@ msgstr "ページング内線"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:189 views/overview.php:7
+#: Paging.class.php:190 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
-#: views/settings.php:38
+#: views/settings.php:41
 msgid "Paging and Intercom settings"
 msgstr "ページング & インターコム設定"
 
@@ -246,15 +250,15 @@ msgstr ""
 "端末同士で相互に通話することが許可されます。これは、\"簡易会議\"のような挙動"
 "になります。"
 
-#: Paging.class.php:184
+#: Paging.class.php:185
 msgid "Reject"
 msgstr "拒否"
 
-#: Paging.class.php:236
+#: Paging.class.php:251
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:185
+#: Paging.class.php:186
 msgid "Ring"
 msgstr "リング"
 
@@ -270,7 +274,7 @@ msgstr ""
 msgid "Skip"
 msgstr "スキップ"
 
-#: Paging.class.php:241 views/settings.php:69
+#: Paging.class.php:256 views/settings.php:99
 msgid "Submit"
 msgstr "送信"
 
@@ -302,7 +306,15 @@ msgstr ""
 "す。常に自動応答するように設定されている電話機とも動作します。(例：コンソール"
 "内線が設定されている場合)。"
 
-#: Paging.class.php:172
+#: views/settings.php:94
+msgid ""
+"This option drops what Asterisk detects as silence from entering into the "
+"bridge. Enabling this option will drastically improve performance and help "
+"remove the buildup of background noise from the conference. Highly "
+"recommended for large conferences due to its performance enhancements."
+msgstr ""
+
+#: Paging.class.php:173
 msgid "Unknown Request"
 msgstr ""
 
@@ -314,7 +326,7 @@ msgstr "ユーザーインターコムを許可"
 msgid "User Intercom Disallow"
 msgstr "ユーザーインターコムを禁止"
 
-#: Paging.class.php:191
+#: Paging.class.php:192
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
@@ -326,11 +338,11 @@ msgstr ""
 msgid "Whisper"
 msgstr "ウィスパー"
 
-#: views/form.php:213 views/form.php:243
+#: views/form.php:213 views/form.php:243 views/settings.php:84
 msgid "Yes"
 msgstr "はい"
 
-#: functions.inc.php:1007
+#: functions.inc.php:1008
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

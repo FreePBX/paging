@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-23 12:02-0700\n"
+"POT-Creation-Date: 2015-09-28 15:51-0700\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -17,17 +17,17 @@ msgstr ""
 "X-Poedit-Language: Italian\n"
 "X-Poedit-Country: ITALY\n"
 
-#: Paging.class.php:194
+#: Paging.class.php:195
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:192
+#: Paging.class.php:193
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:193
+#: Paging.class.php:194
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -59,7 +59,7 @@ msgstr ""
 msgid "Add Page Group"
 msgstr ""
 
-#: views/settings.php:64
+#: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
@@ -74,7 +74,7 @@ msgstr ""
 msgid "Announcement"
 msgstr ""
 
-#: views/settings.php:50
+#: views/settings.php:53
 msgid "Auto-answer defaults"
 msgstr ""
 
@@ -90,15 +90,15 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1004
+#: functions.inc.php:1005
 msgid "Default Group Inclusion"
 msgstr "Gruppo Page Predefinito"
 
-#: functions.inc.php:1007 views/form.php:238
+#: functions.inc.php:1008 views/form.php:238
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
-#: Paging.class.php:87 Paging.class.php:231
+#: Paging.class.php:87 Paging.class.php:246
 msgid "Delete"
 msgstr ""
 
@@ -117,15 +117,19 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
+#: views/settings.php:79
+msgid "Drop Silence"
+msgstr ""
+
 #: views/form.php:208
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:983
+#: functions.inc.php:984
 msgid "Exclude"
 msgstr "Escludi"
 
-#: Paging.class.php:186 views/form.php:182
+#: Paging.class.php:187 views/form.php:182
 msgid "Force"
 msgstr ""
 
@@ -140,11 +144,11 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Include"
 msgstr "Includi"
 
-#: Paging.class.php:190
+#: Paging.class.php:191
 msgid "Intercom Override"
 msgstr ""
 
@@ -156,7 +160,7 @@ msgstr "Prefisso Intercom"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:215 views/form.php:245
+#: views/form.php:215 views/form.php:245 views/settings.php:86
 msgid "No"
 msgstr ""
 
@@ -168,11 +172,11 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:734 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Gruppo Page"
 
-#: functions.inc.php:820
+#: functions.inc.php:821
 msgid "Page Group: "
 msgstr "Gruppo Page:"
 
@@ -188,11 +192,11 @@ msgstr "Interno Paging"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:189 views/overview.php:7
+#: Paging.class.php:190 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Paging e Intercom"
 
-#: views/settings.php:38
+#: views/settings.php:41
 msgid "Paging and Intercom settings"
 msgstr ""
 
@@ -207,15 +211,15 @@ msgstr ""
 "tutti i telefoni del gruppo di parlare tra loro. Come se fosse una "
 "\"conferenza instantanea\""
 
-#: Paging.class.php:184
+#: Paging.class.php:185
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:236
+#: Paging.class.php:251
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:185
+#: Paging.class.php:186
 msgid "Ring"
 msgstr ""
 
@@ -231,7 +235,7 @@ msgstr ""
 msgid "Skip"
 msgstr ""
 
-#: Paging.class.php:241 views/settings.php:69
+#: Paging.class.php:256 views/settings.php:99
 msgid "Submit"
 msgstr ""
 
@@ -266,7 +270,15 @@ msgstr ""
 "telefoni che hanno comunque la possibilità di utilizzare l'auto-risposta "
 "dovrebbero funzionare (come anche la console se configurata)."
 
-#: Paging.class.php:172
+#: views/settings.php:94
+msgid ""
+"This option drops what Asterisk detects as silence from entering into the "
+"bridge. Enabling this option will drastically improve performance and help "
+"remove the buildup of background noise from the conference. Highly "
+"recommended for large conferences due to its performance enhancements."
+msgstr ""
+
+#: Paging.class.php:173
 msgid "Unknown Request"
 msgstr ""
 
@@ -278,7 +290,7 @@ msgstr "Permette Intercom"
 msgid "User Intercom Disallow"
 msgstr "Non permette Intercom"
 
-#: Paging.class.php:191
+#: Paging.class.php:192
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
@@ -288,11 +300,11 @@ msgstr ""
 msgid "Whisper"
 msgstr ""
 
-#: views/form.php:213 views/form.php:243
+#: views/form.php:213 views/form.php:243 views/settings.php:84
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1007
+#: functions.inc.php:1008
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
