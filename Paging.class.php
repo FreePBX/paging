@@ -152,6 +152,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 						$a = "A(beep)$doptions";
 					}
 
+					$this->setDropSilence($state,!empty($vars['drop_silence']));
 					paging_set_autoanswer_defaults(array('DOPTIONS' => $a));
 					needreload();
 					break;
@@ -196,6 +197,20 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		$stat = $this->getOverride($_REQUEST['extdisplay']);
 		$cc->addguielem($section, new \gui_radio('intercom_override', $cc->getoptlist('intercom_override_options'), $stat, $name, $info));
 
+	}
+
+	public function getDropSilence() {
+		$set = $this->getConfig("dsp_drop_silence_set");
+		if(!$set) {
+			return true;
+		}
+		return $this->getConfig("dsp_drop_silence");
+	}
+
+	public function setDropSilence($state) {
+		$this->setConfig("dsp_drop_silence_set", 1);
+		$state = !empty($state) ? 1 : 0;
+		return $this->setConfig("dsp_drop_silence", $state);
 	}
 
 	public function getOverride($ext = false) {

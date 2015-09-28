@@ -203,7 +203,7 @@ function paging_get_config($engine) {
 				}
 				$ext->add($context, $sub, '', new ext_hangup());
 			}
-			
+
 			$lang = 'en'; // English
 			$ext->add($context, $lang, 'hook_0', new ext_playback('intercom&for&extension'));
 			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
@@ -259,7 +259,7 @@ function paging_get_config($engine) {
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $oncode, 'invaliduser', new ext_gosub('1', 'lang-playback', $context, 'hook_3'));
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
-			
+
 			$lang = 'en'; // English
 			$ext->add($context, $lang, 'hook_1', new ext_playback('intercom&from&extension&number'));
 			$ext->add($context, $lang, '', new ext_saydigits('${dialnumber}'));
@@ -561,7 +561,8 @@ function paging_get_config($engine) {
 				$conferences_conf->addConfUser($u, 'announce_user_count', 'no');
 				$conferences_conf->addConfUser($u, 'wait_marked', 'yes');
 				$conferences_conf->addConfUser($u, 'end_marked', 'yes');
-				$conferences_conf->addConfUser($u, 'dsp_drop_silence', 'yes');
+				$dds = \FreePBX::Paging()->getDropSilence() ? 'yes' : 'no';
+				$conferences_conf->addConfUser($u, 'dsp_drop_silence', $dds);
 				$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
 				$conferences_conf->addConfUser($u, 'admin', 'no');
 				$conferences_conf->addConfUser($u, 'marked', 'no');
