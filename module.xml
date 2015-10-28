@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.8</version>
+	<version>13.0.9</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.9* Slide out menu, BMO search agent
 		*13.0.8* FREEPBX-9264 Option to disable dsp_drop_silence always enabled for paging calls
 		*13.0.7* FREEPBX-10321 Allow page groups without members
 		*13.0.6* FREEPBX-10133 Dont allow anything but a number
@@ -35,7 +36,7 @@
 		*12.0.1alpha1* Initial Support for PJSip
 	</changelog>
 	<depends>
-		<version>12.0.2</version>
+		<version>13.0.6</version>
 		<module>conferences</module>
 	</depends>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
