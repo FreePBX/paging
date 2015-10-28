@@ -372,4 +372,14 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 	}
 	return array("hookContent" => $hookcontent, "oldHooks" => $module_hook->hookHtml);
 	}
+	public function getRightNav($request) {
+	  if(isset($request['view']) && $request['view'] == 'form'){
+	    return load_view(__DIR__."/views/bootnav.php",array());
+	  }
+	}
+	public function search($query, &$results) {
+		foreach($this->listGroups() as $g){
+			$results[] = array("text" => sprintf(_("Page Group: %s (%s)"),$g['description'],$g['page_group']), "type" => "get", "dest" => "?display=paging&view=form&extdisplay=".$g['page_group']);
+		}
+	}
 }

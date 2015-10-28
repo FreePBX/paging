@@ -3,9 +3,19 @@
 //	Copyright 2015 Sangoma Technologies.
 //
 ?>
-<a href="config.php?display=paging" class="list-group-item <?php echo ($request['view'] == ''? 'hidden':'')?>"><i class="fa fa-list"></i>&nbsp; <?php echo _("List Page Groups") ?></a>
-<?php
-if($request['view'] == 'form'){
-	echo '<table id="bnavgrid"></table>';
-}
-?>
+<div id="toolbar-pagenav">
+<a href="config.php?display=paging" class="btn btn-default"><i class="fa fa-list"></i>&nbsp; <?php echo _("List Page Groups") ?></a>
+<a href="config.php?display=paging&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp; <?php echo _("Add Page Group") ?></a>
+</div>
+<table data-toolbar="#toolbar-pagenav" data-url="ajax.php?module=paging&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
+    <thead>
+        <tr>
+            <th data-sortable="true" data-field="description"><?php echo _('Page Group')?></th>
+        </tr>
+    </thead>
+</table>
+<script type="text/javascript">
+	$("#table-all-side").on('click-row.bs.table',function(e,row,elem){
+		window.location = '?display=paging&view=form&extdisplay='+row['page_group'];
+	})
+</script>
