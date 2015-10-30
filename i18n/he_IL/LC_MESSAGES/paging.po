@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 15:51-0700\n"
+"POT-Creation-Date: 2015-10-29 18:37-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -53,7 +53,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:6
+#: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -155,7 +155,7 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr ""
 
-#: views/bootnav.php:6
+#: views/bootnav.php:7
 msgid "List Page Groups"
 msgstr ""
 
@@ -171,7 +171,8 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: views/grid.php:11
 msgid "Page Group"
 msgstr "קבוצת איתות"
 
@@ -179,6 +180,11 @@ msgstr "קבוצת איתות"
 #, fuzzy
 msgid "Page Group: "
 msgstr "קבוצת איתות"
+
+#: Paging.class.php:382
+#, php-format
+msgid "Page Group: %s (%s)"
+msgstr ""
 
 #: assets/js/paging.js:116
 msgid "Page Groups"

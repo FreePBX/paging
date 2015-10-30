@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 15:51-0700\n"
+"POT-Creation-Date: 2015-10-29 18:37-0700\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:6
+#: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -156,7 +156,7 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr "Prefisso Intercom"
 
-#: views/bootnav.php:6
+#: views/bootnav.php:7
 msgid "List Page Groups"
 msgstr ""
 
@@ -172,13 +172,19 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: views/grid.php:11
 msgid "Page Group"
 msgstr "Gruppo Page"
 
 #: functions.inc.php:821
 msgid "Page Group: "
 msgstr "Gruppo Page:"
+
+#: Paging.class.php:382
+#, php-format
+msgid "Page Group: %s (%s)"
+msgstr ""
 
 #: assets/js/paging.js:116
 msgid "Page Groups"

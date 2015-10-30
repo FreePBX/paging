@@ -36,7 +36,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:6
+#: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr ""
 
-#: views/bootnav.php:6
+#: views/bootnav.php:7
 msgid "List Page Groups"
 msgstr ""
 
@@ -153,12 +153,18 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: views/grid.php:11
 msgid "Page Group"
 msgstr ""
 
 #: functions.inc.php:821
 msgid "Page Group: "
+msgstr ""
+
+#: Paging.class.php:382
+#, php-format
+msgid "Page Group: %s (%s)"
 msgstr ""
 
 #: assets/js/paging.js:116

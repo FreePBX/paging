@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 15:51-0700\n"
+"POT-Creation-Date: 2015-10-29 18:37-0700\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -91,7 +91,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:6
+#: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -195,7 +195,7 @@ msgstr "インターコムオーバーライド"
 msgid "Intercom prefix"
 msgstr "インターコムプリフィックス"
 
-#: views/bootnav.php:6
+#: views/bootnav.php:7
 msgid "List Page Groups"
 msgstr ""
 
@@ -211,13 +211,19 @@ msgstr "なし"
 msgid "Not Selected"
 msgstr "未選択"
 
-#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: views/grid.php:11
 msgid "Page Group"
 msgstr "ページンググループ"
 
 #: functions.inc.php:821
 msgid "Page Group: "
 msgstr "ページンググループ："
+
+#: Paging.class.php:382
+#, php-format
+msgid "Page Group: %s (%s)"
+msgstr ""
 
 #: assets/js/paging.js:116
 msgid "Page Groups"

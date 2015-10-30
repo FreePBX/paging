@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-28 15:51-0700\n"
+"POT-Creation-Date: 2015-10-29 18:37-0700\n"
 "PO-Revision-Date: 2009-04-20 23:31+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/grid.php:6
+#: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr "Préfixe Intercom"
 
-#: views/bootnav.php:6
+#: views/bootnav.php:7
 msgid "List Page Groups"
 msgstr ""
 
@@ -183,13 +183,19 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:735 views/formwrap.php:9 views/grid.php:11
+#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: views/grid.php:11
 msgid "Page Group"
 msgstr "Groupe de Page"
 
 #: functions.inc.php:821
 msgid "Page Group: "
 msgstr "Groupe Page :"
+
+#: Paging.class.php:382
+#, php-format
+msgid "Page Group: %s (%s)"
+msgstr ""
 
 #: assets/js/paging.js:116
 msgid "Page Groups"
