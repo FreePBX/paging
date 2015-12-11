@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-29 18:37-0700\n"
+"POT-Creation-Date: 2015-12-10 16:39-0800\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -95,6 +95,15 @@ msgstr ""
 msgid "Add Page Group"
 msgstr ""
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
@@ -109,6 +118,10 @@ msgstr ""
 #: views/form.php:149
 msgid "Announcement"
 msgstr "アナウンス"
+
+#: paging.i18n.php:6 paging.i18n.php:12
+msgid "Applications"
+msgstr "アプリケーション"
 
 #: views/settings.php:53
 msgid "Auto-answer defaults"
@@ -237,7 +250,8 @@ msgstr "ページング内線"
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:190 views/overview.php:7
+#: Paging.class.php:190 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
@@ -355,9 +369,6 @@ msgid ""
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
-
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
 
 #~ msgid "Annoucement to be played to remote part. Default is a beep"
 #~ msgstr "リモートパートに対して再生するアナウンス。デフォルトはビープ音です"
