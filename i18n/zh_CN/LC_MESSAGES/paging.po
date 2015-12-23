@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-10 16:39-0800\n"
+"POT-Creation-Date: 2015-12-23 12:23-0800\n"
 "PO-Revision-Date: 2009-01-31 13:31+0800\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
@@ -104,11 +104,11 @@ msgstr "忙状态分机"
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1005
+#: functions.inc.php:1006
 msgid "Default Group Inclusion"
 msgstr "包含在默认传呼组中"
 
-#: functions.inc.php:1008 views/form.php:238
+#: functions.inc.php:1009 views/form.php:238
 msgid "Default Page Group"
 msgstr "默认传呼组"
 
@@ -139,7 +139,7 @@ msgstr ""
 msgid "Duplex"
 msgstr "双工"
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Exclude"
 msgstr "排除"
 
@@ -158,7 +158,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:985
+#: functions.inc.php:986
 msgid "Include"
 msgstr "包括"
 
@@ -186,12 +186,12 @@ msgstr ""
 msgid "Not Selected"
 msgstr "未选择分机"
 
-#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:736 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "集体传呼组"
 
-#: functions.inc.php:821
+#: functions.inc.php:822
 msgid "Page Group: "
 msgstr "传呼组："
 
@@ -318,7 +318,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1008
+#: functions.inc.php:1009
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

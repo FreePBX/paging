@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-10 16:39-0800\n"
+"POT-Creation-Date: 2015-12-23 12:23-0800\n"
 "PO-Revision-Date: 2009-04-20 23:31+0100\n"
 "Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
 "Language-Team: Français <LL@li.org>\n"
@@ -114,11 +114,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1005
+#: functions.inc.php:1006
 msgid "Default Group Inclusion"
 msgstr "Inclusion du Groupe par Défaut"
 
-#: functions.inc.php:1008 views/form.php:238
+#: functions.inc.php:1009 views/form.php:238
 msgid "Default Page Group"
 msgstr "Groupe Page Par Défaut"
 
@@ -149,7 +149,7 @@ msgstr ""
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Exclude"
 msgstr "Exclure"
 
@@ -168,7 +168,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:985
+#: functions.inc.php:986
 msgid "Include"
 msgstr "Inclure"
 
@@ -196,12 +196,12 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:736 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Groupe de Page"
 
-#: functions.inc.php:821
+#: functions.inc.php:822
 msgid "Page Group: "
 msgstr "Groupe Page :"
 
@@ -334,7 +334,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1008
+#: functions.inc.php:1009
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

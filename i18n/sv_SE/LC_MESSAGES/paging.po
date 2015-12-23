@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-10 16:39-0800\n"
+"POT-Creation-Date: 2015-12-23 12:23-0800\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -116,11 +116,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1005
+#: functions.inc.php:1006
 msgid "Default Group Inclusion"
 msgstr "Standard gruppinkludering"
 
-#: functions.inc.php:1008 views/form.php:238
+#: functions.inc.php:1009 views/form.php:238
 msgid "Default Page Group"
 msgstr "Standard anropsgrupp"
 
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Duplex"
 msgstr "Tvåvägs-samtal"
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Exclude"
 msgstr "Exkludera"
 
@@ -170,7 +170,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:985
+#: functions.inc.php:986
 msgid "Include"
 msgstr "Inkludera"
 
@@ -198,12 +198,12 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:736 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Anropsgrupp"
 
-#: functions.inc.php:821
+#: functions.inc.php:822
 msgid "Page Group: "
 msgstr "Anropsgrupp: "
 
@@ -332,7 +332,7 @@ msgstr "Viskningsläge"
 msgid "Yes"
 msgstr "Ja"
 
-#: functions.inc.php:1008
+#: functions.inc.php:1009
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
