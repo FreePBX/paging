@@ -728,6 +728,7 @@ function paging_get_config($engine) {
 
 // This is the hook for 'destinations'
 function paging_destinations() {
+	$extens = array();
 	$results = paging_list();
 	// return an associative array with destination and description
 	if (isset($results)) {
