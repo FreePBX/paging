@@ -15,18 +15,21 @@
 #
 # Copyright (C) 2009 Séverine GUTIERREZ, severine@medialsace.fr
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 12:23-0800\n"
-"PO-Revision-Date: 2009-04-20 23:31+0100\n"
-"Last-Translator: Séverine GUTIERREZ <severine@medialsace.fr>\n"
-"Language-Team: Français <LL@li.org>\n"
+"PO-Revision-Date: 2016-01-16 22:54+0200\n"
+"Last-Translator: Nicolas <forums@riendeau.org>\n"
+"Language-Team: French "
+"<http://weblate.freepbx.org/projects/freepbx/paging/fr_FR/>\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Paging.class.php:195
 msgid ""
@@ -116,23 +119,23 @@ msgstr ""
 
 #: functions.inc.php:1006
 msgid "Default Group Inclusion"
-msgstr "Inclusion du Groupe par Défaut"
+msgstr "Inclusion du groupe par défaut"
 
 #: functions.inc.php:1009 views/form.php:238
 msgid "Default Page Group"
-msgstr "Groupe Page Par Défaut"
+msgstr "Groupe page par défaut"
 
 #: Paging.class.php:87 Paging.class.php:246
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: views/form.php:110 views/grid.php:12
 msgid "Description"
-msgstr ""
+msgstr "Description"
 
 #: views/form.php:122
 msgid "Device List"
-msgstr ""
+msgstr "Liste des dispositifs"
 
 #: views/form.php:134
 msgid ""
@@ -159,7 +162,7 @@ msgstr ""
 
 #: views/form.php:98
 msgid "Group Description"
-msgstr "Description du Groupe"
+msgstr "Description du groupe"
 
 #: views/form.php:253
 msgid ""
