@@ -161,10 +161,10 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 					switch ($request['jdata']) {
 						case 'grid':
 								$pagelist = paging_list();
-    							$rdata = array();
-    							foreach($pagelist as $pg){
+								$rdata = array();
+								foreach($pagelist as $pg){
 									$rdata[] = array('description' => $pg['description'],'page_group' => $pg['page_group'],'is_default' => $pg['is_default'] , 'link' => array($pg['description'],$pg['page_group']));
-    							}
+								}
 							echo json_encode($rdata);
 							exit();
 						break;
@@ -268,36 +268,38 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 	public function ajaxRequest($req, &$setting) {
-       switch ($req) {
-           case 'getJSON':
-           case 'setDefault':
-               return true;
-           break;
-           default:
-               return false;
-           break;
-       }
-   }
-   public function ajaxHandler(){
-       switch ($_REQUEST['command']) {
-           case 'getJSON':
-               switch ($_REQUEST['jdata']) {
-                   case 'grid':
-                       return array_values($this->listGroups());
-                   break;
-                   default:
-                       return false;
-                   break;
-               }
-           break;
-					 case 'setDefault':
-							$this->setDefaultGroup($_REQUEST['ext']);
-					 break;
-           default:
-               return false;
-           break;
-       }
-   }
+		switch ($req) {
+			case 'getJSON':
+			case 'setDefault':
+				return true;
+				break;
+			default:
+				return false;
+				break;
+		}
+	}
+
+	public function ajaxHandler(){
+		switch ($_REQUEST['command']) {
+			case 'getJSON':
+				switch ($_REQUEST['jdata']) {
+					case 'grid':
+						return array_values($this->listGroups());
+						break;
+					default:
+						return false;
+						break;
+				}
+				break;
+			case 'setDefault':
+				$this->setDefaultGroup($_REQUEST['ext']);
+				break;
+			default:
+				return false;
+				break;
+		}
+	}
+
 	public function listGroups(){
 		$sql = "SELECT page_group, description FROM paging_config ORDER BY page_group";
 		$stmt = $this->db->prepare($sql);
