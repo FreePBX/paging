@@ -20,8 +20,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 12:23-0800\n"
-"PO-Revision-Date: 2016-01-16 22:54+0200\n"
-"Last-Translator: Nicolas <forums@riendeau.org>\n"
+"PO-Revision-Date: 2016-02-01 10:24+0200\n"
+"Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/paging/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -67,11 +67,11 @@ msgstr ""
 
 #: views/grid.php:14
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr ""
+msgstr "Ajouter un groupe de téléavertissement"
 
 #: paging.i18n.php:8
 msgid ""
@@ -95,11 +95,11 @@ msgstr ""
 
 #: views/form.php:149
 msgid "Announcement"
-msgstr ""
+msgstr "Annonce"
 
 #: paging.i18n.php:6 paging.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Applications"
 
 #: views/settings.php:53
 msgid "Auto-answer defaults"
@@ -123,7 +123,7 @@ msgstr "Inclusion du groupe par défaut"
 
 #: functions.inc.php:1009 views/form.php:238
 msgid "Default Page Group"
-msgstr "Groupe page par défaut"
+msgstr "Groupe de téléavertissement par défaut"
 
 #: Paging.class.php:87 Paging.class.php:246
 msgid "Delete"
@@ -158,7 +158,7 @@ msgstr "Exclure"
 
 #: Paging.class.php:187 views/form.php:182
 msgid "Force"
-msgstr ""
+msgstr "Forcer"
 
 #: views/form.php:98
 msgid "Group Description"
@@ -189,11 +189,11 @@ msgstr ""
 
 #: views/form.php:215 views/form.php:245 views/settings.php:86
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: views/form.php:44 views/settings.php:3
 msgid "None"
-msgstr ""
+msgstr "Aucun"
 
 #: views/form.php:42
 msgid "Not Selected"
@@ -202,37 +202,37 @@ msgstr ""
 #: functions.inc.php:736 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
-msgstr "Groupe de Page"
+msgstr "Groupe de téléavertissement"
 
 #: functions.inc.php:822
 msgid "Page Group: "
-msgstr "Groupe Page :"
+msgstr "Groupe de téléavertissement : "
 
 #: Paging.class.php:382
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr ""
+msgstr "Groupe de téléavertissement : %s (%s)"
 
 #: assets/js/paging.js:116
 msgid "Page Groups"
-msgstr ""
+msgstr "Groupes de téléavertissement"
 
 #: views/form.php:74
 msgid "Paging Extension"
-msgstr "Extension Paging"
+msgstr "Téléavertissement du poste"
 
 #: views/overview.php:22
 msgid "Paging Groups"
-msgstr ""
+msgstr "Groupes de téléavertissement"
 
 #: Paging.class.php:190 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
-msgstr "Paging et Intercom"
+msgstr "Téléavertissement et intercom"
 
 #: views/settings.php:41
 msgid "Paging and Intercom settings"
-msgstr ""
+msgstr "Paramètres de téléavertissement et intercom"
 
 #: views/form.php:223
 msgid ""
@@ -240,22 +240,22 @@ msgid ""
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
-"Le paging est en général à sens unique, pour les annonces uniquement. Cocher "
-"cette case passera le paging en duplex, autorisant tous les téléphones dans "
-"le groupe de paging à parler et être entendus par tous. Cela donne un genre "
-"de \"conférence instantanée\"."
+"Le téléavertissement est en général à sens unique, pour les annonces "
+"uniquement. Cocher cette case passera le téléavertissement en duplex, "
+"autorisant tous les téléphones dans le groupe de téléavertissement à parler "
+"et être entendus par tous. Cela donne un genre de \"conférence instantanée\"."
 
 #: Paging.class.php:185
 msgid "Reject"
-msgstr ""
+msgstr "Rejeter"
 
 #: Paging.class.php:251
 msgid "Reset"
-msgstr ""
+msgstr "Remise à 0"
 
 #: Paging.class.php:186
 msgid "Ring"
-msgstr ""
+msgstr "Sonner"
 
 #: views/form.php:41
 msgid "Selected"
@@ -263,7 +263,7 @@ msgstr ""
 
 #: views/overview.php:27
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: views/form.php:180
 msgid "Skip"
@@ -271,7 +271,7 @@ msgstr ""
 
 #: Paging.class.php:256 views/settings.php:99
 msgid "Submit"
-msgstr ""
+msgstr "Soumettre"
 
 #: views/form.php:86
 msgid "The number users will dial to page this group"
@@ -290,18 +290,18 @@ msgid ""
 "set to auto-answer should also work (such as the console extension if "
 "configured)."
 msgstr ""
-"Ce module est pour les téléphones spécifiques qui sont capable de Paging ou "
-"d'Intercom. Cette section permet de configurer le paging de groupe, "
-"l'intercom est configuré par le biais des <strong>Codes de Caractéristique</"
-"strong>. L'intercom doit être activé sur un combiné avant qu'il n'autorise "
-"les appels entrants. Il est possible de restreindre les appels entrants sur "
-"l'intercom à des extensions spécifiques uniquement, ou d'autoriser les "
-"appels sur intercom pour toutes les extensions mais d'explicitement les "
-"interdire à partir d'extensions spécifiques.<br /><br />Ce module devrait "
-"fonctionner avec  Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM, "
-"et probablement d'autres téléphones SIP (pas les ATA). Tout téléphone qui "
-"est toujours configuré pour répondre automatiquement devrait également "
-"fonctionner (telle que l'extension console si configurée)."
+"Ce module est pour les téléphones spécifiques qui sont capable de "
+"téléavertissement ou d'intercom. Cette section permet de configurer le "
+"téléavertissement de groupe, l'intercom est configuré par le biais des "
+"<strong>Codes de Caractéristique</strong>. L'intercom doit être activé sur "
+"un combiné avant qu'il n'autorise les appels entrants. Il est possible de "
+"restreindre les appels entrants sur l'intercom à des postes spécifiques "
+"uniquement, ou d'autoriser les appels sur intercom pour tous les postes mais "
+"d'explicitement les interdire à partir de postes spécifiques.<br /><br />Ce "
+"module devrait fonctionner avec Aastra, Grandstream, Linksys/Sipura, Mitel, "
+"Polycom, SNOM, et probablement d'autres téléphones SIP (pas les ATA). Tout "
+"téléphone qui est toujours configuré pour répondre automatiquement devrait "
+"également fonctionner (tel que le poste console si configuré)."
 
 #: views/settings.php:94
 msgid ""
@@ -313,7 +313,7 @@ msgstr ""
 
 #: Paging.class.php:173
 msgid "Unknown Request"
-msgstr ""
+msgstr "Requête inconnue"
 
 #: install.php:6
 msgid "User Intercom Allow"
@@ -321,7 +321,7 @@ msgstr "Autoriser Utilisateur Intercom"
 
 #: install.php:7
 msgid "User Intercom Disallow"
-msgstr "Ne pas autoriser Utilisateur Intercom"
+msgstr "Ne pas autoriser l'utilisateur intercom"
 
 #: Paging.class.php:192
 msgid ""
@@ -331,19 +331,19 @@ msgstr ""
 
 #: views/form.php:184
 msgid "Whisper"
-msgstr ""
+msgstr "Soupirer"
 
 #: views/form.php:213 views/form.php:243 views/settings.php:84
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: functions.inc.php:1009
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
-"Vous pouvez inclure ou exclure cette extension/ce périphérique dans le "
-"groupe page par défaut lors de la création ou de l'édition."
+"Vous pouvez inclure ou exclure ce poste/dispositif dans le groupe de "
+"téléavertissement par défaut lors de la création ou édition."
 
 #~ msgid "Add Paging Group"
 #~ msgstr "Ajouter un Groupe Paging"
