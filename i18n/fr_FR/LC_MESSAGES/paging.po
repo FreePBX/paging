@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 12:23-0800\n"
-"PO-Revision-Date: 2016-02-01 10:24+0200\n"
+"PO-Revision-Date: 2016-02-04 23:07+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French "
 "<http://weblate.freepbx.org/projects/freepbx/paging/fr_FR/>\n"
@@ -251,7 +251,7 @@ msgstr "Rejeter"
 
 #: Paging.class.php:251
 msgid "Reset"
-msgstr "Remise à 0"
+msgstr "Réinitialiser"
 
 #: Paging.class.php:186
 msgid "Ring"
