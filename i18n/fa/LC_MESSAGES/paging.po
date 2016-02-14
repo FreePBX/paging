@@ -10,12 +10,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-12-23 12:23-0800\n"
-"PO-Revision-Date: 2015-12-23 12:23-0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-02-14 09:23+0200\n"
+"Last-Translator: Media <mousavi.media@gmail.com>\n"
+"Language-Team: Persian "
+"<http://weblate.freepbx.org/projects/freepbx/paging/fa/>\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.2-dev\n"
 
 #: Paging.class.php:195
 msgid ""
@@ -53,11 +57,11 @@ msgstr ""
 
 #: views/grid.php:14
 msgid "Actions"
-msgstr ""
+msgstr "عملیات"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr ""
+msgstr "افزودن گروه صفحه"
 
 #: paging.i18n.php:8
 msgid ""
@@ -81,47 +85,47 @@ msgstr ""
 
 #: views/form.php:149
 msgid "Announcement"
-msgstr ""
+msgstr "آ گهی"
 
 #: paging.i18n.php:6 paging.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "برنامه‌ ها"
 
 #: views/settings.php:53
 msgid "Auto-answer defaults"
-msgstr ""
+msgstr "پاسخ خودکار پیشفرض"
 
 #: views/form.php:46
 msgid "Beep"
-msgstr ""
+msgstr "بوق"
 
 #: views/form.php:175
 msgid "Busy Extensions"
-msgstr ""
+msgstr "مقصد اشغال است"
 
 #: views/form.php:45 views/grid.php:13 views/settings.php:4
 msgid "Default"
-msgstr ""
+msgstr "پیشفرض"
 
 #: functions.inc.php:1006
 msgid "Default Group Inclusion"
-msgstr ""
+msgstr "ظرفیت گروه پیشفرض"
 
 #: functions.inc.php:1009 views/form.php:238
 msgid "Default Page Group"
-msgstr ""
+msgstr "گروه اعلان پیشفرض"
 
 #: Paging.class.php:87 Paging.class.php:246
 msgid "Delete"
-msgstr ""
+msgstr "حذف"
 
 #: views/form.php:110 views/grid.php:12
 msgid "Description"
-msgstr ""
+msgstr "شرح"
 
 #: views/form.php:122
 msgid "Device List"
-msgstr ""
+msgstr "فهرست وسیله"
 
 #: views/form.php:134
 msgid ""
@@ -132,23 +136,23 @@ msgstr ""
 
 #: views/settings.php:79
 msgid "Drop Silence"
-msgstr ""
+msgstr "شکستن سکوت"
 
 #: views/form.php:208
 msgid "Duplex"
-msgstr ""
+msgstr "تکراری"
 
 #: functions.inc.php:985
 msgid "Exclude"
-msgstr ""
+msgstr "خروج"
 
 #: Paging.class.php:187 views/form.php:182
 msgid "Force"
-msgstr ""
+msgstr "اجبار"
 
 #: views/form.php:98
 msgid "Group Description"
-msgstr ""
+msgstr "شرح گروه"
 
 #: views/form.php:253
 msgid ""
@@ -159,66 +163,66 @@ msgstr ""
 
 #: functions.inc.php:986
 msgid "Include"
-msgstr ""
+msgstr "ورود"
 
 #: Paging.class.php:191
 msgid "Intercom Override"
-msgstr ""
+msgstr "بازنویسی ورودی"
 
 #: install.php:5
 msgid "Intercom prefix"
-msgstr ""
+msgstr "پیشوند ورودی"
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
-msgstr ""
+msgstr "فهرست گروه های اعلان"
 
 #: views/form.php:215 views/form.php:245 views/settings.php:86
 msgid "No"
-msgstr ""
+msgstr "خیر"
 
 #: views/form.php:44 views/settings.php:3
 msgid "None"
-msgstr ""
+msgstr "هیچ"
 
 #: views/form.php:42
 msgid "Not Selected"
-msgstr ""
+msgstr "انتخاب نشده"
 
 #: functions.inc.php:736 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
-msgstr ""
+msgstr "گروه اعلان"
 
 #: functions.inc.php:822
 msgid "Page Group: "
-msgstr ""
+msgstr "گروه اعلان ： "
 
 #: Paging.class.php:382
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr ""
+msgstr "گروه اعلان ： %s (%s)"
 
 #: assets/js/paging.js:116
 msgid "Page Groups"
-msgstr ""
+msgstr "گروه اعلان"
 
 #: views/form.php:74
 msgid "Paging Extension"
-msgstr ""
+msgstr "داخلی اعلان"
 
 #: views/overview.php:22
 msgid "Paging Groups"
-msgstr ""
+msgstr "گروه های اعلان"
 
 #: Paging.class.php:190 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
-msgstr ""
+msgstr "اعلان و ورود"
 
 #: views/settings.php:41
 msgid "Paging and Intercom settings"
-msgstr ""
+msgstr "تنظیمات اعلان و ورود"
 
 #: views/form.php:223
 msgid ""
@@ -229,35 +233,35 @@ msgstr ""
 
 #: Paging.class.php:185
 msgid "Reject"
-msgstr ""
+msgstr "لغو"
 
 #: Paging.class.php:251
 msgid "Reset"
-msgstr ""
+msgstr "بازنشانی"
 
 #: Paging.class.php:186
 msgid "Ring"
-msgstr ""
+msgstr "زنگ"
 
 #: views/form.php:41
 msgid "Selected"
-msgstr ""
+msgstr "انتخاب شده"
 
 #: views/overview.php:27
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 #: views/form.php:180
 msgid "Skip"
-msgstr ""
+msgstr "لغو"
 
 #: Paging.class.php:256 views/settings.php:99
 msgid "Submit"
-msgstr ""
+msgstr "ارسال"
 
 #: views/form.php:86
 msgid "The number users will dial to page this group"
-msgstr ""
+msgstr "شماره ای که کاربران برای اعلان این گروه استفاده میکنند"
 
 #: views/overview.php:6
 msgid ""
@@ -283,32 +287,36 @@ msgstr ""
 
 #: Paging.class.php:173
 msgid "Unknown Request"
-msgstr ""
+msgstr "درخواست نامعتبر"
 
 #: install.php:6
 msgid "User Intercom Allow"
-msgstr ""
+msgstr "کاربر ورودی مجاز"
 
 #: install.php:7
 msgid "User Intercom Disallow"
-msgstr ""
+msgstr "کاربر ورودی غیرمجاز"
 
 #: Paging.class.php:192
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
+"زمان استفاده از ورودی برای اعلان یک داخلی, اگر داخلی مشغول باشد, شما سه "
+"گزینه دارید."
 
 #: views/form.php:184
 msgid "Whisper"
-msgstr ""
+msgstr "نجوا"
 
 #: views/form.php:213 views/form.php:243 views/settings.php:84
 msgid "Yes"
-msgstr ""
+msgstr "بله"
 
 #: functions.inc.php:1009
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+"شما میتوانید در هنگام ساختن یک گروه اعلان  داخلی ها/دستگاه ها را به این گروه "
+"اعلان وارد کرده و یا خارج نمایید."
