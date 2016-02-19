@@ -742,6 +742,23 @@ function paging_destinations() {
 	}
 }
 
+function paging_getdestinfo($dest) {
+	if (substr(trim($dest),0,15) == 'app-pagegroups,') {
+		$exten = explode(',',$dest);
+		$exten = $exten[1];
+		$thisexten = paging_get_pagingconfig($exten);
+		if (empty($thisexten)) {
+			return array();
+		} else {
+			return array('description' => sprintf(_("Paging Group %s : %s"),$exten,$thisexten['description']),
+			             'edit_url' => 'config.php?display=paging&view=form&extdisplay='.urlencode($exten),
+					);
+		}
+	} else {
+		return false;
+	}
+}
+
 function paging_getdest($exten) {
 	return array('pagegroups,'.$exten.',1');
 }
