@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for paging
-# Copyright (C) 2008-2015 Sangoma, Inc.
+# Copyright (C) 2008-2016 Sangoma, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-23 12:23-0800\n"
+"POT-Creation-Date: 2016-02-19 10:34-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -107,11 +107,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:1009
+#: functions.inc.php:1026
 #: views/form.php:238
 msgid "Default Page Group"
 msgstr ""
@@ -145,7 +145,7 @@ msgstr ""
 msgid "Duplex"
 msgstr ""
 
-#: functions.inc.php:985
+#: functions.inc.php:1002
 msgid "Exclude"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:986
+#: functions.inc.php:1003
 msgid "Include"
 msgstr ""
 
@@ -203,11 +203,11 @@ msgstr ""
 msgid "Page Group"
 msgstr ""
 
-#: functions.inc.php:822
+#: functions.inc.php:839
 msgid "Page Group: "
 msgstr ""
 
-#: Paging.class.php:382
+#: Paging.class.php:384
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""
@@ -218,6 +218,11 @@ msgstr ""
 
 #: views/form.php:74
 msgid "Paging Extension"
+msgstr ""
+
+#: functions.inc.php:753
+#, php-format
+msgid "Paging Group %s : %s"
 msgstr ""
 
 #: views/overview.php:22
@@ -325,7 +330,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1009
+#: functions.inc.php:1026
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

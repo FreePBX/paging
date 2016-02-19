@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.11</version>
+	<version>13.0.12</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.12* FREEPBX-11358 getdestinfo for paging groups
 		*13.0.11* FREEPBX-11167
 		*13.0.10* FREEPBX-9951 Japanese language prompts
 		*13.0.9* Slide out menu, BMO search agent
