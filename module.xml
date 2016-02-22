@@ -53,6 +53,11 @@
 			<action>add</action>
 		</paging>
 	</popovers>
+	<hooks>
+		<core class="Core" namespace="FreePBX\modules">
+			<method callingMethod="delUser" class="Paging" namespace="FreePBX\modules">delUser</method>
+		</core>
+	</hooks>
 	<location>release/2.11/paging-2.11.0.7.tgz</location>
 	<md5sum>0a800b7068ce596aeff11247d09cba18</md5sum>
 	<supported>

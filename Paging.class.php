@@ -384,4 +384,17 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			$results[] = array("text" => sprintf(_("Page Group: %s (%s)"),$g['description'],$g['page_group']), "type" => "get", "dest" => "?display=paging&view=form&extdisplay=".$g['page_group']);
 		}
 	}
+	//Removes an extension from all page groups.
+	public function removeMemberAllGroups($exten){
+		$sql = 'DELETE from paging_groups WHERE ext = :exten';
+		$stmt = $this->db->prepare($sql);
+		return $stmt->execute(array(':exten'=> $exten));
+	}
+
+	//Core hook called when user/extension is deleted
+	public function delUser($extension, $editmode=false) {
+		if(!$editmode) {
+			$this->removeMemberAllGroups($extension);
+		}
+	}
 }
