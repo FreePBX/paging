@@ -92,5 +92,7 @@ $('#pagegrid').bootstrapTable({
 });
 
 $('#pagelist').multiselect({
-		includeSelectAllOption: true
+		enableFiltering: true,
+		includeSelectAllOption: true,
+		enableCaseInsensitiveFiltering: true
 });
