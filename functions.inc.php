@@ -216,12 +216,12 @@ function paging_get_config($engine) {
 			$ext->add($context, $lang, '', new ext_return());
 
 			$extintercomusers = 'ext-intercom-users';
-			$userlist = core_users_list();
-			if (is_array($userlist)) {
-				foreach($userlist as $item) {
-					$ext_intercom_code = $intercom_code.$item[0];
-					$ext->add($extintercomusers, $ext_intercom_code, '', new ext_goto($context.',${EXTEN},1'));
-				}
+			$sql = "SELECT LENGTH(id) as len FROM devices GROUP BY len";
+			$sth = FreePBX::Database()->prepare($sql);
+			$sth->execute();
+			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
+			foreach($rows as $row) {
+				$ext->add($extintercomusers, '_'.$intercom_code.str_repeat('X',$row['len']),'', new ext_goto($context.',${EXTEN},1'));
 			}
 
 			$context = $extintercomusers;
