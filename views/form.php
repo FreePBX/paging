@@ -29,13 +29,10 @@ foreach ($devs as $d) {
 }
 $devhtml ='';
 $selected_dev = $notselected_dev = '';
+$pl_options = '';
 foreach ($device_list as $ext => $name) {
-	//Passing true in in_array to make this strict otherwise 1234 matches on 1234 and 01234
-	if (in_array((string)$ext, $devices,true)) {
-		$selected_dev .= '<span data-ext="' . $ext . '">' . $name .'</span>';
-	} else {
-		$notselected_dev .= '<span data-ext="' . $ext . '">' . $name .'</span>';
-	}
+	$selected = in_array((string)$ext, $devices,true)?'SELECTED':'';
+	$pl_options .= '<option value = '.$ext.' '.$selected.'>'.$name.'</option>';
 }
 $class = ' class="device_list ui-sortable ui-menu ui-widget ui-widget-content ui-corner-all" ';
 $devhtml .= '<h4>'._('Selected').'</h4><fieldset id="selected_dev" '.$class.'>'.$selected_dev.'</fieldset>';
@@ -123,7 +120,9 @@ foreach ($rec_list as $key => $value) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="dlwraper"></i>
 					</div>
 					<div class="col-md-9">
-						<?php echo $devhtml ?>
+						<select name = "pagelist[]" id = "pagelist" multiple="multiple">
+							<?php echo $pl_options?>
+						</select>
 					</div>
 				</div>
 			</div>
