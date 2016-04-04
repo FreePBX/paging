@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.13</version>
+	<version>13.0.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.14* FREEPBX-11833 Move device list to multi select
 		*13.0.13* FREEPBX-11643 Add core hook to clean up extensions when deleted
 		*13.0.12* FREEPBX-11358 getdestinfo for paging groups
 		*13.0.11* FREEPBX-11167

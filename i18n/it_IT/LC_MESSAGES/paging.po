@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-19 10:34-0800\n"
+"POT-Creation-Date: 2016-04-04 12:10-0700\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -33,7 +33,7 @@ msgid ""
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:192
+#: views/form.php:191
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -72,14 +72,14 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:163
+#: views/form.php:162
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
 
-#: views/form.php:149
+#: views/form.php:148
 msgid "Announcement"
 msgstr ""
 
@@ -91,15 +91,15 @@ msgstr ""
 msgid "Auto-answer defaults"
 msgstr ""
 
-#: views/form.php:46
+#: views/form.php:43
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:175
+#: views/form.php:174
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:45 views/grid.php:13 views/settings.php:4
+#: views/form.php:42 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Default Group Inclusion"
 msgstr "Gruppo Page Predefinito"
 
-#: functions.inc.php:1026 views/form.php:238
+#: functions.inc.php:1026 views/form.php:237
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
@@ -115,15 +115,15 @@ msgstr "Gruppo Page Predefinito"
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:110 views/grid.php:12
+#: views/form.php:107 views/grid.php:12
 msgid "Description"
 msgstr ""
 
-#: views/form.php:122
+#: views/form.php:119
 msgid "Device List"
 msgstr ""
 
-#: views/form.php:134
+#: views/form.php:133
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -134,7 +134,7 @@ msgstr ""
 msgid "Drop Silence"
 msgstr ""
 
-#: views/form.php:208
+#: views/form.php:207
 msgid "Duplex"
 msgstr "Duplex"
 
@@ -142,15 +142,15 @@ msgstr "Duplex"
 msgid "Exclude"
 msgstr "Escludi"
 
-#: Paging.class.php:187 views/form.php:182
+#: Paging.class.php:187 views/form.php:181
 msgid "Force"
 msgstr ""
 
-#: views/form.php:98
+#: views/form.php:95
 msgid "Group Description"
 msgstr "Descrizione Gruppo"
 
-#: views/form.php:253
+#: views/form.php:252
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -173,15 +173,15 @@ msgstr "Prefisso Intercom"
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:215 views/form.php:245 views/settings.php:86
+#: views/form.php:214 views/form.php:244 views/settings.php:86
 msgid "No"
 msgstr ""
 
-#: views/form.php:44 views/settings.php:3
+#: views/form.php:41 views/settings.php:3
 msgid "None"
 msgstr ""
 
-#: views/form.php:42
+#: views/form.php:39
 msgid "Not Selected"
 msgstr ""
 
@@ -199,11 +199,11 @@ msgstr "Gruppo Page:"
 msgid "Page Group: %s (%s)"
 msgstr ""
 
-#: assets/js/paging.js:116
+#: assets/js/paging.js:67
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:74
+#: views/form.php:71
 msgid "Paging Extension"
 msgstr "Interno Paging"
 
@@ -225,7 +225,7 @@ msgstr "Paging e Intercom"
 msgid "Paging and Intercom settings"
 msgstr ""
 
-#: views/form.php:223
+#: views/form.php:222
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -248,7 +248,7 @@ msgstr ""
 msgid "Ring"
 msgstr ""
 
-#: views/form.php:41
+#: views/form.php:38
 msgid "Selected"
 msgstr ""
 
@@ -256,7 +256,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:180
+#: views/form.php:179
 msgid "Skip"
 msgstr ""
 
@@ -264,7 +264,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:86
+#: views/form.php:83
 msgid "The number users will dial to page this group"
 msgstr ""
 "Il numero che gli utenti dovranno chiamare per effettuare il page su questo "
@@ -321,11 +321,11 @@ msgid ""
 "have three options."
 msgstr ""
 
-#: views/form.php:184
+#: views/form.php:183
 msgid "Whisper"
 msgstr ""
 
-#: views/form.php:213 views/form.php:243 views/settings.php:84
+#: views/form.php:212 views/form.php:242 views/settings.php:84
 msgid "Yes"
 msgstr ""
 

@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-19 10:34-0800\n"
+"POT-Creation-Date: 2016-04-04 12:10-0700\n"
 "PO-Revision-Date: 2016-03-17 01:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian "
-"<http://weblate.freepbx.org/projects/freepbx/paging/fa/>\n"
-"Language: fa\n"
+"Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/paging/"
+"fa/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fa\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
@@ -41,7 +41,7 @@ msgstr ""
 "<strong>Ring</strong><br> Treat the page as a normal call , and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 
-#: views/form.php:192
+#: views/form.php:191
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -63,14 +63,14 @@ msgstr ""
 "will be paged as normal</li>\n"
 "<li><b>\"Force\"</b> will not check if the device is in use before paging "
 "it. This means conversations can be interrupted by a page (depending on how "
-"the device handles it). This is useful for \"emergency\" paging groups.</li>"
-"\n"
+"the device handles it). This is useful for \"emergency\" paging groups.</"
+"li>\n"
 "<li><b>\"Whisper\"</b> will attempt to use the ChanSpy capability on SIP "
-"channels, resulting in the page being sent to the device's earpiece \""
-"whispered\" to the user but not heard by the remote party. If ChanSpy is not "
-"supported on the device or otherwise fails, no page will get through. It "
-"probably does not make too much sense to choose duplex if using Whisper "
-"mode.</li>\n"
+"channels, resulting in the page being sent to the device's earpiece "
+"\"whispered\" to the user but not heard by the remote party. If ChanSpy is "
+"not supported on the device or otherwise fails, no page will get through. It "
+"probably does not make too much sense to choose duplex if using Whisper mode."
+"</li>\n"
 "</ul>"
 
 #: views/grid.php:14
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "اعلان پخش شده برای remote party"
 
-#: views/form.php:163
+#: views/form.php:162
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -109,7 +109,7 @@ msgstr ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 
-#: views/form.php:149
+#: views/form.php:148
 msgid "Announcement"
 msgstr "آ گهی"
 
@@ -121,15 +121,15 @@ msgstr "برنامه‌ ها"
 msgid "Auto-answer defaults"
 msgstr "پاسخ خودکار پیشفرض"
 
-#: views/form.php:46
+#: views/form.php:43
 msgid "Beep"
 msgstr "بوق"
 
-#: views/form.php:175
+#: views/form.php:174
 msgid "Busy Extensions"
 msgstr "مقصد اشغال است"
 
-#: views/form.php:45 views/grid.php:13 views/settings.php:4
+#: views/form.php:42 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "پیشفرض"
 
@@ -137,7 +137,7 @@ msgstr "پیشفرض"
 msgid "Default Group Inclusion"
 msgstr "ظرفیت گروه پیشفرض"
 
-#: functions.inc.php:1026 views/form.php:238
+#: functions.inc.php:1026 views/form.php:237
 msgid "Default Page Group"
 msgstr "گروه اعلان پیشفرض"
 
@@ -145,15 +145,15 @@ msgstr "گروه اعلان پیشفرض"
 msgid "Delete"
 msgstr "حذف"
 
-#: views/form.php:110 views/grid.php:12
+#: views/form.php:107 views/grid.php:12
 msgid "Description"
 msgstr "شرح"
 
-#: views/form.php:122
+#: views/form.php:119
 msgid "Device List"
 msgstr "فهرست وسیله"
 
-#: views/form.php:134
+#: views/form.php:133
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -167,7 +167,7 @@ msgstr ""
 msgid "Drop Silence"
 msgstr "شکستن سکوت"
 
-#: views/form.php:208
+#: views/form.php:207
 msgid "Duplex"
 msgstr "تکراری"
 
@@ -175,15 +175,15 @@ msgstr "تکراری"
 msgid "Exclude"
 msgstr "خروج"
 
-#: Paging.class.php:187 views/form.php:182
+#: Paging.class.php:187 views/form.php:181
 msgid "Force"
 msgstr "اجبار"
 
-#: views/form.php:98
+#: views/form.php:95
 msgid "Group Description"
 msgstr "شرح گروه"
 
-#: views/form.php:253
+#: views/form.php:252
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -209,15 +209,15 @@ msgstr "پیشوند ورودی"
 msgid "List Page Groups"
 msgstr "فهرست گروه های اعلان"
 
-#: views/form.php:215 views/form.php:245 views/settings.php:86
+#: views/form.php:214 views/form.php:244 views/settings.php:86
 msgid "No"
 msgstr "خیر"
 
-#: views/form.php:44 views/settings.php:3
+#: views/form.php:41 views/settings.php:3
 msgid "None"
 msgstr "هیچ"
 
-#: views/form.php:42
+#: views/form.php:39
 msgid "Not Selected"
 msgstr "انتخاب نشده"
 
@@ -235,11 +235,11 @@ msgstr "گروه اعلان ： "
 msgid "Page Group: %s (%s)"
 msgstr "گروه اعلان ： %s (%s)"
 
-#: assets/js/paging.js:116
+#: assets/js/paging.js:67
 msgid "Page Groups"
 msgstr "گروه اعلان"
 
-#: views/form.php:74
+#: views/form.php:71
 msgid "Paging Extension"
 msgstr "داخلی اعلان"
 
@@ -261,7 +261,7 @@ msgstr "اعلان و ورود"
 msgid "Paging and Intercom settings"
 msgstr "تنظیمات اعلان و ورود"
 
-#: views/form.php:223
+#: views/form.php:222
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -283,7 +283,7 @@ msgstr "بازنشانی"
 msgid "Ring"
 msgstr "زنگ"
 
-#: views/form.php:41
+#: views/form.php:38
 msgid "Selected"
 msgstr "انتخاب شده"
 
@@ -291,7 +291,7 @@ msgstr "انتخاب شده"
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: views/form.php:180
+#: views/form.php:179
 msgid "Skip"
 msgstr "لغو"
 
@@ -299,7 +299,7 @@ msgstr "لغو"
 msgid "Submit"
 msgstr "ارسال"
 
-#: views/form.php:86
+#: views/form.php:83
 msgid "The number users will dial to page this group"
 msgstr "شماره ای که کاربران برای اعلان این گروه استفاده میکنند"
 
@@ -321,8 +321,8 @@ msgstr ""
 "through <strong>Feature Codes</strong>. Intercom must be enabled on a "
 "handset before it will allow incoming calls. It is possible to restrict "
 "incoming intercom calls to specific extensions only, or to allow intercom "
-"calls from all extensions but explicitly deny from specific extensions.<br "
-"/><br />This module should work with Aastra, Grandstream, Linksys/Sipura, "
+"calls from all extensions but explicitly deny from specific extensions.<br /"
+"><br />This module should work with Aastra, Grandstream, Linksys/Sipura, "
 "Mitel, Polycom, SNOM , and possibly other SIP phones (not ATAs). Any phone "
 "that is always set to auto-answer should also work (such as the console "
 "extension if configured)."
@@ -359,11 +359,11 @@ msgstr ""
 "زمان استفاده از ورودی برای اعلان یک داخلی, اگر داخلی مشغول باشد, شما سه "
 "گزینه دارید."
 
-#: views/form.php:184
+#: views/form.php:183
 msgid "Whisper"
 msgstr "نجوا"
 
-#: views/form.php:213 views/form.php:243 views/settings.php:84
+#: views/form.php:212 views/form.php:242 views/settings.php:84
 msgid "Yes"
 msgstr "بله"
 
