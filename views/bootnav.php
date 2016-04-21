@@ -10,7 +10,8 @@
 <table data-toolbar="#toolbar-pagenav" data-url="ajax.php?module=paging&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
     <thead>
         <tr>
-            <th data-sortable="true" data-field="description"><?php echo _('Page Group')?></th>
+            <th data-sortable="true" data-field="page_group"><?php echo _('Page Group')?></th>
+            <th data-sortable="true" data-field="description"><?php echo _('Description')?></th>
         </tr>
     </thead>
 </table>
