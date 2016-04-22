@@ -83,12 +83,13 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			foreach ($get_vars as $k => $v) {
 				$vars[$k] = isset($request[$k]) ? $request[$k] : $v;
 			}
+			dbug($vars);
 			$vars['pagenbr'] = trim($vars['pagenbr']);
 			if ($vars['Submit'] == _('Delete')) {
 				$vars['action'] = 'delete';
 				$request['action'] = 'delete';
 			}
-
+			$vars['announce'] = $vars['announcement'];
 			//action actions
 			switch ($vars['action']) {
 				case 'delete':
