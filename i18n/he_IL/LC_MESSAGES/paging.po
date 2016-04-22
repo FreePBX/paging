@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-04 12:10-0700\n"
+"POT-Creation-Date: 2016-04-22 10:52-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,7 @@ msgstr "מחק קבוצה"
 msgid "Delete"
 msgstr ""
 
-#: views/form.php:107 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:107 views/grid.php:12
 msgid "Description"
 msgstr ""
 
