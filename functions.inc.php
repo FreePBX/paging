@@ -425,13 +425,19 @@ function paging_get_config($engine) {
 		//
 		if (!empty($autoanswer_arr)) {
 			global $version;
+			$ext->add($macro, "s", '', new ext_gotoif('$["${DIAL:0:5}" = "PJSIP"]', 'pjsipua'));
 			//http://issues.freepbx.org/browse/FREEPBX-7715
 			if(version_compare($version,"12","<")) {
 				$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
 			} else {
 				$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)},useragent)}'));
 			}
-			$ext->add($macro, "s", '', new ext_execif('$["${KNOWNAGENT}" != ""]', 'Set', 'USERAGENT=${KNOWNAGENT}'));
+			$ext->add($macro, "s", '', new ext_goto('uafin'));
+			$ext->add($macro, "s", 'pjsipua', new ext_setvar('AOR','${CUT(DIAL,/,2)}'));
+			$ext->add($macro, "s", '', new ext_setvar('CONTACT','${PJSIP_AOR(${AOR},contact)}'));
+			$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${PJSIP_CONTACT(${CONTACT},user_agent)}'));
+
+			$ext->add($macro, "s", 'uafin', new ext_execif('$["${KNOWNAGENT}" != ""]', 'Set', 'USERAGENT=${KNOWNAGENT}'));
 		}
 		// We used to set all the variables here (ALERTINFO, CALLINFO, etc. That has been moved to each
 		// paging group and the intercom main macro, since it was redundant for every phone causing a lot
