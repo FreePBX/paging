@@ -323,7 +323,7 @@ function get_device_state($dev) {
 	// FREEPBX-11929 - If this is a DAHDI device, assume
 	// that people know what they're doing, and if it returns
 	// UNKNOWN, map that to 'NOT_INUSE'
-	if (substr($dev, 0, 5) != "DAHDI") {
+	if (substr($dev, 0, 5) == "DAHDI") {
 		$state = agi_get_var("DEVICE_STATE($dev)");
 		if ($state == "UNKNOWN") {
 			return "NOT_INUSE";
@@ -331,7 +331,7 @@ function get_device_state($dev) {
 			return $state;
 		}
 	}
-	
+
 	// If it's not a PJSIP device, just return our normal device state
 	if (substr($dev, 0, 5) != "PJSIP") {
 		return agi_get_var("DEVICE_STATE($dev)");
