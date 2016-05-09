@@ -24,15 +24,14 @@ $get = array(
 	'SIPURI'	=> '',
 	'STREAM'	=> 'beep',
 	'ANNOUNCEMENT' => '',
-	'VXML_URL'	=> ''
+	'VXML_URL'	=> '',
+	'EXTRINGTIME' => ''
 );
 
 foreach ($get as $k => $v) {
 	$tmp = agi_get_var($k);
 	$vars[$k] = $tmp ? $tmp : $v;
 }
-
-dbug($vars);
 
 //clear stream if requested
 $vars['STREAM'] = $vars['STREAM'] == 'NONE' ? '' : $vars['STREAM'];
@@ -52,7 +51,8 @@ $chan_vars = array(
 	'SIPURI',
 	'SIPURI',
 	'VXML_URL',
-	'ANNOUNCEMENT'
+	'ANNOUNCEMENT',
+	'EXTRINGTIME'
 );
 
 foreach ($chan_vars as $var) {

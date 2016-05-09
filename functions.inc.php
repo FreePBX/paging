@@ -531,9 +531,15 @@ function paging_get_config($engine) {
 		} else {
 			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer', '${EXTEN:4}'));
 		}
+
+		$ext->add($apppaging, "_PAGE.", '', new ext_noop('${EXTRINGTIME}'));
+		$ext->add($apppaging, "_PAGE.", '', new ext_gotoif('$["${EXTRINGTIME}" != "true"]', 'doptions'));
+		$ext->add($apppaging, "_PAGE.", '', new ext_set('_DTIME', '${RINGTIMER_DEFAULT}'));
+		$ext->add($apppaging, "_PAGE.", '', new ext_execif('$["${DB(AMPUSER/${EXTEN:4}/ringtimer)}" != "" & ${DB(AMPUSER/${EXTEN:4}/ringtimer)} > 0]', 'Set', '_DTIME=${DB(AMPUSER/${EXTEN:4}/ringtimer)}'));
+
 		//strip the global Announcement out of doptions (We use our announcement variable lower --V)
 		$doptions2 = preg_replace("/A\([^\)]*\)/","",$doptions);
-		$ext->add($apppaging, "_PAGE.", '', new ext_set('_DOPTIONS', $doptions2));
+		$ext->add($apppaging, "_PAGE.", 'doptions', new ext_execif('$["${DOPTIONS}" = ""]', 'Set', '_DOPTIONS='.$doptions2));
 		// If it's less than Asterisk 11, manually run the add sip header macro.
 		if (!$ast_ge_11) {
 			$ext->add($apppaging, "_PAGE.", '', new ext_gosub('1', 's', 'autoanswer', '${ALERTINFO},${CALLINFO}'));
