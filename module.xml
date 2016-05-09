@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.14.2</version>
+	<version>13.0.15</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.15* FREEPBX-12060
 		*13.0.14.2* FREEPBX-11966 FREEPBX-11979
 		*13.0.14.1* FREEPBX-11929 - Allow UNKNOWN Dahdi devices to be paged
 		*13.0.14* FREEPBX-11833 Move device list to multi select
