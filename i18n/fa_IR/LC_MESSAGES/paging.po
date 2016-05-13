@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-13 16:20-0700\n"
+"POT-Creation-Date: 2016-05-13 16:44-0700\n"
 "PO-Revision-Date: 2016-03-17 01:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -133,11 +133,11 @@ msgstr "مقصد اشغال است"
 msgid "Default"
 msgstr "پیشفرض"
 
-#: functions.inc.php:1043
+#: functions.inc.php:1055
 msgid "Default Group Inclusion"
 msgstr "ظرفیت گروه پیشفرض"
 
-#: functions.inc.php:1046 views/form.php:237
+#: functions.inc.php:1058 views/form.php:237
 msgid "Default Page Group"
 msgstr "گروه اعلان پیشفرض"
 
@@ -163,11 +163,11 @@ msgstr ""
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 
-#: functions.inc.php:1022
+#: functions.inc.php:1034
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1019
+#: functions.inc.php:1031
 msgid "Disabled"
 msgstr ""
 
@@ -179,15 +179,15 @@ msgstr "شکستن سکوت"
 msgid "Duplex"
 msgstr "تکراری"
 
-#: functions.inc.php:1018
+#: functions.inc.php:1030
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1014
+#: functions.inc.php:1026
 msgid "Exclude"
 msgstr "خروج"
 
-#: functions.inc.php:1048
+#: functions.inc.php:1060
 msgid "Extension Options"
 msgstr ""
 
@@ -209,15 +209,15 @@ msgstr ""
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1027
 msgid "Include"
 msgstr "ورود"
 
-#: functions.inc.php:1023
+#: functions.inc.php:1035
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1057
+#: functions.inc.php:1069
 msgid "Intercom Mode"
 msgstr ""
 
@@ -225,11 +225,29 @@ msgstr ""
 msgid "Intercom Override"
 msgstr "بازنویسی ورودی"
 
+#: functions.inc.php:315
+#, php-format
+msgid "Intercom from %s: Disabled"
+msgstr ""
+
+#: functions.inc.php:253
+#, php-format
+msgid "Intercom from %s: Enabled"
+msgstr ""
+
 #: install.php:5
 msgid "Intercom prefix"
 msgstr "پیشوند ورودی"
 
-#: functions.inc.php:1053
+#: functions.inc.php:303
+msgid "Intercom: Disabled"
+msgstr ""
+
+#: functions.inc.php:241
+msgid "Intercom: Enabled"
+msgstr ""
+
+#: functions.inc.php:1065
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -249,12 +267,12 @@ msgstr "هیچ"
 msgid "Not Selected"
 msgstr "انتخاب نشده"
 
-#: functions.inc.php:748 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:760 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "گروه اعلان"
 
-#: functions.inc.php:851
+#: functions.inc.php:863
 msgid "Page Group: "
 msgstr "گروه اعلان ： "
 
@@ -271,7 +289,7 @@ msgstr "گروه اعلان"
 msgid "Paging Extension"
 msgstr "داخلی اعلان"
 
-#: functions.inc.php:765
+#: functions.inc.php:777
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "گروه صفحه بندی %s : %s"
@@ -379,13 +397,13 @@ msgstr "کاربر ورودی مجاز"
 msgid "User Intercom Disallow"
 msgstr "کاربر ورودی غیرمجاز"
 
-#: functions.inc.php:1057
+#: functions.inc.php:1069
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1053
+#: functions.inc.php:1065
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -412,7 +430,7 @@ msgstr "نجوا"
 msgid "Yes"
 msgstr "بله"
 
-#: functions.inc.php:1046
+#: functions.inc.php:1058
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

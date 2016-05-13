@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-13 16:20-0700\n"
+"POT-Creation-Date: 2016-05-13 16:44-0700\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -103,11 +103,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1043
+#: functions.inc.php:1055
 msgid "Default Group Inclusion"
 msgstr "Gruppo Page Predefinito"
 
-#: functions.inc.php:1046 views/form.php:237
+#: functions.inc.php:1058 views/form.php:237
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
@@ -130,11 +130,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1022
+#: functions.inc.php:1034
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1019
+#: functions.inc.php:1031
 msgid "Disabled"
 msgstr "Disattivato"
 
@@ -146,15 +146,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1018
+#: functions.inc.php:1030
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1014
+#: functions.inc.php:1026
 msgid "Exclude"
 msgstr "Escludi"
 
-#: functions.inc.php:1048
+#: functions.inc.php:1060
 msgid "Extension Options"
 msgstr ""
 
@@ -173,15 +173,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1015
+#: functions.inc.php:1027
 msgid "Include"
 msgstr "Includi"
 
-#: functions.inc.php:1023
+#: functions.inc.php:1035
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1057
+#: functions.inc.php:1069
 msgid "Intercom Mode"
 msgstr ""
 
@@ -189,11 +189,29 @@ msgstr ""
 msgid "Intercom Override"
 msgstr ""
 
+#: functions.inc.php:315
+#, php-format
+msgid "Intercom from %s: Disabled"
+msgstr ""
+
+#: functions.inc.php:253
+#, php-format
+msgid "Intercom from %s: Enabled"
+msgstr ""
+
 #: install.php:5
 msgid "Intercom prefix"
 msgstr "Prefisso Intercom"
 
-#: functions.inc.php:1053
+#: functions.inc.php:303
+msgid "Intercom: Disabled"
+msgstr ""
+
+#: functions.inc.php:241
+msgid "Intercom: Enabled"
+msgstr ""
+
+#: functions.inc.php:1065
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -213,12 +231,12 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:748 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:760 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Gruppo Page"
 
-#: functions.inc.php:851
+#: functions.inc.php:863
 msgid "Page Group: "
 msgstr "Gruppo Page:"
 
@@ -235,7 +253,7 @@ msgstr ""
 msgid "Paging Extension"
 msgstr "Interno Paging"
 
-#: functions.inc.php:765
+#: functions.inc.php:777
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -343,13 +361,13 @@ msgstr "Permette Intercom"
 msgid "User Intercom Disallow"
 msgstr "Non permette Intercom"
 
-#: functions.inc.php:1057
+#: functions.inc.php:1069
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1053
+#: functions.inc.php:1065
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -374,7 +392,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1046
+#: functions.inc.php:1058
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
