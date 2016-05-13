@@ -1015,13 +1015,21 @@ function paging_applyhooks() {
 	$currentcomponent->addoptlistitem('page_group', '1', _("Include"));
 	$currentcomponent->setoptlistopts('page_group', 'sort', false);
 
+	$currentcomponent->addoptlistitem('intercom', 'enabled', _("Enabled"));
+	$currentcomponent->addoptlistitem('intercom', 'disabled', _("Disabled"));
+	$currentcomponent->setoptlistopts('intercom', 'sort', false);
+
+	$currentcomponent->addoptlistitem('answermode', 'disabled', _("Disable"));
+	$currentcomponent->addoptlistitem('answermode', 'intercom', _("Intercom"));
+	$currentcomponent->setoptlistopts('answermode', 'sort', false);
+
 	$currentcomponent->addguifunc('paging_configpageload');
 }
 
 
 // This is called before the page is actually displayed, so we can use addguielem().
 function paging_configpageload() {
-	global $currentcomponent;
+	global $currentcomponent,$astman;
 
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action']:null;
@@ -1037,6 +1045,16 @@ function paging_configpageload() {
 			$in_default_page_grp = paging_check_default($extdisplay);
 			$currentcomponent->addguielem($section, new gui_selectbox('in_default_page_grp', $currentcomponent->getoptlist('page_group'), $in_default_page_grp, _('Default Page Group'), _('You can include or exclude this extension/device from being part of the default page group when creating or editing.'), false));
 		}
+		$section = _("Extension Options");
+		$category = "advanced";
+
+		$answermode = $astman->database_get("AMPUSER",$extdisplay."/answermode");
+		$answermode = (trim($answermode) == '') ? $amp_conf['DEFAULT_INTERNAL_AUTO_ANSWER'] : $answermode;
+		$currentcomponent->addguielem($section, new gui_radio('answermode', $currentcomponent->getoptlist('answermode'), $answermode, _("Internal Auto Answer"), _("When set to Intercom, calls to this extension/user from other internal users act as if they were intercom calls meaning they will be auto-answered if the endpoint supports this feature and the system is configured to operate in this mode. All the normal white list and black list settings will be honored if they are set. External calls will still ring as normal, as will certain other circumstances such as blind transfers and when a Follow Me is configured and enabled. If Disabled, the phone rings as a normal phone."), false, '','',false), $category);
+
+		$intercom = $astman->database_get("AMPUSER",$extdisplay."/intercom");
+		$intercom = (trim($intercom) == '') ? 'enabled' : $intercom;
+		$currentcomponent->addguielem($section, new gui_radio('intercom', $currentcomponent->getoptlist('intercom'), $intercom, _("Intercom Mode"), _("When Enabled users can use *80<ext> to force intercom. When Disabled this user will reject intercom calls"), false, '','',false), $category);
 	}
 }
 

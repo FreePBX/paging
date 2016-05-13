@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.15</version>
+	<version>13.0.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.16* FREEPBX-8801 Ability to disable intercom on extension
 		*13.0.15* FREEPBX-12060
 		*13.0.14.2* FREEPBX-11966 FREEPBX-11979
 		*13.0.14.1* FREEPBX-11929 - Allow UNKNOWN Dahdi devices to be paged
@@ -45,6 +46,7 @@
 	</changelog>
 	<depends>
 		<version>13.0.6</version>
+		<module>core ge 13.0.86</module>
 		<module>conferences</module>
 	</depends>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
