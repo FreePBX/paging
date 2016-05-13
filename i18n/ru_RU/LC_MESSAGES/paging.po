@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-09 16:39-0700\n"
+"POT-Creation-Date: 2016-05-13 16:20-0700\n"
 "PO-Revision-Date: 2015-05-04 00:15+0200\n"
 "Last-Translator: Yuriy <alliancesko@gmail.com>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -106,11 +106,11 @@ msgstr "Занятые внутренние номера"
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1035
+#: functions.inc.php:1043
 msgid "Default Group Inclusion"
 msgstr "Включения в дефолтную группу"
 
-#: functions.inc.php:1038 views/form.php:237
+#: functions.inc.php:1046 views/form.php:237
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
@@ -133,6 +133,14 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
+#: functions.inc.php:1022
+msgid "Disable"
+msgstr ""
+
+#: functions.inc.php:1019
+msgid "Disabled"
+msgstr "Выключено"
+
 #: views/settings.php:79
 msgid "Drop Silence"
 msgstr ""
@@ -141,9 +149,17 @@ msgstr ""
 msgid "Duplex"
 msgstr "Дуплекс"
 
+#: functions.inc.php:1018
+msgid "Enabled"
+msgstr ""
+
 #: functions.inc.php:1014
 msgid "Exclude"
 msgstr "Исключить"
+
+#: functions.inc.php:1048
+msgid "Extension Options"
+msgstr ""
 
 #: Paging.class.php:187 views/form.php:181
 msgid "Force"
@@ -164,6 +180,14 @@ msgstr ""
 msgid "Include"
 msgstr "Включить"
 
+#: functions.inc.php:1023
+msgid "Intercom"
+msgstr ""
+
+#: functions.inc.php:1057
+msgid "Intercom Mode"
+msgstr ""
+
 #: Paging.class.php:191
 msgid "Intercom Override"
 msgstr ""
@@ -171,6 +195,10 @@ msgstr ""
 #: install.php:5
 msgid "Intercom prefix"
 msgstr "Префикс интеркома"
+
+#: functions.inc.php:1053
+msgid "Internal Auto Answer"
+msgstr ""
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
@@ -318,6 +346,23 @@ msgstr "Пользователь Интерком разрешён"
 msgid "User Intercom Disallow"
 msgstr "Пользователь Интерком запрещён"
 
+#: functions.inc.php:1057
+msgid ""
+"When Enabled users can use *80<ext> to force intercom. When Disabled this "
+"user will reject intercom calls"
+msgstr ""
+
+#: functions.inc.php:1053
+msgid ""
+"When set to Intercom, calls to this extension/user from other internal users "
+"act as if they were intercom calls meaning they will be auto-answered if the "
+"endpoint supports this feature and the system is configured to operate in "
+"this mode. All the normal white list and black list settings will be honored "
+"if they are set. External calls will still ring as normal, as will certain "
+"other circumstances such as blind transfers and when a Follow Me is "
+"configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr ""
+
 #: Paging.class.php:192
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
@@ -332,7 +377,7 @@ msgstr "Шопот"
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1038
+#: functions.inc.php:1046
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
@@ -345,9 +390,6 @@ msgstr ""
 
 #~ msgid "Conflicting Extensions"
 #~ msgstr "Конфликт внутренних номеров"
-
-#~ msgid "Disabled"
-#~ msgstr "Выключено"
 
 #~ msgid ""
 #~ "Intercom mode is currently disabled, it can be enabled in the Feature "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-09 16:39-0700\n"
+"POT-Creation-Date: 2016-05-13 16:20-0700\n"
 "PO-Revision-Date: 2016-03-17 01:21+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -133,11 +133,11 @@ msgstr "مقصد اشغال است"
 msgid "Default"
 msgstr "پیشفرض"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1043
 msgid "Default Group Inclusion"
 msgstr "ظرفیت گروه پیشفرض"
 
-#: functions.inc.php:1038 views/form.php:237
+#: functions.inc.php:1046 views/form.php:237
 msgid "Default Page Group"
 msgstr "گروه اعلان پیشفرض"
 
@@ -163,6 +163,14 @@ msgstr ""
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 
+#: functions.inc.php:1022
+msgid "Disable"
+msgstr ""
+
+#: functions.inc.php:1019
+msgid "Disabled"
+msgstr ""
+
 #: views/settings.php:79
 msgid "Drop Silence"
 msgstr "شکستن سکوت"
@@ -171,9 +179,17 @@ msgstr "شکستن سکوت"
 msgid "Duplex"
 msgstr "تکراری"
 
+#: functions.inc.php:1018
+msgid "Enabled"
+msgstr ""
+
 #: functions.inc.php:1014
 msgid "Exclude"
 msgstr "خروج"
+
+#: functions.inc.php:1048
+msgid "Extension Options"
+msgstr ""
 
 #: Paging.class.php:187 views/form.php:181
 msgid "Force"
@@ -197,6 +213,14 @@ msgstr ""
 msgid "Include"
 msgstr "ورود"
 
+#: functions.inc.php:1023
+msgid "Intercom"
+msgstr ""
+
+#: functions.inc.php:1057
+msgid "Intercom Mode"
+msgstr ""
+
 #: Paging.class.php:191
 msgid "Intercom Override"
 msgstr "بازنویسی ورودی"
@@ -204,6 +228,10 @@ msgstr "بازنویسی ورودی"
 #: install.php:5
 msgid "Intercom prefix"
 msgstr "پیشوند ورودی"
+
+#: functions.inc.php:1053
+msgid "Internal Auto Answer"
+msgstr ""
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
@@ -351,6 +379,23 @@ msgstr "کاربر ورودی مجاز"
 msgid "User Intercom Disallow"
 msgstr "کاربر ورودی غیرمجاز"
 
+#: functions.inc.php:1057
+msgid ""
+"When Enabled users can use *80<ext> to force intercom. When Disabled this "
+"user will reject intercom calls"
+msgstr ""
+
+#: functions.inc.php:1053
+msgid ""
+"When set to Intercom, calls to this extension/user from other internal users "
+"act as if they were intercom calls meaning they will be auto-answered if the "
+"endpoint supports this feature and the system is configured to operate in "
+"this mode. All the normal white list and black list settings will be honored "
+"if they are set. External calls will still ring as normal, as will certain "
+"other circumstances such as blind transfers and when a Follow Me is "
+"configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr ""
+
 #: Paging.class.php:192
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
@@ -367,7 +412,7 @@ msgstr "نجوا"
 msgid "Yes"
 msgstr "بله"
 
-#: functions.inc.php:1038
+#: functions.inc.php:1046
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

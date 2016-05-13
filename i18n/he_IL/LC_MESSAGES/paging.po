@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-09 16:39-0700\n"
+"POT-Creation-Date: 2016-05-13 16:20-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -101,11 +101,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1035
+#: functions.inc.php:1043
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:1038 views/form.php:237
+#: functions.inc.php:1046 views/form.php:237
 #, fuzzy
 msgid "Default Page Group"
 msgstr "מחק קבוצה"
@@ -129,6 +129,14 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
+#: functions.inc.php:1022
+msgid "Disable"
+msgstr ""
+
+#: functions.inc.php:1019
+msgid "Disabled"
+msgstr ""
+
 #: views/settings.php:79
 msgid "Drop Silence"
 msgstr ""
@@ -137,8 +145,16 @@ msgstr ""
 msgid "Duplex"
 msgstr ""
 
+#: functions.inc.php:1018
+msgid "Enabled"
+msgstr ""
+
 #: functions.inc.php:1014
 msgid "Exclude"
+msgstr ""
+
+#: functions.inc.php:1048
+msgid "Extension Options"
 msgstr ""
 
 #: Paging.class.php:187 views/form.php:181
@@ -160,12 +176,24 @@ msgstr ""
 msgid "Include"
 msgstr ""
 
+#: functions.inc.php:1023
+msgid "Intercom"
+msgstr ""
+
+#: functions.inc.php:1057
+msgid "Intercom Mode"
+msgstr ""
+
 #: Paging.class.php:191
 msgid "Intercom Override"
 msgstr ""
 
 #: install.php:5
 msgid "Intercom prefix"
+msgstr ""
+
+#: functions.inc.php:1053
+msgid "Internal Auto Answer"
 msgstr ""
 
 #: views/bootnav.php:7
@@ -305,6 +333,23 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
+#: functions.inc.php:1057
+msgid ""
+"When Enabled users can use *80<ext> to force intercom. When Disabled this "
+"user will reject intercom calls"
+msgstr ""
+
+#: functions.inc.php:1053
+msgid ""
+"When set to Intercom, calls to this extension/user from other internal users "
+"act as if they were intercom calls meaning they will be auto-answered if the "
+"endpoint supports this feature and the system is configured to operate in "
+"this mode. All the normal white list and black list settings will be honored "
+"if they are set. External calls will still ring as normal, as will certain "
+"other circumstances such as blind transfers and when a Follow Me is "
+"configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr ""
+
 #: Paging.class.php:192
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
@@ -319,7 +364,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1038
+#: functions.inc.php:1046
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
