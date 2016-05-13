@@ -236,21 +236,27 @@ function paging_get_config($engine) {
 		unset($fcc);
 
 		if ($oncode) {
+			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
+			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name,i)',_("Intercom: Enabled")));
+			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
 			$ext->add($context, $oncode, '', new ext_answer(''));
 			$ext->add($context, $oncode, '', new ext_wait('1'));
-			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $oncode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'enabled'));
 			$ext->add($context, $oncode, '', new ext_playback('intercom&enabled'));
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 
 			$target = '${EXTEN:'.strlen($oncode).'}';
 			$oncode = "_".$oncode.".";
+			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
+			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("Intercom from %s: Enabled"),$target)));
+			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
 			$ext->add($context, $oncode, '', new ext_setvar('dialnumber', '${EVAL(${EXTEN:'.strlen(substr($oncode, 1, -1)).'})}')); // Asterisk variable for saydigits languages
 			$ext->add($context, $oncode, '', new ext_answer(''));
 			$ext->add($context, $oncode, '', new ext_wait('1'));
-			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $oncode, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/'.$target.')}" = "allow" ]}','unset'));
-			$ext->add($context, $oncode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN:3}/device)} != 1]','invaliduser'));
+			$ext->add($context, $oncode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/'.$target.'/device)} != 1]','invaliduser'));
 			$ext->add($context, $oncode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'allow'));
 			$ext->add($context, $oncode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_1'));
 			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
@@ -292,21 +298,27 @@ function paging_get_config($engine) {
 		unset($fcc);
 
 		if ($offcode) {
+			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
+			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name,i)',_("Intercom: Disabled")));
+			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
 			$ext->add($context, $offcode, '', new ext_answer(''));
 			$ext->add($context, $offcode, '', new ext_wait('1'));
-			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $offcode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'disabled'));
 			$ext->add($context, $offcode, '', new ext_playback('intercom&disabled'));
 			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
 
 			$target = '${EXTEN:'.strlen($offcode).'}';
 			$offcode = "_".$offcode.".";
+			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
+			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
+			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("Intercom from %s: Disabled"),$target)));
+			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
 			$ext->add($context, $offcode, '', new ext_setvar('dialnumber', '${EVAL(${EXTEN:'.strlen(substr($offcode, 1, -1)).'})}')); // Asterisk variable for saydigits languages
 			$ext->add($context, $offcode, '', new ext_answer(''));
 			$ext->add($context, $offcode, '', new ext_wait('1'));
-			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $offcode, '', new ext_gotoif('$["${DB(AMPUSER/${AMPUSER}/intercom/'.$target.')}" = "deny" ]}','unset2'));
-			$ext->add($context, $offcode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/${EXTEN:3}/device)} != 1]','invaliduser2'));
+			$ext->add($context, $offcode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/'.$target.'/device)} != 1]','invaliduser2'));
 			$ext->add($context, $offcode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'deny'));
 			$ext->add($context, $offcode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_4'));
 			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
