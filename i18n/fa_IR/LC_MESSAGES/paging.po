@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-13 16:44-0700\n"
-"PO-Revision-Date: 2016-05-15 03:49+0200\n"
+"PO-Revision-Date: 2016-05-15 07:08+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) "
 "<http://weblate.freepbx.org/projects/freepbx/paging/fa_IR/>\n"
@@ -127,7 +127,7 @@ msgstr "بوق"
 
 #: views/form.php:174
 msgid "Busy Extensions"
-msgstr "مقصد اشغال است"
+msgstr "داخلی های مشغول"
 
 #: views/form.php:42 views/grid.php:13 views/settings.php:4
 msgid "Default"
