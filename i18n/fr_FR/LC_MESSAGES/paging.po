@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-05-13 16:44-0700\n"
+"POT-Creation-Date: 2016-05-17 12:40-0700\n"
 "PO-Revision-Date: 2016-02-04 23:07+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -117,11 +117,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1055
+#: functions.inc.php:1053
 msgid "Default Group Inclusion"
 msgstr "Inclusion du groupe par défaut"
 
-#: functions.inc.php:1058 views/form.php:237
+#: functions.inc.php:1056 views/form.php:237
 msgid "Default Page Group"
 msgstr "Groupe de téléavertissement par défaut"
 
@@ -144,11 +144,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1034
+#: functions.inc.php:1032
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1031
+#: functions.inc.php:1029
 msgid "Disabled"
 msgstr "Désactiver"
 
@@ -160,15 +160,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1030
+#: functions.inc.php:1028
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1026
+#: functions.inc.php:1024
 msgid "Exclude"
 msgstr "Exclure"
 
-#: functions.inc.php:1060
+#: functions.inc.php:1058
 msgid "Extension Options"
 msgstr ""
 
@@ -187,15 +187,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1027
+#: functions.inc.php:1025
 msgid "Include"
 msgstr "Inclure"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1033
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1069
+#: functions.inc.php:1067
 msgid "Intercom Mode"
 msgstr ""
 
@@ -225,7 +225,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1065
+#: functions.inc.php:1063
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -245,12 +245,12 @@ msgstr "Aucun"
 msgid "Not Selected"
 msgstr ""
 
-#: functions.inc.php:760 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:758 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Groupe de téléavertissement"
 
-#: functions.inc.php:863
+#: functions.inc.php:861
 msgid "Page Group: "
 msgstr "Groupe de téléavertissement : "
 
@@ -267,7 +267,7 @@ msgstr "Groupes de téléavertissement"
 msgid "Paging Extension"
 msgstr "Téléavertissement du poste"
 
-#: functions.inc.php:777
+#: functions.inc.php:775
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -374,13 +374,13 @@ msgstr "Autoriser Utilisateur Intercom"
 msgid "User Intercom Disallow"
 msgstr "Ne pas autoriser l'utilisateur intercom"
 
-#: functions.inc.php:1069
+#: functions.inc.php:1067
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1065
+#: functions.inc.php:1063
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -405,7 +405,7 @@ msgstr "Soupirer"
 msgid "Yes"
 msgstr "Oui"
 
-#: functions.inc.php:1058
+#: functions.inc.php:1056
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
