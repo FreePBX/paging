@@ -505,12 +505,10 @@ function paging_get_config($engine) {
 		// Macro to apply SIP Headers to channel.
 		//   function ext_gosubif($condition, $true_priority, $false_priority = false, $true_args = '', $false_args = '') {
 		//
-		$ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG1}" != ""]', 'addheader,1', false, 'Alert-Info,${ARG1}'));
-		$ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG2}" != ""]', 'addheader,1', false, 'Call-Info,${ARG2}'));
+		$ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG1}" != ""]', 'func-set-sipheader,s,1', false, 'Alert-Info,${ARG1}'));
+		$ext->add("autoanswer", "s", '', new ext_gosubif('$["${ARG2}" != ""]', 'func-set-sipheader,s,1', false, 'Call-Info,${ARG2}'));
+		$ext->add("autoanswer", "s", '', new ext_gosub('func-apply-sipheaders,s,1'));
 		$ext->add("autoanswer", "s", '', new ext_return());
-		$ext->add("autoanswer", "addheader", '', new ext_sipaddheader('${ARG1}', '${ARG2}'));
-		$ext->add("autoanswer", "addheader", '', new ext_set('PJSIP_HEADER(add,${ARG1})', '${ARG2}'));
-		$ext->add("autoanswer", "addheader", '', new ext_return());
 
 		// Setup Variables before AGI script
 		//
