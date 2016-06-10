@@ -18,7 +18,6 @@ function paging_get_config($engine) {
 	global $db, $ext, $chan_dahdi, $version, $amp_conf, $conferences_conf;
 	switch($engine) {
 	case "asterisk":
-		$ast_ge_11 = version_compare($version, '11', 'ge');
 
 		// setup for intercom
 		$fcc = new featurecode('paging', 'intercom-prefix');
@@ -150,11 +149,6 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(name,i)', '${DB(AMPUSER/${EXTEN:' . $len . '}/cidname)}'));
 			$ext->add($context, $code, '', new ext_set('CONNECTEDLINE(num)', '${EXTEN:' . $len . '}'));
 
-			// If it's less than Asterisk 11, manually run the add sip header macro.
-			if (!$ast_ge_11) {
-				$ext->add($context, $code, '', new ext_gosubif('$["${OVERRIDE}" != "ring"]', 'autoanswer,s,1', false, '${ALERTINFO},${CALLINFO}'));
-			}
-
 			$ext->add($context, $code, 'godial', new ext_dial('${DIAL}','${DTIME},' . $dopt . '${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
 
 			$ext->add($context, $code, 'end', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
@@ -193,14 +187,10 @@ function paging_get_config($engine) {
 				$ext->add($context, $sub, '', new ext_set('PAGE_MEMBERS', '${ARG1}'));
 				$ext->add($context, $sub, '', new ext_set('PAGE_CONF_OPTS', 'duplex'));
 				$ext->add($context, $sub, '', new ext_agi('page.agi'));
-				if ($ast_ge_11) {
-					$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
-					$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
-					$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
-					$ext->add($context, $sub, '', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
-				} else {
-					$ext->add($context, $sub, '', new ext_meetme('${PAGE_CONF}', 'doqwxAG'));
-				}
+				$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
+				$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
+				$ext->add($context, $sub, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+				$ext->add($context, $sub, '', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
 				$ext->add($context, $sub, '', new ext_hangup());
 			}
 
@@ -550,10 +540,6 @@ function paging_get_config($engine) {
 		//strip the global Announcement out of doptions (We use our announcement variable lower --V)
 		$doptions2 = preg_replace("/A\([^\)]*\)/","",$doptions);
 		$ext->add($apppaging, "_PAGE.", 'doptions', new ext_execif('$["${DOPTIONS}" = ""]', 'Set', '_DOPTIONS='.$doptions2));
-		// If it's less than Asterisk 11, manually run the add sip header macro.
-		if (!$ast_ge_11) {
-			$ext->add($apppaging, "_PAGE.", '', new ext_gosub('1', 's', 'autoanswer', '${ALERTINFO},${CALLINFO}'));
-		}
 		$ext->add($apppaging, "_PAGE.", '', new ext_dial('${DIAL}','${DTIME},A(${ANNOUNCEMENT})${DOPTIONS}'));
 		$ext->add($apppaging, "_PAGE.", 'skipself', new ext_hangup());
 
@@ -575,7 +561,7 @@ function paging_get_config($engine) {
 
 		//See http://issues.freepbx.org/browse/FREEPBX-8796
 		//before you even think about removing this to after checking for a page group!
-		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11 && isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
+		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
 			$pu = 'page_user';
 			$pud = 'page_user_duplex';
 			foreach (array($pu, $pud) as $u) {
@@ -606,7 +592,7 @@ function paging_get_config($engine) {
 		//       an admin as far as I can tell.
 		//
 		//
-		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11) {
+		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
 			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
@@ -667,7 +653,7 @@ function paging_get_config($engine) {
 			$ext->add($apppagegroups, $grp, '', new ext_gosub('1','ssetup', $apppaging));
 			$ext->add($apppagegroups, $grp, '', new ext_set('PAGEMODE', $pagemode));
 			$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_MEMBERS', implode('-', $all_exts)));
-			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11) {
+			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', ($thisgroup['duplex'] ? 'duplex' : '')));
 			} else {
 				$ext->add($apppagegroups, $grp, '', new ext_set('PAGE_CONF_OPTS', $page_opts . (!$thisgroup['duplex'] ? 'm' : '')));
@@ -724,7 +710,7 @@ function paging_get_config($engine) {
 			//        s: present menu
 			//
 			//
-			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_11) {
+			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
 				$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,template)', $pud));
 				$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
 				$ext->add($apppagegroups, $grp, '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
