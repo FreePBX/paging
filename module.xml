@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.18</version>
+	<version>13.0.19</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.19* FREEPBX-12476 Validate data
 		*13.0.18* Cleanup Asterisk less than 11 references
 		*13.0.17* FREEPBX-12325 use proper function for adding sip headers
 		*13.0.16* FREEPBX-8801 Ability to disable intercom on extension

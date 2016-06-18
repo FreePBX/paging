@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-10 14:59-0700\n"
+"POT-Creation-Date: 2016-06-17 18:20-0700\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -101,11 +101,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1039
+#: functions.inc.php:1040
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:1042 views/form.php:237
+#: functions.inc.php:1043 views/form.php:237
 #, fuzzy
 msgid "Default Page Group"
 msgstr "מחק קבוצה"
@@ -129,11 +129,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1018
+#: functions.inc.php:1019
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1015
+#: functions.inc.php:1016
 msgid "Disabled"
 msgstr ""
 
@@ -145,15 +145,15 @@ msgstr ""
 msgid "Duplex"
 msgstr ""
 
-#: functions.inc.php:1014
+#: functions.inc.php:1015
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1010
+#: functions.inc.php:1011
 msgid "Exclude"
 msgstr ""
 
-#: functions.inc.php:1044
+#: functions.inc.php:1045
 msgid "Extension Options"
 msgstr ""
 
@@ -172,15 +172,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1011
+#: functions.inc.php:1012
 msgid "Include"
 msgstr ""
 
-#: functions.inc.php:1019
+#: functions.inc.php:1020
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1053
+#: functions.inc.php:1054
 msgid "Intercom Mode"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1049
+#: functions.inc.php:1050
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -235,7 +235,7 @@ msgstr ""
 msgid "Page Group"
 msgstr "קבוצת איתות"
 
-#: functions.inc.php:847
+#: functions.inc.php:848
 #, fuzzy
 msgid "Page Group: "
 msgstr "קבוצת איתות"
@@ -351,13 +351,13 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: functions.inc.php:1053
+#: functions.inc.php:1054
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1049
+#: functions.inc.php:1050
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -382,7 +382,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1042
+#: functions.inc.php:1043
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
