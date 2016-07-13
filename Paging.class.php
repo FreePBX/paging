@@ -397,4 +397,32 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			$this->removeMemberAllGroups($extension);
 		}
 	}
+	public function setAutoanswerDefaults($data) {
+		$put = array();
+		if (!is_array($data)) {
+			return false;
+		}
+		foreach ($data as $k => $v) {
+			$put[] = array('default', $k, $v);
+		}
+		if(!empty($put)){
+			$sql = "REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (?, ?, ?)";
+			$stmt = $this->db->prepare($sql);
+			$error = false;
+			$baditems = array();
+			foreach ($put as $item) {
+				if(!$stmt->execute($item)){
+					$error = true;
+					$baditems[] = $item;
+				}
+			}
+			if($error === false){
+				return true;
+			}else{
+				dbug($baditems);
+				return false;
+			}
+		}
+		return false;
+	}
 }
