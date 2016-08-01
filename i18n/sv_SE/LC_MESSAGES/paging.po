@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-17 18:20-0700\n"
+"POT-Creation-Date: 2016-08-01 10:49-0700\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -116,11 +116,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1040
+#: functions.inc.php:1024
 msgid "Default Group Inclusion"
 msgstr "Standard gruppinkludering"
 
-#: functions.inc.php:1043 views/form.php:237
+#: functions.inc.php:1027 views/form.php:237
 msgid "Default Page Group"
 msgstr "Standard anropsgrupp"
 
@@ -143,11 +143,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1019
+#: functions.inc.php:1003
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1016
+#: functions.inc.php:1000
 msgid "Disabled"
 msgstr "Avaktiverad"
 
@@ -159,15 +159,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "Tvåvägs-samtal"
 
-#: functions.inc.php:1015
+#: functions.inc.php:999
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1011
+#: functions.inc.php:995
 msgid "Exclude"
 msgstr "Exkludera"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1029
 msgid "Extension Options"
 msgstr ""
 
@@ -186,15 +186,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1012
+#: functions.inc.php:996
 msgid "Include"
 msgstr "Inkludera"
 
-#: functions.inc.php:1020
+#: functions.inc.php:1004
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1054
+#: functions.inc.php:1038
 msgid "Intercom Mode"
 msgstr ""
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1050
+#: functions.inc.php:1034
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -249,7 +249,7 @@ msgstr ""
 msgid "Page Group"
 msgstr "Anropsgrupp"
 
-#: functions.inc.php:848
+#: functions.inc.php:832
 msgid "Page Group: "
 msgstr "Anropsgrupp: "
 
@@ -369,13 +369,13 @@ msgstr "Tillåt snabbtelefon"
 msgid "User Intercom Disallow"
 msgstr "Förhindra snabbtelefon"
 
-#: functions.inc.php:1054
+#: functions.inc.php:1038
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1050
+#: functions.inc.php:1034
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -400,7 +400,7 @@ msgstr "Viskningsläge"
 msgid "Yes"
 msgstr "Ja"
 
-#: functions.inc.php:1043
+#: functions.inc.php:1027
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
