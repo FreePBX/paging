@@ -789,23 +789,7 @@ function paging_get_autoanswer_defaults($orderd = false) {
 }
 
 function paging_set_autoanswer_defaults($data) {
-	global $db;
-	$put = array();
-	if (!is_array($data)) {
-		return false;
-	}
-
-	foreach ($data as $k => $v) {
-		$put[] = array('default', $k, $v);
-	}
-	if(!empty($put)){
-		$sql = "REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (?, ?, ?)";
-		$sql = $db->prepare($sql);
-		$res = $db->executeMultiple($sql, $put);
-		db_e($res);
-		return true;
-	}
-	return false;
+	return FreePBX::Paging()->setAutoanswerDefaults($data);
 }
 
 function paging_get_autoanswer_useragents($useragent = '') {
