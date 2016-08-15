@@ -74,6 +74,13 @@ function paging_get_config($engine) {
 			}
 		}
 
+		$context = 'originate-aa';
+		$ext->add($context, '_.X', '', new ext_macro('blkvm-set'));
+		$ext->add($context, '_.X', '', new ext_gosub('1','ssetup','app-paging'));
+		$ext->add($context,'_.X', '', new ext_macro('autoanswer','${EXTEN}'));
+		$ext->add($context,'_.X', '', new ext_gosub('1','s','autoanswer','${ALERTINFO},${CALLINFO}'));
+		$ext->add($context,'_.X', '', new ext_goto('1', '${EXTEN}', 'from-internal'));
+
 		$apppaging = 'app-paging';
 		if (!empty($intercom_code)) {
 			$code = '_'.$intercom_code.'.';
