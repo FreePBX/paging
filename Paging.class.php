@@ -77,6 +77,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 				'Submit'		=> '',
 				'announcement' => '',
 				'type'			=> 'tool',
+				'volume'		=> 0
 
 			);
 
@@ -125,7 +126,8 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 							$vars['duplex'],
 							$vars['description'],
 							$vars['default_group'],
-							$vars['announcement']
+							$vars['announcement'],
+							$vars['volume']
 						);
 						$request['action'] = $vars['action'] = 'modify';
 						if ($vars['extdisplay'] == '' || ($vars['pagegrp'] != $vars['pagenbr'])) {

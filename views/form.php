@@ -16,6 +16,7 @@ if($extdisplay){
 	$pagegrp = '';
 	$delURL = '';
 	$duplex = '0';
+	$volume = '0';
 	$description = '';
 }
 $default_group = \FreePBX::Paging()->getDefaultGroup();
@@ -160,6 +161,35 @@ foreach ($rec_list as $key => $value) {
 	<div class="row">
 		<div class="col-md-12">
 			<span id="announcement-help" class="help-block fpbx-help-block"><?php echo _("Annoucement to be played to remote party. If set to Default it will use the global setting from Page Groups. If Page Groups is not defined then it will default to beep")?></span>
+		</div>
+	</div>
+</div>
+<!--END Announcement-->
+<!--Announcement-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="volume"><?php echo _("Speaker Volume Override") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="volume"></i>
+					</div>
+					<div class="col-md-9">
+						<select class="form-control" id="volume" name="volume">
+							<option value="0"><?php echo _("None")?></option>
+							<?php for($i = 1; $i <= 14; $i++) { ?>
+								<option value="<?php echo $i?>" <?php echo ($volume == $i) ? 'selected' : ''?>><?php echo $i?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="volume-help" class="help-block fpbx-help-block"><?php echo _("Override the speaker volume for this page. Note: This is only valid for Sangoma phones at this time")?></span>
 		</div>
 	</div>
 </div>

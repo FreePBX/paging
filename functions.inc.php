@@ -456,6 +456,7 @@ function paging_get_config($engine) {
 		// Defaults are setup, now make specific adjustments for detected phones
 		// These come from the SQL table as well where installations can make customizations
 		//
+		$ext->add($macro, "s", '', new ext_execif('$["${LEN(${PVOL})}" != "0"]', 'Set','PAGE_VOL=\\;volume=${PVOL}'));
 		foreach ($autoanswer_arr as $autosetting) {
 			$useragent   = trim($autosetting['useragent']);
 			$autovar     = trim($autosetting['var']);
@@ -611,7 +612,7 @@ function paging_get_config($engine) {
 
 		$apppagegroups = 'app-pagegroups';
 		// Now get a list of all the paging groups...
-		$sql = "SELECT page_group, force_page, duplex, announcement FROM paging_config";
+		$sql = "SELECT page_group, force_page, duplex, announcement, volume FROM paging_config";
 		$paging_groups = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 
 		if (!$paging_groups) {
@@ -650,6 +651,9 @@ function paging_get_config($engine) {
 
 			$ext->add($apppagegroups, $grp, '', new ext_macro('user-callerid'));
 			$ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
+			if(!empty($thisgroup['volume'])) {
+				$ext->add($apppagegroups, $grp, '', new ext_set('_PVOL', $thisgroup['volume'])); //Sangoma Paging Volume adjustment
+			}
 
 			//if page group it in use, goto to busy
 			$ext->add($apppagegroups, $grp, 'busy-check', new ext_gotoif('$[${TRYLOCK(apppagegroups'. $grp .')}]', '', 'busy'));
@@ -879,7 +883,7 @@ function paging_get_pagingconfig($grp) {
 	return $results;
 }
 
-function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0, $announcement=0) {
+function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0, $announcement=0, $volume=0) {
 	global $db;
 	// Just in case someone's trying to be smart with a SQL injection.
 	$xtn = $db->escapeSimple($xtn);
@@ -888,7 +892,7 @@ function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description
 	paging_del($oldxtn);
 
 	// Now add it all back in.
-	paging_add($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement);
+	paging_add($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement, $volume);
 
 	// Aaad we need a reload.
 	needreload();
@@ -915,7 +919,7 @@ function paging_del($xtn) {
 	needreload();
 }
 
-function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group, $announcement=0) {
+function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group, $announcement=0, $volume=0) {
 	global $db;
 
 	// $plist contains a string of extensions, with \n as a seperator.
@@ -934,7 +938,7 @@ function paging_add($xtn, $plist, $force_page, $duplex, $description='', $defaul
 	}
 
 	$description = $db->escapeSimple(trim($description));
-	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description, announcement) VALUES ('$xtn', '$force_page', '$duplex', '$description', '$announcement')";
+	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description, announcement, volume) VALUES ('$xtn', '$force_page', '$duplex', '$description', '$announcement', '$volume')";
 	$db->query($sql);
 
 	if ($default_group) {

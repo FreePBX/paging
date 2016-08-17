@@ -84,6 +84,7 @@ if(DB::IsError($check)) {
 			duplex     INTEGER(1) NOT NULL default '0',
 			description VARCHAR(255) NOT NULL default '',
 			announcement VARCHAR(255) NULL,
+			volume   INTEGER NOT NULL default '0',
 			PRIMARY KEY (page_group)
 		)";
 	$result = $db->query($sql);
@@ -121,6 +122,8 @@ $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Polycom
 $result = $db->query($sql);
 $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium', 'ALERTINFO', 'ring-answer')";
 $result = $db->query($sql);
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Sangoma', 'ALERTINFO', '<http://www.sangoma.com>\\\\;info=external\${PAGE_VOL}')";
+$result = $db->query($sql);
 
 // Add dulex field
 //
@@ -128,6 +131,18 @@ $sql = "SELECT duplex FROM paging_config";
 $result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
 if (DB::IsError($result)) {
 	$sql = "ALTER TABLE paging_config ADD duplex INTEGER(1) NOT NULL default '0'";
+	$results = $db->query($sql);
+	if(DB::IsError($results)) {
+	        die_freepbx($results->getMessage());
+	}
+}
+
+//Add Volume Field
+//
+$sql = "SELECT volume FROM paging_config";
+$result = $db->getRow($sql, DB_FETCHMODE_ASSOC);
+if (DB::IsError($result)) {
+	$sql = "ALTER TABLE paging_config ADD volume INTEGER NOT NULL default '0'";
 	$results = $db->query($sql);
 	if(DB::IsError($results)) {
 	        die_freepbx($results->getMessage());

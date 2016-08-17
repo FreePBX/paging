@@ -25,7 +25,8 @@ $get = array(
 	'STREAM'	=> 'beep',
 	'ANNOUNCEMENT' => '',
 	'VXML_URL'	=> '',
-	'EXTRINGTIME' => ''
+	'EXTRINGTIME' => '',
+	'PVOL' => ''
 );
 
 foreach ($get as $k => $v) {
@@ -52,7 +53,8 @@ $chan_vars = array(
 	'SIPURI',
 	'VXML_URL',
 	'ANNOUNCEMENT',
-	'EXTRINGTIME'
+	'EXTRINGTIME',
+	'PVOL'
 );
 
 foreach ($chan_vars as $var) {
