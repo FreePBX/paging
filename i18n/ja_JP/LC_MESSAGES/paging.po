@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-15 16:43-0700\n"
+"POT-Creation-Date: 2016-08-17 10:51-0700\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -49,7 +49,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: Paging.class.php:195
+#: Paging.class.php:197
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -57,11 +57,11 @@ msgstr ""
 "<strong>強制</strong><br> 電話機に自動応答するヘッダーを送信します。未対応の"
 "機種の場合はこの設定が効かない場合があります。"
 
-#: Paging.class.php:193
+#: Paging.class.php:195
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr "<strong>拒否</strong><br> この内線に発信した人にBUSY信号を返します"
 
-#: Paging.class.php:194
+#: Paging.class.php:196
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -69,7 +69,7 @@ msgstr ""
 "<strong>リング</strong><br> 通常の通話として扱って、内線を鳴らします。キャッ"
 "チホンが無効の場合は、BUSY信号を返します"
 
-#: views/form.php:191
+#: views/form.php:221
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -108,14 +108,14 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:162
+#: views/form.php:163
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
 
-#: views/form.php:148
+#: views/form.php:149
 msgid "Announcement"
 msgstr "アナウンス"
 
@@ -127,39 +127,39 @@ msgstr "アプリケーション"
 msgid "Auto-answer defaults"
 msgstr "自動応答デフォルト"
 
-#: views/form.php:43
+#: views/form.php:44
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:174
+#: views/form.php:204
 msgid "Busy Extensions"
 msgstr "通話中の内線"
 
-#: views/form.php:42 views/grid.php:13 views/settings.php:4
+#: views/form.php:43 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "デフォルト"
 
-#: functions.inc.php:1031
+#: functions.inc.php:1035
 msgid "Default Group Inclusion"
 msgstr "デフォルトグループを含む"
 
-#: functions.inc.php:1034 views/form.php:237
+#: functions.inc.php:1038 views/form.php:267
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
-#: Paging.class.php:87 Paging.class.php:246
+#: Paging.class.php:88 Paging.class.php:248
 msgid "Delete"
 msgstr "削除"
 
-#: views/bootnav.php:14 views/form.php:107 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
 msgid "Description"
 msgstr ""
 
-#: views/form.php:119
+#: views/form.php:120
 msgid "Device List"
 msgstr "デバイスリスト"
 
-#: views/form.php:133
+#: views/form.php:134
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -169,11 +169,11 @@ msgstr ""
 "れる物です。ページングが可能なデバイス数は、詳細設定のキー "
 "PAGINMAXPARTICIPANTS によって指定されています。現在の設定は次の通りです： "
 
-#: functions.inc.php:1010
+#: functions.inc.php:1014
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1007
+#: functions.inc.php:1011
 msgid "Disabled"
 msgstr "無効"
 
@@ -181,50 +181,50 @@ msgstr "無効"
 msgid "Drop Silence"
 msgstr ""
 
-#: views/form.php:207
+#: views/form.php:237
 msgid "Duplex"
 msgstr "デュプレックス"
 
-#: functions.inc.php:1006
+#: functions.inc.php:1010
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1002
+#: functions.inc.php:1006
 msgid "Exclude"
 msgstr "含まない"
 
-#: functions.inc.php:1036
+#: functions.inc.php:1040
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:187 views/form.php:181
+#: Paging.class.php:189 views/form.php:211
 msgid "Force"
 msgstr "強制"
 
-#: views/form.php:95
+#: views/form.php:96
 msgid "Group Description"
 msgstr "グループ説明"
 
-#: views/form.php:252
+#: views/form.php:282
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1003
+#: functions.inc.php:1007
 msgid "Include"
 msgstr "含む"
 
-#: functions.inc.php:1011
+#: functions.inc.php:1015
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1049
 msgid "Intercom Mode"
 msgstr ""
 
-#: Paging.class.php:191
+#: Paging.class.php:193
 msgid "Intercom Override"
 msgstr "インターコムオーバーライド"
 
@@ -250,7 +250,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1041
+#: functions.inc.php:1045
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -258,28 +258,34 @@ msgstr ""
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:214 views/form.php:244 views/settings.php:86
+#: views/form.php:244 views/form.php:274 views/settings.php:86
 msgid "No"
 msgstr "いいえ"
 
-#: views/form.php:41 views/settings.php:3
+#: views/form.php:42 views/form.php:180 views/settings.php:3
 msgid "None"
 msgstr "なし"
 
-#: views/form.php:39
+#: views/form.php:40
 msgid "Not Selected"
 msgstr "未選択"
 
-#: functions.inc.php:751 views/bootnav.php:13 views/formwrap.php:9
+#: views/form.php:192
+msgid ""
+"Override the speaker volume for this page. Note: This is only valid for "
+"Sangoma phones at this time"
+msgstr ""
+
+#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "ページンググループ"
 
-#: functions.inc.php:839
+#: functions.inc.php:843
 msgid "Page Group: "
 msgstr "ページンググループ："
 
-#: Paging.class.php:384
+#: Paging.class.php:386
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""
@@ -288,11 +294,11 @@ msgstr ""
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:71
+#: views/form.php:72
 msgid "Paging Extension"
 msgstr "ページング内線"
 
-#: functions.inc.php:768
+#: functions.inc.php:772
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -301,7 +307,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:190 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:192 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
@@ -310,7 +316,7 @@ msgstr "ページング & インターコム"
 msgid "Paging and Intercom settings"
 msgstr "ページング & インターコム設定"
 
-#: views/form.php:222
+#: views/form.php:252
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -321,19 +327,19 @@ msgstr ""
 "端末同士で相互に通話することが許可されます。これは、\"簡易会議\"のような挙動"
 "になります。"
 
-#: Paging.class.php:185
+#: Paging.class.php:187
 msgid "Reject"
 msgstr "拒否"
 
-#: Paging.class.php:251
+#: Paging.class.php:253
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:186
+#: Paging.class.php:188
 msgid "Ring"
 msgstr "リング"
 
-#: views/form.php:38
+#: views/form.php:39
 msgid "Selected"
 msgstr "選択済み"
 
@@ -341,15 +347,19 @@ msgstr "選択済み"
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:179
+#: views/form.php:209
 msgid "Skip"
 msgstr "スキップ"
 
-#: Paging.class.php:256 views/settings.php:99
+#: views/form.php:175
+msgid "Speaker Volume Override"
+msgstr ""
+
+#: Paging.class.php:258 views/settings.php:99
 msgid "Submit"
 msgstr "送信"
 
-#: views/form.php:83
+#: views/form.php:84
 msgid "The number users will dial to page this group"
 msgstr "このグループへページングするためにユーザーがダイヤルする番号"
 
@@ -385,7 +395,7 @@ msgid ""
 "recommended for large conferences due to its performance enhancements."
 msgstr ""
 
-#: Paging.class.php:173
+#: Paging.class.php:175
 msgid "Unknown Request"
 msgstr ""
 
@@ -397,13 +407,13 @@ msgstr "ユーザーインターコムを許可"
 msgid "User Intercom Disallow"
 msgstr "ユーザーインターコムを禁止"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1049
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1041
+#: functions.inc.php:1045
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -414,7 +424,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:192
+#: Paging.class.php:194
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
@@ -422,15 +432,15 @@ msgstr ""
 "インターコム機能で内線にページングするときに、もしその内線が使用中の場合は3つ"
 "の選択肢があります。"
 
-#: views/form.php:183
+#: views/form.php:213
 msgid "Whisper"
 msgstr "ウィスパー"
 
-#: views/form.php:212 views/form.php:242 views/settings.php:84
+#: views/form.php:242 views/form.php:272 views/settings.php:84
 msgid "Yes"
 msgstr "はい"
 
-#: functions.inc.php:1034
+#: functions.inc.php:1038
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
