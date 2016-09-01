@@ -652,7 +652,7 @@ function paging_get_config($engine) {
 			$ext->add($apppagegroups, $grp, '', new ext_macro('user-callerid'));
 			$ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
 			if(!empty($thisgroup['volume'])) {
-				$ext->add($apppagegroups, $grp, '', new ext_set('_PVOL', $thisgroup['volume'])); //Sangoma Paging Volume adjustment
+				$ext->add($apppagegroups, $grp, '', new ext_set('_PVOL', ($thisgroup['volume'] - 1))); //Sangoma Paging Volume adjustment
 			}
 
 			//if page group it in use, goto to busy
