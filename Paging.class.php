@@ -405,6 +405,9 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			return false;
 		}
 		foreach ($data as $k => $v) {
+			if(empty($k) || empty($v)){
+				continue;
+			}
 			$put[] = array('default', $k, $v);
 		}
 		if(!empty($put)){
