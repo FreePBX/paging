@@ -124,6 +124,9 @@ $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium'
 $result = $db->query($sql);
 $sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Sangoma', 'ALERTINFO', '<http://www.sangoma.com>\\\\;info=external\${PAGE_VOL}')";
 $result = $db->query($sql);
+// FREEPBX-13591 - User supplied field for OpenStage
+$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES('OpenStage','ALERTINFO', '<http://example.com>\\\\;info=alert-autoanswer')";
+$result = $db->query($sql);
 
 // Add dulex field
 //
