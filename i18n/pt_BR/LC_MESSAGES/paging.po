@@ -10,29 +10,38 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-17 10:51-0700\n"
-"PO-Revision-Date: 2016-08-17 10:51-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2016-12-13 23:17+0200\n"
+"Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
+"Language-Team: Portuguese (Brazil) "
+"<http://weblate.freepbx.org/projects/freepbx/paging/pt_BR/>\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Paging.class.php:197
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
+"<Strong>Forçar</strong><br>Enviar os cabeçalhos indicando ao telefone para "
+"entrar no modo de atendimento automático. Isso pode não funcionar e depende "
+"do telefone."
 
 #: Paging.class.php:195
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
+"<Strong>Rejeitar</strong><br>Devolve um sinal OCUPADO ao usuário chamador"
 
 #: Paging.class.php:196
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
+"<Strong>Tocar</strong><br>Trata o Page como uma chamada normal e tocará no "
+"ramal (se a Chamada em espera estiver desativada, isso retornará OCUPADO"
 
 #: views/form.php:221
 msgid ""
@@ -51,14 +60,28 @@ msgid ""
 "</li>\n"
 "</ul>"
 msgstr ""
+"<ul>\n"
+"<li><b>\"Ignorar\"</b> não exibirá nenhuma extensão ocupada. Todas os outros "
+"ramais serão chamados de forma normal </li>\n"
+"<li><b>\"Forçar\"</b> não verificará se o dispositivo está em uso antes de "
+"chamá-lo. Isso significa que as conversas podem ser interrompidas por um "
+"chamado (dependendo de como o dispositivo o manipula). Isso é útil para "
+"grupos de \"chamado de emergência\". </li>\n"
+"<li><b>\"Sussurro\"</b> tentará usar o recurso ChanSpy nos canais SIP, "
+"resultando no chamado sendo enviado para o fone de ouvido do dispositivo \""
+"sussurrado\" ao usuário, mas não ouvida pela parte remota. Se o ChanSpy não "
+"for suportado no dispositivo ou caso falhe, nenhuma chamado passará. "
+"Provavelmente não faz muito sentido escolher duplex se usar o modo "
+"Susurro.</li>\n"
+"</ul>"
 
 #: views/grid.php:14
 msgid "Actions"
-msgstr ""
+msgstr "Ações"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr ""
+msgstr "Adicionar Grupo de Chamado"
 
 #: paging.i18n.php:8
 msgid ""
@@ -68,10 +91,16 @@ msgid ""
 "feature codes to block/allow intercom calls to all users as well as blocking "
 "specific users or only allowing specific users."
 msgstr ""
+"Permite a criação de grupos de chamados para fazer anúncios usando o alto-"
+"falante incorporado na maioria dos telefones SIP.\t\t Também cria um código "
+"de recurso Intercom que pode ser usado como um prefixo para falar "
+"diretamente com uma pessoa, bem como códigos de recurso opcionais para "
+"bloquear/permitir todos os usuários, bem como bloquear usuários específicos "
+"ou somente permitir usuários específicos."
 
 #: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
-msgstr ""
+msgstr "Anúncio a ser reproduzido para a parte remota. O padrão é um bip"
 
 #: views/form.php:163
 msgid ""
@@ -79,50 +108,53 @@ msgid ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
+"Anúncio a ser reproduzido para a parte remota. Se definido como Padrão, ele "
+"usará a configuração global de Grupos de Chamados. Se os Grupos de Chamados "
+"não estiverem definidos, o padrão será um bip"
 
 #: views/form.php:149
 msgid "Announcement"
-msgstr ""
+msgstr "Anúncio"
 
 #: paging.i18n.php:6 paging.i18n.php:12
 msgid "Applications"
-msgstr ""
+msgstr "Aplicações"
 
 #: views/settings.php:53
 msgid "Auto-answer defaults"
-msgstr ""
+msgstr "Auto-Responder por padrão"
 
 #: views/form.php:44
 msgid "Beep"
-msgstr ""
+msgstr "Bip"
 
 #: views/form.php:204
 msgid "Busy Extensions"
-msgstr ""
+msgstr "Ramais Ocupados"
 
 #: views/form.php:43 views/grid.php:13 views/settings.php:4
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: functions.inc.php:1035
 msgid "Default Group Inclusion"
-msgstr ""
+msgstr "Inclusão de Grupo Padrão"
 
 #: functions.inc.php:1038 views/form.php:267
 msgid "Default Page Group"
-msgstr ""
+msgstr "Grupo de Chamado Padrão"
 
 #: Paging.class.php:88 Paging.class.php:248
 msgid "Delete"
-msgstr ""
+msgstr "Apagar"
 
 #: views/bootnav.php:14 views/form.php:108 views/grid.php:12
 msgid "Description"
-msgstr ""
+msgstr "Descrição"
 
 #: views/form.php:120
 msgid "Device List"
-msgstr ""
+msgstr "Lista de Dispositivos"
 
 #: views/form.php:134
 msgid ""
@@ -130,42 +162,46 @@ msgid ""
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
+"Dispositivos para o chamado. Observe, o chamado chama o dispositivo real (e "
+"não o usuário). A quantidade de dispositivos \"chamados\" é restringida pela "
+"chave de configuração avançada PAGINGMAXPARTICIPANTS e está atualmente "
+"definida como "
 
 #: functions.inc.php:1014
 msgid "Disable"
-msgstr ""
+msgstr "Desabilitar"
 
 #: functions.inc.php:1011
 msgid "Disabled"
-msgstr ""
+msgstr "Desabilitado"
 
 #: views/settings.php:79
 msgid "Drop Silence"
-msgstr ""
+msgstr "Ficar em Silêncio"
 
 #: views/form.php:237
 msgid "Duplex"
-msgstr ""
+msgstr "Duplex"
 
 #: functions.inc.php:1010
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 #: functions.inc.php:1006
 msgid "Exclude"
-msgstr ""
+msgstr "Excluir"
 
 #: functions.inc.php:1040
 msgid "Extension Options"
-msgstr ""
+msgstr "Opções de Ramal"
 
 #: Paging.class.php:189 views/form.php:211
 msgid "Force"
-msgstr ""
+msgstr "Forçar"
 
 #: views/form.php:96
 msgid "Group Description"
-msgstr ""
+msgstr "Descrição do Grupo"
 
 #: views/form.php:282
 msgid ""
@@ -173,32 +209,35 @@ msgid ""
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
+"Se você optar por fazer um Grupo de Chamados \"padrão\", uma caixa de "
+"seleção aparecerá no Módulo de Ramais que permitirá que você inclua ou "
+"exclua essa ramal no Grupo de Chamados padrão ao editar o referido ramal"
 
 #: functions.inc.php:1007
 msgid "Include"
-msgstr ""
+msgstr "Incluir"
 
 #: functions.inc.php:1015
 msgid "Intercom"
-msgstr ""
+msgstr "Intercom"
 
 #: functions.inc.php:1049
 msgid "Intercom Mode"
-msgstr ""
+msgstr "Modo Intercom"
 
 #: Paging.class.php:193
 msgid "Intercom Override"
-msgstr ""
+msgstr "Substituir Intercom"
 
 #: functions.inc.php:312
 #, php-format
 msgid "Intercom from %s: Disabled"
-msgstr ""
+msgstr "Intercom de %s: Desabilitada"
 
 #: functions.inc.php:250
 #, php-format
 msgid "Intercom from %s: Enabled"
-msgstr ""
+msgstr "Intercom de %s: Habilitada"
 
 #: install.php:5
 msgid "Intercom prefix"
