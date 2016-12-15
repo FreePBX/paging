@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-08-17 10:51-0700\n"
-"PO-Revision-Date: 2016-12-14 02:34+0200\n"
+"PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) "
 "<http://weblate.freepbx.org/projects/freepbx/paging/pt_BR/>\n"
@@ -399,10 +399,14 @@ msgid ""
 "remove the buildup of background noise from the conference. Highly "
 "recommended for large conferences due to its performance enhancements."
 msgstr ""
+"Esta opção causa a queda do que o Asterisk detectar como silêncio ao entrar "
+"na ponte. A ativação desta opção melhorará drasticamente o desempenho e "
+"ajudará a remover o acúmulo de ruído de fundo da conferência. Altamente "
+"recomendado para grandes conferências devido às suas melhorias de desempenho."
 
 #: Paging.class.php:175
 msgid "Unknown Request"
-msgstr ""
+msgstr "Solicitação Desconhecida"
 
 #: install.php:6
 msgid "User Intercom Allow"
@@ -449,14 +453,16 @@ msgstr ""
 
 #: views/form.php:213
 msgid "Whisper"
-msgstr ""
+msgstr "Sussurar"
 
 #: views/form.php:242 views/form.php:272 views/settings.php:84
 msgid "Yes"
-msgstr ""
+msgstr "Sim"
 
 #: functions.inc.php:1038
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+"Você pode incluir ou excluir este ramal/dispositivo de fazer parte do grupo "
+"de interfonia padrão ao criar ou editar."
