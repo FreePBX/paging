@@ -4,6 +4,7 @@ extract($request);
 if($extdisplay){
 	$thisGRP = paging_get_pagingconfig($extdisplay);
 	$devices = paging_get_devs($extdisplay);
+	$devices = is_array($devices)?$devices:array();
 	extract($thisGRP);
 	$pagenbr = $extdisplay;
 	$pagegrp = $extdisplay;
@@ -73,7 +74,7 @@ foreach ($rec_list as $key => $value) {
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="pagenbr"></i>
 					</div>
 					<div class="col-md-9">
-						<input type="number" class="form-control extdisplay" id="pagenbr" name="pagenbr" value="<?php echo $pagenbr ?>">
+						<input type="text" class="form-control extdisplay" id="pagenbr" name="pagenbr" value="<?php echo $pagenbr ?>">
 					</div>
 				</div>
 			</div>

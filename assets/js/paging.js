@@ -1,8 +1,7 @@
 $(document).ready(function() {
 	$('form[name=page_edit]').submit(function(){
 		if (!isInterger($('input[name=pagenbr]').val())) {
-			alert('Please enter a valid Paging Extension');
-			return false;
+			warnInvalid($('input[name=pagenbr]'),_('Please enter a valid Paging Extension'));
 		}
 	});
 });

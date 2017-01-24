@@ -94,6 +94,8 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			switch ($vars['action']) {
 				case 'delete':
 					paging_del($vars['extdisplay']);
+					$_REQUEST['view'] = NULL;
+					$_REQUEST['extdisplay'] = NULL;
 					break;
 				case 'submit':
 					//TODO: issue, we are deleting and adding at the same time so remeber later to check
@@ -133,7 +135,8 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 						if ($vars['extdisplay'] == '' || ($vars['pagegrp'] != $vars['pagenbr'])) {
 							$request['extdisplay'] = $vars['extdisplay'] = $vars['pagenbr'];
 						}
-						$_REQUEST['extdisplay'] = $vars['extdisplay'];
+						$_REQUEST['view'] = NULL;
+						$_REQUEST['extdisplay'] = NULL;
 					}
 					break;
 				case 'save_settings':
