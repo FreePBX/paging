@@ -77,7 +77,9 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 				'Submit'		=> '',
 				'announcement' => '',
 				'type'			=> 'tool',
-				'volume'		=> 0
+				'volume'		=> 0,
+				'drop_silence'		=>'0' 
+
 
 			);
 
@@ -89,7 +91,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 				$vars['action'] = 'delete';
 				$request['action'] = 'delete';
 			}
-			$vars['announce'] = $vars['announcement'];
+			//$vars['announce'] = $vars['announcement']; no need to do this both are differnt varibles
 			//action actions
 			switch ($vars['action']) {
 				case 'delete':
@@ -154,7 +156,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 						$a = "A(beep)$doptions";
 					}
 
-					$this->setDropSilence($state,!empty($vars['drop_silence']));
+					$this->setDropSilence(!empty($vars['drop_silence']));
 					paging_set_autoanswer_defaults(array('DOPTIONS' => $a));
 					needreload();
 					break;
