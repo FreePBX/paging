@@ -2,19 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-08 23:39+0200\n"
+"POT-Creation-Date: 2017-03-07 15:48-0800\n"
 "PO-Revision-Date: 2016-12-09 22:52+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
-"Language-Team: Spanish "
-"<http://weblate.freepbx.org/projects/freepbx/paging/es_ES/>\n"
-"Language: es_ES\n"
+"Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/paging/"
+"es_ES/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: Paging.class.php:195
+#: Paging.class.php:199
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -23,13 +23,13 @@ msgstr ""
 "teléfono entre en modo de respuesta automática. Esto puede no funcionar, y "
 "depende del teléfono."
 
-#: Paging.class.php:193
+#: Paging.class.php:197
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 "<strong>Rechazar/Reject</strong><br> Devuelve una señal de OCUPADO a la "
 "persona que llama"
 
-#: Paging.class.php:194
+#: Paging.class.php:198
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -38,7 +38,7 @@ msgstr ""
 "llamará a la extensión (si la llamada en espera está desactivada, este "
 "volverá OCUPADO"
 
-#: views/form.php:192
+#: views/form.php:221
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -78,6 +78,15 @@ msgstr "Acciones"
 msgid "Add Page Group"
 msgstr "Agregar Grupo de Voceo"
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "Anuncio a ser reproducido a la parte remota. Por defecto es beep"
@@ -97,39 +106,43 @@ msgstr ""
 msgid "Announcement"
 msgstr "Anuncio"
 
+#: paging.i18n.php:6
+msgid "Applications"
+msgstr ""
+
 #: views/settings.php:53
 msgid "Auto-answer defaults"
 msgstr "Auto--answer por defecto"
 
-#: views/form.php:46
+#: views/form.php:44
 msgid "Beep"
 msgstr "Beep"
 
-#: views/form.php:175
+#: views/form.php:204
 msgid "Busy Extensions"
 msgstr "Extensiones Ocupadas"
 
-#: views/form.php:45 views/grid.php:13 views/settings.php:4
+#: views/form.php:43 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "Por Defecto"
 
-#: functions.inc.php:1005
+#: functions.inc.php:1035
 msgid "Default Group Inclusion"
 msgstr "Grupo Inclusión Por Defecto"
 
-#: functions.inc.php:1008 views/form.php:238
+#: functions.inc.php:1038 views/form.php:267
 msgid "Default Page Group"
 msgstr "Grupo Megafonía Por Defecto"
 
-#: Paging.class.php:87 Paging.class.php:246
+#: Paging.class.php:90 Paging.class.php:250
 msgid "Delete"
 msgstr "Eliminar"
 
-#: views/form.php:110 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
 msgid "Description"
 msgstr "Descripción"
 
-#: views/form.php:122
+#: views/form.php:120
 msgid "Device List"
 msgstr "Lista de Dispositivos"
 
@@ -144,27 +157,43 @@ msgstr ""
 "está restringido por la llave (key) avanzada PAGINGMAXPARTICIPANTS y se fija "
 "actualmente "
 
+#: functions.inc.php:1014
+msgid "Disable"
+msgstr ""
+
+#: functions.inc.php:1011
+msgid "Disabled"
+msgstr ""
+
 #: views/settings.php:79
 msgid "Drop Silence"
 msgstr "Caer Silencio"
 
-#: views/form.php:208
+#: views/form.php:237
 msgid "Duplex"
 msgstr "Duplo"
 
-#: functions.inc.php:984
+#: functions.inc.php:1010
+msgid "Enabled"
+msgstr ""
+
+#: functions.inc.php:1006
 msgid "Exclude"
 msgstr "Excluir"
 
-#: Paging.class.php:187 views/form.php:182
+#: functions.inc.php:1040
+msgid "Extension Options"
+msgstr ""
+
+#: Paging.class.php:191 views/form.php:211
 msgid "Force"
 msgstr "Forzar"
 
-#: views/form.php:98
+#: views/form.php:96
 msgid "Group Description"
 msgstr "Descripción Grupo"
 
-#: views/form.php:253
+#: views/form.php:282
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -175,61 +204,103 @@ msgstr ""
 "excluir esa extensión en el grupo de voceo predeterminado al editar dicha "
 "extensión"
 
-#: functions.inc.php:985
+#: functions.inc.php:1007
 msgid "Include"
 msgstr "Incluir"
 
-#: Paging.class.php:191
+#: functions.inc.php:1015
+msgid "Intercom"
+msgstr ""
+
+#: functions.inc.php:1049
+msgid "Intercom Mode"
+msgstr ""
+
+#: Paging.class.php:195
 msgid "Intercom Override"
 msgstr "Anular Intercom"
 
-#: install.php:5
+#: functions.inc.php:312
+#, php-format
+msgid "Intercom from %s: Disabled"
+msgstr ""
+
+#: functions.inc.php:250
+#, php-format
+msgid "Intercom from %s: Enabled"
+msgstr ""
+
+#: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "Prefijo Megafonía"
+
+#: functions.inc.php:300
+msgid "Intercom: Disabled"
+msgstr ""
+
+#: functions.inc.php:238
+msgid "Intercom: Enabled"
+msgstr ""
+
+#: functions.inc.php:1045
+msgid "Internal Auto Answer"
+msgstr ""
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
 msgstr "Listar Grupos de Voceo"
 
-#: views/form.php:215 views/form.php:245 views/settings.php:86
+#: views/form.php:244 views/form.php:274 views/settings.php:86
 msgid "No"
 msgstr "No"
 
-#: views/form.php:44 views/settings.php:3
+#: views/form.php:42 views/form.php:180 views/settings.php:3
 msgid "None"
 msgstr "ninguno"
 
-#: views/form.php:42
+#: views/form.php:40
 msgid "Not Selected"
 msgstr "No seleccionado"
 
-#: functions.inc.php:735 views/bootnav.php:13 views/formwrap.php:9
+#: views/form.php:192
+msgid ""
+"Override the speaker volume for this page. Note: This is only valid for "
+"Sangoma phones at this time"
+msgstr ""
+
+#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Grupo Megafonía"
 
-#: functions.inc.php:821
+#: functions.inc.php:843
 msgid "Page Group: "
 msgstr "Grupo Megafonía: "
 
-#: Paging.class.php:382
+#: Paging.class.php:388
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Grupo de Voceo: %s (%s)"
 
-#: assets/js/paging.js:116
+#: assets/js/paging.js:67
 msgid "Page Groups"
 msgstr "Grupos de Voceo"
 
-#: views/form.php:74
+#: views/form.php:72
 msgid "Paging Extension"
 msgstr "Extensión Megafonía"
+
+#: functions.inc.php:772
+#, php-format
+msgid "Paging Group %s : %s"
+msgstr ""
 
 #: views/overview.php:22
 msgid "Paging Groups"
 msgstr "Grupos de Voceo"
 
-#: Paging.class.php:190 views/overview.php:7
+#: Paging.class.php:194 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Megafonía"
 
@@ -237,7 +308,7 @@ msgstr "Megafonía"
 msgid "Paging and Intercom settings"
 msgstr "Configuración de Intercom y Voceo"
 
-#: views/form.php:223
+#: views/form.php:252
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -248,19 +319,19 @@ msgstr ""
 "grupo de megafonía para poder hablar y ser escuchados por todos. Esto hace "
 "que sea como una \"conferencia instantánea\""
 
-#: Paging.class.php:185
+#: Paging.class.php:189
 msgid "Reject"
 msgstr "Rechazo"
 
-#: Paging.class.php:251
+#: Paging.class.php:255
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: Paging.class.php:186
+#: Paging.class.php:190
 msgid "Ring"
 msgstr "Trimbrar"
 
-#: views/form.php:41
+#: views/form.php:39
 msgid "Selected"
 msgstr "Seleccionado"
 
@@ -268,15 +339,19 @@ msgstr "Seleccionado"
 msgid "Settings"
 msgstr "Configuración"
 
-#: views/form.php:180
+#: views/form.php:209
 msgid "Skip"
 msgstr "Saltar"
 
-#: Paging.class.php:256 views/settings.php:99
+#: views/form.php:175
+msgid "Speaker Volume Override"
+msgstr ""
+
+#: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "Enviar"
 
-#: views/form.php:86
+#: views/form.php:84
 msgid "The number users will dial to page this group"
 msgstr "El número para llamar a este grupo"
 
@@ -295,15 +370,15 @@ msgid ""
 msgstr ""
 "Este módulo es específico para los terminales que permiten (descuelge) "
 "megafonía o intercomunicación. Esta sección es para la configuración de "
-"Grupos de Megafonía, se configuran a través de <strong>Códigos de "
-"Servicio</strong>. La Megafonía debe estar habilitada en un terminal antes "
-"de permitir las llamadas entrantes. Es posible restringir las llamadas de "
-"megafonía sólo a extensiones específicas, o habilitar para todas las "
-"extensiones, y denegar explícitamente a las extensiones que quiera.<br /><br "
-"/>Este módulo puede trabajar con Aastra, Grandstream, Linksys/Sipura, Mitel, "
-"Polycom, SNOM, y posiblemente en otros teléfonos SIP (no ATAs). Cualquier "
-"teléfono que tenga fijada la auto-respuesta también debería funcionar (como "
-"la extensión de la consola, si si configurada)."
+"Grupos de Megafonía, se configuran a través de <strong>Códigos de Servicio</"
+"strong>. La Megafonía debe estar habilitada en un terminal antes de permitir "
+"las llamadas entrantes. Es posible restringir las llamadas de megafonía sólo "
+"a extensiones específicas, o habilitar para todas las extensiones, y denegar "
+"explícitamente a las extensiones que quiera.<br /><br />Este módulo puede "
+"trabajar con Aastra, Grandstream, Linksys/Sipura, Mitel, Polycom, SNOM, y "
+"posiblemente en otros teléfonos SIP (no ATAs). Cualquier teléfono que tenga "
+"fijada la auto-respuesta también debería funcionar (como la extensión de la "
+"consola, si si configurada)."
 
 #: views/settings.php:94
 msgid ""
@@ -317,19 +392,36 @@ msgstr ""
 "ayudará a eliminar la acumulación de ruido de fondo de la conferencia. Muy "
 "recomendable para grandes conferencias debido a sus mejoras de rendimiento."
 
-#: Paging.class.php:173
+#: Paging.class.php:177
 msgid "Unknown Request"
 msgstr "Requerimiento Desconocido"
 
-#: install.php:6
+#: install.php:6 paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "Habilitar Ext Megafonía"
 
-#: install.php:7
+#: install.php:7 paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "Deshabilitar Ext Megafonía"
 
-#: Paging.class.php:192
+#: functions.inc.php:1049
+msgid ""
+"When Enabled users can use *80<ext> to force intercom. When Disabled this "
+"user will reject intercom calls"
+msgstr ""
+
+#: functions.inc.php:1045
+msgid ""
+"When set to Intercom, calls to this extension/user from other internal users "
+"act as if they were intercom calls meaning they will be auto-answered if the "
+"endpoint supports this feature and the system is configured to operate in "
+"this mode. All the normal white list and black list settings will be honored "
+"if they are set. External calls will still ring as normal, as will certain "
+"other circumstances such as blind transfers and when a Follow Me is "
+"configured and enabled. If Disabled, the phone rings as a normal phone."
+msgstr ""
+
+#: Paging.class.php:196
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
@@ -337,15 +429,15 @@ msgstr ""
 "Al usar Intercom para vocear a una extensión, si la extensión está en uso, "
 "usted tiene tres opciones."
 
-#: views/form.php:184
+#: views/form.php:213
 msgid "Whisper"
 msgstr "Susurrar"
 
-#: views/form.php:213 views/form.php:243 views/settings.php:84
+#: views/form.php:242 views/form.php:272 views/settings.php:84
 msgid "Yes"
 msgstr "Si"
 
-#: functions.inc.php:1008
+#: functions.inc.php:1038
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

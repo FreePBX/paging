@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.25.2</version>
+	<version>13.0.25.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.25.3* FREEPBX-14291 -Paging/Intercom module doesn't retain settings
 		*13.0.25.2* FREEPBX-13591 Add 'OpenStage' autoanswer
 		*13.0.25.1* FREEPBX-13274 validate data not null
 		*13.0.25* Set Volume correctly

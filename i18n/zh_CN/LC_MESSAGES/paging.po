@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 10:51-0700\n"
+"POT-Creation-Date: 2017-03-07 15:48-0800\n"
 "PO-Revision-Date: 2009-01-31 13:31+0800\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
@@ -18,17 +18,17 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: Paging.class.php:197
+#: Paging.class.php:199
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:195
+#: Paging.class.php:197
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:196
+#: Paging.class.php:198
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -84,7 +84,7 @@ msgstr ""
 msgid "Announcement"
 msgstr ""
 
-#: paging.i18n.php:6 paging.i18n.php:12
+#: paging.i18n.php:6
 msgid "Applications"
 msgstr ""
 
@@ -112,7 +112,7 @@ msgstr "包含在默认传呼组中"
 msgid "Default Page Group"
 msgstr "默认传呼组"
 
-#: Paging.class.php:88 Paging.class.php:248
+#: Paging.class.php:90 Paging.class.php:250
 msgid "Delete"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr "排除"
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:189 views/form.php:211
+#: Paging.class.php:191 views/form.php:211
 msgid "Force"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 msgid "Intercom Mode"
 msgstr ""
 
-#: Paging.class.php:193
+#: Paging.class.php:195
 msgid "Intercom Override"
 msgstr ""
 
@@ -200,7 +200,7 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: install.php:5
+#: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "直接对讲前缀"
 
@@ -247,7 +247,7 @@ msgstr "集体传呼组"
 msgid "Page Group: "
 msgstr "传呼组："
 
-#: Paging.class.php:386
+#: Paging.class.php:388
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""
@@ -269,7 +269,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:192 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:194 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "集体传呼和直接对讲"
@@ -288,15 +288,15 @@ msgstr ""
 "工），以让在组中的所有电话都可以向所有其他电话发言。这个功能看起来有些“即时的"
 "电话会议”的意味。"
 
-#: Paging.class.php:187
+#: Paging.class.php:189
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:253
+#: Paging.class.php:255
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:188
+#: Paging.class.php:190
 msgid "Ring"
 msgstr ""
 
@@ -316,7 +316,7 @@ msgstr ""
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:258 views/settings.php:99
+#: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr ""
 
@@ -353,15 +353,15 @@ msgid ""
 "recommended for large conferences due to its performance enhancements."
 msgstr ""
 
-#: Paging.class.php:175
+#: Paging.class.php:177
 msgid "Unknown Request"
 msgstr ""
 
-#: install.php:6
+#: install.php:6 paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "允许直接对讲的用户"
 
-#: install.php:7
+#: install.php:7 paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "禁止直接对讲的用户"
 
@@ -382,7 +382,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:194
+#: Paging.class.php:196
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."

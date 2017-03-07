@@ -3,13 +3,13 @@
 # For licensing information, please see the file named LICENSE located in the module directory
 #
 # FreePBX language template for paging
-# Copyright (C) 2008-2016 Sangoma, Inc.
+# Copyright (C) 2008-2017 Sangoma Technologies, Inc.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-17 10:51-0700\n"
+"POT-Creation-Date: 2017-03-07 15:48-0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,17 +17,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: Paging.class.php:197
+#: Paging.class.php:199
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:195
+#: Paging.class.php:197
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:196
+#: Paging.class.php:198
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -85,7 +85,6 @@ msgid "Announcement"
 msgstr ""
 
 #: paging.i18n.php:6
-#: paging.i18n.php:12
 msgid "Applications"
 msgstr ""
 
@@ -116,8 +115,8 @@ msgstr ""
 msgid "Default Page Group"
 msgstr ""
 
-#: Paging.class.php:88
-#: Paging.class.php:248
+#: Paging.class.php:90
+#: Paging.class.php:250
 msgid "Delete"
 msgstr ""
 
@@ -166,7 +165,7 @@ msgstr ""
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:189
+#: Paging.class.php:191
 #: views/form.php:211
 msgid "Force"
 msgstr ""
@@ -194,7 +193,7 @@ msgstr ""
 msgid "Intercom Mode"
 msgstr ""
 
-#: Paging.class.php:193
+#: Paging.class.php:195
 msgid "Intercom Override"
 msgstr ""
 
@@ -209,6 +208,7 @@ msgid "Intercom from %s: Enabled"
 msgstr ""
 
 #: install.php:5
+#: paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgstr ""
 msgid "Page Group: "
 msgstr ""
 
-#: Paging.class.php:386
+#: Paging.class.php:388
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""
@@ -283,7 +283,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:192
+#: Paging.class.php:194
 #: paging.i18n.php:4
 #: paging.i18n.php:10
 #: views/overview.php:7
@@ -301,15 +301,15 @@ msgid ""
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
 
-#: Paging.class.php:187
+#: Paging.class.php:189
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:253
+#: Paging.class.php:255
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:188
+#: Paging.class.php:190
 msgid "Ring"
 msgstr ""
 
@@ -329,7 +329,7 @@ msgstr ""
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:258
+#: Paging.class.php:260
 #: views/settings.php:99
 msgid "Submit"
 msgstr ""
@@ -360,15 +360,17 @@ msgid ""
 "recommended for large conferences due to its performance enhancements."
 msgstr ""
 
-#: Paging.class.php:175
+#: Paging.class.php:177
 msgid "Unknown Request"
 msgstr ""
 
 #: install.php:6
+#: paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr ""
 
 #: install.php:7
+#: paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr ""
 
@@ -389,7 +391,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:194
+#: Paging.class.php:196
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
