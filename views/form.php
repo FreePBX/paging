@@ -4,6 +4,7 @@ extract($request);
 if($extdisplay){
 	$thisGRP = paging_get_pagingconfig($extdisplay);
 	$devices = paging_get_devs($extdisplay);
+	$devices = is_array($devices)?$devices:array();
 	extract($thisGRP);
 	$pagenbr = $extdisplay;
 	$pagegrp = $extdisplay;
@@ -56,7 +57,7 @@ foreach ($rec_list as $key => $value) {
 	$aopts .= '<option value='.$key.' '.(($key == $thisGRP['announcement'])?'SELECTED':'').'>'.$value.'</option>';
 }
 ?>
-<form class="fpbx-submit" name="page_opts_form" id="page_opts_form" data-fpbx-delete="<?php echo $delURL?>" method="POST">
+<form class="fpbx-submit" name="page_opts_form" id="page_opts_form" action="?display=paging" data-fpbx-delete="<?php echo $delURL?>" method="POST">
 <input type="hidden" name="view" value="form">
 <input type="hidden" name="display" value="paging">
 <input type="hidden" name="action" value="submit">

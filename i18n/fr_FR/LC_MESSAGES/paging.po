@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 15:48-0800\n"
+"POT-Creation-Date: 2017-03-28 17:50-0700\n"
 "PO-Revision-Date: 2016-02-04 23:07+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -47,7 +47,7 @@ msgid ""
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:221
+#: views/form.php:222
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -86,14 +86,14 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:163
+#: views/form.php:164
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
 
-#: views/form.php:149
+#: views/form.php:150
 msgid "Announcement"
 msgstr "Annonce"
 
@@ -105,15 +105,15 @@ msgstr "Applications"
 msgid "Auto-answer defaults"
 msgstr ""
 
-#: views/form.php:44
+#: views/form.php:45
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:204
+#: views/form.php:205
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:43 views/grid.php:13 views/settings.php:4
+#: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -121,7 +121,7 @@ msgstr ""
 msgid "Default Group Inclusion"
 msgstr "Inclusion du groupe par défaut"
 
-#: functions.inc.php:1038 views/form.php:267
+#: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
 msgstr "Groupe de téléavertissement par défaut"
 
@@ -129,15 +129,15 @@ msgstr "Groupe de téléavertissement par défaut"
 msgid "Delete"
 msgstr "Supprimer"
 
-#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
 msgstr "Description"
 
-#: views/form.php:120
+#: views/form.php:121
 msgid "Device List"
 msgstr "Liste des dispositifs"
 
-#: views/form.php:134
+#: views/form.php:135
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -156,7 +156,7 @@ msgstr "Désactiver"
 msgid "Drop Silence"
 msgstr ""
 
-#: views/form.php:237
+#: views/form.php:238
 msgid "Duplex"
 msgstr "Duplex"
 
@@ -172,15 +172,15 @@ msgstr "Exclure"
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:191 views/form.php:211
+#: Paging.class.php:191 views/form.php:212
 msgid "Force"
 msgstr "Forcer"
 
-#: views/form.php:96
+#: views/form.php:97
 msgid "Group Description"
 msgstr "Description du groupe"
 
-#: views/form.php:282
+#: views/form.php:283
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -233,19 +233,19 @@ msgstr ""
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:244 views/form.php:274 views/settings.php:86
+#: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
 msgstr "Non"
 
-#: views/form.php:42 views/form.php:180 views/settings.php:3
+#: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
 msgstr "Aucun"
 
-#: views/form.php:40
+#: views/form.php:41
 msgid "Not Selected"
 msgstr ""
 
-#: views/form.php:192
+#: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -269,7 +269,7 @@ msgstr "Groupe de téléavertissement : %s (%s)"
 msgid "Page Groups"
 msgstr "Groupes de téléavertissement"
 
-#: views/form.php:72
+#: views/form.php:73
 msgid "Paging Extension"
 msgstr "Téléavertissement du poste"
 
@@ -291,7 +291,7 @@ msgstr "Téléavertissement et intercom"
 msgid "Paging and Intercom settings"
 msgstr "Paramètres de téléavertissement et intercom"
 
-#: views/form.php:252
+#: views/form.php:253
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -301,6 +301,10 @@ msgstr ""
 "uniquement. Cocher cette case passera le téléavertissement en duplex, "
 "autorisant tous les téléphones dans le groupe de téléavertissement à parler "
 "et être entendus par tous. Cela donne un genre de \"conférence instantanée\"."
+
+#: assets/js/paging.js:4
+msgid "Please enter a valid Paging Extension"
+msgstr "Veuillez entrer une Extension de Paging valide"
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -314,7 +318,7 @@ msgstr "Réinitialiser"
 msgid "Ring"
 msgstr "Sonner"
 
-#: views/form.php:39
+#: views/form.php:40
 msgid "Selected"
 msgstr ""
 
@@ -322,11 +326,11 @@ msgstr ""
 msgid "Settings"
 msgstr "Paramètres"
 
-#: views/form.php:209
+#: views/form.php:210
 msgid "Skip"
 msgstr ""
 
-#: views/form.php:175
+#: views/form.php:176
 msgid "Speaker Volume Override"
 msgstr ""
 
@@ -334,7 +338,7 @@ msgstr ""
 msgid "Submit"
 msgstr "Soumettre"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid "The number users will dial to page this group"
 msgstr "Le numéro que composeront les utilisateurs pour pager ce groupe"
 
@@ -407,11 +411,11 @@ msgid ""
 "have three options."
 msgstr ""
 
-#: views/form.php:213
+#: views/form.php:214
 msgid "Whisper"
 msgstr "Soupirer"
 
-#: views/form.php:242 views/form.php:272 views/settings.php:84
+#: views/form.php:243 views/form.php:273 views/settings.php:84
 msgid "Yes"
 msgstr "Oui"
 
@@ -500,9 +504,6 @@ msgstr ""
 
 #~ msgid "Submit Changes"
 #~ msgstr "Appliquer les Modifications"
-
-#~ msgid "Please enter a valid Paging Extension"
-#~ msgstr "Veuillez entrer une Extension de Paging valide"
 
 #~ msgid "Please select at least one extension"
 #~ msgstr "Veuillez sélectionner au moins une extension"

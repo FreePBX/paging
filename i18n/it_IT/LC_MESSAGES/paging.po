@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 15:48-0800\n"
+"POT-Creation-Date: 2017-03-28 17:50-0700\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -33,7 +33,7 @@ msgid ""
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:221
+#: views/form.php:222
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -72,14 +72,14 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:163
+#: views/form.php:164
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
 
-#: views/form.php:149
+#: views/form.php:150
 msgid "Announcement"
 msgstr ""
 
@@ -91,15 +91,15 @@ msgstr ""
 msgid "Auto-answer defaults"
 msgstr ""
 
-#: views/form.php:44
+#: views/form.php:45
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:204
+#: views/form.php:205
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:43 views/grid.php:13 views/settings.php:4
+#: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -107,7 +107,7 @@ msgstr ""
 msgid "Default Group Inclusion"
 msgstr "Gruppo Page Predefinito"
 
-#: functions.inc.php:1038 views/form.php:267
+#: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
@@ -115,15 +115,15 @@ msgstr "Gruppo Page Predefinito"
 msgid "Delete"
 msgstr ""
 
-#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
 msgstr ""
 
-#: views/form.php:120
+#: views/form.php:121
 msgid "Device List"
 msgstr ""
 
-#: views/form.php:134
+#: views/form.php:135
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -142,7 +142,7 @@ msgstr "Disattivato"
 msgid "Drop Silence"
 msgstr ""
 
-#: views/form.php:237
+#: views/form.php:238
 msgid "Duplex"
 msgstr "Duplex"
 
@@ -158,15 +158,15 @@ msgstr "Escludi"
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:191 views/form.php:211
+#: Paging.class.php:191 views/form.php:212
 msgid "Force"
 msgstr ""
 
-#: views/form.php:96
+#: views/form.php:97
 msgid "Group Description"
 msgstr "Descrizione Gruppo"
 
-#: views/form.php:282
+#: views/form.php:283
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -219,19 +219,19 @@ msgstr ""
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:244 views/form.php:274 views/settings.php:86
+#: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
 msgstr ""
 
-#: views/form.php:42 views/form.php:180 views/settings.php:3
+#: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
 msgstr ""
 
-#: views/form.php:40
+#: views/form.php:41
 msgid "Not Selected"
 msgstr ""
 
-#: views/form.php:192
+#: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -255,7 +255,7 @@ msgstr ""
 msgid "Page Groups"
 msgstr ""
 
-#: views/form.php:72
+#: views/form.php:73
 msgid "Paging Extension"
 msgstr "Interno Paging"
 
@@ -277,7 +277,7 @@ msgstr "Paging e Intercom"
 msgid "Paging and Intercom settings"
 msgstr ""
 
-#: views/form.php:252
+#: views/form.php:253
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -287,6 +287,10 @@ msgstr ""
 "Selezionando questa opzione il paging sarà in modalità duplex, permettendo a "
 "tutti i telefoni del gruppo di parlare tra loro. Come se fosse una "
 "\"conferenza instantanea\""
+
+#: assets/js/paging.js:4
+msgid "Please enter a valid Paging Extension"
+msgstr "Prego immettere un Interno Paging valido"
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -300,7 +304,7 @@ msgstr ""
 msgid "Ring"
 msgstr ""
 
-#: views/form.php:39
+#: views/form.php:40
 msgid "Selected"
 msgstr ""
 
@@ -308,11 +312,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:209
+#: views/form.php:210
 msgid "Skip"
 msgstr ""
 
-#: views/form.php:175
+#: views/form.php:176
 msgid "Speaker Volume Override"
 msgstr ""
 
@@ -320,7 +324,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: views/form.php:84
+#: views/form.php:85
 msgid "The number users will dial to page this group"
 msgstr ""
 "Il numero che gli utenti dovranno chiamare per effettuare il page su questo "
@@ -394,11 +398,11 @@ msgid ""
 "have three options."
 msgstr ""
 
-#: views/form.php:213
+#: views/form.php:214
 msgid "Whisper"
 msgstr ""
 
-#: views/form.php:242 views/form.php:272 views/settings.php:84
+#: views/form.php:243 views/form.php:273 views/settings.php:84
 msgid "Yes"
 msgstr ""
 
@@ -485,9 +489,6 @@ msgstr ""
 
 #~ msgid "Submit Changes"
 #~ msgstr "Conferma Cambiamenti"
-
-#~ msgid "Please enter a valid Paging Extension"
-#~ msgstr "Prego immettere un Interno Paging valido"
 
 #~ msgid "Please select at least one extension"
 #~ msgstr "Prego selezionare almeno un interno"

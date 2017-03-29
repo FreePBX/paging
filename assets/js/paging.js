@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$('form[name=page_edit]').submit(function(){
 		if (!isInterger($('input[name=pagenbr]').val())) {
-			alert('Please enter a valid Paging Extension');
+			warnInvalid($('input[name=pagenbr]'),_('Please enter a valid Paging Extension'));
 			return false;
 		}
 	});
@@ -73,8 +73,8 @@ $(document).ready(function(){
 });
 
 function linkFormatter(value){
-	html = '<a href="?display=paging&view=form&extdisplay='+encodeURIComponent(value)+'"><i class="fa fa-pencil"></i>&nbsp;</a>';
-	html += '<a href="?display=paging&action=delete&extdisplay='+encodeURIComponent(value)+'" class="delAction"><i class="fa fa-trash"></i>&nbsp;</a>';
+	html = '<a href="?display=paging&view=form&extdisplay='+encodeURIComponent(value)+'"><i class="fa fa-pencil"></i></a>&nbsp;';
+	html += '<a href="?display=paging&action=delete&extdisplay='+encodeURIComponent(value)+'" class="delAction"><i class="fa fa-trash"></i></a>&nbsp;';
 	return html;
 }
 function bnLinkFormatter(value){

@@ -10,22 +10,30 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2017-03-21 23:05+0200\n"
+"Last-Translator: Michal <mboltz@tlen.pl>\n"
+"Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
+"paging/pl_PL/>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Paging.class.php:199
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
+"<strong>Zmuś</strong><br> Wyślij nagłówki nakazujące telefonowi by przeszedł "
+"w tryb automatycznej odpowiedzi. Funkcja ta jest zależna od aparatu i w "
+"niektórych telefonach może nie działać."
 
 #: Paging.class.php:197
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
-msgstr ""
+msgstr "<strong>Odrzuć</strong><br> Zwróć sygnał ZAJĘTY do dzwoniącego"
 
 #: Paging.class.php:198
 msgid ""
@@ -55,8 +63,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: views/bootnav.php:8
-#: views/grid.php:6
+#: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
 msgstr ""
 
@@ -100,9 +107,7 @@ msgstr ""
 msgid "Busy Extensions"
 msgstr ""
 
-#: views/form.php:44
-#: views/grid.php:13
-#: views/settings.php:4
+#: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr ""
 
@@ -110,19 +115,15 @@ msgstr ""
 msgid "Default Group Inclusion"
 msgstr ""
 
-#: functions.inc.php:1038
-#: views/form.php:268
+#: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
 msgstr ""
 
-#: Paging.class.php:90
-#: Paging.class.php:250
+#: Paging.class.php:90 Paging.class.php:250
 msgid "Delete"
 msgstr ""
 
-#: views/bootnav.php:14
-#: views/form.php:109
-#: views/grid.php:12
+#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
 msgstr ""
 
@@ -165,8 +166,7 @@ msgstr ""
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:191
-#: views/form.php:212
+#: Paging.class.php:191 views/form.php:212
 msgid "Force"
 msgstr ""
 
@@ -207,8 +207,7 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: install.php:5
-#: paging.i18n.php:16
+#: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr ""
 
@@ -228,15 +227,11 @@ msgstr ""
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:245
-#: views/form.php:275
-#: views/settings.php:86
+#: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
 msgstr ""
 
-#: views/form.php:43
-#: views/form.php:181
-#: views/settings.php:3
+#: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
 msgstr ""
 
@@ -250,9 +245,7 @@ msgid ""
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:755
-#: views/bootnav.php:13
-#: views/formwrap.php:9
+#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr ""
@@ -283,9 +276,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:194
-#: paging.i18n.php:4
-#: paging.i18n.php:10
+#: Paging.class.php:194 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr ""
@@ -333,8 +324,7 @@ msgstr ""
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:260
-#: views/settings.php:99
+#: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr ""
 
@@ -368,13 +358,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
-#: install.php:6
-#: paging.i18n.php:14
+#: install.php:6 paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr ""
 
-#: install.php:7
-#: paging.i18n.php:12
+#: install.php:7 paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr ""
 
@@ -405,9 +393,7 @@ msgstr ""
 msgid "Whisper"
 msgstr ""
 
-#: views/form.php:243
-#: views/form.php:273
-#: views/settings.php:84
+#: views/form.php:243 views/form.php:273 views/settings.php:84
 msgid "Yes"
 msgstr ""
 

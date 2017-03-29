@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 15:48-0800\n"
+"POT-Creation-Date: 2017-03-28 17:50-0700\n"
 "PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -44,7 +44,7 @@ msgstr ""
 "normal e tocará no ramal (se a Chamada em espera estiver desativada, "
 "retornará OCUPADO"
 
-#: views/form.php:221
+#: views/form.php:222
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -103,7 +103,7 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "Anúncio a ser reproduzido para a parte remota. O padrão é um bip"
 
-#: views/form.php:163
+#: views/form.php:164
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -113,7 +113,7 @@ msgstr ""
 "usará a configuração global de Grupos de Interfonia. Se eles não estiverem "
 "definidos, o padrão será um bip"
 
-#: views/form.php:149
+#: views/form.php:150
 msgid "Announcement"
 msgstr "Anúncio"
 
@@ -125,15 +125,15 @@ msgstr "Aplicações"
 msgid "Auto-answer defaults"
 msgstr "Auto-Responder por padrão"
 
-#: views/form.php:44
+#: views/form.php:45
 msgid "Beep"
 msgstr "Bip"
 
-#: views/form.php:204
+#: views/form.php:205
 msgid "Busy Extensions"
 msgstr "Ramais Ocupados"
 
-#: views/form.php:43 views/grid.php:13 views/settings.php:4
+#: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "Padrão"
 
@@ -141,7 +141,7 @@ msgstr "Padrão"
 msgid "Default Group Inclusion"
 msgstr "Inclusão de Grupo Padrão"
 
-#: functions.inc.php:1038 views/form.php:267
+#: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
 msgstr "Grupo de Interfonia Padrão"
 
@@ -149,15 +149,15 @@ msgstr "Grupo de Interfonia Padrão"
 msgid "Delete"
 msgstr "Apagar"
 
-#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
 msgstr "Descrição"
 
-#: views/form.php:120
+#: views/form.php:121
 msgid "Device List"
 msgstr "Lista de Dispositivos"
 
-#: views/form.php:134
+#: views/form.php:135
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -180,7 +180,7 @@ msgstr "Desabilitado"
 msgid "Drop Silence"
 msgstr "Ficar em Silêncio"
 
-#: views/form.php:237
+#: views/form.php:238
 msgid "Duplex"
 msgstr "Duplex"
 
@@ -196,15 +196,15 @@ msgstr "Excluir"
 msgid "Extension Options"
 msgstr "Opções de Ramal"
 
-#: Paging.class.php:191 views/form.php:211
+#: Paging.class.php:191 views/form.php:212
 msgid "Force"
 msgstr "Forçar"
 
-#: views/form.php:96
+#: views/form.php:97
 msgid "Group Description"
 msgstr "Descrição do Grupo"
 
-#: views/form.php:282
+#: views/form.php:283
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -260,19 +260,19 @@ msgstr "Auto-Resposta Interna"
 msgid "List Page Groups"
 msgstr "Lista de Grupos de Interfonia"
 
-#: views/form.php:244 views/form.php:274 views/settings.php:86
+#: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
 msgstr "Não"
 
-#: views/form.php:42 views/form.php:180 views/settings.php:3
+#: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
 msgstr "Nenhum"
 
-#: views/form.php:40
+#: views/form.php:41
 msgid "Not Selected"
 msgstr "Não Selecionado"
 
-#: views/form.php:192
+#: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -298,7 +298,7 @@ msgstr "Grupo de Interfonia: %s (%s)"
 msgid "Page Groups"
 msgstr "Grupos de Interfonia"
 
-#: views/form.php:72
+#: views/form.php:73
 msgid "Paging Extension"
 msgstr "Ramal de Interfonia"
 
@@ -320,7 +320,7 @@ msgstr "Megafonia e Interfonia"
 msgid "Paging and Intercom settings"
 msgstr "Configuração de Megafonia e Interfonia"
 
-#: views/form.php:252
+#: views/form.php:253
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -330,6 +330,10 @@ msgstr ""
 "fará a comunicação duplex, permitindo que todos os telefones no grupo de "
 "interfonia/megafonia sejam capazes de falar e serem ouvidos por todos. "
 "Fazendo que seja como uma \"conferência instantânea\""
+
+#: assets/js/paging.js:4
+msgid "Please enter a valid Paging Extension"
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -343,7 +347,7 @@ msgstr "Reiniciar"
 msgid "Ring"
 msgstr "Tocar"
 
-#: views/form.php:39
+#: views/form.php:40
 msgid "Selected"
 msgstr "Selecionado"
 
@@ -351,11 +355,11 @@ msgstr "Selecionado"
 msgid "Settings"
 msgstr "Configurações"
 
-#: views/form.php:209
+#: views/form.php:210
 msgid "Skip"
 msgstr "Pular"
 
-#: views/form.php:175
+#: views/form.php:176
 msgid "Speaker Volume Override"
 msgstr "Substituição do volume do auto-falante"
 
@@ -363,7 +367,7 @@ msgstr "Substituição do volume do auto-falante"
 msgid "Submit"
 msgstr "Enviar"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid "The number users will dial to page this group"
 msgstr "Número de usuários que discará para a interfonar para este grupo"
 
@@ -451,11 +455,11 @@ msgid ""
 msgstr ""
 "Ao interfonar para um ramal, se o ramal estiver em uso, você tem três opções."
 
-#: views/form.php:213
+#: views/form.php:214
 msgid "Whisper"
 msgstr "Sussurar"
 
-#: views/form.php:242 views/form.php:272 views/settings.php:84
+#: views/form.php:243 views/form.php:273 views/settings.php:84
 msgid "Yes"
 msgstr "Sim"
 
