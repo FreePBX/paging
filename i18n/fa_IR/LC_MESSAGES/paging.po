@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 15:48-0800\n"
+"POT-Creation-Date: 2017-03-28 17:50-0700\n"
 "PO-Revision-Date: 2016-08-21 05:58+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -41,7 +41,7 @@ msgstr ""
 "<strong>Ring</strong><br> Treat the page as a normal call , and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 
-#: views/form.php:221
+#: views/form.php:222
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "اعلان پخش شده برای remote party"
 
-#: views/form.php:163
+#: views/form.php:164
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -109,7 +109,7 @@ msgstr ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 
-#: views/form.php:149
+#: views/form.php:150
 msgid "Announcement"
 msgstr "آ گهی"
 
@@ -121,15 +121,15 @@ msgstr "برنامه‌ ها"
 msgid "Auto-answer defaults"
 msgstr "پاسخ خودکار پیشفرض"
 
-#: views/form.php:44
+#: views/form.php:45
 msgid "Beep"
 msgstr "بوق"
 
-#: views/form.php:204
+#: views/form.php:205
 msgid "Busy Extensions"
 msgstr "داخلی های مشغول"
 
-#: views/form.php:43 views/grid.php:13 views/settings.php:4
+#: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "پیشفرض"
 
@@ -137,7 +137,7 @@ msgstr "پیشفرض"
 msgid "Default Group Inclusion"
 msgstr "ظرفیت گروه پیشفرض"
 
-#: functions.inc.php:1038 views/form.php:267
+#: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
 msgstr "گروه اعلان پیشفرض"
 
@@ -145,15 +145,15 @@ msgstr "گروه اعلان پیشفرض"
 msgid "Delete"
 msgstr "حذف"
 
-#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
 msgstr "شرح"
 
-#: views/form.php:120
+#: views/form.php:121
 msgid "Device List"
 msgstr "فهرست وسیله"
 
-#: views/form.php:134
+#: views/form.php:135
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -175,7 +175,7 @@ msgstr "غیر فعال شده"
 msgid "Drop Silence"
 msgstr "شکستن سکوت"
 
-#: views/form.php:237
+#: views/form.php:238
 msgid "Duplex"
 msgstr "تکراری"
 
@@ -191,15 +191,15 @@ msgstr "خروج"
 msgid "Extension Options"
 msgstr "گزینه های داخلی"
 
-#: Paging.class.php:191 views/form.php:211
+#: Paging.class.php:191 views/form.php:212
 msgid "Force"
 msgstr "اجبار"
 
-#: views/form.php:96
+#: views/form.php:97
 msgid "Group Description"
 msgstr "شرح گروه"
 
-#: views/form.php:282
+#: views/form.php:283
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -255,19 +255,19 @@ msgstr "پاسخ خودکار داخلی"
 msgid "List Page Groups"
 msgstr "فهرست گروه های اعلان"
 
-#: views/form.php:244 views/form.php:274 views/settings.php:86
+#: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
 msgstr "خیر"
 
-#: views/form.php:42 views/form.php:180 views/settings.php:3
+#: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
 msgstr "هیچ"
 
-#: views/form.php:40
+#: views/form.php:41
 msgid "Not Selected"
 msgstr "انتخاب نشده"
 
-#: views/form.php:192
+#: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -293,7 +293,7 @@ msgstr "گروه اعلان ： %s (%s)"
 msgid "Page Groups"
 msgstr "گروه اعلان"
 
-#: views/form.php:72
+#: views/form.php:73
 msgid "Paging Extension"
 msgstr "داخلی اعلان"
 
@@ -315,7 +315,7 @@ msgstr "اعلان و ورود"
 msgid "Paging and Intercom settings"
 msgstr "تنظیمات اعلان و ورود"
 
-#: views/form.php:252
+#: views/form.php:253
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -324,6 +324,10 @@ msgstr ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all . This makes it like an \"instant conference\""
+
+#: assets/js/paging.js:4
+msgid "Please enter a valid Paging Extension"
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -337,7 +341,7 @@ msgstr "بازنشانی"
 msgid "Ring"
 msgstr "زنگ"
 
-#: views/form.php:39
+#: views/form.php:40
 msgid "Selected"
 msgstr "انتخاب شده"
 
@@ -345,11 +349,11 @@ msgstr "انتخاب شده"
 msgid "Settings"
 msgstr "تنظیمات"
 
-#: views/form.php:209
+#: views/form.php:210
 msgid "Skip"
 msgstr "لغو"
 
-#: views/form.php:175
+#: views/form.php:176
 msgid "Speaker Volume Override"
 msgstr "بازنویسی صدای بلندگو"
 
@@ -357,7 +361,7 @@ msgstr "بازنویسی صدای بلندگو"
 msgid "Submit"
 msgstr "ارسال"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid "The number users will dial to page this group"
 msgstr "شماره ای که کاربران برای اعلان این گروه استفاده میکنند"
 
@@ -443,11 +447,11 @@ msgstr ""
 "زمان استفاده از ورودی برای اعلان یک داخلی, اگر داخلی مشغول باشد, شما سه "
 "گزینه دارید."
 
-#: views/form.php:213
+#: views/form.php:214
 msgid "Whisper"
 msgstr "نجوا"
 
-#: views/form.php:242 views/form.php:272 views/settings.php:84
+#: views/form.php:243 views/form.php:273 views/settings.php:84
 msgid "Yes"
 msgstr "بله"
 

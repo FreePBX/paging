@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-07 15:48-0800\n"
+"POT-Creation-Date: 2017-03-28 17:50-0700\n"
 "PO-Revision-Date: 2016-07-14 10:46+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/paging/"
@@ -44,7 +44,7 @@ msgstr ""
 "заставляя телефон звонить(если функция ОжиданиеВызова отключена,то  это "
 "вернёт ЗАНЯТО)"
 
-#: views/form.php:221
+#: views/form.php:222
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -105,7 +105,7 @@ msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 "Приветствие , воспроизводимое удаленной стороне . По умолчанию - Сигнал"
 
-#: views/form.php:163
+#: views/form.php:164
 msgid ""
 "Annoucement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -116,7 +116,7 @@ msgstr ""
 "групп. Если Страница групп не определена, то по умолчанию будет "
 "использоваться Сигнал"
 
-#: views/form.php:149
+#: views/form.php:150
 msgid "Announcement"
 msgstr "Приветствие"
 
@@ -128,15 +128,15 @@ msgstr "Приложения"
 msgid "Auto-answer defaults"
 msgstr "Настройки по умолчанию для автоответа"
 
-#: views/form.php:44
+#: views/form.php:45
 msgid "Beep"
 msgstr "Сигнал"
 
-#: views/form.php:204
+#: views/form.php:205
 msgid "Busy Extensions"
 msgstr "Занятые внутренние номера"
 
-#: views/form.php:43 views/grid.php:13 views/settings.php:4
+#: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "По-умолчанию"
 
@@ -144,7 +144,7 @@ msgstr "По-умолчанию"
 msgid "Default Group Inclusion"
 msgstr "Включения в дефолтную группу"
 
-#: functions.inc.php:1038 views/form.php:267
+#: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
@@ -152,15 +152,15 @@ msgstr "Дефолтная пейджинг-группа"
 msgid "Delete"
 msgstr "Удалить"
 
-#: views/bootnav.php:14 views/form.php:108 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
 msgstr "Описание"
 
-#: views/form.php:120
+#: views/form.php:121
 msgid "Device List"
 msgstr "Список устройств"
 
-#: views/form.php:134
+#: views/form.php:135
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -183,7 +183,7 @@ msgstr "Выключено"
 msgid "Drop Silence"
 msgstr "Прервать тишину"
 
-#: views/form.php:237
+#: views/form.php:238
 msgid "Duplex"
 msgstr "Дуплекс"
 
@@ -199,15 +199,15 @@ msgstr "Исключить"
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:191 views/form.php:211
+#: Paging.class.php:191 views/form.php:212
 msgid "Force"
 msgstr "Форсированный режим"
 
-#: views/form.php:96
+#: views/form.php:97
 msgid "Group Description"
 msgstr "Описание группы"
 
-#: views/form.php:282
+#: views/form.php:283
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -263,19 +263,19 @@ msgstr ""
 msgid "List Page Groups"
 msgstr "Список групп страницы"
 
-#: views/form.php:244 views/form.php:274 views/settings.php:86
+#: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
 msgstr "Нет"
 
-#: views/form.php:42 views/form.php:180 views/settings.php:3
+#: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
 msgstr "Нет"
 
-#: views/form.php:40
+#: views/form.php:41
 msgid "Not Selected"
 msgstr "Не выбран"
 
-#: views/form.php:192
+#: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -299,7 +299,7 @@ msgstr "Группа страницы : %s (%s)"
 msgid "Page Groups"
 msgstr "Группы страницы"
 
-#: views/form.php:72
+#: views/form.php:73
 msgid "Paging Extension"
 msgstr "Внутренний номер для пейджинга"
 
@@ -321,7 +321,7 @@ msgstr "Пейджинг и интерком"
 msgid "Paging and Intercom settings"
 msgstr "Настройки оповещений  и интеркома"
 
-#: views/form.php:252
+#: views/form.php:253
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -331,6 +331,10 @@ msgstr ""
 "можно задействовать дуплексную связь в обе стороны, разрешая всем телефонам "
 "в пейджинговой группе говорить и слышать всех. Это выглядит как \"мгновенная "
 "конференция\""
+
+#: assets/js/paging.js:4
+msgid "Please enter a valid Paging Extension"
+msgstr "Введите правильный номер для пейджинга"
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -344,7 +348,7 @@ msgstr "Сброс"
 msgid "Ring"
 msgstr "Звонок"
 
-#: views/form.php:39
+#: views/form.php:40
 msgid "Selected"
 msgstr "Выбранно"
 
@@ -352,11 +356,11 @@ msgstr "Выбранно"
 msgid "Settings"
 msgstr "Настройки"
 
-#: views/form.php:209
+#: views/form.php:210
 msgid "Skip"
 msgstr "Пропускать"
 
-#: views/form.php:175
+#: views/form.php:176
 msgid "Speaker Volume Override"
 msgstr ""
 
@@ -364,7 +368,7 @@ msgstr ""
 msgid "Submit"
 msgstr "Подтвердить"
 
-#: views/form.php:84
+#: views/form.php:85
 msgid "The number users will dial to page this group"
 msgstr "Этот номер служит для звонка в эту группу"
 
@@ -442,11 +446,11 @@ msgid ""
 "have three options."
 msgstr "Когда используется Интерком для оповещения  внутреннего номера."
 
-#: views/form.php:213
+#: views/form.php:214
 msgid "Whisper"
 msgstr "Шопот"
 
-#: views/form.php:242 views/form.php:272 views/settings.php:84
+#: views/form.php:243 views/form.php:273 views/settings.php:84
 msgid "Yes"
 msgstr "Да"
 
@@ -561,9 +565,6 @@ msgstr ""
 
 #~ msgid "Submit Changes"
 #~ msgstr "Применить изменения"
-
-#~ msgid "Please enter a valid Paging Extension"
-#~ msgstr "Введите правильный номер для пейджинга"
 
 #~ msgid "Please select at least one extension"
 #~ msgstr "Выберите хотя бы один внутренний номер"
