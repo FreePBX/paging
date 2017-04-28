@@ -73,12 +73,12 @@ $(document).ready(function(){
 });
 
 function linkFormatter(value){
-	html = '<a href="?display=paging&view=form&extdisplay='+encodeURIComponent(value)+'"><i class="fa fa-pencil"></i></a>&nbsp;';
+	html = '<a href="?display=paging&view=form&extdisplay='+encodeURIComponent(value)+'"><i class="fa fa-edit"></i></a>&nbsp;';
 	html += '<a href="?display=paging&action=delete&extdisplay='+encodeURIComponent(value)+'" class="delAction"><i class="fa fa-trash"></i></a>&nbsp;';
 	return html;
 }
 function bnLinkFormatter(value){
-	html = '<a href="?display=paging&view=form&extdisplay='+value+'"><i class="fa fa-pencil"></i>&nbsp;'+value+'</a>';
+	html = '<a href="?display=paging&view=form&extdisplay='+value+'"><i class="fa fa-edit"></i>&nbsp;'+value+'</a>';
 	return html;
 }
 function defaultCheck(val){
