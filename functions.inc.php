@@ -779,7 +779,7 @@ function paging_getdestinfo($dest) {
 }
 
 function paging_getdest($exten) {
-	return array('pagegroups,'.$exten.',1');
+	return array('app-pagegroups,'.$exten.',1');
 }
 
 function paging_get_autoanswer_defaults($orderd = false) {
