@@ -6,6 +6,9 @@ $request = $_REQUEST;
 $request['view'] = isset($request['view'])?$request['view']:'';
 switch ($_GET['view']) {
 	case 'form':
+		if (isset($request['extdisplay'])) {
+			$usage_list = framework_display_destination_usage(paging_getdest($request['extdisplay']));
+		}
 		$content = load_view(__DIR__.'/views/formwrap.php', array('request' => $request, 'amp_conf'=> $amp_conf,));
 	break;
 	default:
