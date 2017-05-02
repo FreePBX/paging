@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.25.5</version>
+	<version>13.0.26</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26* FREEPBX-12690 add view for destinations usage
 		*13.0.25.5* FREEPBX-14264 Issues in 13 with paging groups containing an * or #
 		*13.0.25.4* FREEPBX-13953 Fix behavior with leading zero
 		*13.0.25.3* FREEPBX-14291 -Paging/Intercom module doesn't retain settings
@@ -59,7 +60,7 @@
 		*12.0.1alpha1* Initial Support for PJSip
 	</changelog>
 	<depends>
-		<version>13.0.6</version>
+		<version>13.0.191.12</version>
 		<module>core ge 13.0.86</module>
 		<module>conferences</module>
 	</depends>

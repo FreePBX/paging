@@ -7,7 +7,7 @@ $request['view'] = isset($request['view'])?$request['view']:'';
 switch ($_GET['view']) {
 	case 'form':
 		if (isset($request['extdisplay'])) {
-			$usage_list = framework_display_destination_usage(paging_getdest($request['extdisplay']));
+			$usage_list = FreePBX::View()->destinationUsage(paging_getdest($request['extdisplay']));
 		} else {
 			$usage_list = '';
 		}
