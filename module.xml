@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.26</version>
+	<version>13.0.26.1</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26.1* FREEPBX-14577 Paging and Intercom allows to create paging group with empty paging extension field
 		*13.0.26* FREEPBX-12690 add view for destinations usage
 		*13.0.25.5* FREEPBX-14264 Issues in 13 with paging groups containing an * or #
 		*13.0.25.4* FREEPBX-13953 Fix behavior with leading zero

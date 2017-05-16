@@ -11,7 +11,7 @@ switch ($_GET['view']) {
 		} else {
 			$usage_list = '';
 		}
-		$content = load_view(__DIR__.'/views/formwrap.php', array('request' => $request, 'amp_conf'=> $amp_conf, 'usage_list' => $usage_list,));
+		$content = load_view(__DIR__.'/views/formwrap.php', array('request' => $request, 'amp_conf'=> $amp_conf, 'usage_list' => $usage_list));
 	break;
 	default:
 		$content = load_view(__DIR__.'/views/overview.php', array('request' => $request));
