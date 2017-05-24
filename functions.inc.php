@@ -171,13 +171,16 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, 'skip', new ext_setvar('ITER', '$[${ITER} + 1]'));
 			$ext->add($context, $code, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin'));
 			$ext->add($context, $code, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
-			$ext->add($context, $code, '', new ext_gotoif('$["${DIALSTR}" = ""]', 'end2'));
+			$ext->add($context, $code, '', new ext_gotoif('$["${DIALSTR}" = ""]', 'checkpageoption'));// if empty string then dial all devices
 			$ext->add($context, $code, '', new ext_setvar('_AMPUSER', '${AMPUSER}'));
 			if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
 				$ext->add($context, $code, '', new ext_gosub('1', 'page', false, '${DIALSTR}'));
 			} else {
 				$ext->add($context, $code, '', new ext_page('${DIALSTR},d'));
 			}
+			$ext->add($context, $code, 'checkpageoption', new ext_noop('Intercom option ${OVERRIDE}'));
+			$ext->add($context, $code, '', new ext_gotoif('$["${OVERRIDE}" = "reject"]', 'end2'));
+			$ext->add($context, $code, '', new ext_gosub('1', 'dialall', false, '${DIALSTR}'));
 			$ext->add($context, $code, 'end2', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 			$ext->add($context, $code, '', new ext_busy());
 			$ext->add($context, $code, '', new ext_macro('hangupcall'));
@@ -200,6 +203,20 @@ function paging_get_config($engine) {
 				$ext->add($context, $sub, '', new ext_meetme('${PAGE_CONF}',',','admin_menu'));
 				$ext->add($context, $sub, '', new ext_hangup());
 			}
+// dial all number FREEPBX-14551 intercom Override in options
+				$sub = 'dialall';
+				$ext->add($context, $sub, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'preparedialst'));
+			    $ext->add($context, $sub, 'preparedialst', new ext_setvar('ITER', '1'));
+				$ext->add($context, $sub, '', new ext_setvar('DIALSTR', ''));
+				$ext->add($context, $sub, 'begin1', new ext_setvar('DIALSTR','${DIALSTR}&${DB(DEVICE/${CUT(DEVICES,&,${ITER})}/dial)}'));
+				$ext->add($context, $sub, '', new ext_setvar('ITER', '$[${ITER} + 1]'));
+				$ext->add($context, $sub, '', new ext_gotoif('$[${ITER} <= ${LOOPCNT}]', 'begin1'));
+				$ext->add($context, $sub, '', new ext_setvar('DIALSTR', '${DIALSTR:1}'));
+				$ext->add($context, $sub, '', new ext_noop('Dial statring  ${DIALSTR}'));
+				$ext->add($context, $sub, '', new ext_gotoif('$["${OVERRIDE}" = "ring"]', 'dialnow'));
+				$ext->add($context, $sub, '', new ext_setvar('_DOPTIONS', $doptions));
+				$ext->add($context, $sub, 'dialnow',new ext_dial('${DIALSTR}','${DTIME},' . $dopt . '${DOPTIONS}${INTERCOM_EXT_DOPTIONS}'));
+				$ext->add($context, $sub, '', new ext_hangup());
 
 			$lang = 'en'; // English
 			$ext->add($context, $lang, 'hook_0', new ext_playback('intercom&for&extension'));
