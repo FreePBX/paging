@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: 2017-05-26 15:59+0200\n"
+"PO-Revision-Date: 2017-05-26 16:27+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/paging/pl_PL/>\n"
@@ -82,7 +82,7 @@ msgstr "Działania"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr ""
+msgstr "Dodaj grupę stron"
 
 #: paging.i18n.php:8
 msgid ""
