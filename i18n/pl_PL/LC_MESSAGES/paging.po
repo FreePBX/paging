@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: 2017-05-26 16:27+0200\n"
+"PO-Revision-Date: 2017-05-27 03:13+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/paging/pl_PL/>\n"
@@ -92,10 +92,17 @@ msgid ""
 "feature codes to block/allow intercom calls to all users as well as blocking "
 "specific users or only allowing specific users."
 msgstr ""
+"Pozwala tworzyć grupy stronicowania, aby komunikować się za pomocą głośnika "
+"wbudowanego w większość telefonów SIP. Tworzy również kod funkcji interkomu, "
+"który może służyć jako prefiks do rozmowy bezpośrednio z jedną osobą, a "
+"także opcjonalne kody funkcji blokujące / umożliwiające połączenia "
+"interkomowe Wszystkich użytkowników, a także blokowania konkretnych "
+"użytkowników lub tylko zezwalania na określonych użytkowników."
 
 #: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
+"Ogłoszenie do odegrania na zdalnej stronie. Domyślnie jest sygnał dźwiękowy"
 
 #: views/form.php:164
 msgid ""
@@ -103,22 +110,25 @@ msgid ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
+"Ogłoszenie do odegrania na zdalnej stronie grupy. Jeśli zostanie ustawiona "
+"wartość domyślna, użyje globalnego ustawienia z grup stron. Jeśli grupy "
+"stron nie są zdefiniowane, domyślnie zostanie wysłany sygnał dźwiękowy"
 
 #: views/form.php:150
 msgid "Announcement"
-msgstr ""
+msgstr "Ogłoszenie"
 
 #: paging.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Aplikacje"
 
 #: views/settings.php:53
 msgid "Auto-answer defaults"
-msgstr ""
+msgstr "Automatyczne odbieranie ustawień domyślnych"
 
 #: views/form.php:45
 msgid "Beep"
-msgstr ""
+msgstr "Dźwięk"
 
 #: views/form.php:205
 msgid "Busy Extensions"
@@ -126,27 +136,27 @@ msgstr ""
 
 #: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
-msgstr ""
+msgstr "Domyśne"
 
 #: functions.inc.php:1035
 msgid "Default Group Inclusion"
-msgstr ""
+msgstr "Domyślna integracja grupy"
 
 #: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
-msgstr ""
+msgstr "Domyślna grupa stron"
 
 #: Paging.class.php:90 Paging.class.php:250
 msgid "Delete"
-msgstr ""
+msgstr "Kasuj"
 
 #: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 #: views/form.php:121
 msgid "Device List"
-msgstr ""
+msgstr "Lista urządzeń"
 
 #: views/form.php:135
 msgid ""
@@ -157,11 +167,11 @@ msgstr ""
 
 #: functions.inc.php:1014
 msgid "Disable"
-msgstr ""
+msgstr "Wyłączyć"
 
 #: functions.inc.php:1011
 msgid "Disabled"
-msgstr ""
+msgstr "Wyłączony"
 
 #: views/settings.php:79
 msgid "Drop Silence"
@@ -169,27 +179,27 @@ msgstr ""
 
 #: views/form.php:238
 msgid "Duplex"
-msgstr ""
+msgstr "Dupleks"
 
 #: functions.inc.php:1010
 msgid "Enabled"
-msgstr ""
+msgstr "Włączone"
 
 #: functions.inc.php:1006
 msgid "Exclude"
-msgstr ""
+msgstr "Wykluczać"
 
 #: functions.inc.php:1040
 msgid "Extension Options"
-msgstr ""
+msgstr "Opcje rozszerzenia"
 
 #: Paging.class.php:191 views/form.php:212
 msgid "Force"
-msgstr ""
+msgstr "Siła"
 
 #: views/form.php:97
 msgid "Group Description"
-msgstr ""
+msgstr "Opis grupy"
 
 #: views/form.php:283
 msgid ""
@@ -200,107 +210,109 @@ msgstr ""
 
 #: functions.inc.php:1007
 msgid "Include"
-msgstr ""
+msgstr "Zawierać"
 
 #: functions.inc.php:1015
 msgid "Intercom"
-msgstr ""
+msgstr "Interkom"
 
 #: functions.inc.php:1049
 msgid "Intercom Mode"
-msgstr ""
+msgstr "Tryb interkomowy"
 
 #: Paging.class.php:195
 msgid "Intercom Override"
-msgstr ""
+msgstr "Zastąpienie interkomu"
 
 #: functions.inc.php:312
 #, php-format
 msgid "Intercom from %s: Disabled"
-msgstr ""
+msgstr "Interkom z %s: wyłączony"
 
 #: functions.inc.php:250
 #, php-format
 msgid "Intercom from %s: Enabled"
-msgstr ""
+msgstr "Interkom z %s: włączony"
 
 #: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
-msgstr ""
+msgstr "Prefiks interkomowy"
 
 #: functions.inc.php:300
 msgid "Intercom: Disabled"
-msgstr ""
+msgstr "Interkom: wyłączony"
 
 #: functions.inc.php:238
 msgid "Intercom: Enabled"
-msgstr ""
+msgstr "Interkom: włączony"
 
 #: functions.inc.php:1045
 msgid "Internal Auto Answer"
-msgstr ""
+msgstr "Wewnętrzna odpowiedź automatyczna"
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
-msgstr ""
+msgstr "Lista grup strony"
 
 #: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
-msgstr ""
+msgstr "Nie"
 
 #: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
-msgstr ""
+msgstr "Żadne"
 
 #: views/form.php:41
 msgid "Not Selected"
-msgstr ""
+msgstr "Nie wybrano"
 
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
 msgstr ""
+"Zastąp głośność głośników dla tej strony. Uwaga: dotyczy to obecnie tylko "
+"telefonów marki Sangoma"
 
 #: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
-msgstr ""
+msgstr "Grupa stron"
 
 #: functions.inc.php:843
 msgid "Page Group: "
-msgstr ""
+msgstr "Grupa stron: "
 
 #: Paging.class.php:388
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr ""
+msgstr "Grupa stron: %s (%s)"
 
 #: assets/js/paging.js:67
 msgid "Page Groups"
-msgstr ""
+msgstr "Grupy stron"
 
 #: views/form.php:73
 msgid "Paging Extension"
-msgstr ""
+msgstr "Rozszerzenie stronicowania"
 
 #: functions.inc.php:772
 #, php-format
 msgid "Paging Group %s : %s"
-msgstr ""
+msgstr "Grupa stronicowania %s: %s"
 
 #: views/overview.php:22
 msgid "Paging Groups"
-msgstr ""
+msgstr "Grupy stronicowania"
 
 #: Paging.class.php:194 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
-msgstr ""
+msgstr "Stronicowanie i interkom"
 
 #: views/settings.php:41
 msgid "Paging and Intercom settings"
-msgstr ""
+msgstr "Ustawienia stronicowania i interkomu"
 
 #: views/form.php:253
 msgid ""
