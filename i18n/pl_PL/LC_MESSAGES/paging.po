@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: 2017-05-31 21:18+0200\n"
+"PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/paging/pl_PL/>\n"
@@ -323,31 +323,31 @@ msgstr ""
 
 #: assets/js/paging.js:4
 msgid "Please enter a valid Paging Extension"
-msgstr ""
+msgstr "Wprowadź prawidłowe rozszerzenie przywołania"
 
 #: Paging.class.php:189
 msgid "Reject"
-msgstr ""
+msgstr "Odrzucać"
 
 #: Paging.class.php:255
 msgid "Reset"
-msgstr ""
+msgstr "Ponowne ustawienia"
 
 #: Paging.class.php:190
 msgid "Ring"
-msgstr ""
+msgstr "Dzwonek"
 
 #: views/form.php:40
 msgid "Selected"
-msgstr ""
+msgstr "Wybrany"
 
 #: views/overview.php:27
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 #: views/form.php:210
 msgid "Skip"
-msgstr ""
+msgstr "Pomiń"
 
 #: views/form.php:176
 msgid "Speaker Volume Override"
@@ -355,11 +355,11 @@ msgstr ""
 
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
-msgstr ""
+msgstr "Zatwierdź"
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
-msgstr ""
+msgstr "Liczba użytkowników wybierze stronę tej grupy"
 
 #: views/overview.php:6
 msgid ""
