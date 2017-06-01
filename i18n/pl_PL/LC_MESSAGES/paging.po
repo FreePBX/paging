@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: 2017-05-27 03:13+0200\n"
+"PO-Revision-Date: 2017-05-31 21:18+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) "
 "<http://weblate.freepbx.org/projects/freepbx/paging/pl_PL/>\n"
@@ -136,7 +136,7 @@ msgstr ""
 
 #: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
-msgstr "Domyśne"
+msgstr "Domyślne"
 
 #: functions.inc.php:1035
 msgid "Default Group Inclusion"
