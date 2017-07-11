@@ -10,29 +10,37 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: 2017-03-28 17:50-0700\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-07-11 09:26+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/paging/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.4\n"
 
 #: Paging.class.php:199
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
+"<strong>Force</strong><br> Gửi các tiêu đề để điện thoại đi vào chế độ trả "
+"lời tự động. Điều này có thể không hoạt động phụ thuộc vào điện thoại."
 
 #: Paging.class.php:197
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
-msgstr ""
+msgstr "<strong>Reject</strong><br> Trả lại một tín hiệu báo BẬN tới người gọi"
 
 #: Paging.class.php:198
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
+"<strong>Ring</strong><br>  Xem trang giống như một cuộc gọi thông thường, và "
+"đổ chuông máy nhánh ( nếu tính năng cuộc gọi chờ bị vô hiệu, điều này sẽ trả "
+"lại một tín hiệu báo BẬN"
 
 #: views/form.php:222
 msgid ""
@@ -54,11 +62,11 @@ msgstr ""
 
 #: views/grid.php:14
 msgid "Actions"
-msgstr ""
+msgstr "Các thao tác"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr ""
+msgstr "Thêm nhóm Page"
 
 #: paging.i18n.php:8
 msgid ""
