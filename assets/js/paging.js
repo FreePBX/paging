@@ -1,9 +1,48 @@
 $(document).ready(function() {
-	$('form[name=page_edit]').submit(function(){
-		if (!isInterger($('input[name=pagenbr]').val())) {
-			warnInvalid($('input[name=pagenbr]'),_('Please enter a valid Paging Extension'));
-			return false;
+	$('form[name=page_opts_form]').submit(function(){
+		var theForm = document.page_opts_form;
+		if(typeof theForm.schedulerenableyes !== 'undefined' && theForm.schedulerenableyes.checked){
+			if(!moment(theForm.startdatepicker.value, "MM/DD/YYYY", true).isValid()){
+				return warnInvalid(theForm.startdatepicker, _("Please enter a valid start Date."));
+	                }else{
+			        var start_date = moment(theForm.startdatepicker.value, "MM/DD/YYYY");
+			}
+			if(!moment(theForm.enddatepicker.value, "MM/DD/YYYY", true).isValid()){
+			        return warnInvalid(theForm.enddatepicker, _("Please enter a valid end Date."));
+			}else{
+			        var end_date = moment(theForm.enddatepicker.value, "MM/DD/YYYY");
+			}
+			if(!start_date.isBefore(end_date)){
+				return warnInvalid(theForm.enddatepicker, _("The end date must biger greater the start date."));
+	                }
+			var allevents = document.getElementsByName("eventids[]");
+			for(i = 0;i < allevents.length; i++){
+				var event_time_name = "starttimepicker_" + allevents[i].value;
+				var tmp_time_valid =false;
+				var time_obj = document.getElementById(event_time_name);
+				if(time_obj.value != ''){
+					var tmp_time_value = '2017-07-01 ' + time_obj.value.trim().toUpperCase().replace("AM", " AM").replace("PM", " PM");
+					tmp_time_valid = moment(tmp_time_value,"YYYY-MM-DD LT", true).isValid();
+			    	}
+				if(tmp_time_valid){
+				        var set_event_date = false;
+				        var evnet_name  = "eventdayselect_" + allevents[i].value + "[]";
+				        var event_days = document.getElementsByName(evnet_name);
+				        for(j = 0;j < event_days.length; j++){
+					        if(event_days[j].checked){
+							set_event_date = true;
+						        break;
+						}
+			   		}
+					if(set_event_date == false){
+					        return warnInvalid(document.getElementById("event_" + allevents[i].value + "_sunday"), _(" Please set the event days."));
+					}
+			        }else{
+					return warnInvalid(time_obj, _(" Please set the event time."));
+				}
+			}
 		}
+		return true;
 	});
 });
 
