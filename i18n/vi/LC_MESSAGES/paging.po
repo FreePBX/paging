@@ -10,16 +10,15 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-28 17:50-0700\n"
-"PO-Revision-Date: 2017-05-31 23:43+0200\n"
-"Last-Translator: Michal <mboltz@tlen.pl>\n"
-"Language-Team: Polish (Polish) "
-"<http://weblate.freepbx.org/projects/freepbx/paging/pl_PL/>\n"
-"Language: pl_PL\n"
+"PO-Revision-Date: 2017-07-11 09:26+0200\n"
+"Last-Translator: PETER <ftek@ymail.com>\n"
+"Language-Team: Vietnamese "
+"<http://weblate.freepbx.org/projects/freepbx/paging/vi/>\n"
+"Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.4\n"
 
 #: Paging.class.php:199
@@ -27,22 +26,21 @@ msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
-"<strong>Zmuś</strong><br> Wyślij nagłówki nakazujące telefonowi by przeszedł "
-"w tryb automatycznej odpowiedzi. Funkcja ta jest zależna od aparatu i w "
-"niektórych telefonach może nie działać."
+"<strong>Force</strong><br> Gửi các tiêu đề để điện thoại đi vào chế độ trả "
+"lời tự động. Điều này có thể không hoạt động phụ thuộc vào điện thoại."
 
 #: Paging.class.php:197
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
-msgstr "<strong>Odrzuć</strong><br> Zwróć sygnał ZAJĘTY do dzwoniącego"
+msgstr "<strong>Reject</strong><br> Trả lại một tín hiệu báo BẬN tới người gọi"
 
 #: Paging.class.php:198
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
-"<Strong> Brzmienie </ strong> <br> Traktuj stronę jako zwykłe połączenie i "
-"brzmienie rozszerzenia (jeśli funkcja oczekiwania połączeń jest wyłączona, "
-"to odeśle ZAJĘTY"
+"<strong>Ring</strong><br>  Xem trang giống như một cuộc gọi thông thường, và "
+"đổ chuông máy nhánh ( nếu tính năng cuộc gọi chờ bị vô hiệu, điều này sẽ trả "
+"lại một tín hiệu báo BẬN"
 
 #: views/form.php:222
 msgid ""
@@ -61,28 +59,14 @@ msgid ""
 "</li>\n"
 "</ul>"
 msgstr ""
-"<ul>\n"
-"<li><b>\"Pomiń\"</b> nie będzie stroną żadnego zajętego rozszerzenia. "
-"Wszystkie pozostałe rozszerzenia będą wyświetlane w trybie normalnym</li>\n"
-"<li><b>\"Siła\"</b> nie sprawdzi, czy urządzenie jest używane przed jej "
-"stronicowaniem. Oznacza to, że rozmowy mogą zostać przerwane przez stronę (w "
-"zależności od sposobu obsługi urządzenia). Jest to użyteczne dla grup "
-"stronicowania \"awaryjnego\".</li>\n"
-"<li><b>\"Szeptać\"</b> Będzie próbował użyć funkcji ChanSpy w kanałach SIP, "
-"co powoduje wysłanie do słuchawki urządzenia \"szeptem\" do użytkownika ale  "
-"ale nie słyszanej przez zdalną stronę. Jeśli ChanSpy nie jest obsługiwane w "
-"urządzeniu lub w inny sposób nie powiedzie się, żadna strona nie zostanie "
-"przejęta.Prawdopodobnie nie ma sensu wybierać dupleksu, jeśli używasz trybu "
-"Whisper.</li>\n"
-"</ul>"
 
 #: views/grid.php:14
 msgid "Actions"
-msgstr "Działania"
+msgstr "Các thao tác"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr "Dodaj grupę stron"
+msgstr "Thêm nhóm Page"
 
 #: paging.i18n.php:8
 msgid ""
@@ -92,17 +76,10 @@ msgid ""
 "feature codes to block/allow intercom calls to all users as well as blocking "
 "specific users or only allowing specific users."
 msgstr ""
-"Pozwala tworzyć grupy stronicowania, aby komunikować się za pomocą głośnika "
-"wbudowanego w większość telefonów SIP. Tworzy również kod funkcji interkomu, "
-"który może służyć jako prefiks do rozmowy bezpośrednio z jedną osobą, a "
-"także opcjonalne kody funkcji blokujące / umożliwiające połączenia "
-"interkomowe Wszystkich użytkowników, a także blokowania konkretnych "
-"użytkowników lub tylko zezwalania na określonych użytkowników."
 
 #: views/settings.php:67
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
-"Ogłoszenie do odegrania na zdalnej stronie. Domyślnie jest sygnał dźwiękowy"
 
 #: views/form.php:164
 msgid ""
@@ -110,25 +87,22 @@ msgid ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep"
 msgstr ""
-"Ogłoszenie do odegrania na zdalnej stronie grupy. Jeśli zostanie ustawiona "
-"wartość domyślna, użyje globalnego ustawienia z grup stron. Jeśli grupy "
-"stron nie są zdefiniowane, domyślnie zostanie wysłany sygnał dźwiękowy"
 
 #: views/form.php:150
 msgid "Announcement"
-msgstr "Ogłoszenie"
+msgstr ""
 
 #: paging.i18n.php:6
 msgid "Applications"
-msgstr "Aplikacje"
+msgstr ""
 
 #: views/settings.php:53
 msgid "Auto-answer defaults"
-msgstr "Automatyczne odbieranie ustawień domyślnych"
+msgstr ""
 
 #: views/form.php:45
 msgid "Beep"
-msgstr "Dźwięk"
+msgstr ""
 
 #: views/form.php:205
 msgid "Busy Extensions"
@@ -136,27 +110,27 @@ msgstr ""
 
 #: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
-msgstr "Domyślne"
+msgstr ""
 
 #: functions.inc.php:1035
 msgid "Default Group Inclusion"
-msgstr "Domyślna integracja grupy"
+msgstr ""
 
 #: functions.inc.php:1038 views/form.php:268
 msgid "Default Page Group"
-msgstr "Domyślna grupa stron"
+msgstr ""
 
 #: Paging.class.php:90 Paging.class.php:250
 msgid "Delete"
-msgstr "Kasuj"
+msgstr ""
 
 #: views/bootnav.php:14 views/form.php:109 views/grid.php:12
 msgid "Description"
-msgstr "Opis"
+msgstr ""
 
 #: views/form.php:121
 msgid "Device List"
-msgstr "Lista urządzeń"
+msgstr ""
 
 #: views/form.php:135
 msgid ""
@@ -167,11 +141,11 @@ msgstr ""
 
 #: functions.inc.php:1014
 msgid "Disable"
-msgstr "Wyłączyć"
+msgstr ""
 
 #: functions.inc.php:1011
 msgid "Disabled"
-msgstr "Wyłączony"
+msgstr ""
 
 #: views/settings.php:79
 msgid "Drop Silence"
@@ -179,27 +153,27 @@ msgstr ""
 
 #: views/form.php:238
 msgid "Duplex"
-msgstr "Dupleks"
+msgstr ""
 
 #: functions.inc.php:1010
 msgid "Enabled"
-msgstr "Włączone"
+msgstr ""
 
 #: functions.inc.php:1006
 msgid "Exclude"
-msgstr "Wykluczać"
+msgstr ""
 
 #: functions.inc.php:1040
 msgid "Extension Options"
-msgstr "Opcje rozszerzenia"
+msgstr ""
 
 #: Paging.class.php:191 views/form.php:212
 msgid "Force"
-msgstr "Siła"
+msgstr ""
 
 #: views/form.php:97
 msgid "Group Description"
-msgstr "Opis grupy"
+msgstr ""
 
 #: views/form.php:283
 msgid ""
@@ -210,109 +184,107 @@ msgstr ""
 
 #: functions.inc.php:1007
 msgid "Include"
-msgstr "Zawierać"
+msgstr ""
 
 #: functions.inc.php:1015
 msgid "Intercom"
-msgstr "Interkom"
+msgstr ""
 
 #: functions.inc.php:1049
 msgid "Intercom Mode"
-msgstr "Tryb interkomowy"
+msgstr ""
 
 #: Paging.class.php:195
 msgid "Intercom Override"
-msgstr "Zastąpienie interkomu"
+msgstr ""
 
 #: functions.inc.php:312
 #, php-format
 msgid "Intercom from %s: Disabled"
-msgstr "Interkom z %s: wyłączony"
+msgstr ""
 
 #: functions.inc.php:250
 #, php-format
 msgid "Intercom from %s: Enabled"
-msgstr "Interkom z %s: włączony"
+msgstr ""
 
 #: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
-msgstr "Prefiks interkomowy"
+msgstr ""
 
 #: functions.inc.php:300
 msgid "Intercom: Disabled"
-msgstr "Interkom: wyłączony"
+msgstr ""
 
 #: functions.inc.php:238
 msgid "Intercom: Enabled"
-msgstr "Interkom: włączony"
+msgstr ""
 
 #: functions.inc.php:1045
 msgid "Internal Auto Answer"
-msgstr "Wewnętrzna odpowiedź automatyczna"
+msgstr ""
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
-msgstr "Lista grup strony"
+msgstr ""
 
 #: views/form.php:245 views/form.php:275 views/settings.php:86
 msgid "No"
-msgstr "Nie"
+msgstr ""
 
 #: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
-msgstr "Żadne"
+msgstr ""
 
 #: views/form.php:41
 msgid "Not Selected"
-msgstr "Nie wybrano"
+msgstr ""
 
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
 msgstr ""
-"Zastąp głośność głośników dla tej strony. Uwaga: dotyczy to obecnie tylko "
-"telefonów marki Sangoma"
 
 #: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
-msgstr "Grupa stron"
+msgstr ""
 
 #: functions.inc.php:843
 msgid "Page Group: "
-msgstr "Grupa stron: "
+msgstr ""
 
 #: Paging.class.php:388
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr "Grupa stron: %s (%s)"
+msgstr ""
 
 #: assets/js/paging.js:67
 msgid "Page Groups"
-msgstr "Grupy stron"
+msgstr ""
 
 #: views/form.php:73
 msgid "Paging Extension"
-msgstr "Rozszerzenie stronicowania"
+msgstr ""
 
 #: functions.inc.php:772
 #, php-format
 msgid "Paging Group %s : %s"
-msgstr "Grupa stronicowania %s: %s"
+msgstr ""
 
 #: views/overview.php:22
 msgid "Paging Groups"
-msgstr "Grupy stronicowania"
+msgstr ""
 
 #: Paging.class.php:194 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
-msgstr "Stronicowanie i interkom"
+msgstr ""
 
 #: views/settings.php:41
 msgid "Paging and Intercom settings"
-msgstr "Ustawienia stronicowania i interkomu"
+msgstr ""
 
 #: views/form.php:253
 msgid ""
@@ -323,31 +295,31 @@ msgstr ""
 
 #: assets/js/paging.js:4
 msgid "Please enter a valid Paging Extension"
-msgstr "Wprowadź prawidłowe rozszerzenie przywołania"
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
-msgstr "Odrzucać"
+msgstr ""
 
 #: Paging.class.php:255
 msgid "Reset"
-msgstr "Ponowne ustawienia"
+msgstr ""
 
 #: Paging.class.php:190
 msgid "Ring"
-msgstr "Dzwonek"
+msgstr ""
 
 #: views/form.php:40
 msgid "Selected"
-msgstr "Wybrany"
+msgstr ""
 
 #: views/overview.php:27
 msgid "Settings"
-msgstr "Ustawienia"
+msgstr ""
 
 #: views/form.php:210
 msgid "Skip"
-msgstr "Pomiń"
+msgstr ""
 
 #: views/form.php:176
 msgid "Speaker Volume Override"
@@ -355,11 +327,11 @@ msgstr ""
 
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
-msgstr "Zatwierdź"
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
-msgstr "Liczba użytkowników wybierze stronę tej grupy"
+msgstr ""
 
 #: views/overview.php:6
 msgid ""
