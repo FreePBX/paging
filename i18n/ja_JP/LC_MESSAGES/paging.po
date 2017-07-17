@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 17:50-0700\n"
+"POT-Creation-Date: 2017-07-17 15:27-0400\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -48,6 +48,14 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: assets/js/paging.js:38
+msgid " Please set the event days."
+msgstr ""
+
+#: assets/js/paging.js:41
+msgid " Please set the event time."
+msgstr ""
 
 #: Paging.class.php:199
 msgid ""
@@ -139,11 +147,11 @@ msgstr "通話中の内線"
 msgid "Default"
 msgstr "デフォルト"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1052
 msgid "Default Group Inclusion"
 msgstr "デフォルトグループを含む"
 
-#: functions.inc.php:1038 views/form.php:268
+#: functions.inc.php:1055 views/form.php:268
 msgid "Default Page Group"
 msgstr "デフォルトページンググループ"
 
@@ -169,11 +177,11 @@ msgstr ""
 "れる物です。ページングが可能なデバイス数は、詳細設定のキー "
 "PAGINMAXPARTICIPANTS によって指定されています。現在の設定は次の通りです： "
 
-#: functions.inc.php:1014
+#: functions.inc.php:1031
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1011
+#: functions.inc.php:1028
 msgid "Disabled"
 msgstr "無効"
 
@@ -185,15 +193,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "デュプレックス"
 
-#: functions.inc.php:1010
+#: functions.inc.php:1027
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Exclude"
 msgstr "含まない"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1057
 msgid "Extension Options"
 msgstr ""
 
@@ -212,15 +220,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1007
+#: functions.inc.php:1024
 msgid "Include"
 msgstr "含む"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1032
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid "Intercom Mode"
 msgstr ""
 
@@ -228,12 +236,12 @@ msgstr ""
 msgid "Intercom Override"
 msgstr "インターコムオーバーライド"
 
-#: functions.inc.php:312
+#: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr ""
 
-#: functions.inc.php:250
+#: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr ""
@@ -242,15 +250,15 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr "インターコムプリフィックス"
 
-#: functions.inc.php:300
+#: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
 
-#: functions.inc.php:238
+#: functions.inc.php:255
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -276,12 +284,12 @@ msgid ""
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "ページンググループ"
 
-#: functions.inc.php:843
+#: functions.inc.php:860
 msgid "Page Group: "
 msgstr "ページンググループ："
 
@@ -290,7 +298,7 @@ msgstr "ページンググループ："
 msgid "Page Group: %s (%s)"
 msgstr ""
 
-#: assets/js/paging.js:67
+#: assets/js/paging.js:106
 msgid "Page Groups"
 msgstr ""
 
@@ -298,7 +306,7 @@ msgstr ""
 msgid "Paging Extension"
 msgstr "ページング内線"
 
-#: functions.inc.php:772
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -327,9 +335,13 @@ msgstr ""
 "端末同士で相互に通話することが許可されます。これは、\"簡易会議\"のような挙動"
 "になります。"
 
-#: assets/js/paging.js:4
-msgid "Please enter a valid Paging Extension"
-msgstr "有効なページング内線を入力してください"
+#: assets/js/paging.js:11
+msgid "Please enter a valid end Date."
+msgstr ""
+
+#: assets/js/paging.js:6
+msgid "Please enter a valid start Date."
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -362,6 +374,10 @@ msgstr ""
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "送信"
+
+#: assets/js/paging.js:16
+msgid "The end date must biger greater the start date."
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -411,13 +427,13 @@ msgstr "ユーザーインターコムを許可"
 msgid "User Intercom Disallow"
 msgstr "ユーザーインターコムを禁止"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -444,13 +460,16 @@ msgstr "ウィスパー"
 msgid "Yes"
 msgstr "はい"
 
-#: functions.inc.php:1038
+#: functions.inc.php:1055
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
+
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "有効なページング内線を入力してください"
 
 #~ msgid "Annoucement to be played to remote part. Default is a beep"
 #~ msgstr "リモートパートに対して再生するアナウンス。デフォルトはビープ音です"

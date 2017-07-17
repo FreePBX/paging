@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 17:50-0700\n"
+"POT-Creation-Date: 2017-07-17 15:27-0400\n"
 "PO-Revision-Date: 2016-02-04 23:07+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -30,6 +30,14 @@ msgstr ""
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: assets/js/paging.js:38
+msgid " Please set the event days."
+msgstr ""
+
+#: assets/js/paging.js:41
+msgid " Please set the event time."
+msgstr ""
 
 #: Paging.class.php:199
 msgid ""
@@ -117,11 +125,11 @@ msgstr ""
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1035
+#: functions.inc.php:1052
 msgid "Default Group Inclusion"
 msgstr "Inclusion du groupe par défaut"
 
-#: functions.inc.php:1038 views/form.php:268
+#: functions.inc.php:1055 views/form.php:268
 msgid "Default Page Group"
 msgstr "Groupe de téléavertissement par défaut"
 
@@ -144,11 +152,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1014
+#: functions.inc.php:1031
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1011
+#: functions.inc.php:1028
 msgid "Disabled"
 msgstr "Désactiver"
 
@@ -160,15 +168,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1010
+#: functions.inc.php:1027
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Exclude"
 msgstr "Exclure"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1057
 msgid "Extension Options"
 msgstr ""
 
@@ -187,15 +195,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1007
+#: functions.inc.php:1024
 msgid "Include"
 msgstr "Inclure"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1032
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid "Intercom Mode"
 msgstr ""
 
@@ -203,12 +211,12 @@ msgstr ""
 msgid "Intercom Override"
 msgstr ""
 
-#: functions.inc.php:312
+#: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr ""
 
-#: functions.inc.php:250
+#: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr ""
@@ -217,15 +225,15 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr "Préfixe Intercom"
 
-#: functions.inc.php:300
+#: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
 
-#: functions.inc.php:238
+#: functions.inc.php:255
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -251,12 +259,12 @@ msgid ""
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Groupe de téléavertissement"
 
-#: functions.inc.php:843
+#: functions.inc.php:860
 msgid "Page Group: "
 msgstr "Groupe de téléavertissement : "
 
@@ -265,7 +273,7 @@ msgstr "Groupe de téléavertissement : "
 msgid "Page Group: %s (%s)"
 msgstr "Groupe de téléavertissement : %s (%s)"
 
-#: assets/js/paging.js:67
+#: assets/js/paging.js:106
 msgid "Page Groups"
 msgstr "Groupes de téléavertissement"
 
@@ -273,7 +281,7 @@ msgstr "Groupes de téléavertissement"
 msgid "Paging Extension"
 msgstr "Téléavertissement du poste"
 
-#: functions.inc.php:772
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -302,9 +310,13 @@ msgstr ""
 "autorisant tous les téléphones dans le groupe de téléavertissement à parler "
 "et être entendus par tous. Cela donne un genre de \"conférence instantanée\"."
 
-#: assets/js/paging.js:4
-msgid "Please enter a valid Paging Extension"
-msgstr "Veuillez entrer une Extension de Paging valide"
+#: assets/js/paging.js:11
+msgid "Please enter a valid end Date."
+msgstr ""
+
+#: assets/js/paging.js:6
+msgid "Please enter a valid start Date."
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -337,6 +349,10 @@ msgstr ""
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "Soumettre"
+
+#: assets/js/paging.js:16
+msgid "The end date must biger greater the start date."
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -388,13 +404,13 @@ msgstr "Autoriser Utilisateur Intercom"
 msgid "User Intercom Disallow"
 msgstr "Ne pas autoriser l'utilisateur intercom"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -419,13 +435,16 @@ msgstr "Soupirer"
 msgid "Yes"
 msgstr "Oui"
 
-#: functions.inc.php:1038
+#: functions.inc.php:1055
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "Vous pouvez inclure ou exclure ce poste/dispositif dans le groupe de "
 "téléavertissement par défaut lors de la création ou édition."
+
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "Veuillez entrer une Extension de Paging valide"
 
 #~ msgid "Add Paging Group"
 #~ msgstr "Ajouter un Groupe Paging"

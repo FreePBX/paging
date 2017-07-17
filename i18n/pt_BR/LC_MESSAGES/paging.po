@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 17:50-0700\n"
+"POT-Creation-Date: 2017-07-17 15:27-0400\n"
 "PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -20,6 +20,14 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+#: assets/js/paging.js:38
+msgid " Please set the event days."
+msgstr ""
+
+#: assets/js/paging.js:41
+msgid " Please set the event time."
+msgstr ""
 
 #: Paging.class.php:199
 msgid ""
@@ -137,11 +145,11 @@ msgstr "Ramais Ocupados"
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1052
 msgid "Default Group Inclusion"
 msgstr "Inclusão de Grupo Padrão"
 
-#: functions.inc.php:1038 views/form.php:268
+#: functions.inc.php:1055 views/form.php:268
 msgid "Default Page Group"
 msgstr "Grupo de Interfonia Padrão"
 
@@ -168,11 +176,11 @@ msgstr ""
 "\"interfonáveis\" é restringida pela chave de configuração avançada "
 "PAGINGMAXPARTICIPANTS e está atualmente definida como "
 
-#: functions.inc.php:1014
+#: functions.inc.php:1031
 msgid "Disable"
 msgstr "Desabilitar"
 
-#: functions.inc.php:1011
+#: functions.inc.php:1028
 msgid "Disabled"
 msgstr "Desabilitado"
 
@@ -184,15 +192,15 @@ msgstr "Ficar em Silêncio"
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1010
+#: functions.inc.php:1027
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Exclude"
 msgstr "Excluir"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1057
 msgid "Extension Options"
 msgstr "Opções de Ramal"
 
@@ -214,15 +222,15 @@ msgstr ""
 "seleção aparecerá no Módulo de Ramais que permitirá que você inclua ou "
 "exclua essa ramal no Grupo de Interfonia padrão ao editar o referido ramal"
 
-#: functions.inc.php:1007
+#: functions.inc.php:1024
 msgid "Include"
 msgstr "Incluir"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1032
 msgid "Intercom"
 msgstr "Interfonia"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid "Intercom Mode"
 msgstr "Modo Interfonia"
 
@@ -230,12 +238,12 @@ msgstr "Modo Interfonia"
 msgid "Intercom Override"
 msgstr "Substituir Interfonia"
 
-#: functions.inc.php:312
+#: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr "Interfonia  de %s: Desabilitada"
 
-#: functions.inc.php:250
+#: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr "Interfonia de %s: Habilitada"
@@ -244,15 +252,15 @@ msgstr "Interfonia de %s: Habilitada"
 msgid "Intercom prefix"
 msgstr "Prefixo de Interfonia"
 
-#: functions.inc.php:300
+#: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr "Interfonia: Desabilitado"
 
-#: functions.inc.php:238
+#: functions.inc.php:255
 msgid "Intercom: Enabled"
 msgstr "Interfonia: Habilitado"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid "Internal Auto Answer"
 msgstr "Auto-Resposta Interna"
 
@@ -280,12 +288,12 @@ msgstr ""
 "Substitui o volume do alto-falante para este interfone. Observação: isso só "
 "é válido para telefones Sangoma neste momento"
 
-#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Grupo de Interfonia"
 
-#: functions.inc.php:843
+#: functions.inc.php:860
 msgid "Page Group: "
 msgstr "Grupo de Interfonia: "
 
@@ -294,7 +302,7 @@ msgstr "Grupo de Interfonia: "
 msgid "Page Group: %s (%s)"
 msgstr "Grupo de Interfonia: %s (%s)"
 
-#: assets/js/paging.js:67
+#: assets/js/paging.js:106
 msgid "Page Groups"
 msgstr "Grupos de Interfonia"
 
@@ -302,7 +310,7 @@ msgstr "Grupos de Interfonia"
 msgid "Paging Extension"
 msgstr "Ramal de Interfonia"
 
-#: functions.inc.php:772
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupo de Interfonia %s : %s"
@@ -331,8 +339,12 @@ msgstr ""
 "interfonia/megafonia sejam capazes de falar e serem ouvidos por todos. "
 "Fazendo que seja como uma \"conferência instantânea\""
 
-#: assets/js/paging.js:4
-msgid "Please enter a valid Paging Extension"
+#: assets/js/paging.js:11
+msgid "Please enter a valid end Date."
+msgstr ""
+
+#: assets/js/paging.js:6
+msgid "Please enter a valid start Date."
 msgstr ""
 
 #: Paging.class.php:189
@@ -366,6 +378,10 @@ msgstr "Substituição do volume do auto-falante"
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "Enviar"
+
+#: assets/js/paging.js:16
+msgid "The end date must biger greater the start date."
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -420,7 +436,7 @@ msgstr "Permitir Usuário de Interfonia"
 msgid "User Intercom Disallow"
 msgstr "Não Permitir Usuário de Interfonia"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
@@ -428,7 +444,7 @@ msgstr ""
 "Quando os usuários habilitados podem usar *80<ext> para forçar a interfonia. "
 "Quando Desativado, este utilizador irá rejeitar chamadas de interfonia"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -463,7 +479,7 @@ msgstr "Sussurar"
 msgid "Yes"
 msgstr "Sim"
 
-#: functions.inc.php:1038
+#: functions.inc.php:1055
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

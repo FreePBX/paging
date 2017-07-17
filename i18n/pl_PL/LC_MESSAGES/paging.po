@@ -9,18 +9,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 17:50-0700\n"
+"POT-Creation-Date: 2017-07-17 15:27-0400\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
-"Language-Team: Polish (Polish) "
-"<http://weblate.freepbx.org/projects/freepbx/paging/pl_PL/>\n"
-"Language: pl_PL\n"
+"Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
+"paging/pl_PL/>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
+
+#: assets/js/paging.js:38
+msgid " Please set the event days."
+msgstr ""
+
+#: assets/js/paging.js:41
+msgid " Please set the event time."
+msgstr ""
 
 #: Paging.class.php:199
 msgid ""
@@ -138,11 +146,11 @@ msgstr ""
 msgid "Default"
 msgstr "Domyślne"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1052
 msgid "Default Group Inclusion"
 msgstr "Domyślna integracja grupy"
 
-#: functions.inc.php:1038 views/form.php:268
+#: functions.inc.php:1055 views/form.php:268
 msgid "Default Page Group"
 msgstr "Domyślna grupa stron"
 
@@ -165,11 +173,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1014
+#: functions.inc.php:1031
 msgid "Disable"
 msgstr "Wyłączyć"
 
-#: functions.inc.php:1011
+#: functions.inc.php:1028
 msgid "Disabled"
 msgstr "Wyłączony"
 
@@ -181,15 +189,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "Dupleks"
 
-#: functions.inc.php:1010
+#: functions.inc.php:1027
 msgid "Enabled"
 msgstr "Włączone"
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Exclude"
 msgstr "Wykluczać"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1057
 msgid "Extension Options"
 msgstr "Opcje rozszerzenia"
 
@@ -208,15 +216,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1007
+#: functions.inc.php:1024
 msgid "Include"
 msgstr "Zawierać"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1032
 msgid "Intercom"
 msgstr "Interkom"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid "Intercom Mode"
 msgstr "Tryb interkomowy"
 
@@ -224,12 +232,12 @@ msgstr "Tryb interkomowy"
 msgid "Intercom Override"
 msgstr "Zastąpienie interkomu"
 
-#: functions.inc.php:312
+#: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr "Interkom z %s: wyłączony"
 
-#: functions.inc.php:250
+#: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr "Interkom z %s: włączony"
@@ -238,15 +246,15 @@ msgstr "Interkom z %s: włączony"
 msgid "Intercom prefix"
 msgstr "Prefiks interkomowy"
 
-#: functions.inc.php:300
+#: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr "Interkom: wyłączony"
 
-#: functions.inc.php:238
+#: functions.inc.php:255
 msgid "Intercom: Enabled"
 msgstr "Interkom: włączony"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid "Internal Auto Answer"
 msgstr "Wewnętrzna odpowiedź automatyczna"
 
@@ -274,12 +282,12 @@ msgstr ""
 "Zastąp głośność głośników dla tej strony. Uwaga: dotyczy to obecnie tylko "
 "telefonów marki Sangoma"
 
-#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Grupa stron"
 
-#: functions.inc.php:843
+#: functions.inc.php:860
 msgid "Page Group: "
 msgstr "Grupa stron: "
 
@@ -288,7 +296,7 @@ msgstr "Grupa stron: "
 msgid "Page Group: %s (%s)"
 msgstr "Grupa stron: %s (%s)"
 
-#: assets/js/paging.js:67
+#: assets/js/paging.js:106
 msgid "Page Groups"
 msgstr "Grupy stron"
 
@@ -296,7 +304,7 @@ msgstr "Grupy stron"
 msgid "Paging Extension"
 msgstr "Rozszerzenie stronicowania"
 
-#: functions.inc.php:772
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupa stronicowania %s: %s"
@@ -321,9 +329,13 @@ msgid ""
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
 
-#: assets/js/paging.js:4
-msgid "Please enter a valid Paging Extension"
-msgstr "Wprowadź prawidłowe rozszerzenie przywołania"
+#: assets/js/paging.js:11
+msgid "Please enter a valid end Date."
+msgstr ""
+
+#: assets/js/paging.js:6
+msgid "Please enter a valid start Date."
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -356,6 +368,10 @@ msgstr ""
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "Zatwierdź"
+
+#: assets/js/paging.js:16
+msgid "The end date must biger greater the start date."
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -395,13 +411,13 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -426,8 +442,11 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1038
+#: functions.inc.php:1055
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "Wprowadź prawidłowe rozszerzenie przywołania"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 17:50-0700\n"
+"POT-Creation-Date: 2017-07-17 15:27-0400\n"
 "PO-Revision-Date: 2016-07-14 10:46+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/paging/"
@@ -19,6 +19,14 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
 "10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
+
+#: assets/js/paging.js:38
+msgid " Please set the event days."
+msgstr ""
+
+#: assets/js/paging.js:41
+msgid " Please set the event time."
+msgstr ""
 
 #: Paging.class.php:199
 msgid ""
@@ -140,11 +148,11 @@ msgstr "Занятые внутренние номера"
 msgid "Default"
 msgstr "По-умолчанию"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1052
 msgid "Default Group Inclusion"
 msgstr "Включения в дефолтную группу"
 
-#: functions.inc.php:1038 views/form.php:268
+#: functions.inc.php:1055 views/form.php:268
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
@@ -171,11 +179,11 @@ msgstr ""
 "устройство,на которые можно посылать оповещения ограничено дополнительной "
 "настройкой PAGINGMAXPARTICIPANTS и на данный момент установлено в "
 
-#: functions.inc.php:1014
+#: functions.inc.php:1031
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1011
+#: functions.inc.php:1028
 msgid "Disabled"
 msgstr "Выключено"
 
@@ -187,15 +195,15 @@ msgstr "Прервать тишину"
 msgid "Duplex"
 msgstr "Дуплекс"
 
-#: functions.inc.php:1010
+#: functions.inc.php:1027
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Exclude"
 msgstr "Исключить"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1057
 msgid "Extension Options"
 msgstr ""
 
@@ -217,15 +225,15 @@ msgstr ""
 "\"Внутренние номера \"появится  возможность включить или исключить "
 "внутренний номер на странице  оповещений по умолчанию"
 
-#: functions.inc.php:1007
+#: functions.inc.php:1024
 msgid "Include"
 msgstr "Включить"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1032
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid "Intercom Mode"
 msgstr ""
 
@@ -233,12 +241,12 @@ msgstr ""
 msgid "Intercom Override"
 msgstr "Игнорирование Интеркома"
 
-#: functions.inc.php:312
+#: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr ""
 
-#: functions.inc.php:250
+#: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr ""
@@ -247,15 +255,15 @@ msgstr ""
 msgid "Intercom prefix"
 msgstr "Префикс интеркома"
 
-#: functions.inc.php:300
+#: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
 
-#: functions.inc.php:238
+#: functions.inc.php:255
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -281,12 +289,12 @@ msgid ""
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Пейджинг-группа"
 
-#: functions.inc.php:843
+#: functions.inc.php:860
 msgid "Page Group: "
 msgstr "Пейджинг-группа: "
 
@@ -295,7 +303,7 @@ msgstr "Пейджинг-группа: "
 msgid "Page Group: %s (%s)"
 msgstr "Группа страницы : %s (%s)"
 
-#: assets/js/paging.js:67
+#: assets/js/paging.js:106
 msgid "Page Groups"
 msgstr "Группы страницы"
 
@@ -303,7 +311,7 @@ msgstr "Группы страницы"
 msgid "Paging Extension"
 msgstr "Внутренний номер для пейджинга"
 
-#: functions.inc.php:772
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -332,9 +340,13 @@ msgstr ""
 "в пейджинговой группе говорить и слышать всех. Это выглядит как \"мгновенная "
 "конференция\""
 
-#: assets/js/paging.js:4
-msgid "Please enter a valid Paging Extension"
-msgstr "Введите правильный номер для пейджинга"
+#: assets/js/paging.js:11
+msgid "Please enter a valid end Date."
+msgstr ""
+
+#: assets/js/paging.js:6
+msgid "Please enter a valid start Date."
+msgstr ""
 
 #: Paging.class.php:189
 msgid "Reject"
@@ -367,6 +379,10 @@ msgstr ""
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "Подтвердить"
+
+#: assets/js/paging.js:16
+msgid "The end date must biger greater the start date."
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -423,13 +439,13 @@ msgstr "Пользователь Интерком разрешён"
 msgid "User Intercom Disallow"
 msgstr "Пользователь Интерком запрещён"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -454,13 +470,16 @@ msgstr "Шопот"
 msgid "Yes"
 msgstr "Да"
 
-#: functions.inc.php:1038
+#: functions.inc.php:1055
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "Можно включать или исключать этот внутренний номер/устройство из дефолтной "
 "пейджинговой группы при создании или редактировании."
+
+#~ msgid "Please enter a valid Paging Extension"
+#~ msgstr "Введите правильный номер для пейджинга"
 
 #~ msgid "Add Paging Group"
 #~ msgstr "Добавить пейджинг-группу"

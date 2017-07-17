@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-28 17:50-0700\n"
+"POT-Creation-Date: 2017-07-17 15:27-0400\n"
 "PO-Revision-Date: 2016-08-21 05:58+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -20,6 +20,14 @@ msgstr ""
 "Language: fa_IR\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
+
+#: assets/js/paging.js:38
+msgid " Please set the event days."
+msgstr ""
+
+#: assets/js/paging.js:41
+msgid " Please set the event time."
+msgstr ""
 
 #: Paging.class.php:199
 msgid ""
@@ -133,11 +141,11 @@ msgstr "داخلی های مشغول"
 msgid "Default"
 msgstr "پیشفرض"
 
-#: functions.inc.php:1035
+#: functions.inc.php:1052
 msgid "Default Group Inclusion"
 msgstr "ظرفیت گروه پیشفرض"
 
-#: functions.inc.php:1038 views/form.php:268
+#: functions.inc.php:1055 views/form.php:268
 msgid "Default Page Group"
 msgstr "گروه اعلان پیشفرض"
 
@@ -163,11 +171,11 @@ msgstr ""
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 
-#: functions.inc.php:1014
+#: functions.inc.php:1031
 msgid "Disable"
 msgstr "غیرفعال"
 
-#: functions.inc.php:1011
+#: functions.inc.php:1028
 msgid "Disabled"
 msgstr "غیر فعال شده"
 
@@ -179,15 +187,15 @@ msgstr "شکستن سکوت"
 msgid "Duplex"
 msgstr "تکراری"
 
-#: functions.inc.php:1010
+#: functions.inc.php:1027
 msgid "Enabled"
 msgstr "فعال شد"
 
-#: functions.inc.php:1006
+#: functions.inc.php:1023
 msgid "Exclude"
 msgstr "خروج"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1057
 msgid "Extension Options"
 msgstr "گزینه های داخلی"
 
@@ -209,15 +217,15 @@ msgstr ""
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 
-#: functions.inc.php:1007
+#: functions.inc.php:1024
 msgid "Include"
 msgstr "ورود"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1032
 msgid "Intercom"
 msgstr "تماس داخلی"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid "Intercom Mode"
 msgstr "حالت تماس داخلی"
 
@@ -225,12 +233,12 @@ msgstr "حالت تماس داخلی"
 msgid "Intercom Override"
 msgstr "بازنویسی ورودی"
 
-#: functions.inc.php:312
+#: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr "تماس داخلی از %s: غیرفعال شد"
 
-#: functions.inc.php:250
+#: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr "تماس داخلی از %s: فعال شد"
@@ -239,15 +247,15 @@ msgstr "تماس داخلی از %s: فعال شد"
 msgid "Intercom prefix"
 msgstr "پیشوند ورودی"
 
-#: functions.inc.php:300
+#: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr "تماس داخلی: غیرفعال شد"
 
-#: functions.inc.php:238
+#: functions.inc.php:255
 msgid "Intercom: Enabled"
 msgstr "تماس داخلی: فعال شد"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid "Internal Auto Answer"
 msgstr "پاسخ خودکار داخلی"
 
@@ -275,12 +283,12 @@ msgstr ""
 "ابطال صدای بلندگو برای این صفحه. نکته:این گزینه در حال حاضر فقط برای تلفن "
 "های سنگوما معتبر است"
 
-#: functions.inc.php:755 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "گروه اعلان"
 
-#: functions.inc.php:843
+#: functions.inc.php:860
 msgid "Page Group: "
 msgstr "گروه اعلان ： "
 
@@ -289,7 +297,7 @@ msgstr "گروه اعلان ： "
 msgid "Page Group: %s (%s)"
 msgstr "گروه اعلان ： %s (%s)"
 
-#: assets/js/paging.js:67
+#: assets/js/paging.js:106
 msgid "Page Groups"
 msgstr "گروه اعلان"
 
@@ -297,7 +305,7 @@ msgstr "گروه اعلان"
 msgid "Paging Extension"
 msgstr "داخلی اعلان"
 
-#: functions.inc.php:772
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "گروه صفحه بندی %s : %s"
@@ -325,8 +333,12 @@ msgstr ""
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all . This makes it like an \"instant conference\""
 
-#: assets/js/paging.js:4
-msgid "Please enter a valid Paging Extension"
+#: assets/js/paging.js:11
+msgid "Please enter a valid end Date."
+msgstr ""
+
+#: assets/js/paging.js:6
+msgid "Please enter a valid start Date."
 msgstr ""
 
 #: Paging.class.php:189
@@ -360,6 +372,10 @@ msgstr "بازنویسی صدای بلندگو"
 #: Paging.class.php:260 views/settings.php:99
 msgid "Submit"
 msgstr "ارسال"
+
+#: assets/js/paging.js:16
+msgid "The end date must biger greater the start date."
+msgstr ""
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -413,7 +429,7 @@ msgstr "کاربر ورودی مجاز"
 msgid "User Intercom Disallow"
 msgstr "کاربر ورودی غیرمجاز"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1066
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
@@ -421,7 +437,7 @@ msgstr ""
 "هنگامی که فعال شده باشد کاربران میتوانند از *80<ext> برای پاسخ تماس داخلی "
 "استفاده کنند. در هنگام غیر فعال بودن تماسهای داخلی کاربر رد میشود"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1062
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -455,7 +471,7 @@ msgstr "نجوا"
 msgid "Yes"
 msgstr "بله"
 
-#: functions.inc.php:1038
+#: functions.inc.php:1055
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
