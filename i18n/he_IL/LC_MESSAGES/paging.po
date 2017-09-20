@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 15:27-0400\n"
+"POT-Creation-Date: 2017-09-19 20:52-0400\n"
 "PO-Revision-Date: 2006-10-17 17:30+0300\n"
 "Last-Translator: Shimi <shimi@shimi.net>\n"
 "MIME-Version: 1.0\n"
@@ -254,7 +254,7 @@ msgstr "קבוצת איתות"
 msgid "Page Group: "
 msgstr "קבוצת איתות"
 
-#: Paging.class.php:388
+#: Paging.class.php:391
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""

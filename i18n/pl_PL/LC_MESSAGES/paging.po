@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 15:27-0400\n"
+"POT-Creation-Date: 2017-09-19 20:52-0400\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -291,7 +291,7 @@ msgstr "Grupa stron"
 msgid "Page Group: "
 msgstr "Grupa stron: "
 
-#: Paging.class.php:388
+#: Paging.class.php:391
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Grupa stron: %s (%s)"

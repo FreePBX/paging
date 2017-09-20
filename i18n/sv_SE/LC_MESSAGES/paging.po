@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-17 15:27-0400\n"
+"POT-Creation-Date: 2017-09-19 20:52-0400\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -267,7 +267,7 @@ msgstr "Anropsgrupp"
 msgid "Page Group: "
 msgstr "Anropsgrupp: "
 
-#: Paging.class.php:388
+#: Paging.class.php:391
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""
