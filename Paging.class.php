@@ -267,6 +267,9 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 				if($request['view'] != 'form'){
 					$buttons = array();
 				}
+				if($request['view'] == 'form' && $request['action'] == 'submit'){
+					$buttons = array();
+				 }
 				return $buttons;
 			break;
 		}
