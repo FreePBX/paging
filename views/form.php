@@ -147,7 +147,7 @@ foreach ($rec_list as $key => $value) {
 			<div class="row">
 				<div class="form-group">
 					<div class="col-md-3">
-						<label class="control-label" for="announcement"><?php echo _("Announcement") ?></label>
+						<label class="control-label" for="announcement"><?php echo _("Alert Tone") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="announcement"></i>
 					</div>
 					<div class="col-md-9">
@@ -161,7 +161,7 @@ foreach ($rec_list as $key => $value) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="announcement-help" class="help-block fpbx-help-block"><?php echo _("Annoucement to be played to remote party. If set to Default it will use the global setting from Page Groups. If Page Groups is not defined then it will default to beep")?></span>
+			<span id="announcement-help" class="help-block fpbx-help-block"><?php echo _("Alert tone to be played to remote party. If set to Default it will use the global setting from Page Groups. If Page Groups is not defined then it will default to beep")?></span>
 		</div>
 	</div>
 </div>
