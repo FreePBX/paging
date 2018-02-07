@@ -1,8 +1,9 @@
 <?php
-
+global $astman;
 $rec_list['none'] = _('None');
 $rec_list['beep'] = _('Default');
-
+$P_quiet = $astman->database_show("paging/quiet");
+$quiet = ($P_quiet["/paging/quiet"] == "1")? "1" : "";
 if (!function_exists('recordings_list')) {
 	$announce = 'default';
 } else {
@@ -96,5 +97,33 @@ $drop_silence = \FreePBX::Paging()->getDropSilence();
 	</div>
 </div>
 <!--END Duplex-->
-<input type="submit" id="submit" value="<?php echo _("Submit")?>" class="form-control">
+<!--Quiet-->
+<div class="element-container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-3">
+						<label class="control-label" for="quiet"><?php echo _("Quiet") ?></label>
+						<i class="fa fa-question-circle fpbx-help-icon" data-for="quiet"></i>
+					</div>
+					<div class="col-md-9 radioset">
+						<input type="radio" name="quiet" id="quietyes" value="1" <?php echo (($quiet)?"CHECKED":"") ?>>
+						<label for="quietyes"><?php echo _("Yes");?></label>
+						<input type="radio" name="quiet" id="quietno" value="0" <?php echo (($quiet)?"":"CHECKED") ?>>
+						<label for="quietno"><?php echo _("No");?></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<span id="quiet-help" class="help-block fpbx-help-block"><?php echo _('This option removes the beep from caller.')?></span>
+		</div>
+	</div>
+</div>
+<!--END Quiet-->
+<p></p>
+<input type="submit" id="submit" value="<?php echo _("Submit")?>" class="btn btn-default ">
 </form>
