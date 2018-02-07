@@ -141,7 +141,8 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 				case 'save_settings':
 					$def = paging_get_autoanswer_defaults(true);
 					$doptions = 'b(autoanswer^s^1(${ALERTINFO},${CALLINFO}))';
-
+					$this->astman->database_put("paging","quiet",$request['quiet']);
+					
 					if (ctype_digit($vars['announce'])) {
 						$r = recordings_get($vars['announce']);
 						if ($r) {
