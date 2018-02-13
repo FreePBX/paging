@@ -127,3 +127,4 @@ $drop_silence = \FreePBX::Paging()->getDropSilence();
 <p></p>
 <input type="submit" id="submit" value="<?php echo _("Submit")?>" class="btn btn-default ">
 </form>
+
