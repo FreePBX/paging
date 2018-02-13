@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:05-0500\n"
+"POT-Creation-Date: 2018-02-12 19:13-0500\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -92,6 +92,17 @@ msgstr "Działania"
 msgid "Add Page Group"
 msgstr "Dodaj grupę stron"
 
+#: views/form.php:150
+msgid "Alert Tone"
+msgstr ""
+
+#: views/form.php:164
+msgid ""
+"Alert tone to be played to remote party. If set to Default it will use the "
+"global setting from Page Groups. If Page Groups is not defined then it will "
+"default to beep"
+msgstr ""
+
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
@@ -111,20 +122,6 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 "Ogłoszenie do odegrania na zdalnej stronie. Domyślnie jest sygnał dźwiękowy"
-
-#: views/form.php:164
-msgid ""
-"Annoucement to be played to remote party. If set to Default it will use the "
-"global setting from Page Groups. If Page Groups is not defined then it will "
-"default to beep"
-msgstr ""
-"Ogłoszenie do odegrania na zdalnej stronie grupy. Jeśli zostanie ustawiona "
-"wartość domyślna, użyje globalnego ustawienia z grup stron. Jeśli grupy "
-"stron nie są zdefiniowane, domyślnie zostanie wysłany sygnał dźwiękowy"
-
-#: views/form.php:150
-msgid "Announcement"
-msgstr "Ogłoszenie"
 
 #: paging.i18n.php:6
 msgid "Applications"
@@ -457,6 +454,19 @@ msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+
+#~ msgid ""
+#~ "Annoucement to be played to remote party. If set to Default it will use "
+#~ "the global setting from Page Groups. If Page Groups is not defined then "
+#~ "it will default to beep"
+#~ msgstr ""
+#~ "Ogłoszenie do odegrania na zdalnej stronie grupy. Jeśli zostanie "
+#~ "ustawiona wartość domyślna, użyje globalnego ustawienia z grup stron. "
+#~ "Jeśli grupy stron nie są zdefiniowane, domyślnie zostanie wysłany sygnał "
+#~ "dźwiękowy"
+
+#~ msgid "Announcement"
+#~ msgstr "Ogłoszenie"
 
 #~ msgid "Please enter a valid Paging Extension"
 #~ msgstr "Wprowadź prawidłowe rozszerzenie przywołania"

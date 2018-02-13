@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:05-0500\n"
+"POT-Creation-Date: 2018-02-12 19:13-0500\n"
 "PO-Revision-Date: 2016-07-14 10:46+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/paging/"
@@ -93,6 +93,17 @@ msgstr "Действия"
 msgid "Add Page Group"
 msgstr "Добавить группу оповещения"
 
+#: views/form.php:150
+msgid "Alert Tone"
+msgstr ""
+
+#: views/form.php:164
+msgid ""
+"Alert tone to be played to remote party. If set to Default it will use the "
+"global setting from Page Groups. If Page Groups is not defined then it will "
+"default to beep"
+msgstr ""
+
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
@@ -112,21 +123,6 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 "Приветствие , воспроизводимое удаленной стороне . По умолчанию - Сигнал"
-
-#: views/form.php:164
-msgid ""
-"Annoucement to be played to remote party. If set to Default it will use the "
-"global setting from Page Groups. If Page Groups is not defined then it will "
-"default to beep"
-msgstr ""
-"Приветствие, воспроизводимое удаленной стороне. Если установлено  в \"По "
-"умолчанию \", то будет использоваться глобальная настройка из Страницы "
-"групп. Если Страница групп не определена, то по умолчанию будет "
-"использоваться Сигнал"
-
-#: views/form.php:150
-msgid "Announcement"
-msgstr "Приветствие"
 
 #: paging.i18n.php:6
 msgid "Applications"
@@ -487,6 +483,19 @@ msgid ""
 msgstr ""
 "Можно включать или исключать этот внутренний номер/устройство из дефолтной "
 "пейджинговой группы при создании или редактировании."
+
+#~ msgid ""
+#~ "Annoucement to be played to remote party. If set to Default it will use "
+#~ "the global setting from Page Groups. If Page Groups is not defined then "
+#~ "it will default to beep"
+#~ msgstr ""
+#~ "Приветствие, воспроизводимое удаленной стороне. Если установлено  в \"По "
+#~ "умолчанию \", то будет использоваться глобальная настройка из Страницы "
+#~ "групп. Если Страница групп не определена, то по умолчанию будет "
+#~ "использоваться Сигнал"
+
+#~ msgid "Announcement"
+#~ msgstr "Приветствие"
 
 #~ msgid "Please enter a valid Paging Extension"
 #~ msgstr "Введите правильный номер для пейджинга"

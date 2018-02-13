@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-12 19:05-0500\n"
+"POT-Creation-Date: 2018-02-12 19:13-0500\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -103,6 +103,17 @@ msgstr ""
 msgid "Add Page Group"
 msgstr ""
 
+#: views/form.php:150
+msgid "Alert Tone"
+msgstr ""
+
+#: views/form.php:164
+msgid ""
+"Alert tone to be played to remote party. If set to Default it will use the "
+"global setting from Page Groups. If Page Groups is not defined then it will "
+"default to beep"
+msgstr ""
+
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
@@ -115,17 +126,6 @@ msgstr ""
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
-
-#: views/form.php:164
-msgid ""
-"Annoucement to be played to remote party. If set to Default it will use the "
-"global setting from Page Groups. If Page Groups is not defined then it will "
-"default to beep"
-msgstr ""
-
-#: views/form.php:150
-msgid "Announcement"
-msgstr "アナウンス"
 
 #: paging.i18n.php:6
 msgid "Applications"
@@ -477,6 +477,9 @@ msgid ""
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
+
+#~ msgid "Announcement"
+#~ msgstr "アナウンス"
 
 #~ msgid "Please enter a valid Paging Extension"
 #~ msgstr "有効なページング内線を入力してください"
