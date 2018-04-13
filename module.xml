@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>14.0.2</version>
+	<version>14.0.3</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*14.0.3* FREEPBX-16357 - Display 'Paging and Intercom' section only for 'advanced mode'
 		*14.0.2* FREEPBX-16790
 		*14.0.1* FREEPBX-15580 PagingPro opens a duplex page, even when set to duplex:no leaving extensions hanging
 		*13.0.26.4* FREEPBX-16577 Paging Pro with Auto-Answer=False does not follow Ring Time value 
@@ -68,6 +69,7 @@
 	<depends>
 		<version>13.0.191.12</version>
 		<module>core ge 13.0.86</module>
+		<module>framework ge 14.0.2.16</module>
 		<module>conferences</module>
 	</depends>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
