@@ -618,11 +618,11 @@ function paging_get_config($engine) {
 		//
 		//
 		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
-			$P_quiet = $astman->database_show("paging/quiet");
+			$P_quiet = $astman->database_get('paging','quiet');
 			$Quiet = ($P_quiet["/paging/quiet"] == "1")? "q" : "";		
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
-			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',$Quiet));
+			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
 		} else {
 			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}', '${PAGE_CONF_OPTS}'));
 		}
