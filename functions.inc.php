@@ -596,7 +596,9 @@ function paging_get_config($engine) {
 				$conferences_conf->addConfUser($u, 'end_marked', 'yes');
 				$dds = \FreePBX::Paging()->getDropSilence() ? 'yes' : 'no';
 				$conferences_conf->addConfUser($u, 'dsp_drop_silence', $dds);
-				$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
+				if($astman->database_get("paging","quiet") == 1 && $u == 'page_user') {
+					$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
+				}
 				$conferences_conf->addConfUser($u, 'admin', 'no');
 				$conferences_conf->addConfUser($u, 'marked', 'no');
 			}
@@ -618,8 +620,6 @@ function paging_get_config($engine) {
 		//
 		//
 		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
-			$P_quiet = $astman->database_get('paging','quiet');
-			$Quiet = ($P_quiet["/paging/quiet"] == "1")? "q" : "";		
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
 			$ext->add($c, 's', '', new ext_meetme('${PAGE_CONF}','',''));
