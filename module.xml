@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.26.5</version>
+	<version>13.0.26.6</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26.6* FREEPBX-17320 Paging announcement not playing if I set the Conference Room App as app_confbridge 
 		*13.0.26.5* FREEPBX-16790
 		*13.0.26.4* FREEPBX-16577 Paging Pro with Auto-Answer=False does not follow Ring Time value 
 		*13.0.26.3* FREEPBX-15739 Adding/Editing of the Paging and Intercom inserts non working Submit,Reset and Delete button on Home page
