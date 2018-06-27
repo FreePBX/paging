@@ -588,13 +588,14 @@ function paging_get_config($engine) {
 		//before you even think about removing this to after checking for a page group!
 		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
 			$pu = 'page_user';
-			$pud = 'page_user_duplex';
+            $pud = 'page_user_duplex';
+            $paging = FreePBX::Paging();
 			foreach (array($pu, $pud) as $u) {
 				$conferences_conf->addConfUser($u, 'quiet', 'yes');
 				$conferences_conf->addConfUser($u, 'announce_user_count', 'no');
 				$conferences_conf->addConfUser($u, 'wait_marked', 'yes');
 				$conferences_conf->addConfUser($u, 'end_marked', 'yes');
-				$dds = \FreePBX::Paging()->getDropSilence() ? 'yes' : 'no';
+				$dds = $paging->getDropSilence() ? 'yes' : 'no';
 				$conferences_conf->addConfUser($u, 'dsp_drop_silence', $dds);
 				if($astman->database_get("paging","quiet") == 1 && $u == 'page_user') {
 					$conferences_conf->addConfUser($u, 'announce_join_leave', 'no');
@@ -718,12 +719,6 @@ function paging_get_config($engine) {
 			$ext->add($apppagegroups, $grp, '', new ext_set('ANNOUNCEMENT', $announcement));
 			$ext->add($apppagegroups, $grp, 'agi', new ext_agi('page.agi'));
 
-			//we cant use originate from the dialplan as the dialplan command is not asynchronous
-			//we would like to though...
-			//this code here as a sign of hope -MB
-				/*foreach ($page_members as $member) {
-						$ext->add($apppagegroups, $grp, 'page', new ext_originate($member,'app','meetme', '${PAGE_CONF}\,${PAGE_CONF_OPTS}'));
-				}*/
 			// TODO this is the master so set appropriate
 			//      This is what everyone else has: 1doqsx
 			//      Common:
@@ -819,6 +814,7 @@ function paging_get_autoanswer_defaults($orderd = false) {
 }
 
 function paging_set_autoanswer_defaults($data) {
+    FreePBX::Modules()->deprecatedFunction();
 	return FreePBX::Paging()->setAutoanswerDefaults($data);
 }
 
@@ -837,8 +833,8 @@ function paging_get_autoanswer_useragents($useragent = '') {
 }
 
 function paging_list() {
-	$result = \FreePBX::Paging()->listGroups();
-	return $result;
+    FreePBX::Modules()->deprecatedFunction();
+    return FreePBX::Paging()->listGroups();
 }
 
 function paging_check_extensions($exten=true) {
@@ -977,7 +973,8 @@ function paging_check_default($extension) {
 }
 
 function paging_get_default() {
-	return \FreePBX::Paging()->getDefaultGroup();
+    FreePBX::Modules()->deprecatedFunction();
+	return FreePBX::Paging()->getDefaultGroup();
 }
 
 function paging_set_default($extension, $value) {
@@ -1096,5 +1093,3 @@ function paging_configprocess() {
 		sql($sql);
 	}
 }
-
-?>

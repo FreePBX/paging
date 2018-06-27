@@ -1,26 +1,27 @@
 <?php
 // vim: set ai ts=4 sw=4 ft=php:
 namespace FreePBX\modules;
-
-class Paging extends \FreePBX_Helpers implements \BMO {
-
-	public function __construct($freepbx = null) {
-		$this->freepbx = $freepbx;
-		$this->db = $freepbx->Database;
-	}
+use BMO;
+use FreePBX_Helpers;
+use PDO;
+class Paging extends FreePBX_Helpers implements BMO {
 
 	public function install() {
-
+        $autoanswer = include __DIR__.'/autoanswerRows.php';
+        $sql = 'REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (:useragent, :var, :setting)';
+        $stmt = $this->FreePBX->Database->prepare($sql);
+        foreach ($autoanswer as $row) {
+            $stmt->execute([
+                ':useragent' => $row['useragent'],
+                ':var' => $row['var'],
+                ':setting' => $row['setting'],
+            ]);
+        }
 	}
 	public function uninstall() {
 
 	}
-	public function backup(){
-
-	}
-	public function restore($backup){
-
-	}
+	
 
 	// User and Extensions page, which are part of core.
 	public static function myGuiHooks() {
@@ -43,7 +44,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 	}
 
 	public function doConfigPageInit($page) {
-		$conf = \FreePBX::Config();
+		$conf = $this->FreePBX->Config;
 		$ramp_conf = $conf->get_conf_settings();
 		foreach ($ramp_conf as $key => $value) {
 			$amp_conf[$key] = $value['value'];
@@ -236,7 +237,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			throw new \Exception("No Extension given");
 		}
 		$this->setConfig("intercom-override", $override, $ext);
-		$astman = $this->freepbx->astman;
+		$astman = $this->FreePBX->astman;
 		$astman->database_put('AMPUSER', "$ext/intercom/override", $override);
 	}
 
@@ -308,11 +309,14 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		}
 	}
 
-	public function listGroups(){
-		$sql = "SELECT page_group, description FROM paging_config ORDER BY page_group";
-		$stmt = $this->db->prepare($sql);
+	public function listGroups($all = false){
+        $sql = "SELECT page_group, description FROM paging_config ORDER BY page_group";
+        if($all){
+            $sql = 'SELECT * FROM paging_config ORDER BY page_group';
+        }
+		$stmt = $this->FreePBX->Database->prepare($sql);
 		$stmt->execute();
-		$results = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		if(!$results) {
 			$results = array();
 		} else {
@@ -330,7 +334,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 	}
 	public function getDefaultGroup(){
 	 	$sql = "SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1";
-		$stmt = $this->db->prepare($sql);
+		$stmt = $this->FreePBX->Database->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchColumn();
 		$default_group = $result;
@@ -338,12 +342,12 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 	}
 	public function setDefaultGroup($ext){
 		$sql = "INSERT INTO admin (variable,value) VALUES ('default_page_grp',:ext) ON DUPLICATE KEY UPDATE value = :ext";
-		$stmt = $this->db->prepare($sql);
+		$stmt = $this->FreePBX->Database->prepare($sql);
 		return $stmt->execute(array('ext' => $ext));
 	}
 	public function hookForm(){
 	$module_hook = \moduleHook::create();
-	$mods = \FreePBX::Hooks()->processHooks();
+	$mods = $this->FreePBX->Hooks->processHooks();
 	$sections = array();
 	foreach($mods as $mod => $contents) {
 		if(empty($contents)) {
@@ -395,7 +399,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 	//Removes an extension from all page groups.
 	public function removeMemberAllGroups($exten){
 		$sql = 'DELETE from paging_groups WHERE ext = :exten';
-		$stmt = $this->db->prepare($sql);
+		$stmt = $this->FreePBX->Database->prepare($sql);
 		return $stmt->execute(array(':exten'=> $exten));
 	}
 
@@ -418,7 +422,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		}
 		if(!empty($put)){
 			$sql = "REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (?, ?, ?)";
-			$stmt = $this->db->prepare($sql);
+			$stmt = $this->FreePBX->Database->prepare($sql);
 			$error = false;
 			$baditems = array();
 			foreach ($put as $item) {
