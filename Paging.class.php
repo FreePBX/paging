@@ -200,7 +200,7 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 		$info .= "<li>"._("<strong>Force</strong><br> Send the headers telling the phone to go into auto answer mode. This may not work, and is dependant on the phone.")."</li>\n";
 		$info .= "</ul>";
 		$stat = $this->getOverride($_REQUEST['extdisplay']);
-		$cc->addguielem($section, new \gui_radio('intercom_override', $cc->getoptlist('intercom_override_options'), $stat, $name, $info));
+		$cc->addguielem($section, new \gui_radio('intercom_override', $cc->getoptlist('intercom_override_options'), $stat, $name, $info), 5, null, "other", "advanced");
 
 	}
 
