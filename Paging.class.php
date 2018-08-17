@@ -9,7 +9,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 	public function install() {
         $autoanswer = include __DIR__.'/autoanswerRows.php';
         $sql = 'REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (:useragent, :var, :setting)';
-        $stmt = $this->FreePBX->Database->prepare($sql);
+        $stmt = $this->Database->prepare($sql);
         foreach ($autoanswer as $row) {
             $stmt->execute([
                 ':useragent' => $row['useragent'],
@@ -21,8 +21,18 @@ class Paging extends FreePBX_Helpers implements BMO {
 	public function uninstall() {
 
 	}
-	
 
+	public function setDatabase($pdo)
+	{
+		$this->Database = $pdo;
+		return $this;
+	}
+
+	public function resetDatabase()
+	{
+		$this->Database = $this->Database;
+		return $this;
+	}
 	// User and Extensions page, which are part of core.
 	public static function myGuiHooks() {
 		return array("core");
@@ -314,7 +324,7 @@ class Paging extends FreePBX_Helpers implements BMO {
         if($all){
             $sql = 'SELECT * FROM paging_config ORDER BY page_group';
         }
-		$stmt = $this->FreePBX->Database->prepare($sql);
+		$stmt = $this->Database->prepare($sql);
 		$stmt->execute();
 		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		if(!$results) {
@@ -334,7 +344,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 	}
 	public function getDefaultGroup(){
 	 	$sql = "SELECT value FROM `admin` WHERE variable = 'default_page_grp' limit 1";
-		$stmt = $this->FreePBX->Database->prepare($sql);
+		$stmt = $this->Database->prepare($sql);
 		$stmt->execute();
 		$result = $stmt->fetchColumn();
 		$default_group = $result;
@@ -342,7 +352,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 	}
 	public function setDefaultGroup($ext){
 		$sql = "INSERT INTO admin (variable,value) VALUES ('default_page_grp',:ext) ON DUPLICATE KEY UPDATE value = :ext";
-		$stmt = $this->FreePBX->Database->prepare($sql);
+		$stmt = $this->Database->prepare($sql);
 		return $stmt->execute(array('ext' => $ext));
 	}
 	public function hookForm(){
@@ -399,7 +409,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 	//Removes an extension from all page groups.
 	public function removeMemberAllGroups($exten){
 		$sql = 'DELETE from paging_groups WHERE ext = :exten';
-		$stmt = $this->FreePBX->Database->prepare($sql);
+		$stmt = $this->Database->prepare($sql);
 		return $stmt->execute(array(':exten'=> $exten));
 	}
 
@@ -422,7 +432,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 		}
 		if(!empty($put)){
 			$sql = "REPLACE INTO paging_autoanswer (useragent, var, setting) VALUES (?, ?, ?)";
-			$stmt = $this->FreePBX->Database->prepare($sql);
+			$stmt = $this->Database->prepare($sql);
 			$error = false;
 			$baditems = array();
 			foreach ($put as $item) {
