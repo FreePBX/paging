@@ -2,14 +2,15 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.1</version>
+    <version>15.0.2</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.2* Packaging of ver 15.0.2
         *15.0.1* Backup 15
-    </changelog>
+	</changelog>
     <depends>
         <version>13.0.191.12</version>
         <module>core ge 13.0.86</module>
@@ -24,21 +25,21 @@
     </menuitems>
     <database>
         <table name="paging_groups">
-            <field name="page_number" type="string" length="50" default="" primarykey="true" />
-            <field name="ext" type="string" length="25" default="" primarykey="true" />
+            <field name="page_number" type="string" length="50" default="" primarykey="true"/>
+            <field name="ext" type="string" length="25" default="" primarykey="true"/>
         </table>
         <table name="paging_autoanswer">
-            <field name="useragent" type="string" length="190" primarykey="true" />
-            <field name="var" type="string" length="20" primarykey="true" />
-            <field name="setting" type="string" length="255" />
+            <field name="useragent" type="string" length="190" primarykey="true"/>
+            <field name="var" type="string" length="20" primarykey="true"/>
+            <field name="setting" type="string" length="255"/>
         </table>
         <table name="paging_config">
-            <field name="page_group" type="string" length="190" default="" primarykey="true" />
-            <field name="force_page" type="integer" />
-            <field name="duplex" type="integer" default="0" />
-            <field name="description" type="string" length="255" default="" />
-            <field name="announcement" type="string" length="255" notnull="false" />
-            <field name="volume" type="integer" default="0" />
+            <field name="page_group" type="string" length="190" default="" primarykey="true"/>
+            <field name="force_page" type="integer"/>
+            <field name="duplex" type="integer" default="0"/>
+            <field name="description" type="string" length="255" default=""/>
+            <field name="announcement" type="string" length="255" notnull="false"/>
+            <field name="volume" type="integer" default="0"/>
         </table>
     </database>
     <popovers>
