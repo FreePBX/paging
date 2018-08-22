@@ -17,6 +17,7 @@ class Restore Extends Base\RestoreBase{
     $cb->setDatabase($pdo);
     $groups = $cb->listGroups(true);
 
+    $configs = array();
     foreach ($groups as $group) {
       $group['plist'] = $cb->getPageGroupsById($group['page_group']);
       $configs[] = $group;
