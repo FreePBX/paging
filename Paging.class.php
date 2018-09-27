@@ -450,4 +450,41 @@ class Paging extends FreePBX_Helpers implements BMO {
 		}
 		return false;
 	}
+	public function getPageGroupsById($group){
+		$sql = "SELECT * FROM paging_config WHERE page_group = :group";
+		$stmt = $this->Database->prepare($sql);
+		$stmt->execute([':group' => $group]);
+		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$results['default_group'] = $this->getDefaultGroup();
+		return $results;
+	}
+
+	public function addGroup($xtn, $plist, $force_page, $duplex, $description = '', $default_group, $announcement = 0, $volume = 0){
+		// $plist contains a string of extensions, with \n as a seperator.
+		// Split that up first.
+		if (is_array($plist)) {
+			$xtns = $plist;
+		} else {
+			$xtns = explode("\n", $plist);
+		}
+		$sql = "REPLACE INTO paging_groups(page_number, ext) VALUES (:xtn, :val)";
+		$stmt = $this->Database->prepare($sql);
+		foreach (array_keys($xtns) as $val) {
+			$val = trim($xtns[$val]);
+			$stmt->execute([':xtn' => $xtn, ':val' => $val]);
+		}
+
+		$description = trim($description);
+		$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description, announcement, volume) VALUES (:xtn, :force_page, :duplex, :description, :announcement, :volume)";
+		$this->Database->prepare($sql)->execute([':xtn' => $xtn, ':force_page' => $force_page, ':duplex' => $duplex, ':description' => $description, ':announcement' => $announcement, ':volume' => $volume]);
+
+		if ($default_group) {
+			$this->Database->query("DELETE FROM `admin` WHERE variable = 'default_page_grp'");
+			$this->Database->Prepare("INSERT INTO `admin` (variable, value) VALUES ('default_page_grp', :xtn)")->execute([':xtn' => $xtn]);
+		} else {
+			$this->Database->prepare("DELETE FROM `admin` WHERE variable = 'default_page_grp' AND value = :xtn")->execute([':xtn' => $xtn]);
+		}
+		needreload();
+		return $this;
+	}
 }
