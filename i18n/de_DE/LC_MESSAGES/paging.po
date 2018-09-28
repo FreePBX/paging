@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-19 18:13-0400\n"
-"PO-Revision-Date: 2018-07-18 19:13+0000\n"
+"PO-Revision-Date: 2018-09-19 13:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
 "Language: de_DE\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.19.1\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/paging.js:38
 msgid " Please set the event days."
@@ -241,7 +241,7 @@ msgstr ""
 
 #: views/form.php:41
 msgid "Not Selected"
-msgstr ""
+msgstr "Nicht ausgewählt"
 
 #: views/form.php:193
 msgid ""
@@ -322,7 +322,7 @@ msgstr ""
 
 #: views/form.php:40
 msgid "Selected"
-msgstr ""
+msgstr "Ausgewählt"
 
 #: views/overview.php:27
 msgid "Settings"
@@ -338,7 +338,7 @@ msgstr "Lautsprecher-Lautstärke überschreiben"
 
 #: Paging.class.php:261 views/settings.php:128
 msgid "Submit"
-msgstr "Bestätigen"
+msgstr "Absenden"
 
 #: assets/js/paging.js:16
 msgid "The end date must biger greater the start date."
