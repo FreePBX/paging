@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-20 12:51-0400\n"
+"POT-Creation-Date: 2018-09-27 20:49-0400\n"
 "PO-Revision-Date: 2016-12-09 22:52+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -130,11 +130,11 @@ msgstr "Extensiones Ocupadas"
 msgid "Default"
 msgstr "Por Defecto"
 
-#: functions.inc.php:1051
+#: functions.inc.php:1007
 msgid "Default Group Inclusion"
 msgstr "Grupo Inclusión Por Defecto"
 
-#: functions.inc.php:1054 views/form.php:268
+#: functions.inc.php:1010 views/form.php:268
 msgid "Default Page Group"
 msgstr "Grupo Megafonía Por Defecto"
 
@@ -161,11 +161,11 @@ msgstr ""
 "está restringido por la llave (key) avanzada PAGINGMAXPARTICIPANTS y se fija "
 "actualmente "
 
-#: functions.inc.php:1030
+#: functions.inc.php:986
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1027
+#: functions.inc.php:983
 msgid "Disabled"
 msgstr ""
 
@@ -177,15 +177,15 @@ msgstr "Caer Silencio"
 msgid "Duplex"
 msgstr "Duplo"
 
-#: functions.inc.php:1026
+#: functions.inc.php:982
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1022
+#: functions.inc.php:978
 msgid "Exclude"
 msgstr "Excluir"
 
-#: functions.inc.php:1056
+#: functions.inc.php:1012
 msgid "Extension Options"
 msgstr ""
 
@@ -208,15 +208,15 @@ msgstr ""
 "excluir esa extensión en el grupo de voceo predeterminado al editar dicha "
 "extensión"
 
-#: functions.inc.php:1023
+#: functions.inc.php:979
 msgid "Include"
 msgstr "Incluir"
 
-#: functions.inc.php:1031
+#: functions.inc.php:987
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1065
+#: functions.inc.php:1021
 msgid "Intercom Mode"
 msgstr ""
 
@@ -246,7 +246,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1061
+#: functions.inc.php:1017
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -429,13 +429,13 @@ msgstr "Habilitar Ext Megafonía"
 msgid "User Intercom Disallow"
 msgstr "Deshabilitar Ext Megafonía"
 
-#: functions.inc.php:1065
+#: functions.inc.php:1021
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1061
+#: functions.inc.php:1017
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -463,7 +463,7 @@ msgstr "Susurrar"
 msgid "Yes"
 msgstr "Si"
 
-#: functions.inc.php:1054
+#: functions.inc.php:1010
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
