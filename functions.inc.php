@@ -865,7 +865,6 @@ function paging_check_extensions($exten=true) {
 function paging_get_devs($grp) {
 	global $db;
 
-	// Just in case someone's trying to be smart with a SQL injection.
 	$grp = $db->escapeSimple($grp);
 
 	$sql = "SELECT ext FROM paging_groups where page_number='$grp'";
@@ -878,24 +877,8 @@ function paging_get_devs($grp) {
 }
 
 function paging_get_pagingconfig($grp) {
-	global $db;
-
-	// Just in case someone's trying to be smart with a SQL injection.
-	$grp = $db->escapeSimple($grp);
-
-	$sql = "SELECT * FROM paging_config WHERE page_group='$grp'";
-	$results = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
-		$results = null;
-	}
-	$sql = "SELECT * FROM admin WHERE variable='default_page_grp' AND value='$grp'";
-	$default_group = $db->getRow($sql, DB_FETCHMODE_ASSOC);
-	if(DB::IsError($default_group)) {
-		$results['default_group'] = 0;
-	} else {
-		$results['default_group'] = empty($default_group) ? 0 : $default_group['value'];
-	}
-	return $results;
+	FreePBX::Modules()->deprecatedFunction();
+	return FreePBX::Paging()->getPageGroupsById($grp);
 }
 
 function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0, $announcement=0, $volume=0) {
@@ -935,35 +918,8 @@ function paging_del($xtn) {
 }
 
 function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group, $announcement=0, $volume=0) {
-	global $db;
-
-	// $plist contains a string of extensions, with \n as a seperator.
-	// Split that up first.
-	if (is_array($plist)) {
-		$xtns = $plist;
-	} else {
-		$xtns = explode("\n",$plist);
-	}
-	foreach (array_keys($xtns) as $val) {
-		$val = $db->escapeSimple(trim($xtns[$val]));
-		// Sanity check input.
-
-		$sql = "INSERT INTO paging_groups(page_number, ext) VALUES ('$xtn', '$val')";
-		$db->query($sql);
-	}
-
-	$description = $db->escapeSimple(trim($description));
-	$sql = "INSERT INTO paging_config(page_group, force_page, duplex, description, announcement, volume) VALUES ('$xtn', '$force_page', '$duplex', '$description', '$announcement', '$volume')";
-	$db->query($sql);
-
-	if ($default_group) {
-		sql("DELETE FROM `admin` WHERE variable = 'default_page_grp'");
-		sql("INSERT INTO `admin` (variable, value) VALUES ('default_page_grp', '$xtn')");
-	} else {
-		sql("DELETE FROM `admin` WHERE variable = 'default_page_grp' AND value = '$xtn'");
-	}
-
-	needreload();
+	FreePBX::Modules()->deprecatedFunction();
+	return FreePBX::Paging()->addGroup($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement, $volume);
 }
 
 function paging_check_default($extension) {
