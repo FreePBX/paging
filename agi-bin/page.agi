@@ -27,6 +27,9 @@ $get = array(
 	'EXTRINGTIME' => '',
 	'PVOL' => ''
 );
+if($astman->database_get("paging","quiet") == 1) {
+	$get['STREAM'] ='';
+}
 
 foreach ($get as $k => $v) {
 	$tmp = agi_get_var($k);
