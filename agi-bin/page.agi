@@ -27,6 +27,9 @@ $get = array(
 	'EXTRINGTIME' => '',
 	'PVOL' => ''
 );
+if($astman->database_get("paging","quiet") == 1) {
+	$get['STREAM'] ='';
+}
 
 foreach ($get as $k => $v) {
 	$tmp = agi_get_var($k);
@@ -217,9 +220,12 @@ foreach ($devices as $dev) {
 			if ($dnd['data'] == 'YES') {
 				continue;
 			}
-			$type = explode('/', $device, 2);
-			if (strtolower($type[0]) != 'sip') {
+			$type = explode('/', $device);
+			if (strtolower($type[0]) != 'sip' && strtolower($type[0]) != 'pjsip') {
 				continue;
+			}
+			if(strtolower($type[0]) == 'pjsip'){
+				$device = $type[0]."/".$type[1];
 			}
 			switch ($dev_state) {
 			case "INUSE":
@@ -353,13 +359,24 @@ function get_device_state($dev) {
 	list( , $id, ) = explode('/', $dev);
 	// $agi->verbose("Looking for $id state", 0);
 	$cmd = $astman->PJSIPShowEndpoint($id);
-	if (!isset($cmd[0]['DeviceState'])) {
+	$devstate = array();
+	foreach($cmd as $a){
+		if($a['ObjectName'] == $id){
+			$devstate[$id]['DeviceState'] = $a['DeviceState'];
+		}
+	}
+
+	if (!isset($devstate[$id]['DeviceState'])) {
 		return "UNKNOWN";
 	}
-	$state = $cmd[0]['DeviceState'];
+	$state = $devstate[$id]['DeviceState'];
 	switch ($state) {
 	case "Not in use":
 		return "NOT_INUSE";
+	case "In use":
+		return "INUSE";
+	case "Busy":
+		return "BUSY";
 	default:
 		return "UNAVAILABLE";
 	}
