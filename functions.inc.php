@@ -878,7 +878,7 @@ function paging_get_devs($grp) {
 
 function paging_get_pagingconfig($grp) {
 	FreePBX::Modules()->deprecatedFunction();
-	return FreePBX::Paging()->getPageGroupsById($grp);
+	return FreePBX::Paging()->getPageGroupById($grp);
 }
 
 function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0, $announcement=0, $volume=0) {

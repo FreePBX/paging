@@ -89,7 +89,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 				'announcement' => '',
 				'type'			=> 'tool',
 				'volume'		=> 0,
-				'drop_silence'		=>'0' 
+				'drop_silence'		=>'0'
 
 
 			);
@@ -153,7 +153,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 					$def = paging_get_autoanswer_defaults(true);
 					$doptions = 'b(autoanswer^s^1(${ALERTINFO},${CALLINFO}))';
 					$this->astman->database_put("paging","quiet",$request['quiet']);
-					
+
 					if (ctype_digit($vars['announce'])) {
 						$r = recordings_get($vars['announce']);
 						if ($r) {
@@ -450,11 +450,11 @@ class Paging extends FreePBX_Helpers implements BMO {
 		}
 		return false;
 	}
-	public function getPageGroupsById($group){
+	public function getPageGroupById($group){
 		$sql = "SELECT * FROM paging_config WHERE page_group = :group";
 		$stmt = $this->Database->prepare($sql);
 		$stmt->execute([':group' => $group]);
-		$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		$results = $stmt->fetch(PDO::FETCH_ASSOC);
 		$results['default_group'] = $this->getDefaultGroup();
 		return $results;
 	}

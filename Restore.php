@@ -19,7 +19,7 @@ class Restore Extends Base\RestoreBase{
 
     $configs = array();
     foreach ($groups as $group) {
-      $group['plist'] = $cb->getPageGroupsById($group['page_group']);
+      $group['plist'] = $cb->getPageGroupById($group['page_group']);
       $configs[] = $group;
     }
     $cb->resetDatabase();
