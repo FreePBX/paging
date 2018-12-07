@@ -771,7 +771,7 @@ function paging_destinations() {
 	// return an associative array with destination and description
 	if (isset($results)) {
 		foreach($results as $result){
-			$desc = $result['description'] ? $result['description'] : _('Page Group') . ' ' . $result['page_group'];
+			$desc = $result['description'] ? '<'.$result['page_group'].'> '.$result['description'] : _('Page Group') . ' ' . $result['page_group'];
 			$extens[] = array('destination' => 'app-pagegroups,' . $result['page_group'] . ',1', 'description' => $desc);
 		}
 		return $extens;
