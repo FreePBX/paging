@@ -161,7 +161,7 @@ foreach ($rec_list as $key => $value) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="announcement-help" class="help-block fpbx-help-block"><?php echo _("Alert tone to be played to remote party. If set to Default it will use the global setting from Page Groups. If Page Groups is not defined then it will default to beep")?></span>
+			<span id="announcement-help" class="help-block fpbx-help-block"><?php echo _("Announcement to be played to remote party. If set to Default it will use the global setting from Page Groups. If Page Groups is not defined then it will default to beep. This Announcement file duration should not exceed Default ringtime(Advanced Settings)")?></span>
 		</div>
 	</div>
 </div>
