@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-10-15 18:34-0400\n"
-"PO-Revision-Date: 2018-10-15 02:00+0000\n"
+"PO-Revision-Date: 2018-10-19 15:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
 "Language: de_DE\n"
@@ -237,7 +237,7 @@ msgstr "Nein"
 
 #: views/form.php:43 views/form.php:181 views/settings.php:3
 msgid "None"
-msgstr ""
+msgstr "Kein*e"
 
 #: views/form.php:41
 msgid "Not Selected"
@@ -310,7 +310,7 @@ msgstr ""
 
 #: Paging.class.php:190
 msgid "Reject"
-msgstr ""
+msgstr "Ablehnen"
 
 #: Paging.class.php:256
 msgid "Reset"
@@ -318,7 +318,7 @@ msgstr "Zurücksetzen"
 
 #: Paging.class.php:191
 msgid "Ring"
-msgstr ""
+msgstr "Klingeln"
 
 #: views/form.php:40
 msgid "Selected"
@@ -326,7 +326,7 @@ msgstr "Ausgewählt"
 
 #: views/overview.php:27
 msgid "Settings"
-msgstr "Einstellung"
+msgstr "Einstellungen"
 
 #: views/form.php:210
 msgid "Skip"
