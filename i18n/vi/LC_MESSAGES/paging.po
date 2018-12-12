@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 20:49-0400\n"
+"POT-Creation-Date: 2018-12-12 12:28+0530\n"
 "PO-Revision-Date: 2017-07-11 09:26+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -80,13 +80,6 @@ msgstr "Thêm nhóm Page"
 msgid "Alert Tone"
 msgstr ""
 
-#: views/form.php:164
-msgid ""
-"Alert tone to be played to remote party. If set to Default it will use the "
-"global setting from Page Groups. If Page Groups is not defined then it will "
-"default to beep"
-msgstr ""
-
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
@@ -98,6 +91,14 @@ msgstr ""
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
+msgstr ""
+
+#: views/form.php:164
+msgid ""
+"Announcement to be played to remote party. If set to Default it will use the "
+"global setting from Page Groups. If Page Groups is not defined then it will "
+"default to beep. This Announcement file duration should not exceed Default "
+"ringtime(Advanced Settings)"
 msgstr ""
 
 #: paging.i18n.php:6
