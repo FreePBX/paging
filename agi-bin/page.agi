@@ -25,7 +25,8 @@ $get = array(
 	'ANNOUNCEMENT' => '',
 	'VXML_URL'	=> '',
 	'EXTRINGTIME' => '',
-	'PVOL' => ''
+	'PVOL' => '',
+	'SCHEDULED' => '0'
 );
 if($astman->database_get("paging","quiet") == 1) {
 	$get['STREAM'] ='';
@@ -94,20 +95,50 @@ if (substr($this_chan, 0, 5) == "PJSIP") {
  * leader to enter.
  * note: we got to app-page-stream since it simply enters the conference
  * as a marked user
+ *Some more additional functionality needs here
+ *the channel should wait unitll the ANNOUNCEMENT(alert tone played on dial A()) is made.
+ *and if the page is triggered by  scheduler then this call will stay untill the all announcement is over
+ *if the paging is from an extension we dont need this Page Startup to stay till the end . It should get removed after the lead wait/defaulttimetime
  */
-$lead = array(
-	'Channel'	=> 'Local/s@app-page-stream',
-	'CallerID'	=> 'Page Startup',
-	'Async'		=> 'true',
-	'Variable'	=> array(
-		'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
-		'PAGE_CONF_OPTS' => 'xqA'
-	),
-	'Application'=> 'Wait',
-	'Data'		=> $vars['LEAD_WAIT']
-);
-$astman->Originate($lead);
 
+ if($vars['SCHEDULED'] == 1) {
+	if ($vars['ANNOUNCEMENT']!="") {
+		$streamfiles = $vars['ANNOUNCEMENT'];
+	}
+	if ($streamfiles !="" && $vars['STREAM'] !="") {
+		$streamfiles .='&'. $vars['STREAM'];
+	} else {
+		$streamfiles = $vars['STREAM'];
+	}
+	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
+		$pass_vars['CONFBRIDGE(user,template)']	= 'page_user';
+	}
+	$lead = array(
+		'Channel'	=> 'Local/s@app-page-stream',
+		'CallerID'	=> 'Page Startup',
+		'Async'		=> 'true',
+		'Variable'	=> array(
+			'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+			'PAGE_CONF_OPTS' => 'mxqA',
+			'PAGE_USER_TYPE' => 'ADMIN_MUTED'
+		),
+		'Application'=> 'Playback',
+		'Data'		=> $streamfiles
+	);
+ } else {
+	 $lead = array(
+		'Channel'	=> 'Local/s@app-page-stream',
+		'CallerID'	=> 'Page Startup',
+		'Async'		=> 'true',
+		'Variable'	=> array(
+			'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
+			'PAGE_CONF_OPTS' => 'mxqA'
+		),
+		'Application'=> 'Wait',
+		'Data'		=> $vars['LEAD_WAIT']
+	);
+ }
+$astman->Originate($lead);
 
 // Grab all Asterisk 12-and-above PJSIP Registrations,
 // as we may need them later.
