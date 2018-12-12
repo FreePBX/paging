@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.26.9</version>
+	<version>13.0.26.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26.10* FREEPBX-18646 FREEPBX-18647 
 		*13.0.26.9* FREEPBX-18643 FREEPBX-18642 
 		*13.0.26.8* FREEPBX-17320 Paging announcement not playing if I set the Conference Room App as app_confbridge 
 		*13.0.26.7* Fixing FREEPBX-18264 Paging not breaking through calls for Pjsip 
