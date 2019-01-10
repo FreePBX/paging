@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.3</version>
+    <version>15.0.4.4</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.4* FREEPBX-18920 Page group schedule doesn't hang up 
 		*15.0.4.3* FREEPBX-18646 FREEPBX-18647 
 		*15.0.4.2* FREEPBX-18643 FREEPBX-18642 
 		*15.0.4.1* FREEPBX-18324
