@@ -113,6 +113,14 @@ if (substr($this_chan, 0, 5) == "PJSIP") {
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 		$pass_vars['CONFBRIDGE(user,template)']	= 'page_user';
 	}
+	if ($streamfiles == '') {
+		$app = 'Wait';
+		$data = $vars['LEAD_WAIT'];
+	}
+	else {
+		$app = 'Playback';
+		$data = $streamfiles;
+	}
 	$lead = array(
 		'Channel'	=> 'Local/s@app-page-stream',
 		'CallerID'	=> 'Page Startup',
@@ -122,8 +130,8 @@ if (substr($this_chan, 0, 5) == "PJSIP") {
 			'PAGE_CONF_OPTS' => 'mxqA',
 			'PAGE_USER_TYPE' => 'ADMIN_MUTED'
 		),
-		'Application'=> 'Playback',
-		'Data'		=> $streamfiles
+		'Application'=> $app,
+		'Data'		=> $data
 	);
  } else {
 	 $lead = array(
