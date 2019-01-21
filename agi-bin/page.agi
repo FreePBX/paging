@@ -311,7 +311,7 @@ if ($vars['STREAM']) {
 		'Async'		=> 'true',
 		'Variable'	=> array(
 			'PAGE_CONF' => __pad_string($vars['PAGE_CONF']),
-			'PAGE_CONF_OPTS' => 'xq'
+			'PAGE_CONF_OPTS' => 'xqA'
 		),
 		'Application'=> 'Playback',
 		'Data'		=> $vars['STREAM']
