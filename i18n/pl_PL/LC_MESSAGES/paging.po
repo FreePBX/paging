@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 12:40+0530\n"
+"POT-Creation-Date: 2019-01-22 10:44+0530\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -144,11 +144,11 @@ msgstr ""
 msgid "Default"
 msgstr "Domyślne"
 
-#: functions.inc.php:1056
+#: functions.inc.php:1057
 msgid "Default Group Inclusion"
 msgstr "Domyślna integracja grupy"
 
-#: functions.inc.php:1059 views/form.php:268
+#: functions.inc.php:1060 views/form.php:268
 msgid "Default Page Group"
 msgstr "Domyślna grupa stron"
 
@@ -171,11 +171,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1035
+#: functions.inc.php:1036
 msgid "Disable"
 msgstr "Wyłączyć"
 
-#: functions.inc.php:1032
+#: functions.inc.php:1033
 msgid "Disabled"
 msgstr "Wyłączony"
 
@@ -187,15 +187,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "Dupleks"
 
-#: functions.inc.php:1031
+#: functions.inc.php:1032
 msgid "Enabled"
 msgstr "Włączone"
 
-#: functions.inc.php:1027
+#: functions.inc.php:1028
 msgid "Exclude"
 msgstr "Wykluczać"
 
-#: functions.inc.php:1061
+#: functions.inc.php:1062
 msgid "Extension Options"
 msgstr "Opcje rozszerzenia"
 
@@ -214,15 +214,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1028
+#: functions.inc.php:1029
 msgid "Include"
 msgstr "Zawierać"
 
-#: functions.inc.php:1036
+#: functions.inc.php:1037
 msgid "Intercom"
 msgstr "Interkom"
 
-#: functions.inc.php:1070
+#: functions.inc.php:1071
 msgid "Intercom Mode"
 msgstr "Tryb interkomowy"
 
@@ -252,7 +252,7 @@ msgstr "Interkom: wyłączony"
 msgid "Intercom: Enabled"
 msgstr "Interkom: włączony"
 
-#: functions.inc.php:1066
+#: functions.inc.php:1067
 msgid "Internal Auto Answer"
 msgstr "Wewnętrzna odpowiedź automatyczna"
 
@@ -281,12 +281,12 @@ msgstr ""
 "Zastąp głośność głośników dla tej strony. Uwaga: dotyczy to obecnie tylko "
 "telefonów marki Sangoma"
 
-#: functions.inc.php:776 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:777 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Grupa stron"
 
-#: functions.inc.php:864
+#: functions.inc.php:865
 msgid "Page Group: "
 msgstr "Grupa stron: "
 
@@ -303,7 +303,7 @@ msgstr "Grupy stron"
 msgid "Paging Extension"
 msgstr "Rozszerzenie stronicowania"
 
-#: functions.inc.php:793
+#: functions.inc.php:794
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupa stronicowania %s: %s"
@@ -418,13 +418,13 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: functions.inc.php:1070
+#: functions.inc.php:1071
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1066
+#: functions.inc.php:1067
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -450,7 +450,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1059
+#: functions.inc.php:1060
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
