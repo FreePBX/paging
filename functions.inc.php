@@ -621,6 +621,7 @@ function paging_get_config($engine) {
 		//
 		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge') {
 			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,template)', $pud));
+			$ext->add($c, 's', '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
 			//ADMIN_MUTED is a page stream Startup from scheduler page
 			$ext->add($c, 's', '', new ext_execif('$["${PAGE_USER_TYPE}" = "ADMIN_MUTED"]', 'Set', 'CONFBRIDGE(user,startmuted)=yes'));
 			$ext->add($c, 's', '', new ext_execif('$["${PAGE_USER_TYPE}" = "ADMIN_MUTED"]', 'Set', 'CONFBRIDGE(user,marked)=yes'));
