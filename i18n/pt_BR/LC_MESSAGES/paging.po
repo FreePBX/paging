@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 12:43+0530\n"
+"POT-Creation-Date: 2019-01-22 10:46+0530\n"
 "PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -137,11 +137,11 @@ msgstr "Ramais Ocupados"
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.inc.php:1009
+#: functions.inc.php:1010
 msgid "Default Group Inclusion"
 msgstr "Inclusão de Grupo Padrão"
 
-#: functions.inc.php:1012 views/form.php:268
+#: functions.inc.php:1013 views/form.php:268
 msgid "Default Page Group"
 msgstr "Grupo de Interfonia Padrão"
 
@@ -168,11 +168,11 @@ msgstr ""
 "\"interfonáveis\" é restringida pela chave de configuração avançada "
 "PAGINGMAXPARTICIPANTS e está atualmente definida como "
 
-#: functions.inc.php:988
+#: functions.inc.php:989
 msgid "Disable"
 msgstr "Desabilitar"
 
-#: functions.inc.php:985
+#: functions.inc.php:986
 msgid "Disabled"
 msgstr "Desabilitado"
 
@@ -184,15 +184,15 @@ msgstr "Ficar em Silêncio"
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: functions.inc.php:980
+#: functions.inc.php:981
 msgid "Exclude"
 msgstr "Excluir"
 
-#: functions.inc.php:1014
+#: functions.inc.php:1015
 msgid "Extension Options"
 msgstr "Opções de Ramal"
 
@@ -214,15 +214,15 @@ msgstr ""
 "seleção aparecerá no Módulo de Ramais que permitirá que você inclua ou "
 "exclua essa ramal no Grupo de Interfonia padrão ao editar o referido ramal"
 
-#: functions.inc.php:981
+#: functions.inc.php:982
 msgid "Include"
 msgstr "Incluir"
 
-#: functions.inc.php:989
+#: functions.inc.php:990
 msgid "Intercom"
 msgstr "Interfonia"
 
-#: functions.inc.php:1023
+#: functions.inc.php:1024
 msgid "Intercom Mode"
 msgstr "Modo Interfonia"
 
@@ -252,7 +252,7 @@ msgstr "Interfonia: Desabilitado"
 msgid "Intercom: Enabled"
 msgstr "Interfonia: Habilitado"
 
-#: functions.inc.php:1019
+#: functions.inc.php:1020
 msgid "Internal Auto Answer"
 msgstr "Auto-Resposta Interna"
 
@@ -281,12 +281,12 @@ msgstr ""
 "Substitui o volume do alto-falante para este interfone. Observação: isso só "
 "é válido para telefones Sangoma neste momento"
 
-#: functions.inc.php:771 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Grupo de Interfonia"
 
-#: functions.inc.php:860
+#: functions.inc.php:861
 msgid "Page Group: "
 msgstr "Grupo de Interfonia: "
 
@@ -303,7 +303,7 @@ msgstr "Grupos de Interfonia"
 msgid "Paging Extension"
 msgstr "Ramal de Interfonia"
 
-#: functions.inc.php:788
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupo de Interfonia %s : %s"
@@ -437,7 +437,7 @@ msgstr "Permitir Usuário de Interfonia"
 msgid "User Intercom Disallow"
 msgstr "Não Permitir Usuário de Interfonia"
 
-#: functions.inc.php:1023
+#: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
@@ -445,7 +445,7 @@ msgstr ""
 "Quando os usuários habilitados podem usar *80<ext> para forçar a interfonia. "
 "Quando Desativado, este utilizador irá rejeitar chamadas de interfonia"
 
-#: functions.inc.php:1019
+#: functions.inc.php:1020
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -481,7 +481,7 @@ msgstr "Sussurar"
 msgid "Yes"
 msgstr "Sim"
 
-#: functions.inc.php:1012
+#: functions.inc.php:1013
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

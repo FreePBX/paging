@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-12-12 12:43+0530\n"
+"POT-Creation-Date: 2019-01-22 10:46+0530\n"
 "PO-Revision-Date: 2016-07-14 10:46+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/paging/"
@@ -139,11 +139,11 @@ msgstr "Занятые внутренние номера"
 msgid "Default"
 msgstr "По-умолчанию"
 
-#: functions.inc.php:1009
+#: functions.inc.php:1010
 msgid "Default Group Inclusion"
 msgstr "Включения в дефолтную группу"
 
-#: functions.inc.php:1012 views/form.php:268
+#: functions.inc.php:1013 views/form.php:268
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
@@ -170,11 +170,11 @@ msgstr ""
 "устройство,на которые можно посылать оповещения ограничено дополнительной "
 "настройкой PAGINGMAXPARTICIPANTS и на данный момент установлено в "
 
-#: functions.inc.php:988
+#: functions.inc.php:989
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:985
+#: functions.inc.php:986
 msgid "Disabled"
 msgstr "Выключено"
 
@@ -186,15 +186,15 @@ msgstr "Прервать тишину"
 msgid "Duplex"
 msgstr "Дуплекс"
 
-#: functions.inc.php:984
+#: functions.inc.php:985
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:980
+#: functions.inc.php:981
 msgid "Exclude"
 msgstr "Исключить"
 
-#: functions.inc.php:1014
+#: functions.inc.php:1015
 msgid "Extension Options"
 msgstr ""
 
@@ -216,15 +216,15 @@ msgstr ""
 "\"Внутренние номера \"появится  возможность включить или исключить "
 "внутренний номер на странице  оповещений по умолчанию"
 
-#: functions.inc.php:981
+#: functions.inc.php:982
 msgid "Include"
 msgstr "Включить"
 
-#: functions.inc.php:989
+#: functions.inc.php:990
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1023
+#: functions.inc.php:1024
 msgid "Intercom Mode"
 msgstr ""
 
@@ -254,7 +254,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1019
+#: functions.inc.php:1020
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -281,12 +281,12 @@ msgid ""
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:771 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "Пейджинг-группа"
 
-#: functions.inc.php:860
+#: functions.inc.php:861
 msgid "Page Group: "
 msgstr "Пейджинг-группа: "
 
@@ -303,7 +303,7 @@ msgstr "Группы страницы"
 msgid "Paging Extension"
 msgstr "Внутренний номер для пейджинга"
 
-#: functions.inc.php:788
+#: functions.inc.php:789
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -439,13 +439,13 @@ msgstr "Пользователь Интерком разрешён"
 msgid "User Intercom Disallow"
 msgstr "Пользователь Интерком запрещён"
 
-#: functions.inc.php:1023
+#: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1019
+#: functions.inc.php:1020
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -471,7 +471,7 @@ msgstr "Шопот"
 msgid "Yes"
 msgstr "Да"
 
-#: functions.inc.php:1012
+#: functions.inc.php:1013
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
