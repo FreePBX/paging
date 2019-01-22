@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>14.0.9</version>
+	<version>14.0.10</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*14.0.10* FREEPBX-18980 age Pro Announcements not playing after hangup plus 
 		*14.0.9* FREEPBX-18920 Page group schedule doesn't hang up 
 		*14.0.8* FREEPBX-18646 FREEPBX-18647 
 		*14.0.7* FREEPBX-18643 FREEPBX-18642 
