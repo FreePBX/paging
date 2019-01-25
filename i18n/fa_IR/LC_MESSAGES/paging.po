@@ -10,24 +10,23 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-01-22 10:45+0530\n"
-"PO-Revision-Date: 2016-08-21 05:58+0200\n"
-"Last-Translator: Media <mousavi.media@gmail.com>\n"
-"Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
-"paging/fa_IR/>\n"
+"PO-Revision-Date: 2019-01-25 14:25+0000\n"
+"Last-Translator: Media Mousavi <mousavi.media@gmail.com>\n"
+"Language-Team: Persian <http://*/projects/freepbx/paging/fa/>\n"
 "Language: fa_IR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/paging.js:38
 msgid " Please set the event days."
-msgstr ""
+msgstr " .لطفا روز رویداد را تنظیم کنید."
 
 #: assets/js/paging.js:41
 msgid " Please set the event time."
-msgstr ""
+msgstr " .لطفا ساعت رویداد را تنظیم کنید."
 
 #: Paging.class.php:200
 msgid ""
@@ -91,7 +90,7 @@ msgstr "افزودن گروه صفحه"
 
 #: views/form.php:150
 msgid "Alert Tone"
-msgstr ""
+msgstr "زنگ هشدار"
 
 #: paging.i18n.php:8
 msgid ""
@@ -118,6 +117,10 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
+"اطلاعیه ای که باید به حزب راه دور پخش شود. اگر به Default تنظیم شده باشد از "
+"تنظیمات جهانی از گروه صفحات استفاده خواهد کرد. اگر Page Groups تعریف نشده "
+"باشد، به طور پیشفرض بوق می شود. مدت زمان پخش این اطلاعیه نباید از زمان پیش "
+"فرض زنگ (تنظیمات پیشرفته)"
 
 #: paging.i18n.php:6
 msgid "Applications"
@@ -334,15 +337,15 @@ msgstr ""
 
 #: assets/js/paging.js:11
 msgid "Please enter a valid end Date."
-msgstr ""
+msgstr "تاریخ پایان معتبر وارد کنید."
 
 #: assets/js/paging.js:6
 msgid "Please enter a valid start Date."
-msgstr ""
+msgstr "تاریخ آغاز معتبر وارد کنید."
 
 #: views/settings.php:107
 msgid "Quiet"
-msgstr ""
+msgstr "ساکت"
 
 #: Paging.class.php:190
 msgid "Reject"
@@ -378,7 +381,7 @@ msgstr "ارسال"
 
 #: assets/js/paging.js:16
 msgid "The end date must biger greater the start date."
-msgstr ""
+msgstr "تاریخ پایان باید بزرگتر از تاریخ شروع باشد."
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -422,7 +425,7 @@ msgstr ""
 
 #: views/settings.php:122
 msgid "This option removes the beep from caller."
-msgstr ""
+msgstr "این گزینه بوق را از تماس گیرنده حذف می کند."
 
 #: Paging.class.php:178
 msgid "Unknown Request"
