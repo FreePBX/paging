@@ -26,7 +26,8 @@ $get = array(
 	'VXML_URL'	=> '',
 	'EXTRINGTIME' => '',
 	'PVOL' => '',
-	'SCHEDULED' => '0'
+	'SCHEDULED' => '0',
+	'PAGEDEFLTANNOUCE' => '0'
 );
 if($astman->database_get("paging","quiet") == 1) {
 	$get['STREAM'] ='';
@@ -100,7 +101,10 @@ if (substr($this_chan, 0, 5) == "PJSIP") {
  *and if the page is triggered by  scheduler then this call will stay untill the all announcement is over
  *if the paging is from an extension we dont need this Page Startup to stay till the end . It should get removed after the lead wait/defaulttimetime
  */
-
+//FREEPBX-18784 - we dont want to announce the page announcement, if the call is from parkandannounce. Based on the channel variable 'PAGEDEFLTANNOUCE'
+if ($vars['PAGEDEFLTANNOUCE'] == 1) {
+	$vars['STREAM'] ='';
+}
  if($vars['SCHEDULED'] == 1) {
 	if ($vars['ANNOUNCEMENT']!="") {
 		$streamfiles = $vars['ANNOUNCEMENT'];
