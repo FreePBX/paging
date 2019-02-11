@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 10:46+0530\n"
+"POT-Creation-Date: 2019-02-11 13:20-0500\n"
 "PO-Revision-Date: 2016-08-21 05:58+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -236,10 +236,6 @@ msgstr "تماس داخلی از %s: غیرفعال شد"
 msgid "Intercom from %s: Enabled"
 msgstr "تماس داخلی از %s: فعال شد"
 
-#: paging.i18n.php:16
-msgid "Intercom prefix"
-msgstr "پیشوند ورودی"
-
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr "تماس داخلی: غیرفعال شد"
@@ -423,14 +419,6 @@ msgstr ""
 msgid "Unknown Request"
 msgstr "درخواست نامعتبر"
 
-#: paging.i18n.php:14
-msgid "User Intercom Allow"
-msgstr "کاربر ورودی مجاز"
-
-#: paging.i18n.php:12
-msgid "User Intercom Disallow"
-msgstr "کاربر ورودی غیرمجاز"
-
 #: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
@@ -481,6 +469,15 @@ msgid ""
 msgstr ""
 "شما میتوانید در هنگام ساختن یک گروه اعلان  داخلی ها/دستگاه ها را به این گروه "
 "اعلان وارد کرده و یا خارج نمایید."
+
+#~ msgid "Intercom prefix"
+#~ msgstr "پیشوند ورودی"
+
+#~ msgid "User Intercom Allow"
+#~ msgstr "کاربر ورودی مجاز"
+
+#~ msgid "User Intercom Disallow"
+#~ msgstr "کاربر ورودی غیرمجاز"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "

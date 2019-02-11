@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 10:46+0530\n"
+"POT-Creation-Date: 2019-02-11 13:20-0500\n"
 "PO-Revision-Date: 2018-07-31 17:00+0000\n"
 "Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
@@ -211,10 +211,6 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: paging.i18n.php:16
-msgid "Intercom prefix"
-msgstr ""
-
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
@@ -377,14 +373,6 @@ msgstr ""
 
 #: Paging.class.php:189
 msgid "Unknown Request"
-msgstr ""
-
-#: paging.i18n.php:14
-msgid "User Intercom Allow"
-msgstr ""
-
-#: paging.i18n.php:12
-msgid "User Intercom Disallow"
 msgstr ""
 
 #: functions.inc.php:1024
