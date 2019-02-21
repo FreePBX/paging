@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-11 13:20-0500\n"
+"POT-Creation-Date: 2019-02-21 18:43-0500\n"
 "PO-Revision-Date: 2016-08-21 05:58+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -29,7 +29,7 @@ msgstr ""
 msgid " Please set the event time."
 msgstr ""
 
-#: Paging.class.php:211
+#: Paging.class.php:200
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -37,11 +37,11 @@ msgstr ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone ."
 
-#: Paging.class.php:209
+#: Paging.class.php:198
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr "<strong>Reject </strong><br> Return a BUSY signal to the caller"
 
-#: Paging.class.php:210
+#: Paging.class.php:199
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -142,7 +142,7 @@ msgstr "ظرفیت گروه پیشفرض"
 msgid "Default Page Group"
 msgstr "گروه اعلان پیشفرض"
 
-#: Paging.class.php:101 Paging.class.php:262
+#: Paging.class.php:90 Paging.class.php:251
 msgid "Delete"
 msgstr "حذف"
 
@@ -192,7 +192,7 @@ msgstr "خروج"
 msgid "Extension Options"
 msgstr "گزینه های داخلی"
 
-#: Paging.class.php:203 views/form.php:212
+#: Paging.class.php:192 views/form.php:212
 msgid "Force"
 msgstr "اجبار"
 
@@ -222,7 +222,7 @@ msgstr "تماس داخلی"
 msgid "Intercom Mode"
 msgstr "حالت تماس داخلی"
 
-#: Paging.class.php:207
+#: Paging.class.php:196
 msgid "Intercom Override"
 msgstr "بازنویسی ورودی"
 
@@ -282,7 +282,7 @@ msgstr "گروه اعلان"
 msgid "Page Group: "
 msgstr "گروه اعلان ： "
 
-#: Paging.class.php:406
+#: Paging.class.php:395
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "گروه اعلان ： %s (%s)"
@@ -304,7 +304,7 @@ msgstr "گروه صفحه بندی %s : %s"
 msgid "Paging Groups"
 msgstr "گروه های اعلان"
 
-#: Paging.class.php:206 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:195 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "اعلان و ورود"
@@ -335,15 +335,15 @@ msgstr ""
 msgid "Quiet"
 msgstr ""
 
-#: Paging.class.php:201
+#: Paging.class.php:190
 msgid "Reject"
 msgstr "لغو"
 
-#: Paging.class.php:267
+#: Paging.class.php:256
 msgid "Reset"
 msgstr "بازنشانی"
 
-#: Paging.class.php:202
+#: Paging.class.php:191
 msgid "Ring"
 msgstr "زنگ"
 
@@ -363,7 +363,7 @@ msgstr "لغو"
 msgid "Speaker Volume Override"
 msgstr "بازنویسی صدای بلندگو"
 
-#: Paging.class.php:272 views/settings.php:128
+#: Paging.class.php:261 views/settings.php:128
 msgid "Submit"
 msgstr "ارسال"
 
@@ -415,7 +415,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
-#: Paging.class.php:189
+#: Paging.class.php:178
 msgid "Unknown Request"
 msgstr "درخواست نامعتبر"
 
@@ -445,7 +445,7 @@ msgstr ""
 "will certain other circumstances such as blind transfers and when a Follow "
 "Me is configured and enabled. If Disabled, the phone rings as a normal phone."
 
-#: Paging.class.php:208
+#: Paging.class.php:197
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."

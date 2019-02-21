@@ -22,17 +22,6 @@ class Paging extends FreePBX_Helpers implements BMO {
 
 	}
 
-	public function setDatabase($pdo)
-	{
-		$this->Database = $pdo;
-		return $this;
-	}
-
-	public function resetDatabase()
-	{
-		$this->Database = $this->Database;
-		return $this;
-	}
 	// User and Extensions page, which are part of core.
 	public static function myGuiHooks() {
 		return array("core");
