@@ -2,22 +2,23 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.8</version>
+    <version>15.0.4.9</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
-		*15.0.4.8* fixing legacy restore 
+        *15.0.4.9* Fix restore and backup
+		*15.0.4.8* fixing legacy restore
 		*15.0.4.7* Backup and restore
-		*15.0.4.6* FREEPBX-18784 Page announcements message under Park and announce 
-		*15.0.4.5* FREEPBX-18980 age Pro Announcements not playing after hangup plus 
-		*15.0.4.4* FREEPBX-18920 Page group schedule doesn't hang up 
-		*15.0.4.3* FREEPBX-18646 FREEPBX-18647 
-		*15.0.4.2* FREEPBX-18643 FREEPBX-18642 
+		*15.0.4.6* FREEPBX-18784 Page announcements message under Park and announce
+		*15.0.4.5* FREEPBX-18980 age Pro Announcements not playing after hangup plus
+		*15.0.4.4* FREEPBX-18920 Page group schedule doesn't hang up
+		*15.0.4.3* FREEPBX-18646 FREEPBX-18647
+		*15.0.4.2* FREEPBX-18643 FREEPBX-18642
 		*15.0.4.1* FREEPBX-18324
-		*15.0.4* FREEPBX-17320 Paging announcement not playing if I set the Conference Room App as app_confbridge 
-		*15.0.3* FREEPBX-18253 Fix backup and restore missing methods 
+		*15.0.4* FREEPBX-17320 Paging announcement not playing if I set the Conference Room App as app_confbridge
+		*15.0.3* FREEPBX-18253 Fix backup and restore missing methods
 		*15.0.2* Packaging of ver 15.0.2
         *15.0.1* Backup 15
 	</changelog>
