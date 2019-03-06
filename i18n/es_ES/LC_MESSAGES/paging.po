@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-21 18:43-0500\n"
+"POT-Creation-Date: 2019-03-06 15:12-0500\n"
 "PO-Revision-Date: 2016-12-09 22:52+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -235,6 +235,10 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
+#: paging.i18n.php:16
+msgid "Intercom prefix"
+msgstr "Prefijo Megafonía"
+
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
@@ -418,6 +422,14 @@ msgstr ""
 msgid "Unknown Request"
 msgstr "Requerimiento Desconocido"
 
+#: paging.i18n.php:14
+msgid "User Intercom Allow"
+msgstr "Habilitar Ext Megafonía"
+
+#: paging.i18n.php:12
+msgid "User Intercom Disallow"
+msgstr "Deshabilitar Ext Megafonía"
+
 #: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
@@ -459,15 +471,6 @@ msgid ""
 msgstr ""
 "Se puede incluir o excluir esta extensión/dispositivo para formar parte del "
 "grupo por defecto de megafonía al crear o editar."
-
-#~ msgid "Intercom prefix"
-#~ msgstr "Prefijo Megafonía"
-
-#~ msgid "User Intercom Allow"
-#~ msgstr "Habilitar Ext Megafonía"
-
-#~ msgid "User Intercom Disallow"
-#~ msgstr "Deshabilitar Ext Megafonía"
 
 #~ msgid ""
 #~ "Annoucement to be played to remote party. If set to Default it will use "

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-21 18:43-0500\n"
+"POT-Creation-Date: 2019-03-06 15:12-0500\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -234,6 +234,10 @@ msgstr "Interkom z %s: wyłączony"
 msgid "Intercom from %s: Enabled"
 msgstr "Interkom z %s: włączony"
 
+#: paging.i18n.php:16
+msgid "Intercom prefix"
+msgstr "Prefiks interkomowy"
+
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr "Interkom: wyłączony"
@@ -400,6 +404,14 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
+#: paging.i18n.php:14
+msgid "User Intercom Allow"
+msgstr ""
+
+#: paging.i18n.php:12
+msgid "User Intercom Disallow"
+msgstr ""
+
 #: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
@@ -437,9 +449,6 @@ msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
-
-#~ msgid "Intercom prefix"
-#~ msgstr "Prefiks interkomowy"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "

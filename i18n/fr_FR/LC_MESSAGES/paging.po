@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-21 18:43-0500\n"
+"POT-Creation-Date: 2019-03-06 15:12-0500\n"
 "PO-Revision-Date: 2016-02-04 23:07+0200\n"
 "Last-Translator: Nicolas Riendeau <freepbx@riendeau.org>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -222,6 +222,10 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
+#: paging.i18n.php:16
+msgid "Intercom prefix"
+msgstr "Préfixe Intercom"
+
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
@@ -402,6 +406,14 @@ msgstr ""
 msgid "Unknown Request"
 msgstr "Requête inconnue"
 
+#: paging.i18n.php:14
+msgid "User Intercom Allow"
+msgstr "Autoriser Utilisateur Intercom"
+
+#: paging.i18n.php:12
+msgid "User Intercom Disallow"
+msgstr "Ne pas autoriser l'utilisateur intercom"
+
 #: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
@@ -441,15 +453,6 @@ msgid ""
 msgstr ""
 "Vous pouvez inclure ou exclure ce poste/dispositif dans le groupe de "
 "téléavertissement par défaut lors de la création ou édition."
-
-#~ msgid "Intercom prefix"
-#~ msgstr "Préfixe Intercom"
-
-#~ msgid "User Intercom Allow"
-#~ msgstr "Autoriser Utilisateur Intercom"
-
-#~ msgid "User Intercom Disallow"
-#~ msgstr "Ne pas autoriser l'utilisateur intercom"
 
 #~ msgid "Announcement"
 #~ msgstr "Annonce"

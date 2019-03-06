@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-21 18:43-0500\n"
+"POT-Creation-Date: 2019-03-06 15:12-0500\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -247,6 +247,10 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
+#: paging.i18n.php:16
+msgid "Intercom prefix"
+msgstr "インターコムプリフィックス"
+
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
 msgstr ""
@@ -425,6 +429,14 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
+#: paging.i18n.php:14
+msgid "User Intercom Allow"
+msgstr "ユーザーインターコムを許可"
+
+#: paging.i18n.php:12
+msgid "User Intercom Disallow"
+msgstr "ユーザーインターコムを禁止"
+
 #: functions.inc.php:1024
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
@@ -466,15 +478,6 @@ msgid ""
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
-
-#~ msgid "Intercom prefix"
-#~ msgstr "インターコムプリフィックス"
-
-#~ msgid "User Intercom Allow"
-#~ msgstr "ユーザーインターコムを許可"
-
-#~ msgid "User Intercom Disallow"
-#~ msgstr "ユーザーインターコムを禁止"
 
 #~ msgid "Announcement"
 #~ msgstr "アナウンス"
