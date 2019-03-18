@@ -301,6 +301,15 @@ foreach ($devices as $dev) {
 }
 
 if ($vars['STREAM']) {
+	if ($vars['ANNOUNCEMENT']!="") {
+		$stream_files = $vars['ANNOUNCEMENT'];
+	}
+	if ($stream_files !="" && $vars['STREAM'] !="") {
+		$stream_files .='&'. $vars['STREAM'];
+	} else {
+	       $stream_files = $vars['STREAM'];
+	}
+
 	$beep = array(
 		'Channel'	=> 'Local/s@app-page-stream',
 		'CallerID'	=> 'Playback Stream',
@@ -310,7 +319,7 @@ if ($vars['STREAM']) {
 			'PAGE_CONF_OPTS' => 'xqA'
 		),
 		'Application'=> 'Playback',
-		'Data'		=> $vars['STREAM']
+		'Data'		=> $stream_files
 	);
 	//dbug($beep);
 	$astman->Originate($beep);
