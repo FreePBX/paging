@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 10:45+0530\n"
+"POT-Creation-Date: 2019-05-16 17:42+0530\n"
 "PO-Revision-Date: 2016-12-09 22:52+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -14,11 +14,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: assets/js/paging.js:38
+#: assets/js/paging.js:39
 msgid " Please set the event days."
 msgstr ""
 
-#: assets/js/paging.js:41
+#: assets/js/paging.js:42
 msgid " Please set the event time."
 msgstr ""
 
@@ -288,7 +288,7 @@ msgstr "Grupo Megafonía: "
 msgid "Page Group: %s (%s)"
 msgstr "Grupo de Voceo: %s (%s)"
 
-#: assets/js/paging.js:106
+#: assets/js/paging.js:107
 msgid "Page Groups"
 msgstr "Grupos de Voceo"
 

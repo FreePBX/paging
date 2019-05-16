@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-22 10:45+0530\n"
+"POT-Creation-Date: 2019-05-16 17:42+0530\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -49,11 +49,11 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
-#: assets/js/paging.js:38
+#: assets/js/paging.js:39
 msgid " Please set the event days."
 msgstr ""
 
-#: assets/js/paging.js:41
+#: assets/js/paging.js:42
 msgid " Please set the event time."
 msgstr ""
 
@@ -300,7 +300,7 @@ msgstr "ページンググループ："
 msgid "Page Group: %s (%s)"
 msgstr ""
 
-#: assets/js/paging.js:106
+#: assets/js/paging.js:107
 msgid "Page Groups"
 msgstr ""
 
