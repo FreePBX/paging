@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 15:12-0500\n"
+"POT-Creation-Date: 2019-05-16 17:43+0530\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -22,11 +22,11 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: assets/js/paging.js:38
+#: assets/js/paging.js:39
 msgid " Please set the event days."
 msgstr ""
 
-#: assets/js/paging.js:41
+#: assets/js/paging.js:42
 msgid " Please set the event time."
 msgstr ""
 
@@ -99,11 +99,17 @@ msgstr ""
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
+"Pozwala tworzyć grupy stronicowania, aby komunikować się za pomocą głośnika "
+"wbudowanego w większość telefonów SIP. Tworzy również kod funkcji interkomu, "
+"który może służyć jako prefiks do rozmowy bezpośrednio z jedną osobą, a "
+"także opcjonalne kody funkcji blokujące / umożliwiające połączenia "
+"interkomowe Wszystkich użytkowników, a także blokowania konkretnych "
+"użytkowników lub tylko zezwalania na określonych użytkowników."
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
@@ -289,7 +295,7 @@ msgstr "Grupa stron: "
 msgid "Page Group: %s (%s)"
 msgstr "Grupa stron: %s (%s)"
 
-#: assets/js/paging.js:106
+#: assets/js/paging.js:107
 msgid "Page Groups"
 msgstr "Grupy stron"
 
@@ -449,20 +455,6 @@ msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
-
-#~ msgid ""
-#~ "Allows creation of paging groups to make announcements using the speaker "
-#~ "built into most SIP phones.\t\tAlso creates an Intercom feature code that "
-#~ "can be used as a prefix to talk directly to one person, as well as "
-#~ "optional feature codes to block/allow intercom calls to all users as well "
-#~ "as blocking specific users or only allowing specific users."
-#~ msgstr ""
-#~ "Pozwala tworzyć grupy stronicowania, aby komunikować się za pomocą "
-#~ "głośnika wbudowanego w większość telefonów SIP. Tworzy również kod "
-#~ "funkcji interkomu, który może służyć jako prefiks do rozmowy bezpośrednio "
-#~ "z jedną osobą, a także opcjonalne kody funkcji blokujące / umożliwiające "
-#~ "połączenia interkomowe Wszystkich użytkowników, a także blokowania "
-#~ "konkretnych użytkowników lub tylko zezwalania na określonych użytkowników."
 
 #~ msgid ""
 #~ "Annoucement to be played to remote party. If set to Default it will use "

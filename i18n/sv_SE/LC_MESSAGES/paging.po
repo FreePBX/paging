@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 15:12-0500\n"
+"POT-Creation-Date: 2019-05-16 17:43+0530\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -31,11 +31,11 @@ msgstr ""
 "X-Poedit-Language: Swedish\n"
 "X-Poedit-Country: SWEDEN\n"
 
-#: assets/js/paging.js:38
+#: assets/js/paging.js:39
 msgid " Please set the event days."
 msgstr ""
 
-#: assets/js/paging.js:41
+#: assets/js/paging.js:42
 msgid " Please set the event time."
 msgstr ""
 
@@ -88,10 +88,10 @@ msgstr ""
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
 
 #: views/settings.php:68
@@ -275,7 +275,7 @@ msgstr "Anropsgrupp: "
 msgid "Page Group: %s (%s)"
 msgstr ""
 
-#: assets/js/paging.js:106
+#: assets/js/paging.js:107
 msgid "Page Groups"
 msgstr ""
 

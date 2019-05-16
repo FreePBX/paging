@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-06 15:12-0500\n"
+"POT-Creation-Date: 2019-05-16 17:43+0530\n"
 "PO-Revision-Date: 2016-08-21 05:58+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -21,11 +21,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.4\n"
 
-#: assets/js/paging.js:38
+#: assets/js/paging.js:39
 msgid " Please set the event days."
 msgstr ""
 
-#: assets/js/paging.js:41
+#: assets/js/paging.js:42
 msgid " Please set the event time."
 msgstr ""
 
@@ -96,11 +96,16 @@ msgstr ""
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users ."
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
@@ -291,7 +296,7 @@ msgstr "گروه اعلان ： "
 msgid "Page Group: %s (%s)"
 msgstr "گروه اعلان ： %s (%s)"
 
-#: assets/js/paging.js:106
+#: assets/js/paging.js:107
 msgid "Page Groups"
 msgstr "گروه اعلان"
 
@@ -481,19 +486,6 @@ msgid ""
 msgstr ""
 "شما میتوانید در هنگام ساختن یک گروه اعلان  داخلی ها/دستگاه ها را به این گروه "
 "اعلان وارد کرده و یا خارج نمایید."
-
-#~ msgid ""
-#~ "Allows creation of paging groups to make announcements using the speaker "
-#~ "built into most SIP phones.\t\tAlso creates an Intercom feature code that "
-#~ "can be used as a prefix to talk directly to one person, as well as "
-#~ "optional feature codes to block/allow intercom calls to all users as well "
-#~ "as blocking specific users or only allowing specific users."
-#~ msgstr ""
-#~ "Allows creation of paging groups to make announcements using the speaker "
-#~ "built into most SIP phones.\t\tAlso creates an Intercom feature code that "
-#~ "can be used as a prefix to talk directly to one person, as well as "
-#~ "optional feature codes to block/allow intercom calls to all users as well "
-#~ "as blocking specific users or only allowing specific users ."
 
 #~ msgid ""
 #~ "Annoucement to be played to remote party. If set to Default it will use "
