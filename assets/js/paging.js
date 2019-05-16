@@ -22,6 +22,7 @@ $(document).ready(function() {
 				var time_obj = document.getElementById(event_time_name);
 				if(time_obj.value != ''){
 					var tmp_time_value = '2017-07-01 ' + time_obj.value.trim().toUpperCase().replace("AM", " AM").replace("PM", " PM");
+					moment.updateLocale('en',{});
 					tmp_time_valid = moment(tmp_time_value,"YYYY-MM-DD LT", true).isValid();
 			    	}
 				if(tmp_time_valid){
