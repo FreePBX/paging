@@ -80,7 +80,7 @@
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
 		Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
 	<menuitems>
-		<paging>Paging and Intercom</paging>
+		<paging needsenginedb="yes">Paging and Intercom</paging>
 	</menuitems>
 	<popovers>
 		<paging>
