@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-16 17:42+0530\n"
-"PO-Revision-Date: 2018-10-19 15:00+0000\n"
-"Last-Translator: Bastian Mertgen <b.mertgen@bastian-mertgen.de>\n"
+"PO-Revision-Date: 2019-08-07 14:00+0000\n"
+"Last-Translator: hammer125 <auswertung@mariner.at>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: assets/js/paging.js:39
 msgid " Please set the event days."
-msgstr ""
+msgstr " Bitte Ereignistage festlegen."
 
 #: assets/js/paging.js:42
 msgid " Please set the event time."
-msgstr ""
+msgstr " Bitte Ereigniszeit festlegen."
 
 #: Paging.class.php:200
 msgid ""
@@ -36,13 +36,16 @@ msgstr ""
 
 #: Paging.class.php:198
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
-msgstr ""
+msgstr "<strong>ablehenen</strong><br> Ein BESETZT-Signal an den Anrufer senden"
 
 #: Paging.class.php:199
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
+"<strong>Klingeln</strong><br> Behandle die Seite als normalen Anruf und rufe "
+"die Durchwahl an (wenn Warteschlange deaktiviert sit, wird das BESETZT "
+"zurückgeben)"
 
 #: views/form.php:222
 msgid ""
@@ -68,11 +71,11 @@ msgstr "Aktionen"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr ""
+msgstr "Seitengruppe hinzufügen"
 
 #: views/form.php:150
 msgid "Alert Tone"
-msgstr ""
+msgstr "Alarmton"
 
 #: paging.i18n.php:8
 msgid ""
@@ -85,7 +88,7 @@ msgstr ""
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
-msgstr ""
+msgstr "Meldung wird bei verbundener Partei abgespielt. Standard ist ein Piep"
 
 #: views/form.php:164
 msgid ""
@@ -105,11 +108,11 @@ msgstr ""
 
 #: views/form.php:45
 msgid "Beep"
-msgstr ""
+msgstr "Piep"
 
 #: views/form.php:205
 msgid "Busy Extensions"
-msgstr ""
+msgstr "Besetzte Durchwahlen"
 
 #: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
@@ -117,11 +120,11 @@ msgstr "Standard"
 
 #: functions.inc.php:1057
 msgid "Default Group Inclusion"
-msgstr ""
+msgstr "Standardgruppe verwenden"
 
 #: functions.inc.php:1060 views/form.php:268
 msgid "Default Page Group"
-msgstr ""
+msgstr "Standard Seitengruppe"
 
 #: Paging.class.php:90 Paging.class.php:251
 msgid "Delete"
@@ -156,7 +159,7 @@ msgstr ""
 
 #: views/form.php:238
 msgid "Duplex"
-msgstr ""
+msgstr "Duplexbetrieb"
 
 #: functions.inc.php:1032
 msgid "Enabled"
@@ -168,7 +171,7 @@ msgstr "Ausschließen"
 
 #: functions.inc.php:1062
 msgid "Extension Options"
-msgstr ""
+msgstr "Durchwahl-Optionen"
 
 #: Paging.class.php:192 views/form.php:212
 msgid "Force"
@@ -191,45 +194,46 @@ msgstr "Einbinden"
 
 #: functions.inc.php:1037
 msgid "Intercom"
-msgstr ""
+msgstr "Gegensprechanlage"
 
 #: functions.inc.php:1071
 msgid "Intercom Mode"
-msgstr ""
+msgstr "Gegensprechanlagen-Modus"
 
 #: Paging.class.php:196
 msgid "Intercom Override"
-msgstr ""
+msgstr "Gegensprechanlage übergehen"
 
 #: functions.inc.php:329
 #, php-format
 msgid "Intercom from %s: Disabled"
-msgstr ""
+msgstr "Gegensprechanlage von %s: deaktiviert"
 
 #: functions.inc.php:267
 #, php-format
 msgid "Intercom from %s: Enabled"
-msgstr ""
+msgstr "Gegensprechanlage von %s: aktiviert"
 
 #: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
-msgstr ""
+msgstr "Gegensprechanlage Vorwahl"
 
 #: functions.inc.php:317
 msgid "Intercom: Disabled"
-msgstr ""
+msgstr "Gegensprechanlage: deaktiviert"
 
 #: functions.inc.php:255
 msgid "Intercom: Enabled"
-msgstr ""
+msgstr "Gegensprechanlage: aktiviert"
 
 #: functions.inc.php:1067
 msgid "Internal Auto Answer"
-msgstr ""
+msgstr "automatische interne Antwort"
 
 #: views/bootnav.php:7
+#, fuzzy
 msgid "List Page Groups"
-msgstr ""
+msgstr "Seitengruppen anzeigen"
 
 #: views/form.php:245 views/form.php:275 views/settings.php:87
 #: views/settings.php:114
@@ -249,24 +253,27 @@ msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
 msgstr ""
+"Lautsprecherstärke für diese Seite übergehen. Achtung: Momentan ist das ist "
+"nur für Sangoma-Telefone gültig"
 
 #: functions.inc.php:777 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
+#, fuzzy
 msgid "Page Group"
-msgstr ""
+msgstr "Seiten-Gruppe"
 
 #: functions.inc.php:865
 msgid "Page Group: "
-msgstr ""
+msgstr "Seiten-Gruppe: "
 
 #: Paging.class.php:392
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr ""
+msgstr "Seiten-Gruppe: %s (%s)"
 
 #: assets/js/paging.js:107
 msgid "Page Groups"
-msgstr ""
+msgstr "Seiten-Gruppen"
 
 #: views/form.php:73
 msgid "Paging Extension"
