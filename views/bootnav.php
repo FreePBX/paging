@@ -7,7 +7,7 @@
 <a href="config.php?display=paging" class="btn btn-default"><i class="fa fa-list"></i>&nbsp; <?php echo _("List Page Groups") ?></a>
 <a href="config.php?display=paging&view=form" class="btn btn-default"><i class="fa fa-plus"></i>&nbsp; <?php echo _("Add Page Group") ?></a>
 </div>
-<table data-toolbar="#toolbar-pagenav" data-url="ajax.php?module=paging&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
+<table data-toolbar="#toolbar-pagenav" data-escape="true" data-url="ajax.php?module=paging&amp;command=getJSON&amp;jdata=grid" data-cache="false" data-toggle="table" data-search="true" class="table" id="table-all-side">
     <thead>
         <tr>
             <th data-sortable="true" data-field="page_group"><?php echo _('Page Group')?></th>
