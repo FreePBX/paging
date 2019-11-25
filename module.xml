@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.26.13</version>
+	<version>13.0.26.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26.14* FREEI-922 Fix XSS Bootstrap Datatable Issues 
 		*13.0.26.13* FREEI-444 
 		*13.0.26.12* FREEPBX-18784 Page announcements message under Park and announce 
 		*13.0.26.11* FREEPBX-18980 age Pro Announcements not playing after hangup plus 
