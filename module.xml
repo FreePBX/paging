@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>14.0.13</version>
+	<version>14.0.14</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*14.0.14* FREEI-922 Fix XSS Bootstrap Datatable Issues 
 		*14.0.13* FREEI-521 Ticket#894180 - Problem with scheduling page 
 		*14.0.12* FREEI-444 
 		*14.0.11* FREEPBX-18784 Page announcements message under Park and announce 
