@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.14</version>
+    <version>15.0.4.15</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.15* FREEI-843 Paging not hanging up when audiofile is not present 
 		*15.0.4.14* FREEI-922 Fix XSS Bootstrap Datatable Issues 
 		*15.0.4.13* Related to FREEPBX-20414: removed $jobid from runRestore() 
 		*15.0.4.12* FREEI-521 Ticket#894180 - Problem with scheduling page 
