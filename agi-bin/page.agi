@@ -117,7 +117,10 @@ if ($vars['PAGEDEFLTANNOUCE'] == 1) {
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 		$pass_vars['CONFBRIDGE(user,template)']	= 'page_user';
 	}
-	if ($streamfiles == '') {
+	if($streamfiles != '') {
+		$fileStatus = checkfileStatus($streamfiles);
+	}
+	if ($streamfiles == '' || !$fileStatus) {
 		$app = 'Wait';
 		$data = $vars['LEAD_WAIT'];
 	}
@@ -432,4 +435,27 @@ function get_device_state($dev) {
 	default:
 		return "UNAVAILABLE";
 	}
+}
+function checkfileStatus($files = false) {
+	$status = false;
+	$astvarlibdir = agi_get_var("ASTVARLIBDIR")."/sounds/";
+	$chanLang = agi_get_var("CHANNEL(language)");
+	$multiFile = strpos($files, "&");
+	if($multiFile) {
+		$file_data = explode('&', $files);
+		foreach($file_data as $file) {
+			$result = glob($astvarlibdir.$chanLang.'/'.$file.".*");
+			if(!empty($result)) {
+				$status = true;
+				break;
+			}
+		}
+	}
+	else {
+		$result = glob($astvarlibdir.$chanLang.'/'.$files.".*");
+		if(!empty($result)) {
+			$status = true;
+		}
+	}
+	return $status;
 }
