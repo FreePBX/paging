@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.5 Chinese Translation\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 13:36+0530\n"
+"POT-Creation-Date: 2019-12-17 15:52+0530\n"
 "PO-Revision-Date: 2009-01-31 13:31+0800\n"
 "Last-Translator: 周征晟 <zhougongjizhe@163.com>\n"
 "Language-Team: EdwardBadBoy <zhougongjizhe@163.com>\n"
@@ -114,11 +114,11 @@ msgstr "忙状态分机"
 msgid "Default"
 msgstr ""
 
-#: functions.inc.php:1010
+#: functions.inc.php:1011
 msgid "Default Group Inclusion"
 msgstr "包含在默认传呼组中"
 
-#: functions.inc.php:1013 views/form.php:268
+#: functions.inc.php:1014 views/form.php:268
 msgid "Default Page Group"
 msgstr "默认传呼组"
 
@@ -141,11 +141,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:989
+#: functions.inc.php:990
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:986
+#: functions.inc.php:987
 msgid "Disabled"
 msgstr "进用"
 
@@ -157,15 +157,15 @@ msgstr ""
 msgid "Duplex"
 msgstr "双工"
 
-#: functions.inc.php:985
+#: functions.inc.php:986
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:981
+#: functions.inc.php:982
 msgid "Exclude"
 msgstr "排除"
 
-#: functions.inc.php:1015
+#: functions.inc.php:1016
 msgid "Extension Options"
 msgstr ""
 
@@ -184,15 +184,15 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:982
+#: functions.inc.php:983
 msgid "Include"
 msgstr "包括"
 
-#: functions.inc.php:990
+#: functions.inc.php:991
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1024
+#: functions.inc.php:1025
 msgid "Intercom Mode"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1020
+#: functions.inc.php:1021
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -249,12 +249,12 @@ msgid ""
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:772 views/bootnav.php:13 views/formwrap.php:9
+#: functions.inc.php:773 views/bootnav.php:13 views/formwrap.php:9
 #: views/grid.php:11
 msgid "Page Group"
 msgstr "集体传呼组"
 
-#: functions.inc.php:861
+#: functions.inc.php:862
 msgid "Page Group: "
 msgstr "传呼组："
 
@@ -271,7 +271,7 @@ msgstr ""
 msgid "Paging Extension"
 msgstr "传呼组的分机号"
 
-#: functions.inc.php:789
+#: functions.inc.php:790
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr ""
@@ -396,13 +396,13 @@ msgstr "允许直接对讲的用户"
 msgid "User Intercom Disallow"
 msgstr "禁止直接对讲的用户"
 
-#: functions.inc.php:1024
+#: functions.inc.php:1025
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1020
+#: functions.inc.php:1021
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -428,7 +428,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1013
+#: functions.inc.php:1014
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
