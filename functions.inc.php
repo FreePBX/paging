@@ -610,6 +610,7 @@ function paging_get_config($engine) {
 		$c = 'app-page-stream';
 		$ext->add($c, 's', '', new ext_wait(1));
 		$ext->add($c, 's', '', new ext_answer());
+		$ext->add($c, 's', '', new ext_set('CHANNEL(language)','${SIPLANG}'));
 
 		// TODO: PAGE_CONF_OPTS reset in agi script so just use proper context if 10+confbridge no mute
 		// x: close conf when last marked user exits
