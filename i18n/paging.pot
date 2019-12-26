@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-25 12:12+0530\n"
+"POT-Creation-Date: 2019-12-26 16:18+0530\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,17 +26,17 @@ msgstr ""
 msgid " Please set the event time."
 msgstr ""
 
-#: Paging.class.php:200
+#: Paging.class.php:207
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
 msgstr ""
 
-#: Paging.class.php:198
+#: Paging.class.php:205
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 
-#: Paging.class.php:199
+#: Paging.class.php:206
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -125,8 +125,8 @@ msgstr ""
 msgid "Default Page Group"
 msgstr ""
 
-#: Paging.class.php:90
-#: Paging.class.php:251
+#: Paging.class.php:97
+#: Paging.class.php:258
 msgid "Delete"
 msgstr ""
 
@@ -175,7 +175,7 @@ msgstr ""
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:192
+#: Paging.class.php:199
 #: views/form.php:212
 msgid "Force"
 msgstr ""
@@ -203,7 +203,7 @@ msgstr ""
 msgid "Intercom Mode"
 msgstr ""
 
-#: Paging.class.php:196
+#: Paging.class.php:203
 msgid "Intercom Override"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr ""
 msgid "Page Group: "
 msgstr ""
 
-#: Paging.class.php:392
+#: Paging.class.php:399
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr ""
@@ -294,7 +294,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:195
+#: Paging.class.php:202
 #: paging.i18n.php:4
 #: paging.i18n.php:10
 #: views/overview.php:7
@@ -324,15 +324,15 @@ msgstr ""
 msgid "Quiet"
 msgstr ""
 
-#: Paging.class.php:190
+#: Paging.class.php:197
 msgid "Reject"
 msgstr ""
 
-#: Paging.class.php:256
+#: Paging.class.php:263
 msgid "Reset"
 msgstr ""
 
-#: Paging.class.php:191
+#: Paging.class.php:198
 msgid "Ring"
 msgstr ""
 
@@ -352,7 +352,7 @@ msgstr ""
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:261
+#: Paging.class.php:268
 #: views/settings.php:128
 msgid "Submit"
 msgstr ""
@@ -391,7 +391,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
-#: Paging.class.php:178
+#: Paging.class.php:185
 msgid "Unknown Request"
 msgstr ""
 
@@ -422,7 +422,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:197
+#: Paging.class.php:204
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
