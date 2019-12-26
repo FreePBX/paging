@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 15:52+0530\n"
+"POT-Creation-Date: 2019-12-26 16:29+0530\n"
 "PO-Revision-Date: 2016-07-14 10:46+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/paging/"
@@ -28,7 +28,7 @@ msgstr ""
 msgid " Please set the event time."
 msgstr ""
 
-#: Paging.class.php:200
+#: Paging.class.php:207
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -37,13 +37,13 @@ msgstr ""
 "перейти в режим автоответа. Это может не работать, и это зависит от модели "
 "телефона."
 
-#: Paging.class.php:198
+#: Paging.class.php:205
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 "<strong>Отбросить</strong><br>Возврат сигнала \"Занято\"  вызывающему "
 "абоненту"
 
-#: Paging.class.php:199
+#: Paging.class.php:206
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -147,7 +147,7 @@ msgstr "Включения в дефолтную группу"
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
-#: Paging.class.php:90 Paging.class.php:251
+#: Paging.class.php:97 Paging.class.php:258
 msgid "Delete"
 msgstr "Удалить"
 
@@ -198,7 +198,7 @@ msgstr "Исключить"
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:192 views/form.php:212
+#: Paging.class.php:199 views/form.php:212
 msgid "Force"
 msgstr "Форсированный режим"
 
@@ -228,7 +228,7 @@ msgstr ""
 msgid "Intercom Mode"
 msgstr ""
 
-#: Paging.class.php:196
+#: Paging.class.php:203
 msgid "Intercom Override"
 msgstr "Игнорирование Интеркома"
 
@@ -290,7 +290,7 @@ msgstr "Пейджинг-группа"
 msgid "Page Group: "
 msgstr "Пейджинг-группа: "
 
-#: Paging.class.php:395
+#: Paging.class.php:402
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Группа страницы : %s (%s)"
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr "Группы оповещения"
 
-#: Paging.class.php:195 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Пейджинг и интерком"
@@ -344,15 +344,15 @@ msgstr ""
 msgid "Quiet"
 msgstr ""
 
-#: Paging.class.php:190
+#: Paging.class.php:197
 msgid "Reject"
 msgstr "Отклонить"
 
-#: Paging.class.php:256
+#: Paging.class.php:263
 msgid "Reset"
 msgstr "Сброс"
 
-#: Paging.class.php:191
+#: Paging.class.php:198
 msgid "Ring"
 msgstr "Звонок"
 
@@ -372,7 +372,7 @@ msgstr "Пропускать"
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:261 views/settings.php:128
+#: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
 msgstr "Подтвердить"
 
@@ -427,7 +427,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
-#: Paging.class.php:178
+#: Paging.class.php:185
 msgid "Unknown Request"
 msgstr "Неизвестный запрос"
 
@@ -456,7 +456,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:197
+#: Paging.class.php:204
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."

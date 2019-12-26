@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.16</version>
+    <version>15.0.4.17</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.17* Fixing FREEPBX-20940 
 		*15.0.4.16* FREEI-1019 paginpro Module Doesn't Play Announcement Sound 
 		*15.0.4.15* FREEI-843 Paging not hanging up when audiofile is not present 
 		*15.0.4.14* FREEI-922 Fix XSS Bootstrap Datatable Issues 

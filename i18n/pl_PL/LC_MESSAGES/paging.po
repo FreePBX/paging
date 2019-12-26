@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 15:52+0530\n"
+"POT-Creation-Date: 2019-12-26 16:29+0530\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -30,7 +30,7 @@ msgstr ""
 msgid " Please set the event time."
 msgstr ""
 
-#: Paging.class.php:200
+#: Paging.class.php:207
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -39,11 +39,11 @@ msgstr ""
 "w tryb automatycznej odpowiedzi. Funkcja ta jest zależna od aparatu i w "
 "niektórych telefonach może nie działać."
 
-#: Paging.class.php:198
+#: Paging.class.php:205
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr "<strong>Odrzuć</strong><br> Zwróć sygnał ZAJĘTY do dzwoniącego"
 
-#: Paging.class.php:199
+#: Paging.class.php:206
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -146,7 +146,7 @@ msgstr "Domyślna integracja grupy"
 msgid "Default Page Group"
 msgstr "Domyślna grupa stron"
 
-#: Paging.class.php:90 Paging.class.php:251
+#: Paging.class.php:97 Paging.class.php:258
 msgid "Delete"
 msgstr "Kasuj"
 
@@ -193,7 +193,7 @@ msgstr "Wykluczać"
 msgid "Extension Options"
 msgstr "Opcje rozszerzenia"
 
-#: Paging.class.php:192 views/form.php:212
+#: Paging.class.php:199 views/form.php:212
 msgid "Force"
 msgstr "Siła"
 
@@ -220,7 +220,7 @@ msgstr "Interkom"
 msgid "Intercom Mode"
 msgstr "Tryb interkomowy"
 
-#: Paging.class.php:196
+#: Paging.class.php:203
 msgid "Intercom Override"
 msgstr "Zastąpienie interkomu"
 
@@ -284,7 +284,7 @@ msgstr "Grupa stron"
 msgid "Page Group: "
 msgstr "Grupa stron: "
 
-#: Paging.class.php:395
+#: Paging.class.php:402
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Grupa stron: %s (%s)"
@@ -306,7 +306,7 @@ msgstr "Grupa stronicowania %s: %s"
 msgid "Paging Groups"
 msgstr "Grupy stronicowania"
 
-#: Paging.class.php:195 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Stronicowanie i interkom"
@@ -334,15 +334,15 @@ msgstr ""
 msgid "Quiet"
 msgstr ""
 
-#: Paging.class.php:190
+#: Paging.class.php:197
 msgid "Reject"
 msgstr "Odrzucać"
 
-#: Paging.class.php:256
+#: Paging.class.php:263
 msgid "Reset"
 msgstr "Ponowne ustawienia"
 
-#: Paging.class.php:191
+#: Paging.class.php:198
 msgid "Ring"
 msgstr "Dzwonek"
 
@@ -362,7 +362,7 @@ msgstr "Pomiń"
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:261 views/settings.php:128
+#: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
 msgstr "Zatwierdź"
 
@@ -400,7 +400,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
-#: Paging.class.php:178
+#: Paging.class.php:185
 msgid "Unknown Request"
 msgstr ""
 
@@ -429,7 +429,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:197
+#: Paging.class.php:204
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
