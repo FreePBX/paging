@@ -56,7 +56,14 @@ class Paging extends \FreePBX_Helpers implements \BMO {
 			// Catch the POST.
 			if (isset($request['extdisplay']) && isset($request['intercom_override'])) {
 				if (preg_match('/override=(.+)/', $request['intercom_override'], $match)) {
-					$this->setOverride($request['extdisplay'], $match[1]);
+					//While adding extension extdisplay field is coming as empty so
+					// we have to take extension from the extension field.
+					if (($request['action'] == 'add') && (empty($request['extdisplay']))) {
+						$ext = $request['extension'];
+					} else {
+						$ext = $request['extdisplay'];
+					}
+					$this->setOverride($ext, $match[1]);
 				}
 			}
 		}
