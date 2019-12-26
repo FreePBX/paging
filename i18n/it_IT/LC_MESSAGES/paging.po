@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 15:51+0530\n"
+"POT-Creation-Date: 2019-12-26 16:22+0530\n"
 "PO-Revision-Date: 2018-05-30 08:43+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/paging/it/>\n"
@@ -28,7 +28,7 @@ msgstr " Si prega di impostare i giorni dell'evento."
 msgid " Please set the event time."
 msgstr " Si prega di impostare l'orario dell'evento."
 
-#: Paging.class.php:200
+#: Paging.class.php:207
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -37,12 +37,12 @@ msgstr ""
 "passare in modalità di risposta automatica. Questo potrebbe non funzionare e "
 "dipende dal telefono."
 
-#: Paging.class.php:198
+#: Paging.class.php:205
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 "<strong> Rifiuta </ strong> <br> Restituisce un segnale BUSY al chiamante"
 
-#: Paging.class.php:199
+#: Paging.class.php:206
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -98,11 +98,17 @@ msgstr ""
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
+"Consente la creazione di gruppi di cercapersone per effettuare annunci "
+"utilizzando l'altoparlante integrato nella maggior parte dei telefoni SIP. "
+"Inoltre, crea un codice funzione interfono che può essere utilizzato come "
+"prefisso per parlare direttamente con una persona, oltre a codici funzione "
+"opzionali per bloccare / consentire chiamate intercom a tutti gli utenti "
+"oltre a bloccare utenti specifici o consentire solo utenti specifici."
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
@@ -146,7 +152,7 @@ msgstr "Gruppo Page Predefinito"
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
-#: Paging.class.php:90 Paging.class.php:251
+#: Paging.class.php:97 Paging.class.php:258
 msgid "Delete"
 msgstr "Elimina"
 
@@ -197,7 +203,7 @@ msgstr "Escludi"
 msgid "Extension Options"
 msgstr "Opzioni di estensione"
 
-#: Paging.class.php:192 views/form.php:212
+#: Paging.class.php:199 views/form.php:212
 msgid "Force"
 msgstr "Forza"
 
@@ -228,7 +234,7 @@ msgstr "Citofono"
 msgid "Intercom Mode"
 msgstr "Modalità interfono"
 
-#: Paging.class.php:196
+#: Paging.class.php:203
 msgid "Intercom Override"
 msgstr "Sostituzione dell'interfono"
 
@@ -292,7 +298,7 @@ msgstr "Gruppo Page"
 msgid "Page Group: "
 msgstr "Gruppo Page:"
 
-#: Paging.class.php:392
+#: Paging.class.php:399
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Gruppo di pagine: %s1 (%s2)"
@@ -314,7 +320,7 @@ msgstr "Gruppo di impaginazione %s1:%s2"
 msgid "Paging Groups"
 msgstr "Gruppi di impaginazione"
 
-#: Paging.class.php:195 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Paging e Intercom"
@@ -346,15 +352,15 @@ msgstr "Si prega di inserire una data di inizio valida."
 msgid "Quiet"
 msgstr "Silenzioso"
 
-#: Paging.class.php:190
+#: Paging.class.php:197
 msgid "Reject"
 msgstr "Rifiutare"
 
-#: Paging.class.php:256
+#: Paging.class.php:263
 msgid "Reset"
 msgstr "Azzerare"
 
-#: Paging.class.php:191
+#: Paging.class.php:198
 msgid "Ring"
 msgstr "Squillare"
 
@@ -374,7 +380,7 @@ msgstr "Salta"
 msgid "Speaker Volume Override"
 msgstr "Override volume altoparlante"
 
-#: Paging.class.php:261 views/settings.php:128
+#: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
 msgstr "Sottoscrivi"
 
@@ -430,7 +436,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr "Questa opzione rimuove il segnale acustico dal chiamante."
 
-#: Paging.class.php:178
+#: Paging.class.php:185
 msgid "Unknown Request"
 msgstr "Richiesta sconosciuta"
 
@@ -470,7 +476,7 @@ msgstr ""
 "ciechi e quando un Follow Me è configurato e abilitato. Se disabilitato, il "
 "telefono squilla come un normale telefono."
 
-#: Paging.class.php:197
+#: Paging.class.php:204
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
@@ -494,21 +500,6 @@ msgid ""
 msgstr ""
 "Puoi includere o escludere questo interno/apparato dal far parte del gruppo "
 "page predefinito quando si crea o modifica."
-
-#~ msgid ""
-#~ "Allows creation of paging groups to make announcements using the speaker "
-#~ "built into most SIP phones.\t\tAlso creates an Intercom feature code that "
-#~ "can be used as a prefix to talk directly to one person, as well as "
-#~ "optional feature codes to block/allow intercom calls to all users as well "
-#~ "as blocking specific users or only allowing specific users."
-#~ msgstr ""
-#~ "Consente la creazione di gruppi di cercapersone per effettuare annunci "
-#~ "utilizzando l'altoparlante integrato nella maggior parte dei telefoni "
-#~ "SIP. Inoltre, crea un codice funzione interfono che può essere utilizzato "
-#~ "come prefisso per parlare direttamente con una persona, oltre a codici "
-#~ "funzione opzionali per bloccare / consentire chiamate intercom a tutti "
-#~ "gli utenti oltre a bloccare utenti specifici o consentire solo utenti "
-#~ "specifici."
 
 #~ msgid ""
 #~ "Annoucement to be played to remote party. If set to Default it will use "

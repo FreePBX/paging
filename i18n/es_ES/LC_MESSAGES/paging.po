@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-17 15:51+0530\n"
+"POT-Creation-Date: 2019-12-26 16:22+0530\n"
 "PO-Revision-Date: 2016-12-09 22:52+0200\n"
 "Last-Translator: Ernesto <ecasas@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -22,7 +22,7 @@ msgstr ""
 msgid " Please set the event time."
 msgstr ""
 
-#: Paging.class.php:200
+#: Paging.class.php:207
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -31,13 +31,13 @@ msgstr ""
 "teléfono entre en modo de respuesta automática. Esto puede no funcionar, y "
 "depende del teléfono."
 
-#: Paging.class.php:198
+#: Paging.class.php:205
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 "<strong>Rechazar/Reject</strong><br> Devuelve una señal de OCUPADO a la "
 "persona que llama"
 
-#: Paging.class.php:199
+#: Paging.class.php:206
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -93,10 +93,10 @@ msgstr ""
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
 
 #: views/settings.php:68
@@ -139,7 +139,7 @@ msgstr "Grupo Inclusión Por Defecto"
 msgid "Default Page Group"
 msgstr "Grupo Megafonía Por Defecto"
 
-#: Paging.class.php:90 Paging.class.php:251
+#: Paging.class.php:97 Paging.class.php:258
 msgid "Delete"
 msgstr "Eliminar"
 
@@ -190,7 +190,7 @@ msgstr "Excluir"
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:192 views/form.php:212
+#: Paging.class.php:199 views/form.php:212
 msgid "Force"
 msgstr "Forzar"
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Intercom Mode"
 msgstr ""
 
-#: Paging.class.php:196
+#: Paging.class.php:203
 msgid "Intercom Override"
 msgstr "Anular Intercom"
 
@@ -283,7 +283,7 @@ msgstr "Grupo Megafonía"
 msgid "Page Group: "
 msgstr "Grupo Megafonía: "
 
-#: Paging.class.php:392
+#: Paging.class.php:399
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Grupo de Voceo: %s (%s)"
@@ -305,7 +305,7 @@ msgstr ""
 msgid "Paging Groups"
 msgstr "Grupos de Voceo"
 
-#: Paging.class.php:195 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Megafonía"
@@ -337,15 +337,15 @@ msgstr ""
 msgid "Quiet"
 msgstr ""
 
-#: Paging.class.php:190
+#: Paging.class.php:197
 msgid "Reject"
 msgstr "Rechazo"
 
-#: Paging.class.php:256
+#: Paging.class.php:263
 msgid "Reset"
 msgstr "Reiniciar"
 
-#: Paging.class.php:191
+#: Paging.class.php:198
 msgid "Ring"
 msgstr "Trimbrar"
 
@@ -365,7 +365,7 @@ msgstr "Saltar"
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:261 views/settings.php:128
+#: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
 msgstr "Enviar"
 
@@ -418,7 +418,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
-#: Paging.class.php:178
+#: Paging.class.php:185
 msgid "Unknown Request"
 msgstr "Requerimiento Desconocido"
 
@@ -447,7 +447,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:197
+#: Paging.class.php:204
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
