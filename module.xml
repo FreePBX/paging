@@ -88,6 +88,12 @@
 	</depends>
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
 		Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
+	<database>
+        <table name="paging_core_routing">
+            <field name="route" type="string" length="25" default="" primaryKey="true"/>
+            <field name="page_id" type="string" length="50" notnull="false"/>
+        </table>
+	</database>
 	<menuitems>
 		<paging needsenginedb="yes">Paging and Intercom</paging>
 	</menuitems>
@@ -103,4 +109,7 @@
 	<supported>
 		<version>14.0</version>
 	</supported>
+    <methods>
+        <get_config pri="600">paging600_get_config</get_config>
+    </methods>
 </module>
