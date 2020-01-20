@@ -26,7 +26,7 @@ foreach ($paging_groups as $key => $value) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
-			<span id="paging_notification-help" class="help-block fpbx-help-block"><?php echo _('Will cause the selected Page Group to paged and connected to any call that is served by this route. It is recommended not to use a Page Group that uses (Force) Valet Paging(Paging Pro only)')?></span>
+			<span id="paging_notification-help" class="help-block fpbx-help-block"><?php echo _('This will cause the selected Page Group to be paged and connected to any call that is served by this route. It is recommended not to use a Page Group that uses (Force) Valet Paging(Paging Pro only)')?></span>
 		</div>
 	</div>
 </div>
