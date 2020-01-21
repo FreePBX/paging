@@ -40,7 +40,8 @@ function paging600_get_config($engine) {
 	//We are moving the Outbound Route-Notifications feature from the pro version
 	//to the free version. If pagingpro_core_routing still exists, the pagingpro module 
 	//has not been updated yet, so let it continue handling this feature.  
-	$pagingproStatus = \FreePBX::Modules()->getInfo("pagingpro")['pagingpro']['status']; //2 is Enabled
+	$pagingproInfo = \FreePBX::Modules()->getInfo("pagingpro");
+	$pagingproStatus = empty($pagingproInfo['pagingpro']['status']) ? 0 : $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
 	$sql        = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = 'pagingpro_core_routing'";
 	$results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 	if (empty($results) || $pagingproStatus != 2) {
@@ -1161,7 +1162,8 @@ function paging_hook_core($viewing_itemid, $target_menuid) {
         case 'routing':
 			//only render the Notifications ui options on an Outbound Route if pagingpro has been 
 			//updated to a version that no longer handles this option, or if pro is not installed/enabled
-			$pagingproStatus = \FreePBX::Modules()->getInfo("pagingpro")['pagingpro']['status']; //2 is Enabled
+			$pagingproInfo = \FreePBX::Modules()->getInfo("pagingpro");
+			$pagingproStatus = empty($pagingproInfo['pagingpro']['status']) ? 0 : $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
 			$sql        = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = 'pagingpro_core_routing'";
 			$results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
 			if (empty($results) || $pagingproStatus != 2) {
