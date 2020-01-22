@@ -96,4 +96,7 @@
 	<supported>
 		<version>13.0</version>
 	</supported>
+	<methods>
+		<get_config pri="600">paging600_get_config</get_config>
+	</methods>
 </module>
