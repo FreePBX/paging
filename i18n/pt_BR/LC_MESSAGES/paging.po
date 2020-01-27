@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-26 16:18+0530\n"
+"POT-Creation-Date: 2020-01-27 21:44+0530\n"
 "PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -92,21 +92,6 @@ msgstr "Ações"
 msgid "Add Page Group"
 msgstr "Adicionar Grupo de Interfonia"
 
-#: paging.i18n.php:8
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
-"can be used as a prefix to talk directly to one person, as well as optional "
-"feature codes to block/allow intercom calls to all users as well as blocking "
-"specific users or only allowing specific users."
-msgstr ""
-"Permite a criação de grupos de intefonia para fazer anúncios usando o alto-"
-"falante incorporado na maioria dos telefones SIP.\t\t Também cria um código "
-"de recurso de interfone que pode ser usado como um prefixo para falar "
-"diretamente com uma pessoa, bem como códigos de recurso opcionais para "
-"bloquear/permitir a interfonia de todos os usuários, bem como bloquear "
-"usuários específicos ou somente permitir usuários específicos."
-
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "Anúncio a ser reproduzido para a parte remota. O padrão é um bip"
@@ -122,10 +107,6 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
-
-#: paging.i18n.php:6
-msgid "Applications"
-msgstr "Aplicações"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -143,11 +124,11 @@ msgstr "Ramais Ocupados"
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.inc.php:1057
+#: functions.inc.php:1111
 msgid "Default Group Inclusion"
 msgstr "Inclusão de Grupo Padrão"
 
-#: functions.inc.php:1060 views/form.php:268
+#: functions.inc.php:1114 views/form.php:268
 msgid "Default Page Group"
 msgstr "Grupo de Interfonia Padrão"
 
@@ -174,11 +155,11 @@ msgstr ""
 "\"interfonáveis\" é restringida pela chave de configuração avançada "
 "PAGINGMAXPARTICIPANTS e está atualmente definida como "
 
-#: functions.inc.php:1036
+#: functions.inc.php:1090
 msgid "Disable"
 msgstr "Desabilitar"
 
-#: functions.inc.php:1033
+#: functions.inc.php:1087
 msgid "Disabled"
 msgstr "Desabilitado"
 
@@ -190,15 +171,15 @@ msgstr "Ficar em Silêncio"
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1032
+#: functions.inc.php:1086
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: functions.inc.php:1028
+#: functions.inc.php:1082
 msgid "Exclude"
 msgstr "Excluir"
 
-#: functions.inc.php:1062
+#: functions.inc.php:1116
 msgid "Extension Options"
 msgstr "Opções de Ramal"
 
@@ -220,15 +201,15 @@ msgstr ""
 "seleção aparecerá no Módulo de Ramais que permitirá que você inclua ou "
 "exclua essa ramal no Grupo de Interfonia padrão ao editar o referido ramal"
 
-#: functions.inc.php:1029
+#: functions.inc.php:1083
 msgid "Include"
 msgstr "Incluir"
 
-#: functions.inc.php:1037
+#: functions.inc.php:1091
 msgid "Intercom"
 msgstr "Interfonia"
 
-#: functions.inc.php:1071
+#: functions.inc.php:1125
 msgid "Intercom Mode"
 msgstr "Modo Interfonia"
 
@@ -236,29 +217,29 @@ msgstr "Modo Interfonia"
 msgid "Intercom Override"
 msgstr "Substituir Interfonia"
 
-#: functions.inc.php:329
+#: functions.inc.php:383
 #, php-format
 msgid "Intercom from %s: Disabled"
 msgstr "Interfonia  de %s: Desabilitada"
 
-#: functions.inc.php:267
+#: functions.inc.php:321
 #, php-format
 msgid "Intercom from %s: Enabled"
 msgstr "Interfonia de %s: Habilitada"
 
-#: install.php:5 paging.i18n.php:16
+#: install.php:5 paging.i18n.php:8
 msgid "Intercom prefix"
 msgstr "Prefixo de Interfonia"
 
-#: functions.inc.php:317
+#: functions.inc.php:371
 msgid "Intercom: Disabled"
 msgstr "Interfonia: Desabilitado"
 
-#: functions.inc.php:255
+#: functions.inc.php:309
 msgid "Intercom: Enabled"
 msgstr "Interfonia: Habilitado"
 
-#: functions.inc.php:1067
+#: functions.inc.php:1121
 msgid "Internal Auto Answer"
 msgstr "Auto-Resposta Interna"
 
@@ -271,13 +252,18 @@ msgstr "Lista de Grupos de Interfonia"
 msgid "No"
 msgstr "Não"
 
-#: views/form.php:43 views/form.php:181 views/settings.php:3
+#: functions.inc.php:1169 views/form.php:43 views/form.php:181
+#: views/settings.php:3
 msgid "None"
 msgstr "Nenhum"
 
 #: views/form.php:41
 msgid "Not Selected"
 msgstr "Não Selecionado"
+
+#: views/routing_hook.php:15
+msgid "Notifications"
+msgstr ""
 
 #: views/form.php:193
 msgid ""
@@ -287,12 +273,12 @@ msgstr ""
 "Substitui o volume do alto-falante para este interfone. Observação: isso só "
 "é válido para telefones Sangoma neste momento"
 
-#: functions.inc.php:777 views/bootnav.php:13 views/formwrap.php:9
-#: views/grid.php:11
+#: functions.inc.php:831 functions.inc.php:1174 views/bootnav.php:13
+#: views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Grupo de Interfonia"
 
-#: functions.inc.php:865
+#: functions.inc.php:919
 msgid "Page Group: "
 msgstr "Grupo de Interfonia: "
 
@@ -309,7 +295,7 @@ msgstr "Grupos de Interfonia"
 msgid "Paging Extension"
 msgstr "Ramal de Interfonia"
 
-#: functions.inc.php:794
+#: functions.inc.php:848
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupo de Interfonia %s : %s"
@@ -318,8 +304,7 @@ msgstr "Grupo de Interfonia %s : %s"
 msgid "Paging Groups"
 msgstr "Grupos de Interfonia"
 
-#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
-#: views/overview.php:7
+#: Paging.class.php:202 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Megafonia e Interfonia"
 
@@ -431,19 +416,26 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
+#: views/routing_hook.php:29
+msgid ""
+"This will cause the selected Page Group to be paged and connected to any "
+"call that is served by this route. It is recommended not to use a Page Group "
+"that uses (Force) Valet Paging(Paging Pro only)"
+msgstr ""
+
 #: Paging.class.php:185
 msgid "Unknown Request"
 msgstr "Solicitação Desconhecida"
 
-#: install.php:6 paging.i18n.php:14
+#: install.php:6 paging.i18n.php:6
 msgid "User Intercom Allow"
 msgstr "Permitir Usuário de Interfonia"
 
-#: install.php:7 paging.i18n.php:12
+#: install.php:7 paging.i18n.php:4
 msgid "User Intercom Disallow"
 msgstr "Não Permitir Usuário de Interfonia"
 
-#: functions.inc.php:1071
+#: functions.inc.php:1125
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
@@ -451,7 +443,7 @@ msgstr ""
 "Quando os usuários habilitados podem usar *80<ext> para forçar a interfonia. "
 "Quando Desativado, este utilizador irá rejeitar chamadas de interfonia"
 
-#: functions.inc.php:1067
+#: functions.inc.php:1121
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -487,13 +479,30 @@ msgstr "Sussurar"
 msgid "Yes"
 msgstr "Sim"
 
-#: functions.inc.php:1060
+#: functions.inc.php:1114
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "Você pode incluir ou excluir este ramal/dispositivo de fazer parte do grupo "
 "de interfonia padrão ao criar ou editar."
+
+#~ msgid ""
+#~ "Allows creation of paging groups to make announcements using the speaker "
+#~ "built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+#~ "can be used as a prefix to talk directly to one person, as well as "
+#~ "optional feature codes to block/allow intercom calls to all users as well "
+#~ "as blocking specific users or only allowing specific users."
+#~ msgstr ""
+#~ "Permite a criação de grupos de intefonia para fazer anúncios usando o "
+#~ "alto-falante incorporado na maioria dos telefones SIP.\t\t Também cria um "
+#~ "código de recurso de interfone que pode ser usado como um prefixo para "
+#~ "falar diretamente com uma pessoa, bem como códigos de recurso opcionais "
+#~ "para bloquear/permitir a interfonia de todos os usuários, bem como "
+#~ "bloquear usuários específicos ou somente permitir usuários específicos."
+
+#~ msgid "Applications"
+#~ msgstr "Aplicações"
 
 #~ msgid ""
 #~ "Annoucement to be played to remote party. If set to Default it will use "

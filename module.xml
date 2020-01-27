@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.26.15</version>
+	<version>13.0.26.16</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26.16* FREEI-1093: FPBX13 changes for migrating Outbound Route Notificaitons feature from pagingpro to paging 
 		*13.0.26.15* Fixing FREEPBX-20940 
 		*13.0.26.14* FREEI-922 Fix XSS Bootstrap Datatable Issues 
 		*13.0.26.13* FREEI-444 
