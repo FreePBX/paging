@@ -186,3 +186,15 @@ if($amp_conf["AMPDBENGINE"] != "sqlite3")  {
 	$sql = "ALTER TABLE `paging_config` ADD PRIMARY KEY ( `page_group` )";
 	$result = $db->query($sql);
 }
+
+// Add the table for Outbound Route Notifications
+//
+$sql = "CREATE TABLE IF NOT EXISTS paging_core_routing
+	( route VARCHAR(25) default '',
+	  page_id VARCHAR(50) NOT NULL,
+		PRIMARY KEY (route)
+	)";
+$result = $db->query($sql);
+if(DB::IsError($result)) {
+	die_freepbx($result->getDebugInfo());
+}
