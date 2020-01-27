@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-    <version>14.0.16.1</version>
+    <version>14.0.16.2</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*14.0.16.2* FREEI-1093: moving Notifications feature for Outbound Routes from pagingpro to paging(free) 
         *14.0.16.1* FREEPBX-20940
         *14.0.16* FREEI-1019 paginpro Module Doesn't Play Announcement Sound
         *14.0.15* FREEI-843 Paging not hanging up when audiofile is not present
