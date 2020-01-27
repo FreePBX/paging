@@ -60,7 +60,14 @@
             <field name="announcement" type="string" length="255" notnull="false"/>
             <field name="volume" type="integer" default="0"/>
         </table>
+        <table name="paging_core_routing">
+            <field name="route" type="string" length="25" default="" primaryKey="true"/>
+            <field name="page_id" type="string" length="50" notnull="false"/>
+        </table>
     </database>
+    <methods>
+        <get_config pri="600">paging600_get_config</get_config>
+    </methods>
     <popovers>
         <paging>
             <display>paging</display>

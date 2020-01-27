@@ -14,6 +14,60 @@ if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 
 //	Generates dialplan for paging  - is called from retrieve_conf
 
+function paging600_get_config($engine) {
+    global $ext, $db;
+
+    //context 'inject' a file in to a conference
+    $c = 'paging-chanspy';
+    $ext->add($c, 's', '', new ext_answer());
+    $ext->add($c, 's', '', new ext_wait(1));
+    $ext->add($c, 's', '', new ext_playback('beep&extension'));
+    $ext->add($c, 's', '', new ext_saydigits('${AMPUSER}'));
+    $ext->add($c, 's', '', new ext_playback('dialed'));
+    $ext->add($c, 's', '', new ext_saydigits('${DIALED}'));
+    $ext->add($c, 's', '',
+        new ext_execif('$["${DEVICE_STATE(${ORIG_CHANNEL})}" = "NOT_INUSE"]',
+        'Playback', 'sorry&this&channel&has-expired'));
+    $ext->add($c, 's', '',
+        new ext_execif('$["${DEVICE_STATE(${ORIG_CHANNEL})}" = "NOT_INUSE"]',
+        'Busy', 5));
+    $ext->add($c, 's', '',
+        new ext_execif('$["${DEVICE_STATE(${ORIG_CHANNEL})}" = "NOT_INUSE"]',
+        'Hangup'));
+    $ext->add($c, 's', '', new ext_chanspy('${ORIG_CHANNEL}', 'qEB'));
+    $ext->add($c, 's', '', new ext_hangup());
+
+    //We are moving the Outbound Route-Notifications feature from the pro version
+    //to the free version. If pagingpro_core_routing still exists, the pagingpro module
+    //has not been updated yet, so let it continue handling this feature.
+    $pagingproInfo = \FreePBX::Modules()->getInfo("pagingpro");
+    $pagingproStatus = empty($pagingproInfo['pagingpro']['status']) ? 0 : $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
+    $sql        = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = 'pagingpro_core_routing'";
+    $results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+    if (empty($results) || $pagingproStatus != 2) {
+        //hook in to outbound routes dialplan
+        $outbound_routes = core_routing_list();
+        foreach ($outbound_routes as $r) {
+            $page_group = paging_core_routing_get($r['route_id']);
+            if (!$page_group) {
+                continue;
+            }
+            $c = 'outrt-' . $r['route_id'];
+            $patterens = core_routing_getroutepatternsbyid($r['route_id']);
+
+            foreach($patterens as $p) {
+                $fpattern = core_routing_formatpattern($p);
+                $e = $fpattern['dial_pattern'];
+
+                $ext->splice($c, $e, 2, new ext_set('PAGEGROUP', $page_group));
+                $ext->splice($c, $e, 3,
+                    new ext_agi('paging_call_spooler.agi,'
+                        . 'calltype=outbound_notify'));
+            }
+        }
+    }
+}
+
 function paging_get_config($engine) {
 	global $db, $ext, $chan_dahdi, $version, $amp_conf, $conferences_conf, $astman;
 	switch($engine) {
@@ -231,7 +285,7 @@ function paging_get_config($engine) {
 
 			$extintercomusers = 'ext-intercom-users';
 			$sql = "SELECT LENGTH(id) as len FROM devices GROUP BY len";
-			$sth = FreePBX::Database()->prepare($sql);
+			$sth = \FreePBX::Database()->prepare($sql);
 			$sth->execute();
 			$rows = $sth->fetchAll(\PDO::FETCH_ASSOC);
 			foreach($rows as $row) {
@@ -589,7 +643,7 @@ function paging_get_config($engine) {
 		if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && isset($conferences_conf) && is_a($conferences_conf, "conferences_conf")) {
 			$pu = 'page_user';
             $pud = 'page_user_duplex';
-            $paging = FreePBX::Paging();
+            $paging = \FreePBX::Paging();
 			foreach (array($pu, $pud) as $u) {
 				$conferences_conf->addConfUser($u, 'quiet', 'yes');
 				$conferences_conf->addConfUser($u, 'announce_user_count', 'no');
@@ -805,7 +859,7 @@ function paging_get_autoanswer_defaults($orderd = false) {
 
 	$sql = "SELECT * FROM paging_autoanswer WHERE useragent = 'default'";
 	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
+	if(\DB::IsError($results)) {
 		$results = array();
 	}
 	if ($orderd) {
@@ -818,8 +872,8 @@ function paging_get_autoanswer_defaults($orderd = false) {
 }
 
 function paging_set_autoanswer_defaults($data) {
-    FreePBX::Modules()->deprecatedFunction();
-	return FreePBX::Paging()->setAutoanswerDefaults($data);
+    \FreePBX::Modules()->deprecatedFunction();
+	return \FreePBX::Paging()->setAutoanswerDefaults($data);
 }
 
 function paging_get_autoanswer_useragents($useragent = '') {
@@ -830,15 +884,15 @@ function paging_get_autoanswer_useragents($useragent = '') {
 		$sql .= "AND useragent = $useragent ";
 	}
 	$results = $db->getAll($sql,DB_FETCHMODE_ASSOC);
-	if(DB::IsError($results)) {
+	if(\DB::IsError($results)) {
 		$results = array();
 	}
 	return $results;
 }
 
 function paging_list() {
-    FreePBX::Modules()->deprecatedFunction();
-    return FreePBX::Paging()->listGroups();
+    \FreePBX::Modules()->deprecatedFunction();
+    return \FreePBX::Paging()->listGroups();
 }
 
 function paging_check_extensions($exten=true) {
@@ -873,7 +927,7 @@ function paging_get_devs($grp) {
 
 	$sql = "SELECT ext FROM paging_groups where page_number='$grp'";
 	$results = $db->getAll($sql);
-	if(DB::IsError($results))
+	if(\DB::IsError($results))
 		$results = array();
 	foreach ($results as $val)
 		$tmparray[] = $val[0];
@@ -881,8 +935,8 @@ function paging_get_devs($grp) {
 }
 
 function paging_get_pagingconfig($grp) {
-	FreePBX::Modules()->deprecatedFunction();
-	return FreePBX::Paging()->getPageGroupById($grp);
+	\FreePBX::Modules()->deprecatedFunction();
+	return \FreePBX::Paging()->getPageGroupById($grp);
 }
 
 function paging_modify($oldxtn, $xtn, $plist, $force_page, $duplex, $description='', $default_group=0, $announcement=0, $volume=0) {
@@ -905,14 +959,14 @@ function paging_del($xtn) {
 	global $db;
 	$sql = "DELETE FROM paging_groups WHERE page_number='$xtn'";
 	$res = $db->query($sql);
-	if (DB::isError($res)) {
+	if (\DB::isError($res)) {
 		var_dump($res);
 		die_freepbx("Error in paging_del(): ");
 	}
 
 	$sql = "DELETE FROM paging_config WHERE page_group='$xtn'";
 	$res = $db->query($sql);
-	if (DB::isError($res)) {
+	if (\DB::isError($res)) {
 		var_dump($res);
 		die_freepbx("Error in paging_del(): ");
 	}
@@ -922,8 +976,8 @@ function paging_del($xtn) {
 }
 
 function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group, $announcement=0, $volume=0) {
-	FreePBX::Modules()->deprecatedFunction();
-	return FreePBX::Paging()->addGroup($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement, $volume);
+	\FreePBX::Modules()->deprecatedFunction();
+	return \FreePBX::Paging()->addGroup($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement, $volume);
 }
 
 function paging_check_default($extension) {
@@ -933,8 +987,8 @@ function paging_check_default($extension) {
 }
 
 function paging_get_default() {
-    FreePBX::Modules()->deprecatedFunction();
-	return FreePBX::Paging()->getDefaultGroup();
+    \FreePBX::Modules()->deprecatedFunction();
+	return \FreePBX::Paging()->getDefaultGroup();
 }
 
 function paging_set_default($extension, $value) {
@@ -1004,7 +1058,7 @@ function paging_configpageload() {
 	$extdisplay = isset($_REQUEST['extdisplay']) ? $_REQUEST['extdisplay']:null;
 	$tech_hardware = isset($_REQUEST['tech_hardware']) ? $_REQUEST['tech_hardware']:'';
 
-	// Don't display this stuff it it's on a 'This xtn has been deleted' page.
+	// Don't display this stuff if it's on a 'This xtn has been deleted' page.
 	if ($action != 'del' && $tech_hardware != 'virtual') {
 
 		$default_group = sql("SELECT value FROM `admin` WHERE variable = 'default_page_grp'", "getOne");
@@ -1052,4 +1106,94 @@ function paging_configprocess() {
 		$sql = "DELETE FROM paging_groups WHERE ext = '$extdisplay'";
 		sql($sql);
 	}
+}
+
+// provide hook for routing
+function paging_hook_core($viewing_itemid, $target_menuid) {
+    global $db;
+    switch ($target_menuid) {
+        case 'routing':
+            //only render the Notifications ui options on an Outbound Route if pagingpro has been
+            //updated to a version that no longer handles this option, or if pro is not installed/enabled
+            $pagingproInfo = \FreePBX::Modules()->getInfo("pagingpro");
+            $pagingproStatus = empty($pagingproInfo['pagingpro']['status']) ? 0 : $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
+            $sql        = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = 'pagingpro_core_routing'";
+            $results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+            if (empty($results) || $pagingproStatus != 2) {
+                $data['paging_groups'][] = _('None');
+                foreach((array) paging_list() as $page) {
+                    $data['paging_groups'][$page['page_group']]
+                        = $page['description']
+                        ? $page['description']
+                        : _('Page Group') . ' ' . $page['page_group'];
+                }
+                if ($viewing_itemid) {
+                    $data['paging_group'] = paging_core_routing_get($viewing_itemid);
+                    return load_view(dirname(__FILE__) . '/views/routing_hook.php', $data);
+                }
+            }
+            break;
+        default:
+            return false;
+            break;
+    }
+}
+
+//prosses hook for core/routing
+function paging_hookProcess_core($viewing_itemid, $request) {
+    switch ($request['display']) {
+        case 'routing':
+            $action = isset($request['action']) ? $request['action'] : '';
+            $page_id = isset($request['paging_notification'])
+                        ? $request['paging_notification']
+                        : '';
+            $route = $viewing_itemid;
+
+            switch ($action) {
+                case 'editroute':
+                    if ($page_id && $route) {
+                        paging_core_routing_put($page_id, $route);
+                    } elseif(!$page_id && $route) {
+                        paging_core_routing_del($route);
+                    }
+                    break;
+                case 'delroute':
+                    paging_core_routing_del($route);
+                    break;
+            }
+            break;
+        default:
+            return false;
+            break;
+    }
+}
+
+//get core/routing settings
+function paging_core_routing_get($route) {
+    global $db;
+    $ret = $db->getOne('SELECT page_id FROM paging_core_routing '
+            . 'WHERE route = ?', array($route));
+    db_e($ret);
+
+    return $ret;
+}
+
+//delete core/routing settings
+function paging_core_routing_del($route) {
+    global $db;
+    $ret = $db->query('DELETE FROM paging_core_routing WHERE route = ?',
+            array($route));
+    db_e($ret);
+
+    return $ret;
+}
+
+//save core/routing settings
+function paging_core_routing_put($page_id, $route) {
+    global $db;
+    $sql = 'REPLACE INTO paging_core_routing (page_id, route) VALUES (?, ?)';
+    $ret = $db->query($sql, array($page_id, $route));
+    db_e($ret);
+
+    return $ret;
 }
