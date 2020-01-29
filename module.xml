@@ -2,33 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.17</version>
+    <version>16.0.1</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
-		*15.0.4.17* Fixing FREEPBX-20940 
-		*15.0.4.16* FREEI-1019 paginpro Module Doesn't Play Announcement Sound 
-		*15.0.4.15* FREEI-843 Paging not hanging up when audiofile is not present 
-		*15.0.4.14* FREEI-922 Fix XSS Bootstrap Datatable Issues 
-		*15.0.4.13* Related to FREEPBX-20414: removed $jobid from runRestore() 
-		*15.0.4.12* FREEI-521 Ticket#894180 - Problem with scheduling page 
-		*15.0.4.11* Update alert infos
-		*15.0.4.10* FREEI-444 
-        *15.0.4.9* Fix restore and backup
-		*15.0.4.8* fixing legacy restore
-		*15.0.4.7* Backup and restore
-		*15.0.4.6* FREEPBX-18784 Page announcements message under Park and announce
-		*15.0.4.5* FREEPBX-18980 age Pro Announcements not playing after hangup plus
-		*15.0.4.4* FREEPBX-18920 Page group schedule doesn't hang up
-		*15.0.4.3* FREEPBX-18646 FREEPBX-18647
-		*15.0.4.2* FREEPBX-18643 FREEPBX-18642
-		*15.0.4.1* FREEPBX-18324
-		*15.0.4* FREEPBX-17320 Paging announcement not playing if I set the Conference Room App as app_confbridge
-		*15.0.3* FREEPBX-18253 Fix backup and restore missing methods
-		*15.0.2* Packaging of ver 15.0.2
-        *15.0.1* Backup 15
+		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
     <depends>
         <version>13.0.191.12</version>
@@ -76,6 +56,6 @@
         </paging>
     </popovers>
     <supported>
-        <version>15.0</version>
+        <version>16.0</version>
     </supported>
 </module>
