@@ -23,7 +23,7 @@ function paging600_get_config($engine) {
     $ext->add($c, 's', '', new ext_wait(1));
     $ext->add($c, 's', '', new ext_playback('beep&extension'));
     $ext->add($c, 's', '', new ext_saydigits('${AMPUSER}'));
-    $ext->add($c, 's', '', new ext_playback('dialed'));
+    $ext->add($c, 's', '', new ext_playback('calling'));
     $ext->add($c, 's', '', new ext_saydigits('${DIALED}'));
     $ext->add($c, 's', '',
         new ext_execif('$["${DEVICE_STATE(${ORIG_CHANNEL})}" = "NOT_INUSE"]',
