@@ -10,7 +10,9 @@ list($agi, $vars) = __agi();
 $get = array(
 		'AMPUSER'			=> '',
 		'CALLERID(all)'		=> '',
+		'CALLERID(name)'	=> '',
 		'EXTEN'				=> '',
+		'HOTDESKCALL'		=> '',
 		'PAGEGROUP'			=> '',
 		'PAGE_RECORDING'	=> '',
 		'ANNOUNCE_COUNT'	=> '',
@@ -26,10 +28,18 @@ $vars['ORIG_CHANNEL'] = $vars['ORIG_CHANNEL'][0];
 
 switch ($vars['calltype']) {
 	case 'outbound_notify':
+		//FREEI-1234: when a call from logged-out hot desk phone 
+		//triggers this paging call, spell out its emergency cid mapping's 
+		//location name in place of where a regular extension's number
+		//would be played during the intro announcement
+		$ampUser = $vars['AMPUSER'];
+		if ($vars['HOTDESKCALL']) {
+			$ampUser = $vars['CALLERID(name)'];
+		}
 		spool_call(gen_page_notify(
 			$vars['PAGEGROUP'], 
 			$vars['CALLERID(all)'], 
-			$vars['AMPUSER'], 
+			$ampUser, 
 			$vars['EXTEN'],
 			$vars['ORIG_CHANNEL']),$time);
 		break;
