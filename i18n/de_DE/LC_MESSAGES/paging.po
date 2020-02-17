@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-27 21:50+0530\n"
-"PO-Revision-Date: 2020-02-04 14:00+0000\n"
+"PO-Revision-Date: 2020-02-18 10:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
 "Language: de_DE\n"
@@ -47,7 +47,7 @@ msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
-"<strong>Klingeln</strong><br> Behandle die Seite als normalen Anruf und rufe "
+"<strong>Klingeln</strong><br> Behandle den Alarm als normalen Anruf und rufe "
 "die Durchwahl an (wenn Warteschlange deaktiviert sit, wird das BESETZT "
 "zurückgeben)"
 
@@ -72,16 +72,16 @@ msgstr ""
 "<li><b> \"Skip\" </b> ruft keine besetzten Nebenstellen auf. Alle anderen "
 "Nebenstellen werden wie gewohnt weitergeleitet.</li>\n"
 "<li><b> \"Force\" </b> prüft nicht, ob das Gerät verwendet wird, bevor Sie "
-"es anrufen. Dies bedeutet, dass Gespräche durch eine Seite unterbrochen "
-"werden können (abhängig davon, wie das Gerät damit umgeht). Dies ist "
-"nützlich für \"Notfall\" -Paging-Gruppen.</li>\n"
+"es anrufen. Dies bedeutet, dass Gespräche durch eine Benachrichtigung "
+"unterbrochen werden können (abhängig davon, wie das Gerät damit umgeht). "
+"Dies ist nützlich für \"Notfall\" -Paging-Gruppen.</li>\n"
 "<li><b>\"Whisper\" </b> versucht, die ChanSpy-Funktion auf SIP-Kanälen zu "
-"verwenden, was dazu führt, dass die Seite an die Hörmuschel des Geräts "
-"gesendet wird, die dem Benutzer \"geflüstert\" wurde, aber von der "
+"verwenden, was dazu führt, dass die Benachrichtigung an die Hörmuschel des "
+"Geräts gesendet wird, die dem Benutzer \"geflüstert\" wurde, aber von der "
 "Gegenstelle nicht gehört wird. Wenn ChanSpy auf dem Gerät nicht unterstützt "
-"wird oder anderweitig ausfällt, wird keine Seite durchgelassen. Es ist "
-"wahrscheinlich nicht sinnvoll, Duplex zu wählen, wenn Sie den Flüstermodus "
-"verwenden.</li>\n"
+"wird oder anderweitig ausfällt, wird keine Benachrichtigung durchgelassen. "
+"Es ist wahrscheinlich nicht sinnvoll, Duplex zu wählen, wenn Sie den "
+"Flüstermodus verwenden.</li>\n"
 "</ul>"
 
 #: views/grid.php:14
@@ -90,7 +90,7 @@ msgstr "Aktionen"
 
 #: views/bootnav.php:8 views/grid.php:6
 msgid "Add Page Group"
-msgstr "Seitengruppe hinzufügen"
+msgstr "Benachrichtigungs/Alarmgruppe hinzufügen"
 
 #: views/form.php:150
 msgid "Alert Tone"
@@ -108,14 +108,14 @@ msgid ""
 "ringtime(Advanced Settings)"
 msgstr ""
 "Ansage, die der Gegenstelle vorgespielt werden soll. Bei der Einstellung "
-"Standard wird die globale Einstellung aus Seitengruppen verwendet. Wenn "
-"Seitengruppen nicht definiert sind, ertönt standardmäßig ein Piepton. Die "
+"Standard wird die globale Einstellung aus Alarmgruppen verwendet. Wenn "
+"Alarmgruppen nicht definiert sind, ertönt standardmäßig ein Piepton. Die "
 "Dauer dieser Ansagedatei sollte die Standard-Laufzeit (Erweiterte "
 "Einstellungen) nicht überschreiten"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
-msgstr ""
+msgstr "Auto-antworten standards"
 
 #: views/form.php:45
 msgid "Beep"
@@ -135,7 +135,7 @@ msgstr "Standardgruppe verwenden"
 
 #: functions.inc.php:1115 views/form.php:268
 msgid "Default Page Group"
-msgstr "Standard Seitengruppe"
+msgstr "Standard Alarmgruppe"
 
 #: Paging.class.php:97 Paging.class.php:258
 msgid "Delete"
@@ -150,11 +150,12 @@ msgid "Device List"
 msgstr "Geräte Liste"
 
 #: views/form.php:135
+#, fuzzy
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
-msgstr ""
+msgstr "Zu alarmierende er#te "
 
 #: functions.inc.php:1091
 msgid "Disable"
@@ -198,9 +199,9 @@ msgid ""
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
-"Wenn Sie eine Seitengruppe als \"Standardseitengruppe\" festlegen, wird im "
+"Wenn Sie eine Alarmgruppe als \"Standardalarmgruppe\" festlegen, wird im "
 "Nebenstellenmodul ein Kontrollkästchen angezeigt, mit dem Sie diese "
-"Nebenstelle in die Standardseitengruppe einschließen oder ausschließen "
+"Nebenstelle in die Standardalarmgruppe einschließen oder ausschließen "
 "können, wenn Sie diese Nebenstelle bearbeiten"
 
 #: functions.inc.php:1084
@@ -246,9 +247,8 @@ msgid "Internal Auto Answer"
 msgstr "automatische interne Antwort"
 
 #: views/bootnav.php:7
-#, fuzzy
 msgid "List Page Groups"
-msgstr "Seitengruppen anzeigen"
+msgstr "Alarmgruppen anzeigen"
 
 #: views/form.php:245 views/form.php:275 views/settings.php:87
 #: views/settings.php:114
@@ -266,55 +266,56 @@ msgstr "Nicht ausgewählt"
 
 #: views/routing_hook.php:15
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
 msgstr ""
-"Lautsprecherstärke für diese Seite übergehen. Achtung: Momentan ist das ist "
+"Lautsprecherstärke für diesen Alarm übergehen. Achtung: Momentan ist das ist "
 "nur für Sangoma-Telefone gültig"
 
 #: functions.inc.php:832 functions.inc.php:1175 views/bootnav.php:13
 #: views/formwrap.php:9 views/grid.php:11
 #, fuzzy
 msgid "Page Group"
-msgstr "Seiten-Gruppe"
+msgstr "Alarmgruppe"
 
 #: functions.inc.php:920
+#, fuzzy
 msgid "Page Group: "
-msgstr "Seiten-Gruppe: "
+msgstr "Alarmgruppe: "
 
 #: Paging.class.php:399
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr "Seiten-Gruppe: %s (%s)"
+msgstr "Alarmgruppe: %s (%s)"
 
 #: assets/js/paging.js:107
 msgid "Page Groups"
-msgstr "Seiten-Gruppen"
+msgstr "Alarmgruppen"
 
 #: views/form.php:73
 msgid "Paging Extension"
-msgstr ""
+msgstr "Paging-Nebenstelle"
 
 #: functions.inc.php:849
 #, php-format
 msgid "Paging Group %s : %s"
-msgstr ""
+msgstr "Paging-Gruppe %s : %s"
 
 #: views/overview.php:22
 msgid "Paging Groups"
-msgstr ""
+msgstr "Paging-Gruppen"
 
 #: Paging.class.php:202 views/overview.php:7
 msgid "Paging and Intercom"
-msgstr ""
+msgstr "Paging und Intercom"
 
 #: views/settings.php:42
 msgid "Paging and Intercom settings"
-msgstr ""
+msgstr "Paging- und Intercom-Einstellungen"
 
 #: views/form.php:253
 msgid ""
@@ -329,15 +330,15 @@ msgstr ""
 
 #: assets/js/paging.js:11
 msgid "Please enter a valid end Date."
-msgstr ""
+msgstr "Bitte geben Sie ein gültiges Enddatum ein."
 
 #: assets/js/paging.js:6
 msgid "Please enter a valid start Date."
-msgstr ""
+msgstr "Bitte geben Sie ein gültiges Startdatum ein."
 
 #: views/settings.php:107
 msgid "Quiet"
-msgstr ""
+msgstr "Stumm"
 
 #: Paging.class.php:197
 msgid "Reject"
@@ -373,11 +374,11 @@ msgstr "Absenden"
 
 #: assets/js/paging.js:16
 msgid "The end date must biger greater the start date."
-msgstr ""
+msgstr "Das Enddatum muss größer sein als das Startdatum."
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
-msgstr ""
+msgstr "Die Nummer, die Nutzer wählen, um die Gruppe zu alarmieren"
 
 #: views/overview.php:6
 msgid ""
@@ -420,7 +421,7 @@ msgstr ""
 
 #: views/settings.php:122
 msgid "This option removes the beep from caller."
-msgstr ""
+msgstr "Diese Option entfernt den Signalton vom Anrufer."
 
 #: views/routing_hook.php:29
 msgid ""
@@ -428,28 +429,31 @@ msgid ""
 "call that is served by this route. It is recommended not to use a Page Group "
 "that uses (Force) Valet Paging(Paging Pro only)"
 msgstr ""
-"Dies bewirkt, dass die ausgewählte Seitengruppe mit einem Anruf, der über "
+"Dies bewirkt, dass die ausgewählte Alarmgruppe mit einem Anruf, der über "
 "diese Route bedient wird, verbunden wird. Es wird empfohlen, keine "
-"Seitengruppe zu verwenden, die Valet-Paging (erzwingen) verwendet (nur "
-"Paging Pro)"
+"Alarmgruppe zu verwenden, die Valet-Paging (erzwingen) verwendet (nur Paging "
+"Pro)"
 
 #: Paging.class.php:185
 msgid "Unknown Request"
-msgstr ""
+msgstr "Unbekannte Anfrage"
 
 #: install.php:6 paging.i18n.php:6
 msgid "User Intercom Allow"
-msgstr ""
+msgstr "Benutzerschnittstelle zulassen"
 
 #: install.php:7 paging.i18n.php:4
 msgid "User Intercom Disallow"
-msgstr ""
+msgstr "Intercom nicht zulassen"
 
 #: functions.inc.php:1126
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
+"Wenn aktiviert, können Benutzer * 80<ext> verwenden, um die "
+"Gegensprechanlage zu erzwingen. Wenn deaktiviert, lehnt dieser Benutzer "
+"Intercom-Anrufe ab"
 
 #: functions.inc.php:1122
 msgid ""
@@ -477,10 +481,12 @@ msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
+"Wenn Sie Intercom zum Alarmieren einer Erweiterung verwenden und die "
+"Erweiterung verwendet wird, haben Sie drei Möglichkeiten."
 
 #: views/form.php:214
 msgid "Whisper"
-msgstr ""
+msgstr "Flüstern"
 
 #: views/form.php:243 views/form.php:273 views/settings.php:85
 #: views/settings.php:112
@@ -493,7 +499,7 @@ msgid ""
 "default page group when creating or editing."
 msgstr ""
 "Sie können diese Nebenstelle / dieses Gerät beim Erstellen oder Bearbeiten "
-"als Teil der Standardseitengruppe ein- oder ausschließen."
+"als Teil der Standardalarmgruppe ein- oder ausschließen."
 
 #~ msgid "Applications"
 #~ msgstr "Anwendungen"
