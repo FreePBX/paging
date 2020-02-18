@@ -41,10 +41,20 @@ function paging600_get_config($engine) {
 	//to the free version. If pagingpro_core_routing still exists, the pagingpro module 
 	//has not been updated yet, so let it continue handling this feature.  
 	$pagingproInfo = \FreePBX::Modules()->getInfo("pagingpro");
-	$pagingproStatus = empty($pagingproInfo['pagingpro']['status']) ? 0 : $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
+
+	$pagingproIsLicensed = false;
+	$pagingproStatus = 0;
+	//if pagingpro is installed, get its true license and activation status
+	if (!empty($pagingproInfo['pagingpro'])) {
+		$pagingproIsLicensed = \FreePBX::Pagingpro()->isLicensed();
+		$pagingproStatus = $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
+	}
+
+	//if this table still exists, the installed version of pagingpro should continue to handle
+	//this Notificaitons option(unless its license is expired, which disables this option)
 	$sql        = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = 'pagingpro_core_routing'";
 	$results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-	if (empty($results) || $pagingproStatus != 2) {
+	if (empty($results) || $pagingproStatus != 2 || !$pagingproIsLicensed) {
 		//hook in to outbound routes dialplan
 		$outbound_routes = core_routing_list();
 		foreach ($outbound_routes as $r) {
@@ -1163,10 +1173,20 @@ function paging_hook_core($viewing_itemid, $target_menuid) {
 			//only render the Notifications ui options on an Outbound Route if pagingpro has been 
 			//updated to a version that no longer handles this option, or if pro is not installed/enabled
 			$pagingproInfo = \FreePBX::Modules()->getInfo("pagingpro");
-			$pagingproStatus = empty($pagingproInfo['pagingpro']['status']) ? 0 : $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
+
+			$pagingproIsLicensed = false;
+			$pagingproStatus = 0;
+			//if pagingpro is installed, get its true license and activation status
+			if (!empty($pagingproInfo['pagingpro'])) {
+				$pagingproIsLicensed = \FreePBX::Pagingpro()->isLicensed();
+				$pagingproStatus = $pagingproInfo['pagingpro']['status']; //0 default, 2 enabled
+			}
+
+			//if this table still exists, the installed version of pagingpro should continue to handle
+			//this Notificaitons option(unless its license is expired, and the option becomes hidden)
 			$sql        = "SELECT COLUMN_NAME FROM information_schema.columns WHERE table_name = 'pagingpro_core_routing'";
 			$results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
-			if (empty($results) || $pagingproStatus != 2) {
+			if (empty($results) || $pagingproStatus != 2 || !$pagingproIsLicensed) {
                 $data['paging_groups'][] = _('None');
                 foreach((array) paging_list() as $page) {
                     $data['paging_groups'][$page['page_group']]
