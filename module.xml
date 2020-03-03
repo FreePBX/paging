@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.19</version>
+    <version>15.0.4.20</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.20* FREEI-1234
 		*15.0.4.19* FREEI-1239
 		*15.0.4.18* Fixing FREEI-1093 
 		*15.0.4.17* Fixing FREEPBX-20940 
