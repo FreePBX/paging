@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 21:50+0530\n"
+"POT-Creation-Date: 2020-03-03 16:23+0530\n"
 "PO-Revision-Date: 2020-02-18 10:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
@@ -96,6 +96,15 @@ msgstr "Benachrichtigungs/Alarmgruppe hinzufügen"
 msgid "Alert Tone"
 msgstr "Alarmton"
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "Meldung wird bei verbundener Partei abgespielt. Standard ist ein Piep"
@@ -112,6 +121,10 @@ msgstr ""
 "Alarmgruppen nicht definiert sind, ertönt standardmäßig ein Piepton. Die "
 "Dauer dieser Ansagedatei sollte die Standard-Laufzeit (Erweiterte "
 "Einstellungen) nicht überschreiten"
+
+#: paging.i18n.php:6
+msgid "Applications"
+msgstr "Anwendungen"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -230,7 +243,7 @@ msgstr "Gegensprechanlage von %s: deaktiviert"
 msgid "Intercom from %s: Enabled"
 msgstr "Gegensprechanlage von %s: aktiviert"
 
-#: install.php:5 paging.i18n.php:8
+#: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "Gegensprechanlage Vorwahl"
 
@@ -309,7 +322,8 @@ msgstr "Paging-Gruppe %s : %s"
 msgid "Paging Groups"
 msgstr "Paging-Gruppen"
 
-#: Paging.class.php:202 views/overview.php:7
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Paging und Intercom"
 
@@ -438,11 +452,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr "Unbekannte Anfrage"
 
-#: install.php:6 paging.i18n.php:6
+#: install.php:6 paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "Benutzerschnittstelle zulassen"
 
-#: install.php:7 paging.i18n.php:4
+#: install.php:7 paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "Intercom nicht zulassen"
 
@@ -500,6 +514,3 @@ msgid ""
 msgstr ""
 "Sie können diese Nebenstelle / dieses Gerät beim Erstellen oder Bearbeiten "
 "als Teil der Standardalarmgruppe ein- oder ausschließen."
-
-#~ msgid "Applications"
-#~ msgstr "Anwendungen"
