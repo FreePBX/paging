@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 03:19+0530\n"
+"POT-Creation-Date: 2020-03-03 16:31+0530\n"
 "PO-Revision-Date: 2016-08-21 05:58+0200\n"
 "Last-Translator: Media <mousavi.media@gmail.com>\n"
 "Language-Team: Persian (Iran) <http://weblate.freepbx.org/projects/freepbx/"
@@ -93,6 +93,15 @@ msgstr "افزودن گروه صفحه"
 msgid "Alert Tone"
 msgstr ""
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. Also creates an        Intercom feature code "
+"that can be used as a prefix to talk directly to one person, as well as "
+"optional feature codes        to block/allow intercom calls to all users as "
+"well as blocking specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "اعلان پخش شده برای remote party"
@@ -104,6 +113,10 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
+
+#: paging.i18n.php:6
+msgid "Applications"
+msgstr "برنامه‌ ها"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -223,7 +236,7 @@ msgstr "تماس داخلی از %s: غیرفعال شد"
 msgid "Intercom from %s: Enabled"
 msgstr "تماس داخلی از %s: فعال شد"
 
-#: paging.i18n.php:8
+#: paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "پیشوند ورودی"
 
@@ -300,7 +313,8 @@ msgstr "گروه صفحه بندی %s : %s"
 msgid "Paging Groups"
 msgstr "گروه های اعلان"
 
-#: Paging.class.php:202 views/overview.php:7
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "اعلان و ورود"
 
@@ -414,11 +428,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr "درخواست نامعتبر"
 
-#: paging.i18n.php:6
+#: paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "کاربر ورودی مجاز"
 
-#: paging.i18n.php:4
+#: paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "کاربر ورودی غیرمجاز"
 
@@ -479,9 +493,6 @@ msgid ""
 msgstr ""
 "شما میتوانید در هنگام ساختن یک گروه اعلان  داخلی ها/دستگاه ها را به این گروه "
 "اعلان وارد کرده و یا خارج نمایید."
-
-#~ msgid "Applications"
-#~ msgstr "برنامه‌ ها"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "

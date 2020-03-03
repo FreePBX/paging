@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 03:19+0530\n"
+"POT-Creation-Date: 2020-03-03 16:31+0530\n"
 "PO-Revision-Date: 2017-07-11 09:26+0200\n"
 "Last-Translator: PETER <ftek@ymail.com>\n"
 "Language-Team: Vietnamese <http://weblate.freepbx.org/projects/freepbx/"
@@ -80,6 +80,15 @@ msgstr "Thêm nhóm Page"
 msgid "Alert Tone"
 msgstr ""
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. Also creates an        Intercom feature code "
+"that can be used as a prefix to talk directly to one person, as well as "
+"optional feature codes        to block/allow intercom calls to all users as "
+"well as blocking specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
@@ -90,6 +99,10 @@ msgid ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
+msgstr ""
+
+#: paging.i18n.php:6
+msgid "Applications"
 msgstr ""
 
 #: views/settings.php:54
@@ -204,7 +217,7 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: paging.i18n.php:8
+#: paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr ""
 
@@ -279,7 +292,8 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:202 views/overview.php:7
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr ""
 
@@ -376,11 +390,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
-#: paging.i18n.php:6
+#: paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr ""
 
-#: paging.i18n.php:4
+#: paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr ""
 

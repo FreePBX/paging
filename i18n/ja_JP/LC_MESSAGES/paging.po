@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX 2.10.0.9\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-30 03:19+0530\n"
+"POT-Creation-Date: 2020-03-03 16:31+0530\n"
 "PO-Revision-Date: 2015-02-19 12:34+0200\n"
 "Last-Translator: Kevin <kevin@qloog.com>\n"
 "Language-Team: Japanese <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -107,6 +107,15 @@ msgstr ""
 msgid "Alert Tone"
 msgstr ""
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. Also creates an        Intercom feature code "
+"that can be used as a prefix to talk directly to one person, as well as "
+"optional feature codes        to block/allow intercom calls to all users as "
+"well as blocking specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
@@ -118,6 +127,10 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
+
+#: paging.i18n.php:6
+msgid "Applications"
+msgstr "アプリケーション"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -234,7 +247,7 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: paging.i18n.php:8
+#: paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "インターコムプリフィックス"
 
@@ -309,7 +322,8 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:202 views/overview.php:7
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "ページング & インターコム"
 
@@ -420,11 +434,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
-#: paging.i18n.php:6
+#: paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "ユーザーインターコムを許可"
 
-#: paging.i18n.php:4
+#: paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "ユーザーインターコムを禁止"
 
@@ -476,9 +490,6 @@ msgid ""
 msgstr ""
 "あなたがデフォルトページグループを作成や編集した際にこの内線/デバイスをデフォ"
 "ルトページグループの一部に含めることも、除外することもできます。"
-
-#~ msgid "Applications"
-#~ msgstr "アプリケーション"
 
 #~ msgid "Announcement"
 #~ msgstr "アナウンス"
