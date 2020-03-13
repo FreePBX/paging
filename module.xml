@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-    <version>14.0.16.4</version>
+    <version>14.0.16.5</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*14.0.16.5* FREEI-1241: make Notifications option available when creating a new Outbound Route 
 		*14.0.16.4* FREEI-1234 
 		*14.0.16.3* FREEI-1239: instead of trying to play the missing dialed sound, play the existing calling sound in outbound route notification announcements 
 		*14.0.16.2* FREEI-1093: moving Notifications feature for Outbound Routes from pagingpro to paging(free) 
