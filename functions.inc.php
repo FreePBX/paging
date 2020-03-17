@@ -1175,8 +1175,8 @@ function paging_hook_core($viewing_itemid, $target_menuid) {
 			}
 			if ($viewing_itemid) {
 			    $data['paging_group'] = paging_core_routing_get($viewing_itemid);
-			    return load_view(dirname(__FILE__) . '/views/routing_hook.php', $data);
 			}
+			return load_view(dirname(__FILE__) . '/views/routing_hook.php', $data);
 		}
             break;
         default:
@@ -1186,6 +1186,7 @@ function paging_hook_core($viewing_itemid, $target_menuid) {
 }
 //prosses hook for core/routing
 function paging_hookProcess_core($viewing_itemid, $request) {
+    global $db;
     switch ($request['display']) {
 	case 'routing':
             $action = isset($request['action']) ? $request['action'] : '';
@@ -1195,6 +1196,18 @@ function paging_hookProcess_core($viewing_itemid, $request) {
             $route = $viewing_itemid;
 
             switch ($action) {
+                case 'addroute':
+                    //if a Notification page group is selected during the creation of
+                    //a new outbound route, find the resulting route_id, then use that
+                    //to add an entry to paging_core_routing
+                    if (!empty($page_id)  && isset($request['routename'])) {
+                        $sql        = "SELECT * FROM outbound_routes where name='" . $request['routename'] . "'";
+                        $results    = $db->getAll($sql, DB_FETCHMODE_ASSOC);
+                        $routeId = $results[0]['route_id'];
+
+                        paging_core_routing_put($page_id, $routeId);
+                    }
+                    break;
                 case 'editroute':
                     if ($page_id && $route) {
                         paging_core_routing_put($page_id, $route);
