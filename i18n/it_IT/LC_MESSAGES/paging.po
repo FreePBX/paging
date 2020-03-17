@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-27 21:44+0530\n"
+"POT-Creation-Date: 2020-03-17 13:28+0530\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -68,6 +68,15 @@ msgstr ""
 msgid "Add Page Group"
 msgstr ""
 
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
+msgstr ""
+
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
@@ -82,6 +91,10 @@ msgid ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
+msgstr ""
+
+#: paging.i18n.php:6
+msgid "Applications"
 msgstr ""
 
 #: views/settings.php:54
@@ -196,7 +209,7 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: install.php:5 paging.i18n.php:8
+#: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "Prefisso Intercom"
 
@@ -271,7 +284,8 @@ msgstr ""
 msgid "Paging Groups"
 msgstr ""
 
-#: Paging.class.php:202 views/overview.php:7
+#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Paging e Intercom"
 
@@ -392,11 +406,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
-#: install.php:6 paging.i18n.php:6
+#: install.php:6 paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "Permette Intercom"
 
-#: install.php:7 paging.i18n.php:4
+#: install.php:7 paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "Non permette Intercom"
 
