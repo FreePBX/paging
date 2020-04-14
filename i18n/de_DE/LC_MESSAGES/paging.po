@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-13 11:03+0530\n"
+"POT-Creation-Date: 2020-04-14 13:35+0530\n"
 "PO-Revision-Date: 2020-02-18 10:00+0000\n"
 "Last-Translator: florian alberts <alberts@ar-systems.de>\n"
 "Language-Team: German <http://*/projects/freepbx/paging/de/>\n"
@@ -99,10 +99,10 @@ msgstr "Alarmton"
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
 
 #: views/settings.php:68
@@ -277,10 +277,6 @@ msgstr "Kein*e"
 msgid "Not Selected"
 msgstr "Nicht ausgewählt"
 
-#: views/routing_hook.php:15
-msgid "Notifications"
-msgstr "Benachrichtigungen"
-
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
@@ -321,6 +317,10 @@ msgstr "Paging-Gruppe %s : %s"
 #: views/overview.php:22
 msgid "Paging Groups"
 msgstr "Paging-Gruppen"
+
+#: views/routing_hook.php:15
+msgid "Paging Notification"
+msgstr ""
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
@@ -514,3 +514,6 @@ msgid ""
 msgstr ""
 "Sie können diese Nebenstelle / dieses Gerät beim Erstellen oder Bearbeiten "
 "als Teil der Standardalarmgruppe ein- oder ausschließen."
+
+#~ msgid "Notifications"
+#~ msgstr "Benachrichtigungen"
