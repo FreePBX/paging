@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-17 13:28+0530\n"
+"POT-Creation-Date: 2020-04-14 13:39+0530\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -274,10 +274,6 @@ msgstr "Żadne"
 msgid "Not Selected"
 msgstr "Nie wybrano"
 
-#: views/routing_hook.php:15
-msgid "Notifications"
-msgstr ""
-
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
@@ -316,6 +312,10 @@ msgstr "Grupa stronicowania %s: %s"
 #: views/overview.php:22
 msgid "Paging Groups"
 msgstr "Grupy stronicowania"
+
+#: views/routing_hook.php:15
+msgid "Paging Notification"
+msgstr ""
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-17 13:28+0530\n"
+"POT-Creation-Date: 2020-04-14 13:39+0530\n"
 "PO-Revision-Date: 2018-02-16 18:06+0200\n"
 "Last-Translator: Nils <Nils@heckenkamp.info>\n"
 "Language-Team: German <http://weblate.freepbx.org/projects/freepbx/paging/"
@@ -246,10 +246,6 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: views/routing_hook.php:15
-msgid "Notifications"
-msgstr ""
-
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
@@ -285,6 +281,10 @@ msgstr ""
 
 #: views/overview.php:22
 msgid "Paging Groups"
+msgstr ""
+
+#: views/routing_hook.php:15
+msgid "Paging Notification"
 msgstr ""
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10

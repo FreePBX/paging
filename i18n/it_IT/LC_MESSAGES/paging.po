@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-17 13:28+0530\n"
+"POT-Creation-Date: 2020-04-14 13:39+0530\n"
 "PO-Revision-Date: 2008-11-06 14:52+0100\n"
 "Last-Translator: Francesco Romano <francesco.romano@alteclab.it>\n"
 "Language-Team: Italian\n"
@@ -243,10 +243,6 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: views/routing_hook.php:15
-msgid "Notifications"
-msgstr ""
-
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
@@ -282,6 +278,10 @@ msgstr ""
 
 #: views/overview.php:22
 msgid "Paging Groups"
+msgstr ""
+
+#: views/routing_hook.php:15
+msgid "Paging Notification"
 msgstr ""
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
