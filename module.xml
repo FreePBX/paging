@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.21</version>
+    <version>15.0.4.22</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.22* FREEI-1480: Renamed the Outbound Route paging notification option from "Notifications" to "Paging Notification" 
 		*15.0.4.21* FREEI-1241: make Notifications option available when creating a new Outbound Route 
 		*15.0.4.20* FREEI-1234
 		*15.0.4.19* FREEI-1239

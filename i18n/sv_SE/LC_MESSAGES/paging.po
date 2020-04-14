@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 16:31+0530\n"
+"POT-Creation-Date: 2020-04-14 13:37+0530\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -88,10 +88,10 @@ msgstr ""
 #: paging.i18n.php:8
 msgid ""
 "Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
+"built into most SIP phones.\t\tAlso creates an Intercom feature code that "
+"can be used as a prefix to talk directly to one person, as well as optional "
+"feature codes to block/allow intercom calls to all users as well as blocking "
+"specific users or only allowing specific users."
 msgstr ""
 
 #: views/settings.php:68
@@ -256,10 +256,6 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: views/routing_hook.php:15
-msgid "Notifications"
-msgstr ""
-
 #: views/form.php:193
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
@@ -295,6 +291,10 @@ msgstr ""
 
 #: views/overview.php:22
 msgid "Paging Groups"
+msgstr ""
+
+#: views/routing_hook.php:15
+msgid "Paging Notification"
 msgstr ""
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
