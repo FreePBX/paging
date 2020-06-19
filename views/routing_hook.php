@@ -6,7 +6,7 @@ foreach ($paging_groups as $key => $value) {
 }
 ?>
 <!--Notifications-->
-<div class="element-container">
+<div id="paging" class="element-container">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="row">
