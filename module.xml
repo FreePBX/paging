@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-    <version>14.0.16.7</version>
+    <version>14.0.16.8</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*14.0.16.8* Packaging of ver 14.0.16.8
 		*14.0.16.7* FREEI-1481 Outbound Routes - move paging Notifications setting to the new tab 
 		*14.0.16.6* FREEI-1480: Renamed the Outbound Route paging notification option from "Notifications" to "Paging Notification" 
 		*14.0.16.5* FREEI-1241: make Notifications option available when creating a new Outbound Route 
@@ -95,6 +96,7 @@
 	<description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones.
 		Also creates an Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.
 	</description>
+  	<more-info>https://wiki.freepbx.org/display/F2/Paging+and+Intercom+Module</more-info>
 	<database>
         <table name="paging_core_routing">
             <field name="route" type="string" length="25" default="" primaryKey="true"/>
