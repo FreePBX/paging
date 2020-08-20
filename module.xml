@@ -2,12 +2,13 @@
 	<rawname>paging</rawname>
 	<repo>standard</repo>
 	<name>Paging and Intercom</name>
-	<version>13.0.26.21</version>
+	<version>13.0.26.22</version>
 	<publisher>Sangoma Technologies Corporation</publisher>
 	<license>GPLv3+</license>
 	<licenselink>http://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
 	<category>Applications</category>
 	<changelog>
+		*13.0.26.22* Packaging of ver 13.0.26.22
 		*13.0.26.21* FREEI-1234: Fix the outbound rte's Paging notification message that is played for Hotdesk calls 
 		*13.0.26.20* FREEI-1481 Outbound Routes - move paging Notifications setting to the new tab 
 		*13.0.26.19* FREEI-1480 
