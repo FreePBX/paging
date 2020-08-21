@@ -16,7 +16,37 @@ class Paging extends FreePBX_Helpers implements BMO {
                 ':var' => $row['var'],
                 ':setting' => $row['setting'],
             ]);
-        }
+		}
+
+		/**
+		 * Prevent the case where the prefix will not be installed.
+		 */
+		$fcc = new \featurecode('paging', 'intercom-prefix');
+		$intercom_code = $fcc->getCodeActive();
+		unset($fcc);
+
+		if($intercom_code == ""){
+			// Enable intercom as a feature code
+			$fcc = new \featurecode('paging', 'intercom-prefix');
+			$fcc->setDescription(_('Intercom prefix'));
+			$fcc->setDefault('*80');
+			$fcc->update();
+			unset($fcc);
+
+			// User intercom enable code
+			$fcc = new \featurecode('paging', 'intercom-on');
+			$fcc->setDescription(_('User Intercom Allow'));
+			$fcc->setDefault('*54');
+			$fcc->update();
+			unset($fcc);
+
+			// User intercom disable
+			$fcc = new \featurecode('paging', 'intercom-off');
+			$fcc->setDescription(_('User Intercom Disallow'));
+			$fcc->setDefault('*55');
+			$fcc->update();
+			unset($fcc);
+		}
 	}
 	public function uninstall() {
 
