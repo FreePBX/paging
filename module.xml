@@ -2,12 +2,14 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.24</version>
+    <version>15.0.4.26</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.26* Packaging of ver 15.0.4.26
+		*15.0.4.25* FREEI-1773 Intercom dial prefix missing 
 		*15.0.4.24* Packaging of ver 15.0.4.24
 		*15.0.4.23* FREEI-1481 Outbound Routes - move paging Notifications setting to the new tab 
 		*15.0.4.22* FREEI-1480: Renamed the Outbound Route paging notification option from "Notifications" to "Paging Notification" 
