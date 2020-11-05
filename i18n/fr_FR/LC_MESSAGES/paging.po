@@ -20,9 +20,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-14 13:35+0530\n"
-"PO-Revision-Date: 2020-10-28 22:00+0000\n"
+"PO-Revision-Date: 2020-11-07 00:00+0000\n"
 "Last-Translator: Walter Moon <wmoon@sangoma.com>\n"
-"Language-Team: French <http://*/projects/freepbx/paging/fr/>\n"
+"Language-Team: French <http://weblate.freepbx.org/projects/freepbx/paging/fr/"
+">\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,7 +155,7 @@ msgstr ""
 
 #: functions.inc.php:1091
 msgid "Disable"
-msgstr ""
+msgstr "Désactiver"
 
 #: functions.inc.php:1088
 msgid "Disabled"
