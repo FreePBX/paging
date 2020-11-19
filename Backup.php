@@ -7,7 +7,7 @@ class Backup Extends Base\BackupBase{
 		$groups = $this->FreePBX->Paging->listGroups(true);
 
 		foreach ($groups as $group) {
-				$group['plist'] = $this->FreePBX->Paging->getPageGroupById($group['page_group']);
+				$group['plist'] = paging_get_devs($group['page_group']);
 				$data[] = $group;
 		}
 
