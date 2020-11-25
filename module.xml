@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.27</version>
+    <version>15.0.4.28</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.28* Packaging of ver 15.0.4.28
 		*15.0.4.27* FREEPBX-22033 Paging Groups - backups missing some data 
 		*15.0.4.26* Packaging of ver 15.0.4.26
 		*15.0.4.25* FREEI-1773 Intercom dial prefix missing 
@@ -49,7 +50,7 @@
     <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. Also creates an
         Intercom feature code that can be used as a prefix to talk directly to one person, as well as optional feature codes
         to block/allow intercom calls to all users as well as blocking specific users or only allowing specific users.</description>
-    <more-info>https://wiki.freepbx.org/display/F2/Paging+and+Intercom+Module</more-info>
+    <more-info>https://wiki.freepbx.org/display/FPG/Paging+and+Intercom+Module</more-info>
     <menuitems>
         <paging needsenginedb="yes">Paging and Intercom</paging>
     </menuitems>
