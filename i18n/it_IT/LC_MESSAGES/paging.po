@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 03:46+0000\n"
+"POT-Creation-Date: 2020-11-26 04:19+0000\n"
 "PO-Revision-Date: 2018-05-30 08:43+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/paging/it/>\n"
@@ -28,7 +28,7 @@ msgstr " Si prega di impostare i giorni dell'evento."
 msgid " Please set the event time."
 msgstr " Si prega di impostare l'orario dell'evento."
 
-#: Paging.class.php:207
+#: Paging.class.php:237
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -37,12 +37,12 @@ msgstr ""
 "passare in modalità di risposta automatica. Questo potrebbe non funzionare e "
 "dipende dal telefono."
 
-#: Paging.class.php:205
+#: Paging.class.php:235
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr ""
 "<strong> Rifiuta </ strong> <br> Restituisce un segnale BUSY al chiamante"
 
-#: Paging.class.php:206
+#: Paging.class.php:236
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -146,7 +146,7 @@ msgstr "Gruppo Page Predefinito"
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
-#: Paging.class.php:97 Paging.class.php:258
+#: Paging.class.php:127 Paging.class.php:288
 msgid "Delete"
 msgstr "Elimina"
 
@@ -197,7 +197,7 @@ msgstr "Escludi"
 msgid "Extension Options"
 msgstr "Opzioni di estensione"
 
-#: Paging.class.php:199 views/form.php:212
+#: Paging.class.php:229 views/form.php:212
 msgid "Force"
 msgstr "Forza"
 
@@ -228,7 +228,7 @@ msgstr "Citofono"
 msgid "Intercom Mode"
 msgstr "Modalità interfono"
 
-#: Paging.class.php:203
+#: Paging.class.php:233
 msgid "Intercom Override"
 msgstr "Sostituzione dell'interfono"
 
@@ -242,7 +242,7 @@ msgstr "Intercom da %s1: disabilitato"
 msgid "Intercom from %s: Enabled"
 msgstr "Intercom da %s1: abilitato"
 
-#: paging.i18n.php:16
+#: Paging.class.php:31 paging.i18n.php:16
 msgid "Intercom prefix"
 msgstr "Prefisso Intercom"
 
@@ -293,7 +293,7 @@ msgstr "Gruppo Page"
 msgid "Page Group: "
 msgstr "Gruppo Page:"
 
-#: Paging.class.php:402
+#: Paging.class.php:432
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Gruppo di pagine: %s1 (%s2)"
@@ -319,7 +319,7 @@ msgstr "Gruppi di impaginazione"
 msgid "Paging Notification"
 msgstr ""
 
-#: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:232 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Paging e Intercom"
@@ -351,15 +351,15 @@ msgstr "Si prega di inserire una data di inizio valida."
 msgid "Quiet"
 msgstr "Silenzioso"
 
-#: Paging.class.php:197
+#: Paging.class.php:227
 msgid "Reject"
 msgstr "Rifiutare"
 
-#: Paging.class.php:263
+#: Paging.class.php:293
 msgid "Reset"
 msgstr "Azzerare"
 
-#: Paging.class.php:198
+#: Paging.class.php:228
 msgid "Ring"
 msgstr "Squillare"
 
@@ -379,7 +379,7 @@ msgstr "Salta"
 msgid "Speaker Volume Override"
 msgstr "Override volume altoparlante"
 
-#: Paging.class.php:268 views/settings.php:128
+#: Paging.class.php:298 views/settings.php:128
 msgid "Submit"
 msgstr "Sottoscrivi"
 
@@ -435,15 +435,15 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr "Questa opzione rimuove il segnale acustico dal chiamante."
 
-#: Paging.class.php:185
+#: Paging.class.php:215
 msgid "Unknown Request"
 msgstr "Richiesta sconosciuta"
 
-#: paging.i18n.php:14
+#: Paging.class.php:38 paging.i18n.php:14
 msgid "User Intercom Allow"
 msgstr "Permette Intercom"
 
-#: paging.i18n.php:12
+#: Paging.class.php:45 paging.i18n.php:12
 msgid "User Intercom Disallow"
 msgstr "Non permette Intercom"
 
@@ -475,7 +475,7 @@ msgstr ""
 "ciechi e quando un Follow Me è configurato e abilitato. Se disabilitato, il "
 "telefono squilla come un normale telefono."
 
-#: Paging.class.php:204
+#: Paging.class.php:234
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
