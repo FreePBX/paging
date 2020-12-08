@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-14 13:35+0530\n"
-"PO-Revision-Date: 2020-11-07 00:00+0000\n"
+"PO-Revision-Date: 2020-12-08 22:55+0000\n"
 "Last-Translator: Walter Moon <wmoon@sangoma.com>\n"
 "Language-Team: French <http://weblate.freepbx.org/projects/freepbx/paging/fr/"
 ">\n"
@@ -171,7 +171,7 @@ msgstr "Duplex"
 
 #: functions.inc.php:1087
 msgid "Enabled"
-msgstr ""
+msgstr "Activé"
 
 #: functions.inc.php:1083
 msgid "Exclude"
@@ -179,7 +179,7 @@ msgstr "Exclure"
 
 #: functions.inc.php:1117
 msgid "Extension Options"
-msgstr ""
+msgstr "Options de poste"
 
 #: Paging.class.php:199 views/form.php:212
 msgid "Force"
