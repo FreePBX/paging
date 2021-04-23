@@ -191,7 +191,7 @@ foreach ($page_members as $pm) {
 	// It's a PJSIP Device.
 	if (isset($pjsipcontacts[$pm])) {
 		foreach ($pjsipcontacts[$pm] as $pjdev) {
-			$dev = "PJSIP/$pm/".$pjdev['uri'];
+			$dev = "PJSIP/$pm/".rtrim($pjdev['uri'],';ob');
 			// $agi->verbose("Checking '$dev' against '$this_chan'", 0);
 			if ($dev != $this_chan) {
 				$devices[] = array($dev, $pjdev['user_agent'], $pm);
