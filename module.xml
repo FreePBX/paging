@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>16.0.5</version>
+    <version>16.0.6</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*16.0.6* FREEPBX-22463 pjsip member contact comparision 
 		*16.0.5* FREEPBX-22463 Page group calling phone making page 
 		*16.0.4* Packaging of ver 16.0.4
 		*16.0.3* FREEPBX-22033 Paging Groups - backups missing some data 
