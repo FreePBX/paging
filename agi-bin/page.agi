@@ -191,9 +191,13 @@ foreach ($page_members as $pm) {
 	// It's a PJSIP Device.
 	if (isset($pjsipcontacts[$pm])) {
 		foreach ($pjsipcontacts[$pm] as $pjdev) {
-			$dev = "PJSIP/$pm/".rtrim($pjdev['uri'],';ob');
+			$dev = "PJSIP/$pm/".$pjdev['uri'];
+			//Contact:  800/sip:800@192.168.3.169:5060;ob
+			//it can be anything empty or ;ob/;user=test so just take only  the contact for comparision
+			$uri = explode(";",$pjdev['uri']);
+			$devcom = "PJSIP/$pm/".$uri[0];
 			// $agi->verbose("Checking '$dev' against '$this_chan'", 0);
-			if ($dev != $this_chan) {
+			if ($devcom != $this_chan) {
 				$devices[] = array($dev, $pjdev['user_agent'], $pm);
 			}
 		}
