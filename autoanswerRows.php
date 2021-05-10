@@ -49,8 +49,14 @@ return [
   ],
 
   [
-    'useragent' => 'Sangoma',
+    'useragent' => 'Sangoma S',
     'var' => 'ALERTINFO',
     'setting' => '<http://www.sangoma.com>\\;info=external${PAGE_VOL}',
+  ],
+
+  [
+    'useragent' => 'Sangoma P',
+    'var' => 'ALERTINFO',
+    'setting' => 'ring-answer',
   ],
 ];
