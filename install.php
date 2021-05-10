@@ -106,27 +106,26 @@ if(DB::IsError($check)) {
 // If the table is already populated then error will be ignored and user data will not get altered
 //
 // Recreate defaults
-$sql = "DELETE FROM paging_autoanswer";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', '<uri>\\\\;answer-after=0')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'ALERTINFO', 'Ring Answer')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'SIPURI', 'intercom=true')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Mitel', 'CALLINFO', '<sip:broadworks.net>\\\\;answer-after=0')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO', 'Intercom')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Polycom', 'ALERTINFO', 'info=Auto Answer')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium', 'ALERTINFO', 'ring-answer')";
-$result = $db->query($sql);
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Sangoma', 'ALERTINFO', '<http://www.sangoma.com>\\\\;info=external\${PAGE_VOL}')";
-$result = $db->query($sql);
+$queries = [];
+$queries[] = "DELETE FROM paging_autoanswer";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'CALLINFO', '<uri>\\\\;answer-after=0')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'ALERTINFO', 'Ring Answer')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('default', 'SIPURI', 'intercom=true')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Mitel', 'CALLINFO', '<sip:broadworks.net>\\\\;answer-after=0')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Panasonic', 'ALERTINFO', 'Intercom')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Polycom', 'ALERTINFO', 'info=Auto Answer')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Digium', 'ALERTINFO', 'ring-answer')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Sangoma S', 'ALERTINFO', '<http://www.sangoma.com>\\\\;info=external\${PAGE_VOL}')";
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES ('Sangoma P', 'ALERTINFO', 'ring-answer')";
 // FREEPBX-13591 - User supplied field for OpenStage
-$sql = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES('OpenStage','ALERTINFO', '<http://example.com>\\\\;info=alert-autoanswer')";
-$result = $db->query($sql);
+$queries[] = "INSERT INTO paging_autoanswer (useragent, var, setting) VALUES('OpenStage','ALERTINFO', '<http://example.com>\\\\;info=alert-autoanswer')";
+foreach ($queries as $query) {
+	$result = $db->query($query);
+	if(DB::IsError($result)) {
+		die_freepbx($result->getDebugInfo());
+	}
+}
+unset($queries);
 
 // Add dulex field
 //
