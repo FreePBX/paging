@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>16.0.7</version>
+    <version>16.0.8</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*16.0.8* Packaging of ver 16.0.8
 		*16.0.7* Packaging of ver 16.0.7
 		*16.0.6* FREEPBX-22463 pjsip member contact comparision 
 		*16.0.5* FREEPBX-22463 Page group calling phone making page 
@@ -17,9 +18,9 @@
 		*16.0.1alpha* 16.0.1 alpha release
 	</changelog>
     <depends>
-        <version>13.0.191.12</version>
-        <module>core ge 13.0.86</module>
-        <module>framework ge 14.0.2.16</module>
+       <version>16.0.10.23</version>
+        <module>core ge 16.0.56.5</module>
+	<module>framework ge 16.0.10.23</module>
         <module>conferences</module>
     </depends>
     <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. Also creates an
