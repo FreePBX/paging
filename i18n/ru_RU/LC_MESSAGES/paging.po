@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 05:16+0000\n"
-"PO-Revision-Date: 2021-11-23 07:00+0000\n"
+"PO-Revision-Date: 2021-11-24 11:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/paging/"
 "ru/>\n"
@@ -188,7 +188,7 @@ msgstr "Дуплекс"
 
 #: functions.inc.php:1087
 msgid "Enabled"
-msgstr ""
+msgstr "Включено"
 
 #: functions.inc.php:1083
 msgid "Exclude"
