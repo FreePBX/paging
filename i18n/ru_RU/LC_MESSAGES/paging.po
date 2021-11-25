@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 05:16+0000\n"
-"PO-Revision-Date: 2021-11-24 11:01+0000\n"
+"PO-Revision-Date: 2021-11-26 10:00+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/paging/"
 "ru/>\n"
@@ -141,11 +141,11 @@ msgstr "По-умолчанию"
 
 #: functions.inc.php:1112
 msgid "Default Group Inclusion"
-msgstr "Включения в дефолтную группу"
+msgstr "Добавление в группу по умолчанию"
 
 #: functions.inc.php:1115 views/form.php:268
 msgid "Default Page Group"
-msgstr "Дефолтная пейджинг-группа"
+msgstr "Пейджинг-группа по умолчанию"
 
 #: Paging.class.php:97 Paging.class.php:258
 msgid "Delete"
