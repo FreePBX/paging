@@ -106,13 +106,15 @@ if ($vars['PAGEDEFLTANNOUCE'] == 1) {
 	$vars['STREAM'] ='';
 }
  if($vars['SCHEDULED'] == 1) {
-	if ($vars['ANNOUNCEMENT']!="") {
+	 //lets have lead to wait for 30 seconds for scheduled calls , because if the stream file length is less then it may fail send the member to Conf
+	 //30 seconds wait is OK as there is no chance to trigger the next page in same minute
+	 if ($vars['ANNOUNCEMENT']!="") {
 		$streamfiles = $vars['ANNOUNCEMENT'];
 	}
 	if ($streamfiles !="" && $vars['STREAM'] !="") {
-		$streamfiles .='&'. $vars['STREAM'];
+		$streamfiles .='&'. $vars['STREAM'].'&silence/3';
 	} else {
-		$streamfiles = $vars['STREAM'];
+		$streamfiles = $vars['STREAM'].'&silence/3';
 	}
 	if ($amp_conf['ASTCONFAPP'] == 'app_confbridge' && $ast_ge_10) {
 		$pass_vars['CONFBRIDGE(user,template)']	= 'page_user';
