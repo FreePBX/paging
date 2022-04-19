@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Paging\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-26 16:22+0530\n"
-"PO-Revision-Date: 2022-04-19 05:17+0000\n"
+"PO-Revision-Date: 2022-04-19 05:21+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/paging/"
 "ru/>\n"
@@ -102,6 +102,13 @@ msgid ""
 "optional feature codes        to block/allow intercom calls to all users as "
 "well as blocking specific users or only allowing specific users."
 msgstr ""
+"Позволяет создавать группы пейджинга для объявления с помощью динамика, "
+"встроенного в большинство SIP-телефонов. Также создает код функции "
+"интеркома, который можно использовать в качестве префикса для прямого "
+"разговора с одним человеком, а также дополнительные коды функций для "
+"блокировки/разрешения интерком-вызовов для всех пользователей, а также для "
+"блокировки для определенных пользователей или разрешения только определенным "
+"пользователям."
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
@@ -321,7 +328,7 @@ msgstr "Группы пейджинга"
 
 #: views/routing_hook.php:15
 msgid "Paging Notification"
-msgstr ""
+msgstr "Уведомление о пейджинге"
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
@@ -442,6 +449,10 @@ msgid ""
 "call that is served by this route. It is recommended not to use a Page Group "
 "that uses (Force) Valet Paging(Paging Pro only)"
 msgstr ""
+"Это приведет к тому, что выбранная группа пейджинга будет переведена на "
+"пейджинг и подключена к любому вызову, который обслуживается этим маршрутом. "
+"Рекомендуется не использовать группу пейджинга, которая использует "
+"(принудительный) пейджинг Valet (только Paging Pro)"
 
 #: Paging.class.php:185
 msgid "Unknown Request"
