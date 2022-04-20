@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Paging\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-26 16:22+0530\n"
-"PO-Revision-Date: 2022-04-19 05:21+0000\n"
+"PO-Revision-Date: 2022-04-21 09:01+0000\n"
 "Last-Translator: Dmitriy Q <krotesk@ya.ru>\n"
 "Language-Team: Russian <http://weblate.freepbx.org/projects/freepbx/paging/"
 "ru/>\n"
@@ -380,7 +380,7 @@ msgstr "Выбранно"
 
 #: views/overview.php:27
 msgid "Settings"
-msgstr "Общие настройки"
+msgstr "Настройки"
 
 #: views/form.php:210
 msgid "Skip"
@@ -392,7 +392,7 @@ msgstr "Переопределение громкости динамика"
 
 #: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
-msgstr "Сохранить"
+msgstr "Принять"
 
 #: assets/js/paging.js:16
 msgid "The end date must biger greater the start date."
