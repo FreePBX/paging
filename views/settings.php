@@ -48,8 +48,8 @@ $drop_silence = \FreePBX::Paging()->getDropSilence();
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="announce"><?php echo _("Auto-answer defaults") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="announce"></i>
@@ -74,8 +74,8 @@ $drop_silence = \FreePBX::Paging()->getDropSilence();
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="drop_silence"><?php echo _("Drop Silence") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="drop_silence"></i>
@@ -101,8 +101,8 @@ $drop_silence = \FreePBX::Paging()->getDropSilence();
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="row">
-				<div class="form-group">
+			<div class="">
+				<div class="row form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="quiet"><?php echo _("Quiet") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="quiet"></i>
