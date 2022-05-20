@@ -2,22 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>16.0.10</version>
+    <version>17.0.1</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
-		*16.0.10* FREEI-4793 
-		*16.0.9* FREEI-4283 Add Default in the title of the col. 
-		*16.0.8* Packaging of ver 16.0.8
-		*16.0.7* Packaging of ver 16.0.7
-		*16.0.6* FREEPBX-22463 pjsip member contact comparision 
-		*16.0.5* FREEPBX-22463 Page group calling phone making page 
-		*16.0.4* Packaging of ver 16.0.4
-		*16.0.3* FREEPBX-22033 Paging Groups - backups missing some data 
-		*16.0.2* Packaging of ver 16.0.2
-		*16.0.1alpha* 16.0.1 alpha release
+		*17.0.1alpha* 17.0.1 alpha release
 	</changelog>
     <depends>
        <version>16.0.10.23</version>
