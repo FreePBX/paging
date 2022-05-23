@@ -16,14 +16,14 @@ $request = $_REQUEST;
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="fpbx-container">
-						<ul class="nav nav-tabs pb-0" role="tablist">
-							<li role="presentation" data-name="groups" >
-								<a href="#groups" aria-controls="groups" class="nav-link active" role="tab" data-toggle="tab">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" data-name="groups" class="active">
+								<a href="#groups" aria-controls="groups" role="tab" data-toggle="tab">
 									<?php echo _("Paging Groups")?>
 								</a>
 							</li>
 							<li role="presentation" data-name="tab2" class="change-tab">
-								<a href="#settings" aria-controls="settings" class="nav-link" role="tab" data-toggle="tab">
+								<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">
 									<?php echo _("Settings")?>
 								</a>
 							</li>
