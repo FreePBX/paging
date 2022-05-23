@@ -57,6 +57,6 @@
         </paging>
     </popovers>
     <supported>
-        <version>16.0</version>
+        <version>17.0</version>
     </supported>
 </module>
