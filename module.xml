@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>16.0.10</version>
+    <version>16.0.11</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*16.0.11* Reverting Bootstrap and dependent libs fixes 
 		*16.0.10* FREEI-4793 
 		*16.0.9* FREEI-4283 Add Default in the title of the col. 
 		*16.0.8* Packaging of ver 16.0.8
