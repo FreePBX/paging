@@ -10,7 +10,7 @@
             <tr>
             <th data-field="page_group" data-sortable="true"><?php echo _("Page Group")?></th>
             <th data-field="description"><?php echo _("Description")?></th>
-            <th data-field="is_default" data-formatter="defaultCheck" data-checkbox="true" data-show-select-title="true" data-width="80"><?php echo _("Default")?></th>
+            <th data-field="is_default" data-checkbox="true" data-show-select-title="true" data-width="80"><?php echo _("Default")?></th>
             <th data-field="page_group" data-formatter="linkFormatter"><?php echo _("Actions")?></th>
         </tr>
     </thead>
