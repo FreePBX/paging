@@ -67,8 +67,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="pagenbr"><?php echo _("Paging Extension") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="pagenbr"></i>
@@ -91,8 +91,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="description"><?php echo _("Group Description") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="description"></i>
@@ -115,8 +115,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="dlwraper"><?php echo _("Device List") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="dlwraper"></i>
@@ -144,8 +144,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="announcement"><?php echo _("Alert Tone") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="announcement"></i>
@@ -170,8 +170,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="volume"><?php echo _("Speaker Volume Override") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="volume"></i>
@@ -199,8 +199,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="force_page"><?php echo _("Busy Extensions") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="force_page"></i>
@@ -232,8 +232,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="duplex"><?php echo _("Duplex") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="duplex"></i>
@@ -262,8 +262,8 @@ foreach ($rec_list as $key => $value) {
 <div class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="default_group"><?php echo _("Default Page Group") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="default_group"></i>
