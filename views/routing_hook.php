@@ -9,8 +9,8 @@ foreach ($paging_groups as $key => $value) {
 <div id="paging" class="element-container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="">
-				<div class="row form-group">
+			<div class="row">
+				<div class="form-group">
 					<div class="col-md-3">
 						<label class="control-label" for="paging_notification"><?php echo _("Paging Notification") ?></label>
 						<i class="fa fa-question-circle fpbx-help-icon" data-for="paging_notification"></i>
