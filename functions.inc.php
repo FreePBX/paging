@@ -82,12 +82,12 @@ function paging_get_config($engine) {
 		// no point in even setting the headers here they will get lost in channel local
 		//
 
-		/* Set these up once here and in intercom so that autoanswer sub does not have
+		/* Set these up once here and in intercom so that autoanswer macro does not have
 		 * to go through this for every single extension which causes a lot of extra overhead
 		 * with big page groups
 		 */
 
-		$has_answergosub = false;
+		$has_answermacro = false;
 
 		$alertinfo = 'Ring Answer';
 		$callinfo  = '<uri>\;answer-after=0';
@@ -121,17 +121,17 @@ function paging_get_config($engine) {
 			default:
 				$key = trim($autosetting['var']);
 				$custom_vars[$key] = trim($autosetting['setting']);
-				if (ltrim($custom_vars[$key],'_') == "ANSWERGOSUB") {
-					$has_answergosub = true;
+				if (ltrim($custom_vars[$key],'_') == "ANSWERMACRO") {
+					$has_answermacro = true;
 				}
 				break;
 			}
 		}
 
 		$context = 'originate-aa';
-		$ext->add($context, '_.X', '', new ext_gosub('1','s','sub-blkvm-set'));
+		$ext->add($context, '_.X', '', new ext_macro('blkvm-set'));
 		$ext->add($context, '_.X', '', new ext_gosub('1','ssetup','app-paging'));
-		$ext->add($context,'_.X', '', new ext_gosub('1','s','sub-autoanswer','${EXTEN}'));
+		$ext->add($context,'_.X', '', new ext_macro('autoanswer','${EXTEN}'));
 		$ext->add($context,'_.X', '', new ext_gosub('1','s','autoanswer','${ALERTINFO},${CALLINFO}'));
 		$ext->add($context,'_.X', '', new ext_goto('1', '${EXTEN}', 'from-internal'));
 
@@ -143,7 +143,7 @@ function paging_get_config($engine) {
 			$ext->add($context, 'lang-playback', '', new ext_gosubif('$[${DIALPLAN_EXISTS('.$context.',${CHANNEL(language)})}]', $context.',${CHANNEL(language)},${ARG1}', $context.',en,${ARG1}'));
 			$ext->add($context, 'lang-playback', '', new ext_return());
 
-			$ext->add($context, $code, '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($context, $code, '', new ext_macro('user-callerid'));
 			$ext->add($context, $code, '', new ext_setvar('dialnumber', '${EXTEN:'.strlen($intercom_code).'}'));
 			$ext->add($context, $code, '', new ext_setvar('INTERCOM_CALL', 'TRUE'));
 			$ext->add($context, $code, '', new ext_gosub('1','s','sub-record-check','exten,${dialnumber}'));
@@ -157,7 +157,7 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, '', new ext_dbget('OVERRIDE','AMPUSER/${dialnumber}/intercom/override'));
 			$ext->add($context, $code, '', new ext_setvar('LOOPCNT', '${FIELDQTY(DEVICES,&)}'));
 
-			/* Set these up so that sub-autoanswer doesn't have to
+			/* Set these up so that macro-autoanswer doesn't have to
 			 */
 			$ext->add($context, $code, '', new ext_setvar('_SIPURI', ''));
 			if (trim($alertinfo) != "") {
@@ -176,10 +176,10 @@ function paging_get_config($engine) {
 				$ext->add($context, $code, '', new ext_setvar('_'.ltrim($key,'_'), $value));
 			}
 			$ext->add($context, $code, '', new ext_setvar('_DTIME', $dtime));
-			$ext->add($context, $code, '', new ext_setvar('_ANSWERGOSUB', ''));
+			$ext->add($context, $code, '', new ext_setvar('_ANSWERMACRO', ''));
 
 			$ext->add($context, $code, '', new ext_gotoif('$[${LOOPCNT} > 1 ]', 'pagemode'));
-			$ext->add($context, $code, '', new ext_gosub('1','s','sub-autoanswer','${DEVICES}'));
+			$ext->add($context, $code, '', new ext_macro('autoanswer','${DEVICES}'));
 			$ext->add($context, $code, '', new ext_setvar('_DOPTIONS', $doptions));
 
 			$ext->add($context, $code, 'check', new ext_chanisavail('${DEVICE}', 's'));
@@ -214,7 +214,7 @@ function paging_get_config($engine) {
 
 			$ext->add($context, $code, 'end', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 			$ext->add($context, $code, '', new ext_busy());
-			$ext->add($context, $code, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $code, '', new ext_macro('hangupcall'));
 			$ext->add($context, $code, 'pagemode', new ext_setvar('ITER', '1'));
 			$ext->add($context, $code, '', new ext_setvar('DIALSTR', ''));
 			$ds = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '${DIALSTR}-${CUT(DEVICES,&,${ITER})}'
@@ -237,7 +237,7 @@ function paging_get_config($engine) {
 			$ext->add($context, $code, '', new ext_gosub('1', 'dialall', false, '${DIALSTR}'));
 			$ext->add($context, $code, 'end2', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
 			$ext->add($context, $code, '', new ext_busy());
-			$ext->add($context, $code, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $code, '', new ext_macro('hangupcall'));
 
 			$ext->add($context, $code, 'nointercom', new ext_noop('Intercom disallowed by ${dialnumber}'));
 			$ext->add($context, $code, '', new ext_execif('$[${INTERCOM_RETURN}]', 'Return'));
@@ -304,7 +304,7 @@ function paging_get_config($engine) {
 		unset($fcc);
 
 		if ($oncode) {
-			$ext->add($context, $oncode, '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name,i)',_("Intercom: Enabled")));
 			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
@@ -312,11 +312,11 @@ function paging_get_config($engine) {
 			$ext->add($context, $oncode, '', new ext_wait('1'));
 			$ext->add($context, $oncode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'enabled'));
 			$ext->add($context, $oncode, '', new ext_playback('intercom&enabled'));
-			$ext->add($context, $oncode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 
 			$target = '${EXTEN:'.strlen($oncode).'}';
 			$oncode = "_".$oncode.".";
-			$ext->add($context, $oncode, '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($context, $oncode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("Intercom from %s: Enabled"),$target)));
 			$ext->add($context, $oncode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
@@ -327,12 +327,12 @@ function paging_get_config($engine) {
 			$ext->add($context, $oncode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/'.$target.'/device)} != 1]','invaliduser'));
 			$ext->add($context, $oncode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'allow'));
 			$ext->add($context, $oncode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_1'));
-			$ext->add($context, $oncode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $oncode, 'unset', new ext_dbdeltree('AMPUSER/${AMPUSER}/intercom/'.$target));
 			$ext->add($context, $oncode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_2'));
-			$ext->add($context, $oncode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $oncode, 'invaliduser', new ext_gosub('1', 'lang-playback', $context, 'hook_3'));
-			$ext->add($context, $oncode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $oncode, '', new ext_macro('hangupcall'));
 
 			$lang = 'en'; // English
 			$ext->add($context, $lang, 'hook_1', new ext_playback('intercom&from&extension&number'));
@@ -366,7 +366,7 @@ function paging_get_config($engine) {
 		unset($fcc);
 
 		if ($offcode) {
-			$ext->add($context, $offcode, '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name,i)',_("Intercom: Disabled")));
 			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
@@ -374,11 +374,11 @@ function paging_get_config($engine) {
 			$ext->add($context, $offcode, '', new ext_wait('1'));
 			$ext->add($context, $offcode, '', new ext_setvar('DB(AMPUSER/${AMPUSER}/intercom)', 'disabled'));
 			$ext->add($context, $offcode, '', new ext_playback('intercom&disabled'));
-			$ext->add($context, $offcode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
 
 			$target = '${EXTEN:'.strlen($offcode).'}';
 			$offcode = "_".$offcode.".";
-			$ext->add($context, $offcode, '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($context, $offcode, '', new ext_macro('user-callerid'));
 			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name-charset,i)','utf8'));
 			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(name,i)',sprintf(_("Intercom from %s: Disabled"),$target)));
 			$ext->add($context, $offcode, '', new ext_set('CONNECTEDLINE(num,i)','${AMPUSER}'));
@@ -389,12 +389,12 @@ function paging_get_config($engine) {
 			$ext->add($context, $offcode, '', new ext_gotoif('$[${DB_EXISTS(AMPUSER/'.$target.'/device)} != 1]','invaliduser2'));
 			$ext->add($context, $offcode, '', new ext_dbput('AMPUSER/${AMPUSER}/intercom/'.$target, 'deny'));
 			$ext->add($context, $offcode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_4'));
-			$ext->add($context, $offcode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $offcode, 'unset2', new ext_dbdeltree('AMPUSER/${AMPUSER}/intercom/'.$target));
 			$ext->add($context, $offcode, '', new ext_gosub('1', 'lang-playback', $context, 'hook_5'));
-			$ext->add($context, $offcode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
 			$ext->add($context, $offcode, 'invaliduser2', new ext_gosub('1', 'lang-playback', $context, 'hook_6'));
-			$ext->add($context, $offcode, '', new ext_gosub('1','s','sub-hangupcall'));
+			$ext->add($context, $offcode, '', new ext_macro('hangupcall'));
 
 			$lang = 'en';
 			$ext->add($context, $lang, 'hook_4', new ext_playback('intercom&from&extension&number'));
@@ -423,11 +423,11 @@ function paging_get_config($engine) {
 			$ext->add($context, $lang, '', new ext_return());
 		}
 
-			/* Create sub-autoanswer that will try to intelligently set the
+			/* Create macro-autoanswer that will try to intelligently set the
 			required parameters to handle paging. Eventually it will use
 				known device information.
 
-				This sub does the following:
+				This macro does the following:
 
 				Input:  FreePBX Device number to be called requiring autoanswer
 				Output: ${DIAL} Channel Variable with the dial string to be called
@@ -435,106 +435,106 @@ function paging_get_config($engine) {
 								Other special requirements that may be custom for this device
 
 				1. Set ${DIAL} to the device's dial string
-				2. If there is a device specific sub defined in the DEVICE's object
-				   (DEVICE/<devicenum>/autoanswer/sub) then execute that sub and end
+				2. If there is a device specific macro defined in the DEVICE's object
+				   (DEVICE/<devicenum>/autoanswer/macro) then execute that macro and end
 				3. Try to identify endpoints by their useragents that may need known
 				   changes and make those changes. These are generated from the
-					 paging_autoanswer table so users can extend them, if any are presentautoanswer
-				5. Set the variables and end unless a useragent specific ANSWERGOSUB is
+					 paging_autoanswer table so users can extend them, if any are present
+				5. Set the variables and end unless a useragent specific ANSWERMACRO is
 				   defined in which case call it and end.
 
-				This sub is called for intercoming and paging to try and enable the
+				This macro is called for intercoming and paging to try and enable the
 				target device to auto-answer. Devices with special needs can be handled
-				with the device specific sub. For example, if you have a device that
+				with the device specific macro. For example, if you have a device that
 				can not auto-answer except by specifically configuring a line key on
-				the device that always answers, you could use a device specific sub
+				the device that always answers, you could use a device specific macro
 				to change the dialstring. If you had a set of such devices, you could
 				standardize on the device numbers (e.g. nnnn for normal calls and 2nnnn
-				for auto-answer calls). You could then create a general purpose sub
+				for auto-answer calls). You could then create a general purpose macro
 				to modify the dial string accordingly. Provisioning tools will be able
 				to take advantage of setting and creating such an ability.
 				If you have a set of devices that can be identified with a SIP useragent
-				then you can use a general sub without setting info in each device.
+				then you can use a general macro without setting info in each device.
 			 */
 
 		$autoanswer_arr = paging_get_autoanswer_useragents();
 
-		$context = 'sub-autoanswer';
+		$macro = 'macro-autoanswer';
 		// Do we already know what the correct string is? This may have been handed to us
 		// by page.agi.
-		$ext->add($context, "s", '', new ext_gotoif('$["${KNOWNDIAL}" != ""]', 'knowndial'));
+		$ext->add($macro, "s", '', new ext_gotoif('$["${KNOWNDIAL}" != ""]', 'knowndial'));
 
 		// Do we have a PJSIP Endpoint?
-		$ext->add($context, "s", '', new ext_setvar('DEVICE', '${DB(DEVICE/${ARG1}/dial)}'));
-		$ext->add($context, "s", '', new ext_gotoif('$["${DEVICE:0:5}" == "PJSIP" ]', 'dopjsip'));
+		$ext->add($macro, "s", '', new ext_setvar('DEVICE', '${DB(DEVICE/${ARG1}/dial)}'));
+		$ext->add($macro, "s", '', new ext_gotoif('$["${DEVICE:0:5}" == "PJSIP" ]', 'dopjsip'));
 
 		// We're not pjsip, so our dial is going to be our device
-		$ext->add($context, "s", '', new ext_setvar('KNOWNDIAL', '${DEVICE}'));
-		$ext->add($context, "s", '', new ext_goto('knowndial'));
+		$ext->add($macro, "s", '', new ext_setvar('KNOWNDIAL', '${DEVICE}'));
+		$ext->add($macro, "s", '', new ext_goto('knowndial'));
 
 		// Handle PJSIP stuff.
-		$ext->add($context, "s", 'dopjsip', new ext_setvar('KNOWNDIAL', '${PJSIP_DIAL_CONTACTS(${ARG1})}'));
+		$ext->add($macro, "s", 'dopjsip', new ext_setvar('KNOWNDIAL', '${PJSIP_DIAL_CONTACTS(${ARG1})}'));
 		// If there's an ampersand, there's more than one device registered to this endpoint, and we
 		// need to page, rather than intercom.
-		$ext->add($context, "s", '', new ext_gotoif('$[${REGEX("&" ${KNOWNDIAL})} == 0]', 'knowndial'));
+		$ext->add($macro, "s", '', new ext_gotoif('$[${REGEX("&" ${KNOWNDIAL})} == 0]', 'knowndial'));
 		// Bugger. However, we can hard-code some settings here that'll make our life a bit easier.
-		$ext->add($context, "s", '', new ext_gosub('1','ssetup', 'app-paging'));
-		$ext->add($context, "s", '', new ext_setvar('PAGEMODE', 'PAGE'));
-		$ext->add($context, "s", '', new ext_setvar('PAGE_CONF_OPTS', 'duplex'));
-		$ext->add($context, "s", '', new ext_setvar('STREAM', 'NONE'));
-		$ext->add($context, "s", '', new ext_setvar('PAGE_MEMBERS', '${ARG1}'));
+		$ext->add($macro, "s", '', new ext_gosub('1','ssetup', 'app-paging'));
+		$ext->add($macro, "s", '', new ext_setvar('PAGEMODE', 'PAGE'));
+		$ext->add($macro, "s", '', new ext_setvar('PAGE_CONF_OPTS', 'duplex'));
+		$ext->add($macro, "s", '', new ext_setvar('STREAM', 'NONE'));
+		$ext->add($macro, "s", '', new ext_setvar('PAGE_MEMBERS', '${ARG1}'));
 		// Start the AGI to get the clients into the conf
-		$ext->add($context, "s", '', new ext_agi('page.agi'));
+		$ext->add($macro, "s", '', new ext_agi('page.agi'));
 		// Now I need to join the conf as admin.
-		$ext->add($context, "s", '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
-		$ext->add($context, "s", '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
-		$ext->add($context, "s", '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
-		$ext->add($context, "s", '', new ext_meetme('${PAGE_CONF}',',','admin_menu')); // ext_confbridge, actually.
-		$ext->add($context, "s", '', new ext_hangup()); // Don't even try to continue after this.
+		$ext->add($macro, "s", '', new ext_set('CONFBRIDGE(user,template)', 'page_user_duplex'));
+		$ext->add($macro, "s", '', new ext_set('CONFBRIDGE(user,admin)', 'yes'));
+		$ext->add($macro, "s", '', new ext_set('CONFBRIDGE(user,marked)', 'yes'));
+		$ext->add($macro, "s", '', new ext_meetme('${PAGE_CONF}',',','admin_menu')); // ext_confbridge, actually.
+		$ext->add($macro, "s", '', new ext_hangup()); // Don't even try to continue after this.
 
 		// Right. Bypassing all that, it's a single device, and, we know what our dial string is.
-		$ext->add($context, "s", 'knowndial', new ext_setvar('DIAL', '${KNOWNDIAL}'));
+		$ext->add($macro, "s", 'knowndial', new ext_setvar('DIAL', '${KNOWNDIAL}'));
 
 		// If we are in DAHDI compat mode, then we need to substitute DAHDI for ZAP
 		if ($chan_dahdi) {
-			$ext->add($context, "s", '', new ext_execif('$["${DIAL:0:3}" = "ZAP"]', 'Set','DIAL=DAHDI${DIAL:3}'));
+			$ext->add($macro, "s", '', new ext_execif('$["${DIAL:0:3}" = "ZAP"]', 'Set','DIAL=DAHDI${DIAL:3}'));
 		}
-		$ext->add($context, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/sub)}" != "" ]', 'context'));
+		$ext->add($macro, "s", '', new ext_gotoif('$["${DB(DEVICE/${ARG1}/autoanswer/macro)}" != "" ]', 'macro'));
 
 		// If there are no phone specific auto-answer vars, then we don't care what the phone is below
 		//
 		if (!empty($autoanswer_arr)) {
 			global $version;
-			$ext->add($context, "s", '', new ext_gotoif('$["${DIAL:0:5}" = "PJSIP"]', 'pjsipua'));
+			$ext->add($macro, "s", '', new ext_gotoif('$["${DIAL:0:5}" = "PJSIP"]', 'pjsipua'));
 			//http://issues.freepbx.org/browse/FREEPBX-7715
 			if(version_compare($version,"12","<")) {
-				$ext->add($context, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
+				$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)}:useragent)}'));
 			} else {
-				$ext->add($context, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)},useragent)}'));
+				$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${SIPPEER(${CUT(DIAL,/,2)},useragent)}'));
 			}
-			$ext->add($context, "s", '', new ext_goto('uafin'));
-			$ext->add($context, "s", 'pjsipua', new ext_setvar('AOR','${CUT(DIAL,/,2)}'));
-			$ext->add($context, "s", '', new ext_setvar('CONTACT','${PJSIP_AOR(${AOR},contact)}'));
-			$ext->add($context, "s", '', new ext_setvar('USERAGENT', '${PJSIP_CONTACT(${CONTACT},user_agent)}'));
+			$ext->add($macro, "s", '', new ext_goto('uafin'));
+			$ext->add($macro, "s", 'pjsipua', new ext_setvar('AOR','${CUT(DIAL,/,2)}'));
+			$ext->add($macro, "s", '', new ext_setvar('CONTACT','${PJSIP_AOR(${AOR},contact)}'));
+			$ext->add($macro, "s", '', new ext_setvar('USERAGENT', '${PJSIP_CONTACT(${CONTACT},user_agent)}'));
 
-			$ext->add($context, "s", 'uafin', new ext_execif('$["${KNOWNAGENT}" != ""]', 'Set', 'USERAGENT=${KNOWNAGENT}'));
+			$ext->add($macro, "s", 'uafin', new ext_execif('$["${KNOWNAGENT}" != ""]', 'Set', 'USERAGENT=${KNOWNAGENT}'));
 		}
 		// We used to set all the variables here (ALERTINFO, CALLINFO, etc. That has been moved to each
-		// paging group and the intercom main sub, since it was redundant for every phone causing a lot
+		// paging group and the intercom main macro, since it was redundant for every phone causing a lot
 		// of overhead with large page groups.
 		//
 
 		// Defaults are setup, now make specific adjustments for detected phones
 		// These come from the SQL table as well where installations can make customizations
 		//
-		$ext->add($context, "s", '', new ext_execif('$["${LEN(${PVOL})}" != "0"]', 'Set','PAGE_VOL=\\;volume=${PVOL}'));
+		$ext->add($macro, "s", '', new ext_execif('$["${LEN(${PVOL})}" != "0"]', 'Set','PAGE_VOL=\\;volume=${PVOL}'));
 		foreach ($autoanswer_arr as $autosetting) {
 			$useragent   = trim($autosetting['useragent']);
 			$autovar     = trim($autosetting['var']);
 			$data        = trim($autosetting['setting']);
 			switch (ltrim($autovar,'_')) {
-			case 'ANSWERGOSUB':
-				$has_answergosub = true;
+			case 'ANSWERMACRO':
+				$has_answermacro = true;
 				// fall through - no break on purpose
 			case 'ALERTINFO':
 			case 'CALLINFO':
@@ -544,7 +544,7 @@ function paging_get_config($engine) {
 			case 'DTIME':
 			default:
 				if (trim($data) != "") {
-					$ext->add($context, "s", '', new ext_execif('$["${USERAGENT:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
+					$ext->add($macro, "s", '', new ext_execif('$["${USERAGENT:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
 				}
 				break;
 			}
@@ -552,13 +552,13 @@ function paging_get_config($engine) {
 
 		// Now any adjustments have been made, set the headers and done
 		//
-		if ($has_answergosub) {
-			$ext->add($context, "s", '', new ext_gotoif('$["${ANSWERGOSUB}" != ""]','sub2'));
+		if ($has_answermacro) {
+			$ext->add($macro, "s", '', new ext_gotoif('$["${ANSWERMACRO}" != ""]','macro2'));
 		}
-		$ext->add($context, "s", '', new ext_execif('$["${SIPURI}" != ""]', 'Set','__SIP_URI_OPTIONS=${SIPURI}'));
-		$ext->add($context, "s", 'sub', new ext_gosub('1','s','sub-${DB(DEVICE/${ARG1}/autoanswer/sub)}','${ARG1}'), 'n',2);
-		if ($has_answergosub) {
-			$ext->add($context, "s", 'sub2', new ext_gosub('1','s','sub-${ANSWERGOSUB}','${ARG1}'), 'n',2);
+		$ext->add($macro, "s", '', new ext_execif('$["${SIPURI}" != ""]', 'Set','__SIP_URI_OPTIONS=${SIPURI}'));
+		$ext->add($macro, "s", 'macro', new ext_macro('${DB(DEVICE/${ARG1}/autoanswer/macro)}','${ARG1}'), 'n',2);
+		if ($has_answermacro) {
+			$ext->add($macro, "s", 'macro2', new ext_macro('${ANSWERMACRO}','${ARG1}'), 'n',2);
 		}
 
 		//auto answer stuff
@@ -567,7 +567,7 @@ function paging_get_config($engine) {
 			foreach ($custom_vars as $key => $value) {
 				$ext->add($apppaging, '_AUTOASWER.', '', new ext_setvar('_'.ltrim($key,'_'), $value));
 			}
-			$ext->add($apppaging, '_AUTOASWER.', '', new ext_gosub('1','s','sub-autoanswer','${EXTEN:9}'));
+			$ext->add($apppaging, '_AUTOASWER.', '', new ext_macro('autoanswer','${EXTEN:9}'));
 			$ext->add($apppaging, '_AUTOASWER.', '', new ext_return());
 		}
 
@@ -596,7 +596,7 @@ function paging_get_config($engine) {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_VXML_URL', $vxml_url));
 		}
 		$ext->add($apppaging, 'ssetup', '', new ext_set('_DTIME', $dtime));
-		$ext->add($apppaging, 'ssetup', '', new ext_set('_ANSWERGOSUB', ''));
+		$ext->add($apppaging, 'ssetup', '', new ext_set('_ANSWERMACRO', ''));
 
 		$page_opts = $amp_conf['ASTCONFAPP'] == 'app_confbridge' ? '1qs' : '1dqsx';
 		$ext->add($apppaging, 'ssetup', '', new ext_set('PAGE_CONF', '${EPOCH}${RAND(100,999)}'));
@@ -604,11 +604,11 @@ function paging_get_config($engine) {
 
 		// Normal page version (now used for Force also)
 		// If we had any custom_vars then call the AUTOASWER subroutine first, otherwise go
-		// straight to sub-autoanswer
+		// straight to macro-autoanswer
 		if (!empty($custom_vars)) {
 			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_gosub('AUTOASWER${EXTEN:4},1'));
 		} else {
-			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_gosub('1','s','sub-autoanswer', '${EXTEN:4}'));
+			$ext->add($apppaging, "_PAGE.", 'SKIPCHECK', new ext_macro('autoanswer', '${EXTEN:4}'));
 		}
 
 		$ext->add($apppaging, "_PAGE.", '', new ext_noop('${EXTRINGTIME}'));
@@ -727,7 +727,7 @@ function paging_get_config($engine) {
 
 			//app-page dialplan
 
-			$ext->add($apppagegroups, $grp, '', new ext_gosub('1','s','sub-user-callerid'));
+			$ext->add($apppagegroups, $grp, '', new ext_macro('user-callerid'));
 			$ext->add($apppagegroups, $grp, '', new ext_set('_PAGEGROUP', $grp));
 			if(!empty($thisgroup['volume'])) {
 				$ext->add($apppagegroups, $grp, '', new ext_set('_PVOL', ($thisgroup['volume'] - 1))); //Sangoma Paging Volume adjustment
