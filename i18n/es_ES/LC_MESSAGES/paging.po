@@ -3,24 +3,24 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 05:16+0000\n"
-"PO-Revision-Date: 2016-12-09 22:52+0200\n"
-"Last-Translator: Ernesto <ecasas@sangoma.com>\n"
+"PO-Revision-Date: 2023-01-09 13:46+0000\n"
+"Last-Translator: Santiago Pioli <spioli@sangoma.com>\n"
 "Language-Team: Spanish <http://weblate.freepbx.org/projects/freepbx/paging/"
-"es_ES/>\n"
+"es/>\n"
 "Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/paging.js:39
 msgid " Please set the event days."
-msgstr ""
+msgstr " Por favor ingrese los días del evento."
 
 #: assets/js/paging.js:42
 msgid " Please set the event time."
-msgstr ""
+msgstr " Por favor ingrese la hora del evento."
 
 #: Paging.class.php:207
 msgid ""
@@ -88,7 +88,7 @@ msgstr "Agregar Grupo de Voceo"
 
 #: views/form.php:150
 msgid "Alert Tone"
-msgstr ""
+msgstr "Tono de Alerta"
 
 #: paging.i18n.php:8
 msgid ""
@@ -98,6 +98,13 @@ msgid ""
 "optional feature codes        to block/allow intercom calls to all users as "
 "well as blocking specific users or only allowing specific users."
 msgstr ""
+"Permite la creación de grupos de megafonía para realizar anuncios mediante "
+"el altavoz integrado en la mayoría de los teléfonos SIP. Además crea un "
+"código de característica de intercomunicador que puede ser usado como un "
+"prefijo para hablar directamente con una persona, así como también códigos "
+"de características opcionales para bloquear/permitir llamadas de "
+"intercomunicador a todos los usuarios y también para bloquear usuarios "
+"específicos o solo permitir usuarios específicos."
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
@@ -110,10 +117,15 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
+"Anuncio que se reproducirá en la ubicación remota. Si se configura por "
+"defecto, utilizará los ajustes globales de Grupos de Megafonía. Si Grupos de "
+"Megafonía no está definido entonces utilizará un beep por defecto. La "
+"duración de este archivo de anuncio no debe exceder el tiempo de timbre "
+"predeterminado (Ajustes Avanzados)"
 
 #: paging.i18n.php:6
 msgid "Applications"
-msgstr ""
+msgstr "Aplicaciones"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -164,11 +176,11 @@ msgstr ""
 
 #: functions.inc.php:1091
 msgid "Disable"
-msgstr ""
+msgstr "Deshabilitar"
 
 #: functions.inc.php:1088
 msgid "Disabled"
-msgstr ""
+msgstr "Deshabilitado"
 
 #: views/settings.php:80
 msgid "Drop Silence"
@@ -180,7 +192,7 @@ msgstr "Duplo"
 
 #: functions.inc.php:1087
 msgid "Enabled"
-msgstr ""
+msgstr "Habilitado"
 
 #: functions.inc.php:1083
 msgid "Exclude"
@@ -188,7 +200,7 @@ msgstr "Excluir"
 
 #: functions.inc.php:1117
 msgid "Extension Options"
-msgstr ""
+msgstr "Opciones de la Extensión"
 
 #: Paging.class.php:199 views/form.php:212
 msgid "Force"
@@ -215,11 +227,11 @@ msgstr "Incluir"
 
 #: functions.inc.php:1092
 msgid "Intercom"
-msgstr ""
+msgstr "Intercomunicador"
 
 #: functions.inc.php:1126
 msgid "Intercom Mode"
-msgstr ""
+msgstr "Modo Intercomunicador"
 
 #: Paging.class.php:203
 msgid "Intercom Override"
@@ -228,12 +240,12 @@ msgstr "Anular Intercom"
 #: functions.inc.php:383
 #, php-format
 msgid "Intercom from %s: Disabled"
-msgstr ""
+msgstr "Intercomunicador desde %s: Deshabilitado"
 
 #: functions.inc.php:321
 #, php-format
 msgid "Intercom from %s: Enabled"
-msgstr ""
+msgstr "Intercomunicador desde %s: Habilitado"
 
 #: install.php:5 paging.i18n.php:16
 msgid "Intercom prefix"
@@ -241,19 +253,19 @@ msgstr "Prefijo Megafonía"
 
 #: functions.inc.php:371
 msgid "Intercom: Disabled"
-msgstr ""
+msgstr "Intercomunicador: Deshabilitado"
 
 #: functions.inc.php:309
 msgid "Intercom: Enabled"
-msgstr ""
+msgstr "Intercomunicador: Habilitado"
 
 #: functions.inc.php:1122
 msgid "Internal Auto Answer"
-msgstr ""
+msgstr "Respuesta automática interna"
 
 #: views/bootnav.php:7
 msgid "List Page Groups"
-msgstr "Listar Grupos de Voceo"
+msgstr "Listar Grupos de Megafonía"
 
 #: views/form.php:245 views/form.php:275 views/settings.php:87
 #: views/settings.php:114
@@ -263,7 +275,7 @@ msgstr "No"
 #: functions.inc.php:1171 views/form.php:43 views/form.php:181
 #: views/settings.php:3
 msgid "None"
-msgstr "ninguno"
+msgstr "Ninguno"
 
 #: views/form.php:41
 msgid "Not Selected"
@@ -274,6 +286,8 @@ msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
 msgstr ""
+"Anular el volumen del altavoz para esta megafonía. Nota: Esto es solo válido "
+"para teléfonos Sangoma en este momento"
 
 #: functions.inc.php:832 functions.inc.php:1176 views/bootnav.php:13
 #: views/formwrap.php:9 views/grid.php:11
@@ -287,11 +301,11 @@ msgstr "Grupo Megafonía: "
 #: Paging.class.php:399
 #, php-format
 msgid "Page Group: %s (%s)"
-msgstr "Grupo de Voceo: %s (%s)"
+msgstr "Grupo de Megafonía: %s (%s)"
 
 #: assets/js/paging.js:107
 msgid "Page Groups"
-msgstr "Grupos de Voceo"
+msgstr "Grupos de Megafonía"
 
 #: views/form.php:73
 msgid "Paging Extension"
@@ -300,24 +314,24 @@ msgstr "Extensión Megafonía"
 #: functions.inc.php:849
 #, php-format
 msgid "Paging Group %s : %s"
-msgstr ""
+msgstr "Grupo de Megafonía %s : %s"
 
 #: views/overview.php:22
 msgid "Paging Groups"
-msgstr "Grupos de Voceo"
+msgstr "Grupos de Megafonía"
 
 #: views/routing_hook.php:15
 msgid "Paging Notification"
-msgstr ""
+msgstr "Notificaciones de Megafonía"
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
-msgstr "Megafonía"
+msgstr "Megafonía e Intercomunicación"
 
 #: views/settings.php:42
 msgid "Paging and Intercom settings"
-msgstr "Configuración de Intercom y Voceo"
+msgstr "Configuración de Intercom y Megafonía"
 
 #: views/form.php:253
 msgid ""
@@ -332,15 +346,15 @@ msgstr ""
 
 #: assets/js/paging.js:11
 msgid "Please enter a valid end Date."
-msgstr ""
+msgstr "Por favor ingrese una Fecha de fin válida."
 
 #: assets/js/paging.js:6
 msgid "Please enter a valid start Date."
-msgstr ""
+msgstr "Por favor ingrese una fecha de inicio válida."
 
 #: views/settings.php:107
 msgid "Quiet"
-msgstr ""
+msgstr "Silencioso"
 
 #: Paging.class.php:197
 msgid "Reject"
@@ -368,7 +382,7 @@ msgstr "Saltar"
 
 #: views/form.php:176
 msgid "Speaker Volume Override"
-msgstr ""
+msgstr "Anular Volumen del Altavoz"
 
 #: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
@@ -376,7 +390,7 @@ msgstr "Enviar"
 
 #: assets/js/paging.js:16
 msgid "The end date must biger greater the start date."
-msgstr ""
+msgstr "La fecha de fin debe ser mayor que la fecha de inicio."
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -421,7 +435,7 @@ msgstr ""
 
 #: views/settings.php:122
 msgid "This option removes the beep from caller."
-msgstr ""
+msgstr "Esta opción elimina el beep del llamador."
 
 #: views/routing_hook.php:29
 msgid ""
@@ -429,6 +443,10 @@ msgid ""
 "call that is served by this route. It is recommended not to use a Page Group "
 "that uses (Force) Valet Paging(Paging Pro only)"
 msgstr ""
+"Esto hará que el Grupo de Megafonía seleccionado sea llamado y conectado con "
+"cualquier llamada que es servida por esta ruta. Es recomendado no utilizar "
+"un Grupo de Megafonía que utiliza (Fuerza) Megafonía de Valet (solo Paging "
+"Pro)"
 
 #: Paging.class.php:185
 msgid "Unknown Request"
@@ -447,6 +465,9 @@ msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
+"Cuando está habilitado los usuarios pueden user *80<ext> para forzar "
+"intercomunicador. Cuando se encuentra deshabilitado, el usuario rechazará "
+"llamadas de intercomunicador"
 
 #: functions.inc.php:1122
 msgid ""
@@ -458,6 +479,15 @@ msgid ""
 "other circumstances such as blind transfers and when a Follow Me is "
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
+"Cuando se configura en Intercomunicador, llamadas a esta extensión/usuario "
+"desde otro usuario interno actuán como si fueran llamadas de "
+"intercomunicador de modo de que las mismas serán respondidas automáticamente "
+"si el punto final soporta esta característica y el sistema está configurado "
+"para operar en este modo. Todas los ajustes normales de listas blancas y "
+"listas negras serán respetados si se encuentran configurados. Llamadas "
+"externas seguirán sonando con normalidad, al igual que otras circunstancias, "
+"como transferencias ciegas y cuando Sigue Me está configurado y habilitado. "
+"Si está desactivado, el teléfono sonará como un teléfono normal."
 
 #: Paging.class.php:204
 msgid ""
