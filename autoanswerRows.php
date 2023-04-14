@@ -59,4 +59,15 @@ return [
     'var' => 'ALERTINFO',
     'setting' => 'ring-answer',
   ],
+  [
+    'useragent' => 'Sangoma Windows Softphone',
+    'var' => 'ALERTINFO',
+    'setting' => 'Direct-Intercom',
+  ],
+ [
+    'useragent' => 'Sangoma macOS Softphone',
+    'var' => 'ALERTINFO',
+    'setting' => 'Direct-Intercom',
+  ],
+
 ];
