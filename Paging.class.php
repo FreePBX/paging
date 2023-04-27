@@ -305,7 +305,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 				if($request['view'] != 'form'){
 					$buttons = array();
 				}
-				if($request['view'] == 'form' && $request['action'] == 'submit'){
+				if ($request['view'] == 'form' && isset($request['action']) && $request['action'] == 'submit') {
 					$buttons = array();
 				 }
 				return $buttons;
@@ -485,7 +485,7 @@ class Paging extends FreePBX_Helpers implements BMO {
 		return $results;
 	}
 
-	public function addGroup($xtn, $plist, $force_page, $duplex, $description = '', $default_group, $announcement = 0, $volume = 0){
+	public function addGroup($xtn, $plist, $force_page, $duplex, $description = '', $default_group = '', $announcement = 0, $volume = 0){
 		// $plist contains a string of extensions, with \n as a seperator.
 		// Split that up first.
 		if (is_array($plist)) {

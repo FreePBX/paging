@@ -4,7 +4,7 @@
 if (!defined('FREEPBX_IS_AUTH')) { die('No direct script access allowed'); }
 $request = $_REQUEST;
 $request['view'] = isset($request['view'])?$request['view']:'';
-switch ($_GET['view']) {
+switch ($_GET['view'] ?? "") {
 	case 'form':
 		if (isset($request['extdisplay'])) {
 			$usage_list = FreePBX::View()->destinationUsage(paging_getdest($request['extdisplay']));
