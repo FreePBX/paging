@@ -3,7 +3,7 @@ global $astman;
 $rec_list['none'] = _('None');
 $rec_list['beep'] = _('Default');
 $P_quiet = $astman->database_show("paging/quiet");
-$quiet = ($P_quiet["/paging/quiet"] == "1")? "1" : "";
+$quiet = (isset($P_quiet["/paging/quiet"]) && $P_quiet["/paging/quiet"] == "1") ? "1" : "";
 if (!function_exists('recordings_list')) {
 	$announce = 'default';
 } else {

@@ -976,7 +976,7 @@ function paging_del($xtn) {
 	needreload();
 }
 
-function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group, $announcement=0, $volume=0) {
+function paging_add($xtn, $plist, $force_page, $duplex, $description='', $default_group='', $announcement=0, $volume=0) {
 	\FreePBX::Modules()->deprecatedFunction();
 	return \FreePBX::Paging()->addGroup($xtn, $plist, $force_page, $duplex, $description, $default_group, $announcement, $volume);
 }
