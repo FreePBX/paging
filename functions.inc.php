@@ -537,6 +537,9 @@ function paging_get_config($engine) {
 				$has_answermacro = true;
 				// fall through - no break on purpose
 			case 'ALERTINFO':
+				if($useragent == 'Digium' || $useragent == 'Sangoma P') {
+					$data = \FreePBX::Config()->get("PAGING_D_P_AlertInfo");
+				}
 			case 'CALLINFO':
 			case 'SIPURI':
 			case 'VXML_URL':
