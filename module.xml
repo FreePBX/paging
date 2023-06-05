@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>16.0.12</version>
+    <version>16.0.13</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*16.0.13* FREEI-123 Change alert info when paging D/P phones 
 		*16.0.12* Packaging of ver 16.0.12
 		*16.0.11* Reverting Bootstrap and dependent libs fixes 
 		*16.0.10* FREEI-4793 
