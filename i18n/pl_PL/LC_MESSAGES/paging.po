@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 07:32+0000\n"
+"POT-Creation-Date: 2023-06-05 03:10+0000\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -30,7 +30,7 @@ msgstr ""
 msgid " Please set the event time."
 msgstr ""
 
-#: Paging.class.php:237
+#: Paging.class.php:254
 msgid ""
 "<strong>Force</strong><br> Send the headers telling the phone to go into "
 "auto answer mode. This may not work, and is dependant on the phone."
@@ -39,11 +39,11 @@ msgstr ""
 "w tryb automatycznej odpowiedzi. Funkcja ta jest zależna od aparatu i w "
 "niektórych telefonach może nie działać."
 
-#: Paging.class.php:235
+#: Paging.class.php:252
 msgid "<strong>Reject</strong><br> Return a BUSY signal to the caller"
 msgstr "<strong>Odrzuć</strong><br> Zwróć sygnał ZAJĘTY do dzwoniącego"
 
-#: Paging.class.php:236
+#: Paging.class.php:253
 msgid ""
 "<strong>Ring</strong><br> Treat the page as a normal call, and ring the "
 "extension (if Call Waiting is disabled, this will return BUSY"
@@ -92,6 +92,10 @@ msgstr "Działania"
 msgid "Add Page Group"
 msgstr "Dodaj grupę stron"
 
+#: Paging.class.php:61
+msgid "Alert Info for D/P Phones"
+msgstr ""
+
 #: views/form.php:150
 msgid "Alert Tone"
 msgstr ""
@@ -138,15 +142,15 @@ msgstr ""
 msgid "Default"
 msgstr "Domyślne"
 
-#: functions.inc.php:1065
+#: functions.inc.php:1068
 msgid "Default Group Inclusion"
 msgstr "Domyślna integracja grupy"
 
-#: functions.inc.php:1068 views/form.php:268
+#: functions.inc.php:1071 views/form.php:268
 msgid "Default Page Group"
 msgstr "Domyślna grupa stron"
 
-#: Paging.class.php:127 Paging.class.php:288
+#: Paging.class.php:144 Paging.class.php:305
 msgid "Delete"
 msgstr "Kasuj"
 
@@ -165,11 +169,11 @@ msgid ""
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
 
-#: functions.inc.php:1044
+#: functions.inc.php:1047
 msgid "Disable"
 msgstr "Wyłączyć"
 
-#: functions.inc.php:1041
+#: functions.inc.php:1044
 msgid "Disabled"
 msgstr "Wyłączony"
 
@@ -181,19 +185,19 @@ msgstr ""
 msgid "Duplex"
 msgstr "Dupleks"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1043
 msgid "Enabled"
 msgstr "Włączone"
 
-#: functions.inc.php:1036
+#: functions.inc.php:1039
 msgid "Exclude"
 msgstr "Wykluczać"
 
-#: functions.inc.php:1070
+#: functions.inc.php:1073
 msgid "Extension Options"
 msgstr "Opcje rozszerzenia"
 
-#: Paging.class.php:229 views/form.php:212
+#: Paging.class.php:246 views/form.php:212
 msgid "Force"
 msgstr "Siła"
 
@@ -208,19 +212,19 @@ msgid ""
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
 
-#: functions.inc.php:1037
+#: functions.inc.php:1040
 msgid "Include"
 msgstr "Zawierać"
 
-#: functions.inc.php:1045
+#: functions.inc.php:1048
 msgid "Intercom"
 msgstr "Interkom"
 
-#: functions.inc.php:1079
+#: functions.inc.php:1082
 msgid "Intercom Mode"
 msgstr "Tryb interkomowy"
 
-#: Paging.class.php:233
+#: Paging.class.php:250
 msgid "Intercom Override"
 msgstr "Zastąpienie interkomu"
 
@@ -246,7 +250,7 @@ msgstr "Interkom: wyłączony"
 msgid "Intercom: Enabled"
 msgstr "Interkom: włączony"
 
-#: functions.inc.php:1075
+#: functions.inc.php:1078
 msgid "Internal Auto Answer"
 msgstr "Wewnętrzna odpowiedź automatyczna"
 
@@ -259,7 +263,7 @@ msgstr "Lista grup strony"
 msgid "No"
 msgstr "Nie"
 
-#: functions.inc.php:1123 views/form.php:43 views/form.php:181
+#: functions.inc.php:1126 views/form.php:43 views/form.php:181
 #: views/settings.php:3
 msgid "None"
 msgstr "Żadne"
@@ -276,16 +280,16 @@ msgstr ""
 "Zastąp głośność głośników dla tej strony. Uwaga: dotyczy to obecnie tylko "
 "telefonów marki Sangoma"
 
-#: functions.inc.php:827 functions.inc.php:1128 views/bootnav.php:13
+#: functions.inc.php:830 functions.inc.php:1131 views/bootnav.php:13
 #: views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Grupa stron"
 
-#: functions.inc.php:916
+#: functions.inc.php:919
 msgid "Page Group: "
 msgstr "Grupa stron: "
 
-#: Paging.class.php:432
+#: Paging.class.php:449
 #, php-format
 msgid "Page Group: %s (%s)"
 msgstr "Grupa stron: %s (%s)"
@@ -294,11 +298,15 @@ msgstr "Grupa stron: %s (%s)"
 msgid "Page Groups"
 msgstr "Grupy stron"
 
+#: Paging.class.php:58
+msgid "Paging"
+msgstr ""
+
 #: views/form.php:73
 msgid "Paging Extension"
 msgstr "Rozszerzenie stronicowania"
 
-#: functions.inc.php:844
+#: functions.inc.php:847
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupa stronicowania %s: %s"
@@ -311,7 +319,7 @@ msgstr "Grupy stronicowania"
 msgid "Paging Notification"
 msgstr ""
 
-#: Paging.class.php:232 paging.i18n.php:4 paging.i18n.php:10
+#: Paging.class.php:249 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Stronicowanie i interkom"
@@ -339,21 +347,27 @@ msgstr ""
 msgid "Quiet"
 msgstr ""
 
-#: Paging.class.php:227
+#: Paging.class.php:244
 msgid "Reject"
 msgstr "Odrzucać"
 
-#: Paging.class.php:293
+#: Paging.class.php:310
 msgid "Reset"
 msgstr "Ponowne ustawienia"
 
-#: Paging.class.php:228
+#: Paging.class.php:245
 msgid "Ring"
 msgstr "Dzwonek"
 
 #: views/form.php:40
 msgid "Selected"
 msgstr "Wybrany"
+
+#: Paging.class.php:62
+msgid ""
+"Set whether to use intercom or ring-answer for all paging/intercom calls to "
+"D/P phones"
+msgstr ""
 
 #: views/overview.php:27
 msgid "Settings"
@@ -367,7 +381,7 @@ msgstr "Pomiń"
 msgid "Speaker Volume Override"
 msgstr ""
 
-#: Paging.class.php:298 views/settings.php:128
+#: Paging.class.php:315 views/settings.php:128
 msgid "Submit"
 msgstr "Zatwierdź"
 
@@ -405,7 +419,7 @@ msgstr ""
 msgid "This option removes the beep from caller."
 msgstr ""
 
-#: Paging.class.php:215
+#: Paging.class.php:232
 msgid "Unknown Request"
 msgstr ""
 
@@ -417,13 +431,13 @@ msgstr ""
 msgid "User Intercom Disallow"
 msgstr ""
 
-#: functions.inc.php:1079
+#: functions.inc.php:1082
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1075
+#: functions.inc.php:1078
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -434,7 +448,7 @@ msgid ""
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
 
-#: Paging.class.php:234
+#: Paging.class.php:251
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
@@ -456,7 +470,7 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: functions.inc.php:1068
+#: functions.inc.php:1071
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

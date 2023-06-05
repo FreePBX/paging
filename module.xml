@@ -2,12 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>15.0.4.34</version>
+    <version>15.0.4.35</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
+		*15.0.4.35* FREEI-123 Change alert info when paging D/P phones 
 		*15.0.4.34* Packaging of ver 15.0.4.34
 		*15.0.4.33* FREEI-4283 Add Default in the title of the col. 
 		*15.0.4.32* FREEI-3021 
