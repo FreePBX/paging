@@ -1,7 +1,7 @@
 <?php
 $pageopts = '';
 foreach ($paging_groups as $key => $value) {
-	$selected = ($key == $paging_group)?'SELECTED':'';
+	$selected = (isset($paging_group) && $key == $paging_group)?'SELECTED':'';
 	$pageopts .= '<option value = '.$key.' '.$selected.'>'.$value.'</option>';
 }
 ?>
