@@ -1052,7 +1052,7 @@ function paging_applyhooks() {
 
 // This is called before the page is actually displayed, so we can use addguielem().
 function paging_configpageload() {
-	global $currentcomponent,$astman;
+	global $currentcomponent,$astman,$amp_conf;
 
 	// Init vars from $_REQUEST[]
 	$action = isset($_REQUEST['action']) ? $_REQUEST['action']:null;
