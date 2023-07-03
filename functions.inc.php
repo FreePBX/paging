@@ -99,28 +99,28 @@ function paging_get_config($engine) {
 		$autoanswer_arr = paging_get_autoanswer_defaults();
 
 		foreach ($autoanswer_arr as $autosetting) {
-			switch (trim($autosetting['var'])) {
+			switch (_trim($autosetting['var'])) {
 			case 'ALERTINFO':
-				$alertinfo = trim($autosetting['setting']);
+				$alertinfo = _trim($autosetting['setting']);
 				break;
 			case 'CALLINFO':
-				$callinfo = trim($autosetting['setting']);
+				$callinfo = _trim($autosetting['setting']);
 				break;
 			case 'SIPURI':
-				$sipuri = trim($autosetting['setting']);
+				$sipuri = _trim($autosetting['setting']);
 				break;
 			case 'VXML_URL':
-				$vxml_url = trim($autosetting['setting']);
+				$vxml_url = _trim($autosetting['setting']);
 				break;
 			case 'DOPTIONS':
-				$doptions = trim($autosetting['setting']);
+				$doptions = _trim($autosetting['setting']);
 				break;
 			case 'DTIME':
-				$dtime = trim($autosetting['setting']);
+				$dtime = _trim($autosetting['setting']);
 				break;
 			default:
-				$key = trim($autosetting['var']);
-				$custom_vars[$key] = trim($autosetting['setting']);
+				$key = _trim($autosetting['var']);
+				$custom_vars[$key] = _trim($autosetting['setting']);
 				if (ltrim($custom_vars[$key],'_') == "ANSWERMACRO") {
 					$has_answermacro = true;
 				}
@@ -160,16 +160,16 @@ function paging_get_config($engine) {
 			/* Set these up so that macro-autoanswer doesn't have to
 			 */
 			$ext->add($context, $code, '', new ext_setvar('_SIPURI', ''));
-			if (trim($alertinfo) != "") {
+			if (_trim($alertinfo) != "") {
 				$ext->add($context, $code, '', new ext_setvar('_ALERTINFO', $alertinfo));
 			}
-			if (trim($callinfo) != "") {
+			if (_trim($callinfo) != "") {
 				$ext->add($context, $code, '', new ext_setvar('_CALLINFO', $callinfo));
 			}
-			if (trim($sipuri) != "") {
+			if (_trim($sipuri) != "") {
 				$ext->add($context, $code, '', new ext_setvar('_SIPURI', $sipuri));
 			}
-			if (trim($vxml_url) != "") {
+			if (_trim($vxml_url) != "") {
 				$ext->add($context, $code, '', new ext_setvar('_VXML_URL', $vxml_url));
 			}
 			foreach ($custom_vars as $key => $value) {
@@ -529,9 +529,9 @@ function paging_get_config($engine) {
 		//
 		$ext->add($macro, "s", '', new ext_execif('$["${LEN(${PVOL})}" != "0"]', 'Set','PAGE_VOL=\\;volume=${PVOL}'));
 		foreach ($autoanswer_arr as $autosetting) {
-			$useragent   = trim($autosetting['useragent']);
-			$autovar     = trim($autosetting['var']);
-			$data        = trim($autosetting['setting']);
+			$useragent   = _trim($autosetting['useragent']);
+			$autovar     = _trim($autosetting['var']);
+			$data        = _trim($autosetting['setting']);
 			switch (ltrim($autovar,'_')) {
 			case 'ANSWERMACRO':
 				$has_answermacro = true;
@@ -543,7 +543,7 @@ function paging_get_config($engine) {
 			case 'DOPTIONS':
 			case 'DTIME':
 			default:
-				if (trim($data) != "") {
+				if (_trim($data) != "") {
 					$ext->add($macro, "s", '', new ext_execif('$["${USERAGENT:0:'.strlen($useragent).'}" = "'.$useragent.'"]', 'Set',$autovar.'='.$data));
 				}
 				break;
@@ -583,17 +583,17 @@ function paging_get_config($engine) {
 		// Setup Variables before AGI script
 		//
 		$ext->add($apppaging, 'ssetup', '', new ext_set('_SIPURI', ''));
-		if (isset($alertinfo) && trim($alertinfo) != "") {
+		if (isset($alertinfo) && _trim($alertinfo) != "") {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_ALERTINFO', $alertinfo));
 		}
 
-		if (isset($callinfo) && trim($callinfo) != "") {
+		if (isset($callinfo) && _trim($callinfo) != "") {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_CALLINFO', $callinfo));
 		}
-		if (isset($sipuri) && trim($sipuri) != "") {
+		if (isset($sipuri) && _trim($sipuri) != "") {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_SIPURI', $sipuri));
 		}
-		if (isset($vxml_url) && trim($vxml_url) != "") {
+		if (isset($vxml_url) && _trim($vxml_url) != "") {
 			$ext->add($apppaging, 'ssetup', '', new ext_set('_VXML_URL', $vxml_url));
 		}
 		$ext->add($apppaging, 'ssetup', '', new ext_set('_DTIME', $dtime));
@@ -703,7 +703,7 @@ function paging_get_config($engine) {
 			$ext->addInclude('from-internal-noxfer-additional',$extpaging);
 		}
 		foreach ($paging_groups as $thisgroup) {
-			$grp=trim($thisgroup['page_group']);
+			$grp=_trim($thisgroup['page_group']);
 			switch ($thisgroup['force_page']) {
 			case 1:
 				$pagemode = 'FPAGE';
@@ -835,7 +835,7 @@ function paging_destinations() {
 }
 
 function paging_getdestinfo($dest) {
-	if (substr(trim($dest),0,15) == 'app-pagegroups,') {
+	if (substr(_trim($dest),0,15) == 'app-pagegroups,') {
 		$exten = explode(',',$dest);
 		$exten = $exten[1];
 		$thisexten = paging_get_pagingconfig($exten);
@@ -1072,11 +1072,11 @@ function paging_configpageload() {
 		$category = "advanced";
 
 		$answermode = $astman->database_get("AMPUSER",$extdisplay."/answermode");
-		$answermode = (trim($answermode) == '') ? $amp_conf['DEFAULT_INTERNAL_AUTO_ANSWER'] : $answermode;
+		$answermode = (_trim($answermode) == '') ? $amp_conf['DEFAULT_INTERNAL_AUTO_ANSWER'] : $answermode;
 		$currentcomponent->addguielem($section, new gui_radio('answermode', $currentcomponent->getoptlist('answermode'), $answermode, _("Internal Auto Answer"), _("When set to Intercom, calls to this extension/user from other internal users act as if they were intercom calls meaning they will be auto-answered if the endpoint supports this feature and the system is configured to operate in this mode. All the normal white list and black list settings will be honored if they are set. External calls will still ring as normal, as will certain other circumstances such as blind transfers and when a Follow Me is configured and enabled. If Disabled, the phone rings as a normal phone."), false, '','',false), $category);
 
 		$intercom = $astman->database_get("AMPUSER",$extdisplay."/intercom");
-		$intercom = (trim($intercom) == '') ? 'enabled' : $intercom;
+		$intercom = (_trim($intercom) == '') ? 'enabled' : $intercom;
 		$currentcomponent->addguielem($section, new gui_radio('intercom', $currentcomponent->getoptlist('intercom'), $intercom, _("Intercom Mode"), _("When Enabled users can use *80<ext> to force intercom. When Disabled this user will reject intercom calls"), false, '','',false), $category);
 	}
 }
