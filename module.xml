@@ -2,13 +2,13 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>17.0.1alpha</version>
+    <version>17.0.1</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
-		*17.0.1alpha* 17.0.1 alpha release
+		*17.0.1* 17.0.1 alpha release
 	</changelog>
     <depends>
        <version>16.0.10.23</version>
