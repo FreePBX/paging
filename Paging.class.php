@@ -47,6 +47,23 @@ class Paging extends FreePBX_Helpers implements BMO {
 			$fcc->update();
 			unset($fcc);
 		}
+
+		$set['value'] = 'ring-answer';
+		$set['defaultval'] =& $set['value'];
+		$set['options'] = array('intercom','ring-answer');
+		$set['readonly'] = 0;
+		$set['hidden'] = 0;
+		$set['level'] = 1;
+		$set['module'] = 'paging';
+		$set['category'] = _("Paging");
+		$set['emptyok'] = 0;
+		$set['sortorder'] = 70;
+		$set['name'] = _("Alert Info for D/P Phones");
+		$set['description'] = _("Set whether to use intercom or ring-answer for all paging/intercom calls to D/P phones");
+		$set['type'] = CONF_TYPE_SELECT;
+		$this->FreePBX->Config->define_conf_setting('PAGING_D_P_AlertInfo',$set);
+
+		$this->FreePBX->Config->commit_conf_settings();
 	}
 	public function uninstall() {
 
