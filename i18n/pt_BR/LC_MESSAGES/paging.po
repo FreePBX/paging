@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 03:11+0000\n"
+"POT-Creation-Date: 2023-07-31 05:57+0000\n"
 "PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -141,11 +141,11 @@ msgstr "Ramais Ocupados"
 msgid "Default"
 msgstr "Padrão"
 
-#: functions.inc.php:1068
+#: functions.inc.php:1069
 msgid "Default Group Inclusion"
 msgstr "Inclusão de Grupo Padrão"
 
-#: functions.inc.php:1071 views/form.php:268
+#: functions.inc.php:1072 views/form.php:268
 msgid "Default Page Group"
 msgstr "Grupo de Interfonia Padrão"
 
@@ -172,11 +172,11 @@ msgstr ""
 "\"interfonáveis\" é restringida pela chave de configuração avançada "
 "PAGINGMAXPARTICIPANTS e está atualmente definida como "
 
-#: functions.inc.php:1047
+#: functions.inc.php:1048
 msgid "Disable"
 msgstr "Desabilitar"
 
-#: functions.inc.php:1044
+#: functions.inc.php:1045
 msgid "Disabled"
 msgstr "Desabilitado"
 
@@ -188,15 +188,15 @@ msgstr "Ficar em Silêncio"
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1043
+#: functions.inc.php:1044
 msgid "Enabled"
 msgstr "Habilitado"
 
-#: functions.inc.php:1039
+#: functions.inc.php:1040
 msgid "Exclude"
 msgstr "Excluir"
 
-#: functions.inc.php:1073
+#: functions.inc.php:1074
 msgid "Extension Options"
 msgstr "Opções de Ramal"
 
@@ -218,15 +218,15 @@ msgstr ""
 "seleção aparecerá no Módulo de Ramais que permitirá que você inclua ou "
 "exclua essa ramal no Grupo de Interfonia padrão ao editar o referido ramal"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1041
 msgid "Include"
 msgstr "Incluir"
 
-#: functions.inc.php:1048
+#: functions.inc.php:1049
 msgid "Intercom"
 msgstr "Interfonia"
 
-#: functions.inc.php:1082
+#: functions.inc.php:1083
 msgid "Intercom Mode"
 msgstr "Modo Interfonia"
 
@@ -256,7 +256,7 @@ msgstr "Interfonia: Desabilitado"
 msgid "Intercom: Enabled"
 msgstr "Interfonia: Habilitado"
 
-#: functions.inc.php:1078
+#: functions.inc.php:1079
 msgid "Internal Auto Answer"
 msgstr "Auto-Resposta Interna"
 
@@ -269,7 +269,7 @@ msgstr "Lista de Grupos de Interfonia"
 msgid "No"
 msgstr "Não"
 
-#: functions.inc.php:1126 views/form.php:43 views/form.php:181
+#: functions.inc.php:1127 views/form.php:43 views/form.php:181
 #: views/settings.php:3
 msgid "None"
 msgstr "Nenhum"
@@ -286,12 +286,12 @@ msgstr ""
 "Substitui o volume do alto-falante para este interfone. Observação: isso só "
 "é válido para telefones Sangoma neste momento"
 
-#: functions.inc.php:830 functions.inc.php:1131 views/bootnav.php:13
+#: functions.inc.php:831 functions.inc.php:1132 views/bootnav.php:13
 #: views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Grupo de Interfonia"
 
-#: functions.inc.php:919
+#: functions.inc.php:920
 msgid "Page Group: "
 msgstr "Grupo de Interfonia: "
 
@@ -312,7 +312,7 @@ msgstr ""
 msgid "Paging Extension"
 msgstr "Ramal de Interfonia"
 
-#: functions.inc.php:847
+#: functions.inc.php:848
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Grupo de Interfonia %s : %s"
@@ -456,7 +456,7 @@ msgstr "Permitir Usuário de Interfonia"
 msgid "User Intercom Disallow"
 msgstr "Não Permitir Usuário de Interfonia"
 
-#: functions.inc.php:1082
+#: functions.inc.php:1083
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
@@ -464,7 +464,7 @@ msgstr ""
 "Quando os usuários habilitados podem usar *80<ext> para forçar a interfonia. "
 "Quando Desativado, este utilizador irá rejeitar chamadas de interfonia"
 
-#: functions.inc.php:1078
+#: functions.inc.php:1079
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -507,7 +507,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Sim"
 
-#: functions.inc.php:1071
+#: functions.inc.php:1072
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."

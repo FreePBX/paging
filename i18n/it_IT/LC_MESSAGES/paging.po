@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 03:11+0000\n"
+"POT-Creation-Date: 2023-07-31 05:57+0000\n"
 "PO-Revision-Date: 2018-05-30 08:43+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/paging/it/>\n"
@@ -142,11 +142,11 @@ msgstr "Estensioni occupate"
 msgid "Default"
 msgstr "Predefinito"
 
-#: functions.inc.php:1068
+#: functions.inc.php:1069
 msgid "Default Group Inclusion"
 msgstr "Gruppo Page Predefinito"
 
-#: functions.inc.php:1071 views/form.php:268
+#: functions.inc.php:1072 views/form.php:268
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
@@ -173,11 +173,11 @@ msgstr ""
 "limitata dal tasto di impostazione avanzata PAGINGMAXPARTICIPANTS ed è "
 "attualmente impostato su "
 
-#: functions.inc.php:1047
+#: functions.inc.php:1048
 msgid "Disable"
 msgstr "disattivare"
 
-#: functions.inc.php:1044
+#: functions.inc.php:1045
 msgid "Disabled"
 msgstr "Disattivato"
 
@@ -189,15 +189,15 @@ msgstr "lascia cadere il silenzio"
 msgid "Duplex"
 msgstr "Duplex"
 
-#: functions.inc.php:1043
+#: functions.inc.php:1044
 msgid "Enabled"
 msgstr "Abilitato"
 
-#: functions.inc.php:1039
+#: functions.inc.php:1040
 msgid "Exclude"
 msgstr "Escludi"
 
-#: functions.inc.php:1073
+#: functions.inc.php:1074
 msgid "Extension Options"
 msgstr "Opzioni di estensione"
 
@@ -220,15 +220,15 @@ msgstr ""
 "controllo che consentirà di includere o escludere tale estensione nel gruppo "
 "di pagine predefinito durante la modifica di tale estensione"
 
-#: functions.inc.php:1040
+#: functions.inc.php:1041
 msgid "Include"
 msgstr "Includi"
 
-#: functions.inc.php:1048
+#: functions.inc.php:1049
 msgid "Intercom"
 msgstr "Citofono"
 
-#: functions.inc.php:1082
+#: functions.inc.php:1083
 msgid "Intercom Mode"
 msgstr "Modalità interfono"
 
@@ -258,7 +258,7 @@ msgstr "Intercom: Disabilitato"
 msgid "Intercom: Enabled"
 msgstr "Intercom: Abilitato"
 
-#: functions.inc.php:1078
+#: functions.inc.php:1079
 msgid "Internal Auto Answer"
 msgstr "Risposta automatica interna"
 
@@ -271,7 +271,7 @@ msgstr "Elenco gruppi di pagine"
 msgid "No"
 msgstr "No"
 
-#: functions.inc.php:1126 views/form.php:43 views/form.php:181
+#: functions.inc.php:1127 views/form.php:43 views/form.php:181
 #: views/settings.php:3
 msgid "None"
 msgstr "Nessuna"
@@ -288,12 +288,12 @@ msgstr ""
 "Sostituisci il volume dell'altoparlante per questa pagina. Nota: questo è "
 "valido solo per i telefoni Sangoma in questo momento"
 
-#: functions.inc.php:830 functions.inc.php:1131 views/bootnav.php:13
+#: functions.inc.php:831 functions.inc.php:1132 views/bootnav.php:13
 #: views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Gruppo Page"
 
-#: functions.inc.php:919
+#: functions.inc.php:920
 msgid "Page Group: "
 msgstr "Gruppo Page:"
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "Paging Extension"
 msgstr "Interno Paging"
 
-#: functions.inc.php:847
+#: functions.inc.php:848
 #, php-format
 msgid "Paging Group %s : %s"
 msgstr "Gruppo di impaginazione %s1:%s2"
@@ -461,7 +461,7 @@ msgstr "Permette Intercom"
 msgid "User Intercom Disallow"
 msgstr "Non permette Intercom"
 
-#: functions.inc.php:1082
+#: functions.inc.php:1083
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
@@ -469,7 +469,7 @@ msgstr ""
 "Se abilitato, gli utenti possono usare * 80 <ext> per forzare l'intercom. Se "
 "disabilitato, questo utente rifiuterà le chiamate intercom"
 
-#: functions.inc.php:1078
+#: functions.inc.php:1079
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -513,7 +513,7 @@ msgstr ""
 msgid "Yes"
 msgstr "Si"
 
-#: functions.inc.php:1071
+#: functions.inc.php:1072
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
