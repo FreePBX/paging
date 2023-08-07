@@ -132,10 +132,11 @@ foreach ($rec_list as $key => $value) {
 	</div>
 	<div class="row">
 		<div class="col-md-12">
+			<?php $pmaxparticipants = (isset($amp_conf) && isset($amp_conf['PAGINGMAXPARTICIPANTS'])) ? $amp_conf['PAGINGMAXPARTICIPANTS'] : ''; ?>
 			<span id="dlwraper-help" class="help-block fpbx-help-block"><?php echo _('Devices to page. Please note, paging calls the '
 			. 'actual device (and not the user). Amount of pagable devices is '
 			. 'restricted by the advanced setting key PAGINGMAXPARTICIPANTS '
-			. 'and is currently set to ') . $amp_conf['PAGINGMAXPARTICIPANTS']?></span>
+			. 'and is currently set to ') . $pmaxparticipants;?></span>
 		</div>
 	</div>
 </div>
