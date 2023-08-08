@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:59+0000\n"
+"POT-Creation-Date: 2023-08-08 06:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgid ""
 "extension (if Call Waiting is disabled, this will return BUSY"
 msgstr ""
 
-#: views/form.php:222
+#: views/form.php:223
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Alert Info for D/P Phones"
 msgstr ""
 
-#: views/form.php:150
+#: views/form.php:151
 msgid "Alert Tone"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 
-#: views/form.php:164
+#: views/form.php:165
 msgid ""
 "Announcement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -110,7 +110,7 @@ msgstr ""
 msgid "Beep"
 msgstr ""
 
-#: views/form.php:205
+#: views/form.php:206
 msgid "Busy Extensions"
 msgstr ""
 
@@ -125,7 +125,7 @@ msgid "Default Group Inclusion"
 msgstr ""
 
 #: functions.inc.php:1072
-#: views/form.php:268
+#: views/form.php:269
 msgid "Default Page Group"
 msgstr ""
 
@@ -144,7 +144,7 @@ msgstr ""
 msgid "Device List"
 msgstr ""
 
-#: views/form.php:135
+#: views/form.php:136
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -163,7 +163,7 @@ msgstr ""
 msgid "Drop Silence"
 msgstr ""
 
-#: views/form.php:238
+#: views/form.php:239
 msgid "Duplex"
 msgstr ""
 
@@ -180,7 +180,7 @@ msgid "Extension Options"
 msgstr ""
 
 #: Paging.class.php:246
-#: views/form.php:212
+#: views/form.php:213
 msgid "Force"
 msgstr ""
 
@@ -188,7 +188,7 @@ msgstr ""
 msgid "Group Description"
 msgstr ""
 
-#: views/form.php:283
+#: views/form.php:284
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -242,8 +242,8 @@ msgstr ""
 msgid "List Page Groups"
 msgstr ""
 
-#: views/form.php:245
-#: views/form.php:275
+#: views/form.php:246
+#: views/form.php:276
 #: views/settings.php:87
 #: views/settings.php:114
 msgid "No"
@@ -251,7 +251,7 @@ msgstr ""
 
 #: functions.inc.php:1127
 #: views/form.php:43
-#: views/form.php:181
+#: views/form.php:182
 #: views/settings.php:3
 msgid "None"
 msgstr ""
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Not Selected"
 msgstr ""
 
-#: views/form.php:193
+#: views/form.php:194
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -319,7 +319,7 @@ msgstr ""
 msgid "Paging and Intercom settings"
 msgstr ""
 
-#: views/form.php:253
+#: views/form.php:254
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -364,11 +364,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: views/form.php:210
+#: views/form.php:211
 msgid "Skip"
 msgstr ""
 
-#: views/form.php:176
+#: views/form.php:177
 msgid "Speaker Volume Override"
 msgstr ""
 
@@ -448,7 +448,7 @@ msgid ""
 "have three options."
 msgstr ""
 
-#: views/form.php:214
+#: views/form.php:215
 msgid "Whisper"
 msgstr ""
 
@@ -459,8 +459,8 @@ msgid ""
 "(Force) Valet Paging"
 msgstr ""
 
-#: views/form.php:243
-#: views/form.php:273
+#: views/form.php:244
+#: views/form.php:274
 #: views/settings.php:85
 #: views/settings.php:112
 msgid "Yes"

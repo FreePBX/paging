@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 2.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-31 05:57+0000\n"
+"POT-Creation-Date: 2023-08-08 06:10+0000\n"
 "PO-Revision-Date: 2018-05-30 08:43+0000\n"
 "Last-Translator: Stell0 <stefano.fancello@nethesis.it>\n"
 "Language-Team: Italian <http://*/projects/freepbx/paging/it/>\n"
@@ -51,7 +51,7 @@ msgstr ""
 "e squilla l'estensione (se Call Waiting è disabilitato, questo tornerà "
 "OCCUPATO"
 
-#: views/form.php:222
+#: views/form.php:223
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -95,7 +95,7 @@ msgstr "Aggiungi gruppo di pagine"
 msgid "Alert Info for D/P Phones"
 msgstr ""
 
-#: views/form.php:150
+#: views/form.php:151
 msgid "Alert Tone"
 msgstr ""
 
@@ -114,7 +114,7 @@ msgstr ""
 "Annuncio da svolgere a una festa remota. L'impostazione predefinita è un "
 "segnale acustico"
 
-#: views/form.php:164
+#: views/form.php:165
 msgid ""
 "Announcement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -134,7 +134,7 @@ msgstr "Risposta automatica alle impostazioni predefinite"
 msgid "Beep"
 msgstr "Bip"
 
-#: views/form.php:205
+#: views/form.php:206
 msgid "Busy Extensions"
 msgstr "Estensioni occupate"
 
@@ -146,7 +146,7 @@ msgstr "Predefinito"
 msgid "Default Group Inclusion"
 msgstr "Gruppo Page Predefinito"
 
-#: functions.inc.php:1072 views/form.php:268
+#: functions.inc.php:1072 views/form.php:269
 msgid "Default Page Group"
 msgstr "Gruppo Page Predefinito"
 
@@ -162,7 +162,7 @@ msgstr "Descrizione"
 msgid "Device List"
 msgstr "Lista dispositivo"
 
-#: views/form.php:135
+#: views/form.php:136
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -185,7 +185,7 @@ msgstr "Disattivato"
 msgid "Drop Silence"
 msgstr "lascia cadere il silenzio"
 
-#: views/form.php:238
+#: views/form.php:239
 msgid "Duplex"
 msgstr "Duplex"
 
@@ -201,7 +201,7 @@ msgstr "Escludi"
 msgid "Extension Options"
 msgstr "Opzioni di estensione"
 
-#: Paging.class.php:246 views/form.php:212
+#: Paging.class.php:246 views/form.php:213
 msgid "Force"
 msgstr "Forza"
 
@@ -209,7 +209,7 @@ msgstr "Forza"
 msgid "Group Description"
 msgstr "Descrizione Gruppo"
 
-#: views/form.php:283
+#: views/form.php:284
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -266,12 +266,12 @@ msgstr "Risposta automatica interna"
 msgid "List Page Groups"
 msgstr "Elenco gruppi di pagine"
 
-#: views/form.php:245 views/form.php:275 views/settings.php:87
+#: views/form.php:246 views/form.php:276 views/settings.php:87
 #: views/settings.php:114
 msgid "No"
 msgstr "No"
 
-#: functions.inc.php:1127 views/form.php:43 views/form.php:181
+#: functions.inc.php:1127 views/form.php:43 views/form.php:182
 #: views/settings.php:3
 msgid "None"
 msgstr "Nessuna"
@@ -280,7 +280,7 @@ msgstr "Nessuna"
 msgid "Not Selected"
 msgstr "Elenco gruppi di pagine"
 
-#: views/form.php:193
+#: views/form.php:194
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
@@ -336,7 +336,7 @@ msgstr "Paging e Intercom"
 msgid "Paging and Intercom settings"
 msgstr "Impostazioni di impaginazione e interfono"
 
-#: views/form.php:253
+#: views/form.php:254
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -385,11 +385,11 @@ msgstr ""
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: views/form.php:210
+#: views/form.php:211
 msgid "Skip"
 msgstr "Salta"
 
-#: views/form.php:176
+#: views/form.php:177
 msgid "Speaker Volume Override"
 msgstr "Override volume altoparlante"
 
@@ -497,7 +497,7 @@ msgstr ""
 "Quando si utilizza Intercom per accedere a un'estensione, se l'estensione è "
 "in uso, si hanno tre opzioni."
 
-#: views/form.php:214
+#: views/form.php:215
 msgid "Whisper"
 msgstr "Sussurro"
 
@@ -508,7 +508,7 @@ msgid ""
 "(Force) Valet Paging"
 msgstr ""
 
-#: views/form.php:243 views/form.php:273 views/settings.php:85
+#: views/form.php:244 views/form.php:274 views/settings.php:85
 #: views/settings.php:112
 msgid "Yes"
 msgstr "Si"
