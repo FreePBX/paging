@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:10+0000\n"
+"POT-Creation-Date: 2023-09-13 05:56+0000\n"
 "PO-Revision-Date: 2016-12-14 21:54+0200\n"
 "Last-Translator: Alexander <alexander.schley@paranagua.pr.gov.br>\n"
 "Language-Team: Portuguese (Brazil) <http://weblate.freepbx.org/projects/"
@@ -100,15 +100,6 @@ msgstr ""
 msgid "Alert Tone"
 msgstr ""
 
-#: paging.i18n.php:8
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
-msgstr ""
-
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr "Anúncio a ser reproduzido para a parte remota. O padrão é um bip"
@@ -120,10 +111,6 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
-
-#: paging.i18n.php:6
-msgid "Applications"
-msgstr "Aplicações"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -244,7 +231,7 @@ msgstr "Interfonia  de %s: Desabilitada"
 msgid "Intercom from %s: Enabled"
 msgstr "Interfonia de %s: Habilitada"
 
-#: Paging.class.php:31 paging.i18n.php:16
+#: Paging.class.php:31
 msgid "Intercom prefix"
 msgstr "Prefixo de Interfonia"
 
@@ -325,8 +312,7 @@ msgstr "Grupos de Interfonia"
 msgid "Paging Notification"
 msgstr ""
 
-#: Paging.class.php:249 paging.i18n.php:4 paging.i18n.php:10
-#: views/overview.php:7
+#: Paging.class.php:249 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Megafonia e Interfonia"
 
@@ -448,11 +434,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr "Solicitação Desconhecida"
 
-#: Paging.class.php:38 paging.i18n.php:14
+#: Paging.class.php:38
 msgid "User Intercom Allow"
 msgstr "Permitir Usuário de Interfonia"
 
-#: Paging.class.php:45 paging.i18n.php:12
+#: Paging.class.php:45
 msgid "User Intercom Disallow"
 msgstr "Não Permitir Usuário de Interfonia"
 
@@ -514,6 +500,9 @@ msgid ""
 msgstr ""
 "Você pode incluir ou excluir este ramal/dispositivo de fazer parte do grupo "
 "de interfonia padrão ao criar ou editar."
+
+#~ msgid "Applications"
+#~ msgstr "Aplicações"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "
