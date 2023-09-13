@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: FreePBX paging\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:10+0000\n"
+"POT-Creation-Date: 2023-09-13 05:56+0000\n"
 "PO-Revision-Date: 2011-03-20 00:00+0100\n"
 "Last-Translator: Mikael Carlsson <mickecamino@gmail.com>\n"
 "Language-Team: \n"
@@ -89,15 +89,6 @@ msgstr ""
 msgid "Alert Tone"
 msgstr ""
 
-#: paging.i18n.php:8
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
-msgstr ""
-
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
@@ -108,10 +99,6 @@ msgid ""
 "global setting from Page Groups. If Page Groups is not defined then it will "
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
-msgstr ""
-
-#: paging.i18n.php:6
-msgid "Applications"
 msgstr ""
 
 #: views/settings.php:54
@@ -226,7 +213,7 @@ msgstr ""
 msgid "Intercom from %s: Enabled"
 msgstr ""
 
-#: Paging.class.php:31 paging.i18n.php:16
+#: Paging.class.php:31
 msgid "Intercom prefix"
 msgstr "Prefix för snabbtelefon"
 
@@ -305,8 +292,7 @@ msgstr ""
 msgid "Paging Notification"
 msgstr ""
 
-#: Paging.class.php:249 paging.i18n.php:4 paging.i18n.php:10
-#: views/overview.php:7
+#: Paging.class.php:249 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Snabbtelefon"
 
@@ -421,11 +407,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
-#: Paging.class.php:38 paging.i18n.php:14
+#: Paging.class.php:38
 msgid "User Intercom Allow"
 msgstr "Tillåt snabbtelefon"
 
-#: Paging.class.php:45 paging.i18n.php:12
+#: Paging.class.php:45
 msgid "User Intercom Disallow"
 msgstr "Förhindra snabbtelefon"
 

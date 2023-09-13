@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-08 06:10+0000\n"
+"POT-Creation-Date: 2023-09-13 05:56+0000\n"
 "PO-Revision-Date: 2017-05-31 23:43+0200\n"
 "Last-Translator: Michal <mboltz@tlen.pl>\n"
 "Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
@@ -100,15 +100,6 @@ msgstr ""
 msgid "Alert Tone"
 msgstr ""
 
-#: paging.i18n.php:8
-msgid ""
-"Allows creation of paging groups to make announcements using the speaker "
-"built into most SIP phones. Also creates an        Intercom feature code "
-"that can be used as a prefix to talk directly to one person, as well as "
-"optional feature codes        to block/allow intercom calls to all users as "
-"well as blocking specific users or only allowing specific users."
-msgstr ""
-
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
@@ -121,10 +112,6 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
-
-#: paging.i18n.php:6
-msgid "Applications"
-msgstr "Aplikacje"
 
 #: views/settings.php:54
 msgid "Auto-answer defaults"
@@ -238,7 +225,7 @@ msgstr "Interkom z %s: wyłączony"
 msgid "Intercom from %s: Enabled"
 msgstr "Interkom z %s: włączony"
 
-#: Paging.class.php:31 paging.i18n.php:16
+#: Paging.class.php:31
 msgid "Intercom prefix"
 msgstr "Prefiks interkomowy"
 
@@ -319,8 +306,7 @@ msgstr "Grupy stronicowania"
 msgid "Paging Notification"
 msgstr ""
 
-#: Paging.class.php:249 paging.i18n.php:4 paging.i18n.php:10
-#: views/overview.php:7
+#: Paging.class.php:249 views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Stronicowanie i interkom"
 
@@ -423,11 +409,11 @@ msgstr ""
 msgid "Unknown Request"
 msgstr ""
 
-#: Paging.class.php:38 paging.i18n.php:14
+#: Paging.class.php:38
 msgid "User Intercom Allow"
 msgstr ""
 
-#: Paging.class.php:45 paging.i18n.php:12
+#: Paging.class.php:45
 msgid "User Intercom Disallow"
 msgstr ""
 
@@ -475,6 +461,9 @@ msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+
+#~ msgid "Applications"
+#~ msgstr "Aplikacje"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "
