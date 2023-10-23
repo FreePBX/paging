@@ -10,25 +10,25 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 05:16+0000\n"
-"PO-Revision-Date: 2017-05-31 23:43+0200\n"
-"Last-Translator: Michal <mboltz@tlen.pl>\n"
-"Language-Team: Polish (Polish) <http://weblate.freepbx.org/projects/freepbx/"
-"paging/pl_PL/>\n"
+"PO-Revision-Date: 2023-10-23 15:19+0000\n"
+"Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
+"Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/paging/pl/"
+">\n"
 "Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.4\n"
+"X-Generator: Weblate 3.0.1\n"
 
 #: assets/js/paging.js:39
 msgid " Please set the event days."
-msgstr ""
+msgstr "Ustaw dzień spotkania."
 
 #: assets/js/paging.js:42
 msgid " Please set the event time."
-msgstr ""
+msgstr "Ustaw czas spotkania."
 
 #: Paging.class.php:207
 msgid ""
@@ -94,7 +94,7 @@ msgstr "Dodaj grupę stron"
 
 #: views/form.php:150
 msgid "Alert Tone"
-msgstr ""
+msgstr "Dźwięk powiadomienia"
 
 #: paging.i18n.php:8
 msgid ""
@@ -104,6 +104,12 @@ msgid ""
 "optional feature codes        to block/allow intercom calls to all users as "
 "well as blocking specific users or only allowing specific users."
 msgstr ""
+"Umożliwia tworzenie grup przywoławczych w celu ogłaszania komunikatów za "
+"pomocą głośnika wbudowanego w większość telefonów SIP. Tworzy również kod "
+"funkcji interkomu, którego można użyć jako prefiksu do bezpośredniej rozmowy "
+"z jedną osobą, a także opcjonalne kody funkcji do blokowania/zezwalania na "
+"połączenia przez interkom wszystkim użytkownikom, a także blokowania "
+"określonych użytkowników lub zezwalania tylko określonym użytkownikom."
 
 #: views/settings.php:68
 msgid "Annoucement to be played to remote party. Default is a beep"
@@ -117,6 +123,11 @@ msgid ""
 "default to beep. This Announcement file duration should not exceed Default "
 "ringtime(Advanced Settings)"
 msgstr ""
+"Zapowiedź do odtworzenia na zdalnej osobie. Jeśli ustawione na Domyślne, "
+"użyje ustawień globalnych z Grup Pagingowych. Jeśli Grupy Pagingowe nie są "
+"zdefiniowane, domyślnie rozlegnie się sygnał dźwiękowy. Czas trwania pliku "
+"zapowiedzi nie powinien przekraczać domyślnego czasu dzwonienia (Ustawienia "
+"Zaawansowane)"
 
 #: paging.i18n.php:6
 msgid "Applications"
@@ -132,7 +143,7 @@ msgstr "Dźwięk"
 
 #: views/form.php:205
 msgid "Busy Extensions"
-msgstr ""
+msgstr "Zajęte numery wewnętrzne"
 
 #: views/form.php:44 views/grid.php:13 views/settings.php:4
 msgid "Default"
@@ -164,6 +175,10 @@ msgid ""
 "user). Amount of pagable devices is restricted by the advanced setting key "
 "PAGINGMAXPARTICIPANTS and is currently set to "
 msgstr ""
+"Urządzenia do powiadomienia przez funkcję pagingu. Pamiętaj, że "
+"powiadomienie przez funkcję paging wywołuje urządzenie (a nie użytkownika). "
+"Liczba urządzeń, które można wywoływać, jest ograniczona kluczem ustawień "
+"zaawansowanych PAGINGMAXPARTICIPANTS i obecnie jest ustawiona na "
 
 #: functions.inc.php:1091
 msgid "Disable"
@@ -175,7 +190,7 @@ msgstr "Wyłączony"
 
 #: views/settings.php:80
 msgid "Drop Silence"
-msgstr ""
+msgstr "Porzuć ciszę"
 
 #: views/form.php:238
 msgid "Duplex"
@@ -207,6 +222,10 @@ msgid ""
 "will appear in the Extensions Module that will allow you to include or "
 "exclude that Extension in the default Page Group when editing said extension"
 msgstr ""
+"Jeśli zdecydujesz się ustawić grupę pagingu jako „domyślną” grupę pagingu, w "
+"module numerów wewnętrznych pojawi się pole wyboru, które umożliwi włączenie "
+"lub wykluczenie danego numer wewnętrznego z domyślnej grupy pagingu podczas "
+"edycji tego numeru wewnętrznego"
 
 #: functions.inc.php:1084
 msgid "Include"
@@ -309,7 +328,7 @@ msgstr "Grupy stronicowania"
 
 #: views/routing_hook.php:15
 msgid "Paging Notification"
-msgstr ""
+msgstr "Powiadomienie o pagingu"
 
 #: Paging.class.php:202 paging.i18n.php:4 paging.i18n.php:10
 #: views/overview.php:7
@@ -326,18 +345,23 @@ msgid ""
 "the paging duplex, allowing all phones in the paging group to be able to "
 "talk and be heard by all. This makes it like an \"instant conference\""
 msgstr ""
+"Paging zwykle służy do przekazywania jednokierunkowych komunikatów "
+"głowowych. Zaznaczenie tej opcji spowoduje, że paging będzie miał "
+"uruchomiony dupleks, dzięki czemu wszystkie telefony w grupie pagingowej "
+"będą mogły rozmawiać i być słyszane przez wszystkich. To sprawia, że jest to "
+"„natychmiastowa konferencja”"
 
 #: assets/js/paging.js:11
 msgid "Please enter a valid end Date."
-msgstr ""
+msgstr "Wprowadź prawidłową datę zakończenia."
 
 #: assets/js/paging.js:6
 msgid "Please enter a valid start Date."
-msgstr ""
+msgstr "Proszę wprowadzić prawidłową datę rozpoczęcia."
 
 #: views/settings.php:107
 msgid "Quiet"
-msgstr ""
+msgstr "Wyciszenie"
 
 #: Paging.class.php:197
 msgid "Reject"
@@ -365,7 +389,7 @@ msgstr "Pomiń"
 
 #: views/form.php:176
 msgid "Speaker Volume Override"
-msgstr ""
+msgstr "Obejście głośności głośnika"
 
 #: Paging.class.php:268 views/settings.php:128
 msgid "Submit"
@@ -373,7 +397,7 @@ msgstr "Zatwierdź"
 
 #: assets/js/paging.js:16
 msgid "The end date must biger greater the start date."
-msgstr ""
+msgstr "Data końcowa musi być większa od daty początkowej."
 
 #: views/form.php:85
 msgid "The number users will dial to page this group"
@@ -392,6 +416,18 @@ msgid ""
 "set to auto-answer should also work (such as the console extension if "
 "configured)."
 msgstr ""
+"Ten moduł jest przeznaczony dla określonych telefonów obsługujących "
+"przywoływanie Paging lub Interkom. Ta sekcja służy do konfiguracji "
+"przywoływania grupowego, interkom jest konfigurowany za pomocą <strong> "
+"kodów funkcji </strong>. Interkom musi być uruchomiony na telefonie przed "
+"obsługa takich połączeń. Możliwe jest ograniczenie przychodzących połączeń "
+"interkomowych tylko do określonych numerów wewnętrznych lub zezwolenie na "
+"połączenia interkomowe ze wszystkich numerów wewnętrznych albo ich "
+"blokowanie z określonych numerów wewnętrznych <br /> <br /> Moduł ten "
+"powinien współpracować z telefonami Aastra, Grandstream, Linksys/Sipura, "
+"Mitel, Polycom, SNOM i ewentualnie inne telefony SIP (nie ATA). Każdy "
+"telefon ustawiony z włączoną funkcją automatycznego odbierania  połączeń "
+"przychodzących (np. numer wewnętrzny konsoli, jeśli jest skonfigurowany)."
 
 #: views/settings.php:95
 msgid ""
@@ -400,10 +436,14 @@ msgid ""
 "remove the buildup of background noise from the conference. Highly "
 "recommended for large conferences due to its performance enhancements."
 msgstr ""
+"Ta opcja usuwa to, co Asterisk wykrywa jako ciszę przy wejściu do mostku "
+"konferencyjnego. Włączenie tej opcji drastycznie poprawi wydajność i pomoże "
+"usunąć nagromadzony szum tła z konferencji. Szczególnie polecany dla dużych "
+"konferencji ze względu na poprawę skuteczności komunikacji."
 
 #: views/settings.php:122
 msgid "This option removes the beep from caller."
-msgstr ""
+msgstr "Ta opcja usuwa sygnał dźwiękowy dzwoniącego."
 
 #: views/routing_hook.php:29
 msgid ""
@@ -411,24 +451,30 @@ msgid ""
 "call that is served by this route. It is recommended not to use a Page Group "
 "that uses (Force) Valet Paging(Paging Pro only)"
 msgstr ""
+"Spowoduje to przywołanie wybranej Grupy Pagingowej i połączenie z dowolnym "
+"połączeniem obsługiwanym tą trasą. Zaleca się, aby nie używać Grupy "
+"Pagingowej korzystającej z wymuszonego Valet Pagingu (tylko Paging Pro)"
 
 #: Paging.class.php:185
 msgid "Unknown Request"
-msgstr ""
+msgstr "Nieznane żądanie"
 
 #: install.php:6 paging.i18n.php:14
 msgid "User Intercom Allow"
-msgstr ""
+msgstr "Zezwalaj na interkom użytkownika"
 
 #: install.php:7 paging.i18n.php:12
 msgid "User Intercom Disallow"
-msgstr ""
+msgstr "Zabroń interkomu użytkownika"
 
 #: functions.inc.php:1126
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
+"Gdy ta opcja jest włączona, użytkownicy mogą używać *80 <ext> aby wymusić "
+"interkom. Gdy ta opcja jest wyłączona, ten użytkownik będzie odrzucał "
+"połączenia interkomowe"
 
 #: functions.inc.php:1122
 msgid ""
@@ -440,27 +486,40 @@ msgid ""
 "other circumstances such as blind transfers and when a Follow Me is "
 "configured and enabled. If Disabled, the phone rings as a normal phone."
 msgstr ""
+"Po ustawieniu na Interkom, połączenia do tego numeru wewnętrznego/"
+"użytkownika od innych użytkowników wewnętrznych działają tak, jakby były "
+"połączeniami interkomowymi, co oznacza, że będą automatycznie odbierane, "
+"jeśli urządzenie końcowe  obsługuje tę funkcję, a system jest skonfigurowany "
+"do pracy w tym trybie. Wszystkie ustawienia normalnej białej i czarnej listy "
+"będą obsługiwane jeśli zostaną ustawione. Połączenia zewnętrzne będą nadal "
+"dzwonić normalnie, podobnie jak w niektórych innych okolicznościach, takich "
+"jak ślepy transfer czy Follow Me jeśli są włączone i skonfigurowane. Jeśli "
+"dana opcja jest wyłączona, telefon będzie dzwoni jak zwykle."
 
 #: Paging.class.php:204
 msgid ""
 "When using Intercom to page an extension, if the extension is in use, you "
 "have three options."
 msgstr ""
+"Jeśli używasz Interkomu do przywoływania numeru wewnętrznego który jest "
+"aktualnie używany, masz trzy możliwości."
 
 #: views/form.php:214
 msgid "Whisper"
-msgstr ""
+msgstr "Szept"
 
 #: views/form.php:243 views/form.php:273 views/settings.php:85
 #: views/settings.php:112
 msgid "Yes"
-msgstr ""
+msgstr "Tak"
 
 #: functions.inc.php:1115
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
+"Możesz dodać lub usunąć ten numer wewnętrzny/urządzenie z domyślnej grupy "
+"pagingowej podczas podczas jej tworzenia lub jej edytowania."
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "
