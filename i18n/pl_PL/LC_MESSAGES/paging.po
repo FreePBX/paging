@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 05:16+0000\n"
-"PO-Revision-Date: 2023-10-23 15:19+0000\n"
+"PO-Revision-Date: 2023-10-24 16:00+0000\n"
 "Last-Translator: Szymon Wysokinski <szymon.wysokinski@sqspolska.pl>\n"
 "Language-Team: Polish <http://weblate.freepbx.org/projects/freepbx/paging/pl/"
 ">\n"
@@ -24,11 +24,11 @@ msgstr ""
 
 #: assets/js/paging.js:39
 msgid " Please set the event days."
-msgstr "Ustaw dzień spotkania."
+msgstr " Ustaw dzień spotkania."
 
 #: assets/js/paging.js:42
 msgid " Please set the event time."
-msgstr "Ustaw czas spotkania."
+msgstr " Ustaw czas spotkania."
 
 #: Paging.class.php:207
 msgid ""
