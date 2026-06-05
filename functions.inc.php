@@ -927,6 +927,7 @@ function paging_check_extensions($exten=true) {
 function paging_get_devs($grp) {
 	global $db;
 
+	$tmparray = [];
 	$grp = $db->escapeSimple($grp);
 
 	$sql = "SELECT ext FROM paging_groups where page_number='$grp'";

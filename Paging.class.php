@@ -498,6 +498,9 @@ class Paging extends FreePBX_Helpers implements BMO {
 		$stmt = $this->Database->prepare($sql);
 		$stmt->execute([':group' => $group]);
 		$results = $stmt->fetch(PDO::FETCH_ASSOC);
+		if (!$results) {
+			return false;
+		}
 		$results['default_group'] = $this->getDefaultGroup();
 		return $results;
 	}

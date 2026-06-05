@@ -5,7 +5,21 @@ if($extdisplay){
 	$thisGRP = paging_get_pagingconfig($extdisplay);
 	$devices = paging_get_devs($extdisplay);
 	$devices = is_array($devices)?$devices:array();
-	extract($thisGRP);
+	if(is_array($thisGRP)){
+		extract($thisGRP);
+	} else {
+		$thisGRP = [];
+		$description = '';
+		$volume = '0';
+		$force_page = "0";
+		$devices = array();
+		$ext = '';
+		$pagenbr = '';
+		$pagegrp = '';
+		$delURL = '';
+		$duplex = '0';
+	}
+
 	$pagenbr = $extdisplay;
 	$pagegrp = $extdisplay;
 	$delURL = '?display=paging&action=delete&extdisplay='.urlencode($extdisplay);
