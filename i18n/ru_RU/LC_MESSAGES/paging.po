@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-13 05:56+0000\n"
+"POT-Creation-Date: 2026-06-10 08:08-0400\n"
 "PO-Revision-Date: 2016-07-14 10:46+0000\n"
 "Last-Translator: Weblate Admin <admin@postmet.com>\n"
 "Language-Team: Russian <https://weblate.postmet.com/projects/freepbx/paging/"
@@ -16,8 +16,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.2-dev\n"
 
 #: assets/js/paging.js:39
@@ -52,7 +52,7 @@ msgstr ""
 "заставляя телефон звонить(если функция ОжиданиеВызова отключена,то  это "
 "вернёт ЗАНЯТО)"
 
-#: views/form.php:223
+#: views/form.php:237
 msgid ""
 "<ul>\n"
 "<li><b>\"Skip\"</b> will not page any busy extension. All other extensions "
@@ -97,8 +97,17 @@ msgstr "Добавить группу оповещения"
 msgid "Alert Info for D/P Phones"
 msgstr ""
 
-#: views/form.php:151
+#: views/form.php:165
 msgid "Alert Tone"
+msgstr ""
+
+#: paging.i18n.php:8
+msgid ""
+"Allows creation of paging groups to make announcements using the speaker "
+"built into most SIP phones. Also creates an        Intercom feature code "
+"that can be used as a prefix to talk directly to one person, as well as "
+"optional feature codes        to block/allow intercom calls to all users as "
+"well as blocking specific users or only allowing specific users."
 msgstr ""
 
 #: views/settings.php:68
@@ -106,7 +115,7 @@ msgid "Annoucement to be played to remote party. Default is a beep"
 msgstr ""
 "Приветствие , воспроизводимое удаленной стороне . По умолчанию - Сигнал"
 
-#: views/form.php:165
+#: views/form.php:179
 msgid ""
 "Announcement to be played to remote party. If set to Default it will use the "
 "global setting from Page Groups. If Page Groups is not defined then it will "
@@ -114,27 +123,31 @@ msgid ""
 "ringtime(Advanced Settings)"
 msgstr ""
 
+#: paging.i18n.php:6
+msgid "Applications"
+msgstr "Приложения"
+
 #: views/settings.php:54
 msgid "Auto-answer defaults"
 msgstr "Настройки по умолчанию для автоответа"
 
-#: views/form.php:45
+#: views/form.php:59
 msgid "Beep"
 msgstr "Сигнал"
 
-#: views/form.php:206
+#: views/form.php:220
 msgid "Busy Extensions"
 msgstr "Занятые внутренние номера"
 
-#: views/form.php:44 views/grid.php:13 views/settings.php:4
+#: views/form.php:58 views/grid.php:13 views/settings.php:4
 msgid "Default"
 msgstr "По-умолчанию"
 
-#: functions.inc.php:1069
+#: functions.inc.php:1070
 msgid "Default Group Inclusion"
 msgstr "Включения в дефолтную группу"
 
-#: functions.inc.php:1072 views/form.php:269
+#: functions.inc.php:1073 views/form.php:283
 msgid "Default Page Group"
 msgstr "Дефолтная пейджинг-группа"
 
@@ -142,15 +155,15 @@ msgstr "Дефолтная пейджинг-группа"
 msgid "Delete"
 msgstr "Удалить"
 
-#: views/bootnav.php:14 views/form.php:109 views/grid.php:12
+#: views/bootnav.php:14 views/form.php:123 views/grid.php:12
 msgid "Description"
 msgstr "Описание"
 
-#: views/form.php:121
+#: views/form.php:135
 msgid "Device List"
 msgstr "Список устройств"
 
-#: views/form.php:136
+#: views/form.php:150
 msgid ""
 "Devices to page. Please note, paging calls the actual device (and not the "
 "user). Amount of pagable devices is restricted by the advanced setting key "
@@ -161,11 +174,11 @@ msgstr ""
 "устройство,на которые можно посылать оповещения ограничено дополнительной "
 "настройкой PAGINGMAXPARTICIPANTS и на данный момент установлено в "
 
-#: functions.inc.php:1048
+#: functions.inc.php:1049
 msgid "Disable"
 msgstr ""
 
-#: functions.inc.php:1045
+#: functions.inc.php:1046
 msgid "Disabled"
 msgstr "Выключено"
 
@@ -173,31 +186,31 @@ msgstr "Выключено"
 msgid "Drop Silence"
 msgstr "Прервать тишину"
 
-#: views/form.php:239
+#: views/form.php:253
 msgid "Duplex"
 msgstr "Дуплекс"
 
-#: functions.inc.php:1044
+#: functions.inc.php:1045
 msgid "Enabled"
 msgstr ""
 
-#: functions.inc.php:1040
+#: functions.inc.php:1041
 msgid "Exclude"
 msgstr "Исключить"
 
-#: functions.inc.php:1074
+#: functions.inc.php:1075
 msgid "Extension Options"
 msgstr ""
 
-#: Paging.class.php:246 views/form.php:213
+#: Paging.class.php:246 views/form.php:227
 msgid "Force"
 msgstr "Форсированный режим"
 
-#: views/form.php:97
+#: views/form.php:111
 msgid "Group Description"
 msgstr "Описание группы"
 
-#: views/form.php:284
+#: views/form.php:298
 msgid ""
 "If you choose to make a Page Group the \"default\" page group, a checkbox "
 "will appear in the Extensions Module that will allow you to include or "
@@ -207,15 +220,15 @@ msgstr ""
 "\"Внутренние номера \"появится  возможность включить или исключить "
 "внутренний номер на странице  оповещений по умолчанию"
 
-#: functions.inc.php:1041
+#: functions.inc.php:1042
 msgid "Include"
 msgstr "Включить"
 
-#: functions.inc.php:1049
+#: functions.inc.php:1050
 msgid "Intercom"
 msgstr ""
 
-#: functions.inc.php:1083
+#: functions.inc.php:1084
 msgid "Intercom Mode"
 msgstr ""
 
@@ -245,7 +258,7 @@ msgstr ""
 msgid "Intercom: Enabled"
 msgstr ""
 
-#: functions.inc.php:1079
+#: functions.inc.php:1080
 msgid "Internal Auto Answer"
 msgstr ""
 
@@ -253,27 +266,27 @@ msgstr ""
 msgid "List Page Groups"
 msgstr "Список групп страницы"
 
-#: views/form.php:246 views/form.php:276 views/settings.php:87
+#: views/form.php:260 views/form.php:290 views/settings.php:87
 #: views/settings.php:114
 msgid "No"
 msgstr "Нет"
 
-#: functions.inc.php:1127 views/form.php:43 views/form.php:182
+#: functions.inc.php:1128 views/form.php:57 views/form.php:196
 #: views/settings.php:3
 msgid "None"
 msgstr "Нет"
 
-#: views/form.php:41
+#: views/form.php:55
 msgid "Not Selected"
 msgstr "Не выбран"
 
-#: views/form.php:194
+#: views/form.php:208
 msgid ""
 "Override the speaker volume for this page. Note: This is only valid for "
 "Sangoma phones at this time"
 msgstr ""
 
-#: functions.inc.php:831 functions.inc.php:1132 views/bootnav.php:13
+#: functions.inc.php:831 functions.inc.php:1133 views/bootnav.php:13
 #: views/formwrap.php:9 views/grid.php:11
 msgid "Page Group"
 msgstr "Пейджинг-группа"
@@ -295,7 +308,7 @@ msgstr "Группы страницы"
 msgid "Paging"
 msgstr ""
 
-#: views/form.php:73
+#: views/form.php:87
 msgid "Paging Extension"
 msgstr "Внутренний номер для пейджинга"
 
@@ -312,7 +325,8 @@ msgstr "Группы оповещения"
 msgid "Paging Notification"
 msgstr ""
 
-#: Paging.class.php:249 views/overview.php:7
+#: Paging.class.php:249 paging.i18n.php:4 paging.i18n.php:10
+#: views/overview.php:7
 msgid "Paging and Intercom"
 msgstr "Пейджинг и интерком"
 
@@ -320,7 +334,7 @@ msgstr "Пейджинг и интерком"
 msgid "Paging and Intercom settings"
 msgstr "Настройки оповещений  и интеркома"
 
-#: views/form.php:254
+#: views/form.php:268
 msgid ""
 "Paging is typically one way for announcements only. Checking this will make "
 "the paging duplex, allowing all phones in the paging group to be able to "
@@ -355,7 +369,7 @@ msgstr "Сброс"
 msgid "Ring"
 msgstr "Звонок"
 
-#: views/form.php:40
+#: views/form.php:54
 msgid "Selected"
 msgstr "Выбранно"
 
@@ -369,11 +383,11 @@ msgstr ""
 msgid "Settings"
 msgstr "Настройки"
 
-#: views/form.php:211
+#: views/form.php:225
 msgid "Skip"
 msgstr "Пропускать"
 
-#: views/form.php:177
+#: views/form.php:191
 msgid "Speaker Volume Override"
 msgstr ""
 
@@ -385,7 +399,7 @@ msgstr "Подтвердить"
 msgid "The end date must biger greater the start date."
 msgstr ""
 
-#: views/form.php:85
+#: views/form.php:99
 msgid "The number users will dial to page this group"
 msgstr "Этот номер служит для звонка в эту группу"
 
@@ -444,13 +458,13 @@ msgstr "Пользователь Интерком разрешён"
 msgid "User Intercom Disallow"
 msgstr "Пользователь Интерком запрещён"
 
-#: functions.inc.php:1083
+#: functions.inc.php:1084
 msgid ""
 "When Enabled users can use *80<ext> to force intercom. When Disabled this "
 "user will reject intercom calls"
 msgstr ""
 
-#: functions.inc.php:1079
+#: functions.inc.php:1080
 msgid ""
 "When set to Intercom, calls to this extension/user from other internal users "
 "act as if they were intercom calls meaning they will be auto-answered if the "
@@ -467,7 +481,7 @@ msgid ""
 "have three options."
 msgstr "Когда используется Интерком для оповещения  внутреннего номера."
 
-#: views/form.php:215
+#: views/form.php:229
 msgid "Whisper"
 msgstr "Шопот"
 
@@ -478,21 +492,18 @@ msgid ""
 "(Force) Valet Paging"
 msgstr ""
 
-#: views/form.php:244 views/form.php:274 views/settings.php:85
+#: views/form.php:258 views/form.php:288 views/settings.php:85
 #: views/settings.php:112
 msgid "Yes"
 msgstr "Да"
 
-#: functions.inc.php:1072
+#: functions.inc.php:1073
 msgid ""
 "You can include or exclude this extension/device from being part of the "
 "default page group when creating or editing."
 msgstr ""
 "Можно включать или исключать этот внутренний номер/устройство из дефолтной "
 "пейджинговой группы при создании или редактировании."
-
-#~ msgid "Applications"
-#~ msgstr "Приложения"
 
 #~ msgid ""
 #~ "Allows creation of paging groups to make announcements using the speaker "
@@ -550,9 +561,9 @@ msgstr ""
 #~ "denied)</td></tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly allow "
 #~ "extension nnn to intercom you (even if others are disabled)</td></"
 #~ "tr><tr><td><strong>%s</strong>:</td><td>Disable all extensions from "
-#~ "intercom you (except those explicitly allowed)</td></tr><tr><td><strong>"
-#~ "%snnn</strong>:</td><td>Explicitly deny extension nnn to intercom you "
-#~ "(even if generally enabled)</td></tr></table>"
+#~ "intercom you (except those explicitly allowed)</td></"
+#~ "tr><tr><td><strong>%snnn</strong>:</td><td>Explicitly deny extension nnn "
+#~ "to intercom you (even if generally enabled)</td></tr></table>"
 #~ msgstr ""
 #~ "Пример использования:<br /><table><tr><td><strong>%snnn</strong>:</"
 #~ "td><td>Внутренний номер Интеркома nnn</td></tr><tr><td><strong>%s</"
@@ -602,14 +613,14 @@ msgstr ""
 #~ "проверяется статус устройств In use перед пейджингом. Это предполагает, "
 #~ "что соединение может быть прервано пейджингом (в зависимости от того, "
 #~ "поддерживает устройство этот функционал или нет). Это может быть "
-#~ "необходимым, например, для аварийных пейджинговых групп. </li><li>\"Шопот"
-#~ "\" - будет использовать возможности ChanSpy на каналах SIP, результатом "
-#~ "этого будет прослушивание помещения вокруг удалённых пейджинговых "
-#~ "устройств и необнаружимость такого присутствия при этом. Если конечное "
-#~ "устройство не поддерживает возможности прослушивания ChanSpy, или "
-#~ "произойдёт сбой по другой какой-то причине, то пейджинг просто не "
-#~ "происходит. Возможно не будет хватать чувствительности в дуплексном "
-#~ "режиме, если используется режим Шопот.</li></ul>"
+#~ "необходимым, например, для аварийных пейджинговых групп. </"
+#~ "li><li>\"Шопот\" - будет использовать возможности ChanSpy на каналах SIP, "
+#~ "результатом этого будет прослушивание помещения вокруг удалённых "
+#~ "пейджинговых устройств и необнаружимость такого присутствия при этом. "
+#~ "Если конечное устройство не поддерживает возможности прослушивания "
+#~ "ChanSpy, или произойдёт сбой по другой какой-то причине, то пейджинг "
+#~ "просто не происходит. Возможно не будет хватать чувствительности в "
+#~ "дуплексном режиме, если используется режим Шопот.</li></ul>"
 
 #~ msgid "The Whisper mode is new and considered experimental."
 #~ msgstr "Режим 'Шопот' - новинка, находится в стадии эксперимента."
