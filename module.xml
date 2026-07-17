@@ -2,21 +2,18 @@
     <rawname>paging</rawname>
     <repo>standard</repo>
     <name>Paging and Intercom</name>
-    <version>17.0.4</version>
+    <version>18.0.1</version>
     <publisher>Sangoma Technologies Corporation</publisher>
     <license>GPLv3+</license>
     <licenselink>https://www.gnu.org/licenses/gpl-3.0.txt</licenselink>
     <category>Applications</category>
     <changelog>
-		*17.0.4* #issue-1030 - Changes done for fixing page issue 
-		*17.0.3* Packaging of ver 17.0.3
-		*17.0.2* Packaging of ver 17.0.2
-		*17.0.1* 17.0.1 alpha release
-	</changelog>
+    	*18.0.1* initial release
+    </changelog>
     <depends>
-       <version>16.0.10.23</version>
-        <module>core ge 16.0.56.5</module>
-	<module>framework ge 16.0.10.23</module>
+       <version>18.0</version>
+        <module>core ge 18.0.1</module>
+	<module>framework ge 18.0.1</module>
         <module>conferences</module>
     </depends>
     <description>Allows creation of paging groups to make announcements using the speaker built into most SIP phones. Also creates an
@@ -60,6 +57,6 @@
         </paging>
     </popovers>
     <supported>
-        <version>17.0</version>
+        <version>18.0</version>
     </supported>
 </module>
